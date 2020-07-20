@@ -14,9 +14,12 @@
     <style>
         body {
             /* background-color: #dcc7aa; */
-            font-family: 'Noto Serif TC', serif;
+            /* font-family: 'Noto Serif TC', serif; */
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #3B3B3B;
         }
 
+        /* navbar */
         .title_a {
             color: #333;
         }
@@ -25,6 +28,17 @@
             text-decoration: none;
             color: #666;
         }
+        
+        .class_a {
+            color: #333;
+        }
+
+        .class_a:hover {
+            text-decoration: none;
+            color: #666;
+        }
+
+        /* ------ */
 
         .web-title {
             display: flex;
@@ -35,15 +49,13 @@
             letter-spacing: 3px;
             font-size: 3rem;
             font-weight: bold;
-
         }
 
         .web-text {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 200;
             line-height: 2.5rem;
             letter-spacing: 1px;
-            color:#3B3B3B;
         }
 
         .img-text {
@@ -51,22 +63,13 @@
             font-weight: 300;
             letter-spacing: 1px;
             text-align: center;
-            color:#3B3B3B;
         }
 
         .btn-center {
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .class_a {
-            color: #333;
-        }
-
-        .class_a:hover {
-            text-decoration: none;
-            color: #666;
+            text-align: center;
         }
 
         table {
@@ -88,17 +91,19 @@
         .btn-text {
             line-height: 1.875rem;
             font-size: 1.5rem;
+            font-weight: 400;
             margin: 10px 0;
             padding: 8px 16px;
         }
+
         .modal-title-center {
             margin: 0 auto;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
         }
 
         .modal-dialog {
             overflow-y: initial !important
-            /* y方向的捲軸 */
+                /* y方向的捲軸 */
         }
 
         .modal-body {
@@ -109,9 +114,9 @@
 
         .modal-body-text {
             line-height: 2.5rem;
-            font-size: larger;
+            font-size: 1.5rem;
             letter-spacing: 1px;
-            color:#3B3B3B;
+            color: #3B3B3B;
             /* color:#545454; */
         }
 
@@ -120,9 +125,39 @@
             list-style: none;
             padding-left: 0.6rem;
         }
+
+        .btn-handmade {
+            background-color: #efaecf;
+            border: 2px solid #ffffff;
+            border-radius: 0.3rem;
+            width: 180px;
+            height: 55px;
+            line-height: 55px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .btn-handmade:hover {
+            background-color: #d0356c;
+            border: 2px solid #ea66a0;
+            color: #fff;
+            border-radius: 0.3rem;
+            width: 184px;
+            height: 55px;
+            line-height: 55px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.2s;
+        }
     </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+    </style>
     </style>
 </head>
 
@@ -207,8 +242,11 @@
             </div>
             <div class="row-text col-lg-4 col-sl-12 align-self-center">
                 <p class="img-text">歡迎您帶上心愛的寵物<br>一同體驗榕沛社區的生活</p>
-                <div class="btn-center"><a href="#" class="btn btn-outline-danger btn-lg" role="button"
-                        style="font-size: 1.5rem;">申請試住體驗</a></div>
+                <!-- <div class="btn-center"><a href="#" class="btn btn-danger btn-lg" role="button"
+                        style="font-size: 1.5rem;">申請試住體驗</a></div> -->
+                <div class="btn-center">
+                    <div class="btn-handmade" id="btn-living-expr">申請試住體驗</div>
+                </div>
             </div>
         </div>
         <div>
@@ -247,7 +285,7 @@
                     榕沛社區為宜蘭市社會局核准之老人住宅，依規定申請者(含同住者)需生活能自理，如有聘僱看護，或使用四腳助行器、輪椅、無法上下樓梯、管路、法定傳染病或精神疾病者，本村無法受理體驗住宿申請，造成不便之處，敬請見諒。
                 </div>
                 <div>3. 請詳閱試住體驗須知同意書，本院始得受理申請體驗住宿並保有核准住宿最後決定權。</div>
-                <button type="button" class="btn btn-outline-info btn-text" data-toggle="modal"
+                <button type="button" class="btn btn-info btn-text" data-toggle="modal"
                     data-target=".bd-example-modal-lg">試住體驗須知同意書</button>
             </div>
             <!-- large modal -->
@@ -257,9 +295,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區試住體驗須知同意書</h5>
-                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button> -->
                         </div>
                         <div class="modal-body modal-body-text">
                             <ul>
@@ -412,6 +447,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+    <script>
+        // #btn-living-expr按鈕的click mouseenter mouseleave事件之class切換
+        // $("#btn-living-expr").on({
+        //     "click": function () {
+        //         $("#btn-living-expr").toggleClass("btn-handmade-click");
+        //     }, mouseenter: function () {
+        //         $("#btn-living-expr").addClass("btn-handmade-click");
+        //     }, mouseleave: function () {
+        //         $("#btn-living-expr").removeClass("btn-handmade-click");
+        //     }
+        // });
+
+    </script>
 </body>
 
 </html>
