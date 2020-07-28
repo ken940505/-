@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/mainstyle1.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <title>榕沛社區試住體驗</title>
+    <style>
+        /* 在mainstyle已有 */
+        /* body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #3B3B3B;
+        } */
+
+
+        .web-title {
+            display: flex;
+            justify-content: center;
+            margin:5%;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .web-text {
+            font-size: 1.5rem;
+            font-weight: 200;
+            line-height: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        .img-text {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid gray;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 200;
+            margin: 0 auto 1rem auto;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        /* .btn-text {
+            line-height: 1.875rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 10px 0;
+            padding: 8px 16px;
+        } */
+
+        .modal-title-center {
+            margin: 0 auto;
+            font-size: 1.75rem;
+        }
+
+        .modal-dialog {
+            overflow-y: initial !important
+                /* y方向的捲軸 */
+        }
+
+        .modal-body {
+            height: 70vh;
+            overflow-y: auto;
+            /* y方向的捲軸 */
+        }
+
+        .modal-body-text {
+            line-height: 2.5rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.25rem;
+            color: #3B3B3B;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            padding-left: 0.6rem;
+        }
+
+        .btn-handmade {
+            background-color: #efaecf;
+            border: 0.125rem solid #ffffff;
+            border-radius: 0.3rem;
+            width: 11.25rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .btn-handmade:hover {
+            background-color: #d0356c;
+            border: 0.125rem solid #ea66a0;
+            color: #fff;
+            border-radius: 0.3rem;
+            width: 11.5rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+    </style>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+    </style>
+    </style>
+</head>
+
+<body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light navClass navClass-RWD">
+        <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025 " href="#">最新消息</a>
+                </li>
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025 " href="#">環境介紹</a>
+                </li>
+                <a class="navbar-brand" href="#"><img src="./images/logo.png" class="logoSize" alt=""></a>
+                <li class="nav-item mt4 dropdown ml3RWD">
+                    <a class="nav-link fz15 ls025  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        服務項目
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item fz125 ls025 " href="#">長住服務</a>
+                        <a class="dropdown-item fz125 ls025 " href="#">試住體驗</a>
+                    </div>
+                </li>
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025" href="#">會員登入</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5 mb-5">
+        <div class="web-title">
+            <div>試住體驗</div>
+        </div>
+        <div class="row main-row">
+            <div class="row-img col-lg-8 col-sl-12 align-self-center">
+                <img src="./images/livingpic1.jpg" alt="" style="width: 100%;" class="mt-2 mb-2">
+            </div>
+            <div class="row-text col-lg-4 col-sl-12 align-self-center">
+                <p class="img-text">歡迎您帶上心愛的寵物<br>一同體驗榕沛社區的生活</p>
+                <!-- <div class="btn-center"><a href="#" class="btn btn-danger btn-lg" role="button"
+                        style="font-size: 1.5rem;">申請試住體驗</a></div> -->
+                <div class="btn-center">
+                    <div class="btn-handmade" id="btn-living-expr">申請試住體驗</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="web-title">收費標準</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>房型</th>
+                        <th>人數</th>
+                        <th>價格</th>
+                    </tr>
+                    <tr>
+                        <td>一房一廳</td>
+                        <td>最多 2 人</td>
+                        <td>一般：1700元/日，長者：1500元/日</td>
+                    </tr>
+                    <tr>
+                        <td>一房二廳</td>
+                        <td>最多 2 人</td>
+                        <td>一般：1900元/日，長者：1700元/日</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="web-text">
+                <div>註：</div>
+                <div>1. 長者為年齡60歲以上者。</div>
+                <div>2. 攜帶寵物同住每日加收50元清潔費，每房限一隻寵物。</div>
+                <div>3. 住滿7日，優惠以6日費用計收。</div>
+                <div>4. 入住連續達8日以上優惠8折計收。</div>
+                <div>5. 試住體驗單次最長期限為30日；如參加寵物試養計畫，試住體驗單次最短期限為30日、最長為60日。</div>
+            </div>
+            <div class="web-text">
+                <div class="web-title">試住須知</div>
+                <div>1. 考量本村長者住宿安寧與安全，3歲(含)以下嬰幼兒不適合入住，其他具備生活自理能力者皆可入住。</div>
+                <div>
+                    2.榕沛社區為宜蘭市社會局核准之老人住宅，依規定申請者(含同住者)需生活能自理，如有聘僱看護，或使用四腳助行器、輪椅、無法上下樓梯、管路、法定傳染病或精神疾病者，本社區無法受理體驗住宿申請，造成不便之處，敬請見諒。
+                </div>
+                <div>3. 請詳閱試住體驗須知，本院始得受理申請體驗住宿並保有核准住宿最後決定權。</div>
+                <button type="button" class="btn btn-info fz125 ls025 my-2" data-toggle="modal"
+                    data-target=".bd-example-modal-lg">試住體驗須知</button>
+            </div>
+            <!-- large modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區試住體驗須知同意書</h5>
+                        </div>
+                        <div class="modal-body modal-body-text">
+                            <ul>
+                                <li>壹、立同意書人為申請試住體驗，同意遵照　貴院下列規定辦理。</li>
+                            </ul>
+                            <ul>
+                                <li>貳、立同意書人如有違約，　貴院得逕行終止本合約，立同意書人除應繳清相關費用外，並應即將房屋內物品清空並遷離，否則視同廢棄物，貴院得逕行進入屋內處理，立同意書人絕無異議，並願負擔處理費用。
+                                </li>
+                                <ul>
+                                    <li>一、
+                                        <strong>
+                                            <u>試住體驗天數以30日為限（如參加寵物試養計畫，試住體驗單次最短期限為30日、最長為60日）。</u></li>
+                                    </strong>
+                                    <li>二、
+                                        <strong>
+                                            <u>本申請不適用於榕沛社區長住服務申請，如欲申請長住，或住宿天數超過試住體驗期限，請依榕沛社區進住辦法辦理申請表、會談及體檢作業，合格後始通知選房及入住作業。</u>
+                                    </li>
+                                    </strong>
+                                    <li>三、於住宿期間（含同住者）需遵守下列生活公約，如未遵守生活公約經勸告無效者，本村得隨時逕行終止住宿，其未住天數費用，本村將無息退還。
+                                        <ul>
+                                            <li>(一) 不得酗酒、吸毒、賭博、竊盜、妨害風化、危害公共秩序、安全或其他不正當娛樂等嚴重影響本村形象之不法情事，本村並得視狀況報請警察機關處理。
+                                            </li>
+                                            <li>(二) 不可持有槍炮、彈藥、刀械、毒品或其他嚴重妨礙公共安全等物品。</li>
+                                            <li>(三)室內及陽台不得燃放爆竹、冥紙、紙張等易燃物品，以免造成危險或觸發火警感應鈴，誤傳火警。</li>
+                                            <li>(四)不私自接用公共用電或延長線，並禁用瓦斯爐等易燃或易爆等設備，否則因而損壞變壓器或發生安全事故，須負完全責任。</li>
+                                            <li>(五) 不在公共場所、通道及樓梯間等公共設施空間放置私人物品（如紙箱、鞋櫃等）、傢俱或晾曬衣服。</li>
+                                            <li>(六) 為維護公共秩序，不製造噪音以干擾其他住民安寧。</li>
+                                            <li>(七) 不得於村內推銷商（產）品或從事其他商業性行為。</li>
+                                            <li>(八)
+                                                <strong><u>如需飼養貓、狗等寵物，請選擇寵物住宅區，每房僅限一隻寵物，
+                                                        並遵守寵物住宿須知，不得在非寵物住宅區內飼養，以保安寧與衛生。</u></strong></li>
+                                        </ul>
+                                    </li>
+                                    <li>四、居住本村期間，如發現患有精神疾病、傳染病、或其他健康狀況改變，或喪失生活自理能力者，經本村工作團隊決定，可隨時終止住宿之權利，其未住天數費用，本村將無息退還。
+                                    </li>
+                                    <li>五、欲延長住宿時，最遲請於退住前三日上午10時前通知生活服務室，並辦理住宿異動申請及繳款。但本村得視房間使用狀態可調整變動住宿房間，如造成客戶不便，敬請見諒。
+                                    </li>
+                                    <li>六、欲提前退住者，請至生活服務室填寫體驗住宿異動表，住宿費依實際未住日數退還管理費。</li>
+                                </ul>
+                            </ul>
+                            <ul>
+                                <li>參、如因本約爭訟，同意以臺灣宜蘭地方法院為第一審管轄法院。</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a href="paper/榕沛社區試住體驗須知同意書.pdf" download="榕沛社區試住體驗須知同意書.pdf" class="btn btn-primary fz125"
+                                role="button">下載同意書</a>
+                            <button type="button" class="btn btn-secondary ml-2 fz125" data-dismiss="modal">關閉視窗</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-medium danger-color">
+
+        <div class="bgc4">
+          <div class="container">
+            <div class="row py-4 d-flex align-items-center">
+              <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                <h3 class="mb-0 f-rwd fz2 fz15RWD">榕沛社區&nbsp;&nbsp;&nbsp;&nbsp;Long Life With Pet</h3>
+              </div>
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                <a class="fb-ic">
+                  <i class="fab fa-facebook-f white-text mr-4 fz125"> </i>
+                </a>
+                <a class="tw-ic">
+                  <i class="fab fa-twitter white-text mr-4"> </i>
+                </a>
+                <a class="gplus-ic">
+                  <i class="fab fa-google-plus-g white-text mr-4 fz125"> </i>
+                </a>
+                <a class="li-ic">
+                  <i class="fab fa-linkedin-in white-text mr-4 fz125"> </i>
+                </a>
+                <a class="ins-ic">
+                  <i class="fab fa-instagram white-text mr-4 fz125"> </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center text-md-left mt-5">
+          <div class="row mt-3">
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h5 class="text-uppercase font-weight-bold">榕沛社區</h5>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">關於本社區</a>
+              </p>
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">社區大事誌</a>
+              </p>
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">創辦宗旨</a>
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h5 class="text-uppercase font-weight-bold">了解更多</h5>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">常見問題</a>
+              </p>
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">榕沛故事棧</a>
+              </p>
+              <p class="ft-a">
+                <a href="#" class="footer-a class_a">加入我們</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h5 class="text-uppercase font-weight-bold class_a">公開資料</h5>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+              <p class="ft-a">
+                <a href="#!" class="footer-info class_a">訂閱電子報</a>
+              </p>
+              <p class="ft-a">
+                <a href="#!" class="footer-info class_a">年度報告</a>
+              </p>
+            </div>
+            <div class="col-md-5 col-lg-5 col-xl-3 mx-auto mb-md-0 mb-4">
+      
+              <!-- Links -->
+              <h5 class="text-uppercase font-weight-bold">聯絡我們</h5>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+              <p>
+                <i class="fas fa-home mr-3"></i>宜蘭市縣民大道二段700號</p>
+              <p>
+                <i class="fas fa-envelope mr-3"></i>longlife@gmail.com</p>
+              <p>
+                <i class="fas fa-phone mr-3"></i>03 932 2214</p>
+              <p>
+                <i class="fas fa-print mr-3"></i>週一至週五 10:00 - 18:00</p>
+      
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="#" class="class_a"> longlifewithpet.com</a>
+        </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      <script src="./js/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
