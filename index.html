@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+    </style>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <title>0724榕沛社區</title>
+  </head>
+  <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light navClass navClass-RWD">
+        <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ml-auto">
+            <li class="nav-item mt4">
+              <a class="nav-link fz15 ls025 " href="#">最新消息</a>
+            </li>
+            <li class="nav-item mt4">
+              <a class="nav-link fz15 ls025 " href="#">環境介紹</a>
+            </li>
+            <a class="navbar-brand" href="#"><img src="./images/logo.png" class="logoSize" alt=""></a>
+            <li class="nav-item mt4 dropdown ml3RWD">
+              <a class="nav-link fz15 ls025  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                服務項目
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item fz125 ls025 " href="#">長住服務</a>
+                <a class="dropdown-item fz125 ls025 " href="#">試住體驗</a>
+              </div>
+            </li>
+            <li class="nav-item mt4">
+              <a class="nav-link fz15 ls025" href="#">會員登入</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<div>
+    <div class="bannerVideoContainer">
+        <div class="bannerVideoCover br25 br0RWD mt75RWD">
+          <h3 class="animate__animated animate__fadeInLeft animate__slow fz3 fz25RWD mt20 ml5 m0RWD fcw fGaryRWD fw400 ls025 tacRWD">
+            榕沛社區
+          </h3>
+          <p class="animate__animated animate__fadeInLeft animate__slow animate__delay-3s fz25 fz15RWD mt1 ml5 ml3RWD fcw fGaryRWD ls025">
+            全台首間開放寵物入住的養老院
+          </p>
+          <p class="animate__animated animate__fadeInLeft animate__slower animate__delay-3s fz25 fz15RWD mt1 ml5 ml3RWD fcw fGaryRWD ls025">
+            可帶著愛貓或愛犬同住，讓退休生活更加多釆多姿
+          </p>
+          <div class="banner-btn">
+            <a class="btn btn-info btn-lg banner-btn animate__animated animate__fadeInLeft animate__slower animate__delay-5s fz15 fz15RWD mt1 ml5 m0RWD ml3RWD fcw fGaryRWD ls025" href="#" role="button">了解更多</a>
+          </div>
+        </div>
+      <video loop="true" autoplay="autoplay" muted="true" class="bannerVideoWidth br25 br0RWD">
+        <source type="video/mp4" src="./video/videoBanner.mp4">
+        </source>
+      </video>
+
+    </div>
+    <div class="container mt5 mb5 mt75RWD">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <img src="./images/aboutUs.png" alt="aboutus" class="br25 aboutUsPic">
+        </div>
+        <div class="col-lg-6 col-md-12 mt3" class="aboutUsTxt">
+          <h3 class="fz25 ls025 tacRWD fw400">關於我們</h3>
+          <p class="fz15 taj mt1 ml10 m0RWD lh25">
+            榕沛社區提供長輩和寵物可以一起生活、共同養老的服務，讓長輩在入住養老院時不需要和心愛的寵物分開。住戶僅需負擔飼料、消耗品及醫療費用，不需要另外支付寵物住宿費。若住戶在入住期間過世，院方也會負責照顧貓狗到終老，住戶可預付寵物的生活所需費用，不足的部分將會透過網路公眾募資籌措。
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+<div  class="container-fluid bgc3 py-5">
+  <div class="container">
+    <h3 class="tac tacRWD fz25">預約入住</h3>
+<div class="row">
+  
+  <div class="col-lg-6 col-sm-12 mt3 mb2">
+
+    <a href="#"><img src="./images/longstay.png" alt="course" class="wid80 br25 dbm0a"></a>
+    <div><a class="btn btn-info btn-lg dbm0a wid80 fz15 ls025" href="#" role="button">試住體驗</a></div>
+    </div>
+
+  <div class="col-lg-6 col-sm-12 mt3 mb2">
+    <a href="#"><img src="./images/shortterm.png" alt="course" class="wid80 br25 dbm0a"></a>
+    <div><a class="btn btn-info btn-lg dbm0a wid80 fz15 ls025" href="#" role="button">長住申請</a></div>
+  </div>  
+</div>
+</div>
+</div>
+
+    <div class="container mt5">
+    <div class="card-deck">
+      <div class="card">
+        <img src="./images/activity2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title tac ls025 fz2">社團活動</h5>
+          <p class="card-text fz125 lh25 taj">榕沛社區的住戶成立了許多不同種類的社團，體驗入住的房客也可以參與社團活動，部份活動成品會在榕沛 Cafe' 對外販售。</p>
+          <div class="card-btn">
+            <a href="#" class="btn btn-info fz125 ls025">社團介紹</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/activity1.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title tac ls025 fz2">榕沛生活</h5>
+          <p class="card-text fz125 lh25 taj">社區內有菜園、大草坪和各種豐富的室內外設施，且會不時舉辦活動，例如家庭園遊會及卡拉 OK 大賽等，住戶可以自由報名參加。</p>
+          <div class="card-btn">
+            <a href="#" class="btn btn-info fz125 ls025">住戶分享</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/cafe.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title tac fz2"><span class="ls025">榕沛</span>Cafe'</h5>
+          <p class="card-text fz125 lh25 taj">榕沛 Cafe' 的服務生是一群親切熱情的爺爺奶奶，我們同時也是一間寵物友善咖啡廳，非常歡迎您帶家中的貓貓狗狗來訪喔。</p>
+          <div class="card-btn">
+            <a href="#" class="btn btn-info fz125 ls025">進入官網</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid bgc3">
+  <div class="container mt5 mt55RWD">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mt5">
+        <h3 class="fz25 ls025 mt3 tacRWD fw400">寵物試養計劃</h3>
+        <p class="fz15 taj mt2 m0RWD lh25">
+        住戶除了帶著自家的寵物入住外，也可在入住後向宜蘭收容所申請領養，只要試住體驗一個月以上或為我們的長期住戶，可在決定飼養寵物前和宜蘭收容所的貓咪或狗狗狗共同生活一至兩個月。
+        </p>
+        <div class="card-btn mb5">
+          <a href="#" class="btn btn-info fz15 ls025">計劃詳情</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 mt5 mb5" class="aboutUsTxt">
+        <video loop="true" autoplay="autoplay" muted="true" class="wid100 br25">
+          <source type="video/mp4" src="./video/videoTryPet.mp4">
+          </source>
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt3">
+    <h3 class="tac tacRWD fz25 mb5">近期課程</h3>
+<div class="row">
+  
+  <div class="col-lg-6 col-sm-12">
+    <a href="#"><img src="./images/course3.png" alt="course" class="wid100 br25"></a>
+    <ul class="list-unstyled lh25">
+      <li class="tac fz15 mt2">【手作課程】照顧多肉第一課</li>
+      <li class="ml10 fz125">開課時間  |  10/07 (三)  09:30</li>
+      <li class="ml10 fz125">開課地點  |  園藝社社辦</li>
+      <li class="ml10 fz125">適合對象  |  剛認識多肉植物的新手</li>
+      <li class="ml10 fz125">學習重點  |  多肉植物換盆步驟教學<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  無根多肉開根訣竅</li>
+      <li class="ml10 fz125">課程成品  |  一盆三寸多肉植物</li>
+      <li class="ml10 fz125">課程費用  |  每人費用 680 元<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  含工具使用、材料及師資</li>
+    </ul>
+  </div>
+  <div class="col-lg-6 col-sm-12">
+    <a href="#"><img src="./images/course4.png" alt="course" class="wid100 br25"></a>
+    <ul class="list-unstyled lh25">
+      <li class="tac fz15 mt2">小動物中西方按摩手技</li>
+      <li class="ml10 fz125">開課時間  |  10/15 (五)  14:30</li>
+      <li class="ml10 fz125">開課地點  |  汪喵社社辦</li>
+      <li class="ml10 fz125">適合對象  |  一般飼主</li>      
+      <li class="ml10 fz125">學習重點  |  整合按摩入門手法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  實作練習</li>
+      <li class="ml10 fz125">課程費用  |  每人費用 200 元</li>
+      <li class="ml10 fz125">其他備註  |  請學員攜帶自家毛孩<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  或約 30cm 大小之絨毛玩偶</li>
+    </ul>
+  </div>
+</div>    
+</div>
+<footer class="page-footer font-small mdb-color lighten-3 pt-5 pb-5 mt5 bgc3 hideRWD">
+
+  <!-- Footer Elements -->
+  <div class="container-fluid">
+    <h3 class="tac tacRWD fz25 mb2">住戶相簿</h3>
+    <!--Grid row-->
+    <div class="row">
+      
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-12 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg" >
+          <img src="./images/album1.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="./images/album2.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album3.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-12 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album4.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album5.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album6.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-12 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg" >
+          <img src="./images/album7.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="./images/album8.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album9.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-12 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album10.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album11.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half fotimg">
+          <img src="./images/album12.png" class="img-fluid fotimg br25"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+</footer>
+<div class="container mt3 mb5 hideRWD">
+  <h3 class="tac tacRWD fz25 mb5">活動作品</h3>
+  <div class="row">
+    <div class="col-lg-3 col-sm-6">
+      <div class="workCover workBorder">
+      <div class="workPic br25">
+        <img src="./images/works1.png" class="br25  workImg">        
+      </div>
+      <div class="work-txt">
+        <p class="tac tacRWD fz15">園藝作品</p>
+        <p class="tac tacRWD fz125">多肉石蓮</p>
+      </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="workCover workBorder">
+      <div class="workPic br25">
+        <img src="./images/works2.png" class="br25 workImg">
+      </div>
+      <div class="work-txt">
+        <p class="tac tacRWD fz15">陶藝作品</p>
+        <p class="tac tacRWD fz125">Q版佛祖</p>
+      </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="workCover workBorder">
+      <div class="workPic br25 border">
+        <img src="./images/works3.png" class="br25 workImg">
+      </div>
+      <div class="work-txt">
+        <p class="tac tacRWD fz15">書法作品</p>
+        <p class="tac tacRWD fz125">禪的藝術</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="workCover workBorder">
+      <div class="workPic br25 border">
+        <img src="./images/works4.png" class="br25 workImg">
+      </div>
+      <div class="work-txt">
+        <p class="tac tacRWD fz15">陶藝作品</p>
+        <p class="tac tacRWD fz125">一對柴柴</p>
+      </div>
+      </div>
+    </div>
+</div>
+</div>
+<footer class="page-footer font-medium danger-color">
+
+  <div class="bgc4">
+    <div class="container">
+      <div class="row py-4 d-flex align-items-center">
+        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h3 class="mb-0 f-rwd fz2 fz15RWD">榕沛社區&nbsp;&nbsp;&nbsp;&nbsp;Long Life With Pet</h3>
+        </div>
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f white-text mr-4 fz125"> </i>
+          </a>
+          <a class="tw-ic">
+            <i class="fab fa-twitter white-text mr-4"> </i>
+          </a>
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g white-text mr-4 fz125"> </i>
+          </a>
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in white-text mr-4 fz125"> </i>
+          </a>
+          <a class="ins-ic">
+            <i class="fab fa-instagram white-text mr-4 fz125"> </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center text-md-left mt-5">
+    <div class="row mt-3">
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <h5 class="text-uppercase font-weight-bold">榕沛社區</h5>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">關於本社區</a>
+        </p>
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">社區大事誌</a>
+        </p>
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">創辦宗旨</a>
+        </p>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <h5 class="text-uppercase font-weight-bold">了解更多</h5>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">常見問題</a>
+        </p>
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">榕沛故事棧</a>
+        </p>
+        <p class="ft-a">
+          <a href="#" class="footer-a class_a">加入我們</a>
+        </p>
+      </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <h5 class="text-uppercase font-weight-bold class_a">公開資料</h5>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+        <p class="ft-a">
+          <a href="#!" class="footer-info class_a">訂閱電子報</a>
+        </p>
+        <p class="ft-a">
+          <a href="#!" class="footer-info class_a">年度報告</a>
+        </p>
+      </div>
+      <div class="col-md-5 col-lg-5 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h5 class="text-uppercase font-weight-bold">聯絡我們</h5>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+        <p>
+          <i class="fas fa-home mr-3"></i>宜蘭市縣民大道二段700號</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i>longlife@gmail.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i>03 932 2214</p>
+        <p>
+          <i class="fas fa-print mr-3"></i>週一至週五 10:00 - 18:00</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="#" class="class_a"> longlifewithpet.com</a>
+  </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script>
+      function navRWD(){ 
+          // alert('ji')
+          var para = document.querySelector(".navClass-RWD"); 
+          para.classList.toggle("navRWDClass"); 
+      }
+
+      $(function(){
+          //offset() ：讀取指定元素在頁面(文件)上的相對坐標，
+          //回傳含有top及left屬性的物件                  
+          let navPosition=$("#navbar").offset().top;
+          console.log("navPosition="+navPosition);
+          
+          $(window).scroll(function(){
+               let scrollTop=$(this).scrollTop();
+               console.log("scrollTop="+scrollTop);
+               if(scrollTop>navPosition)
+                  $("#navbar").addClass("fixed-nav");
+              else
+              $("#navbar").removeClass("fixed-nav");
+          });
+      });
+
+
+    </script>
+  </body>
+</html>
