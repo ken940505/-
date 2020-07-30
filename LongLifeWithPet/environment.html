@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment</title>
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/glider.css">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #3b3b3b;
+        }
+
+        .carouselFlexSet {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-bottom: 400px;
+        }
+
+        .carouselWid {
+            width: 1200px;
+            z-index: -1;
+            display: flex;
+        }
+
+        .imgWidthCenter {
+            width: 1200px;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imgWidthEnd {
+            width: 1200px;
+            height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .bigTitle {
+            width: 1200px;
+            height: 600px;
+            font-size: 4rem;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 0;
+            margin-left: -230px;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .bigFont {
+            font-size: 3rem;
+            font-weight: bolder;
+            letter-spacing: 4px;
+        }
+
+        .divIntro {
+            width: 550px;
+            letter-spacing: 0.25rem;
+            line-height: 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        .longImgHeight1 {
+            height: 650px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            margin-top: -140px;
+        }
+
+        .longImgHeight2 {
+            height: 650px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            margin-top: -60px;
+        }
+
+        .container {
+            max-width: 88%;
+        }
+
+        .serviceDiVSet {
+            display: flex;
+        }
+
+        .serviceImgSet {
+            width: 60%;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .marginBottomMain {
+            margin-bottom: 200px;
+        }
+
+        .marginBottomService {
+            margin-bottom: 7%;
+        }
+
+        .serviceFontSet {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .serviceTitleFont {
+            width: 100%;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+
+        }
+
+        .serviceContentFont {
+            width: 100%;
+            font-size: 1.25rem;
+            padding-right: 40px;
+            letter-spacing: 0.25rem;
+            line-height: 2.5rem;
+            font-weight: 500;
+        }
+
+        .gliderImg {
+            width: 300px;
+        }
+
+        .gliderDivSet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chinereFontType {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bolder;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        .mapDivSet {
+            width: 400px;
+            text-align: center;
+        }
+
+        .ContentDivPic {
+            background: url(images/b_simple_76_1L.png) no-repeat top;
+            background-size: 450px;
+            width: 400px;
+            height: 10px;
+            margin-bottom: 10px;
+        }
+
+        .transButton {
+            width: 200px;
+            height: 40px;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .endInfoDiv1 {
+            width: 320px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .endInfoDiv2 {
+            width: 190px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .endInfoFont {
+            font-size: 1.5rem;
+        }
+
+        .endIconMargin1 {
+            margin-bottom: 13px;
+            margin-right: 10px;
+        }
+
+        .endIconMargin2 {
+            margin-bottom: 7px;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div class="carouselFlexSet">
+            <div id="carouselExampleSlidesOnly" class="carousel slide carouselWid carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="imgWidthEnd">
+                            <img src="images/enviro_community.jpg" class="d-block w-100">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="imgWidthEnd">
+                            <img src="images/enviro_garden.jpg" class="d-block w-100">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="imgWidthCenter">
+                            <img src="images/enviro_coffee23.jpg" class="d-block w-100">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="imgWidthCenter">
+                            <img src="images/enviro_gym.jpg" class="d-block w-100">
+                        </div>
+                    </div>
+                </div>
+                <div class="bigTitle">
+                    <p>長青的關鍵<br>環境、飲食、運動<br>一應俱全</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-between marginBottomMain">
+                <div class="mr-4">
+                    <div class="mb-5">
+                        <h2 class="bigFont">關於 榕沛社區</h2>
+                        <h2>About　-Long Life with Pet-</h2>
+                    </div>
+                    <div class="divIntro">
+                        <p>七浦建設は地元大田原市を中心とした栃木県北地域の、企業・官公庁から個人のお客様まで、民間・公共にかかわらず、様々な工事に携わっています。<br>
+                            お客様とのお付き合いは「引渡したら終わり」ではなく、「お引き渡しが始まり」と考え、LCM（ライフサイクルマネジメント）の視点に立った、きめ細やかなアフターフォロー体制により、企業・個人を問わずリピーターを増やしております。
+                        </p>
+                    </div>
+                </div>
+                <div class="longImgHeight1 mr-5">
+                    <img src="images/about-01.jpg" height="700px">
+                </div>
+                <div class="longImgHeight2">
+                    <img src="images/about-02.jpg" height="700px">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-5">
+                    <h2 class="bigFont">關於 社區服務項目</h2>
+                    <h2>About　Services</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="marginBottomMain">
+            <div class="serviceDiVSet marginBottomService">
+                <div class="serviceImgSet">
+                    <img src="images/enviro_community.jpg" width="900px">
+                </div>
+                <div class="serviceFontSet">
+                    <div>
+                        <div>
+                            <h3 class="serviceTitleFont">
+                                酪梨蕃茄鮪魚水煮蛋沙拉
+                            </h3>
+                        </div>
+                        <div class="serviceContentFont">
+                            <p>
+                                本週重點：水果入菜酸甜美味<br>
+                                這週的菜單依然相當澎湃，運用多種當季便宜、新鮮的食材，做出好吃又零失敗的簡易家常菜，再也不用煩惱每日菜色問題，跟著我們一週菜單的安排<br>
+                                讓你準備更加省時省力，天天輕鬆煮晚餐喔！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="serviceDiVSet marginBottomService">
+                <div class="serviceImgSet">
+                    <img src="images/enviro_garden.jpg" width="900px">
+                </div>
+                <div class="serviceFontSet">
+                    <div>
+                        <div>
+                            <h3 class="serviceTitleFont">
+                                番茄燉牛肉
+                            </h3>
+                        </div>
+                        <div class="serviceContentFont">
+                            <p>
+                                誰需要一週菜單？<br>
+                                立志親手煮晚餐，卻不知道如何開始<br>
+                                經常煮晚餐，但菜色逐漸一成不變<br>
+                                經常煮晚餐，但菜色逐漸一成不變，生活忙碌，想省下規劃菜色與採買時間
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="serviceDiVSet marginBottomService">
+                <div class="serviceImgSet">
+                    <img src="images/enviro_coffee23.jpg" width="900px">
+                </div>
+                <div class="serviceFontSet">
+                    <div>
+                        <div>
+                            <h3 class="serviceTitleFont">
+                                蜂蜜檸檬雞肉
+                            </h3>
+                        </div>
+                        <div class="serviceContentFont">
+                            <p>
+                                一週菜單的特色<br>
+                                運用當季食材，百變多元菜單<br>
+                                食譜步驟簡單，搭配建議做菜順序，上菜更快速<br>
+                                週末精選人氣烘焙、異國菜色、節慶美食等特別料理
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="serviceDiVSet marginBottomService">
+                <div class="serviceImgSet">
+                    <img src="images/enviro_gym.jpg" width="900px">
+                </div>
+                <div class="serviceFontSet">
+                    <div>
+                        <div>
+                            <h3 class="serviceTitleFont">
+                                一週菜單天天瀏覽
+                            </h3>
+                        </div>
+                        <div class="serviceContentFont">
+                            <p>
+                                VIP 進階內容<br>
+                                獨享食材採買清單，買菜不怕漏，食材一次用完不怕剩，週週推薦食材處理、料理秘訣等實用必看文章<br>
+                                菜單不限當日瀏覽任你看，上百週不重複菜單一次擁有
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marginBottomMain">
+            <div style="display: flex; justify-content: center; ">
+                <div class="mb-5" style="width: 500px;">
+                    <h2 class="bigFont" style="text-align: center;">社團總覽</h2>
+                    <h2 style="text-align: center;">Clubs</h2>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; ">
+                <div style="width: 70%;">
+                    <div class="glider-contain multiple ">
+                        <button class="glider-prev">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <div class="glider">
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div>
+                                    <div class="gliderDivSet">
+                                        <img src="images/pic1.jpg" class="gliderImg">
+                                    </div>
+                                    <div class="chinereFontType">
+                                        <p>老人與狗</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <button class="glider-next">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                        <div id="dots" class="glider-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="display: flex; justify-content: center; ">
+            <div class="mb-5" style="width: 500px;">
+                <h2 class="bigFont" style="text-align: center;">交通資訊</h2>
+                <h2 style="text-align: center;">Traffic Information</h2>
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.4257479946746!2d121.76094641487738!3d24.74658765590689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467e4e09bac9847%3A0x2bc886a059a740c2!2zMjYw5a6c6Jit57ij5a6c6Jit5biC6Zm95piO6LevMTMy5be3!5e0!3m2!1szh-TW!2stw!4v1595389791012!5m2!1szh-TW!2stw"
+                width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <div class="transButton">
+                <div style="height: 25px;">
+                    <p>前往交通方式頁面→</p>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="endInfoDiv1">
+                <i class="fas fa-map-marker-alt fa-2x endIconMargin1"></i>
+                <p class="endInfoFont">宜蘭縣宜蘭市陽明路132巷</p>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; ">
+            <div class="endInfoDiv2">
+                <i class="fas fa-phone-alt fa-2x endIconMargin2"></i>
+                <p class="endInfoFont">02-12345678</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="js/glider.min.js"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 4000
+        })
+
+        window.addEventListener('load', function () {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                draggable: true,
+                dots: '#dots',
+                arrows: {
+                    prev: '.glider-prev',
+                    next: '.glider-next'
+                }
+            });
+        })
+
+        
+    </script>
+</body>
+
+</html>

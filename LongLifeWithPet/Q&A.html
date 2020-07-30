@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <title>常見問題 Q&A</title>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            border-radius: 0.25rem;
+            color: #3b3b3b;
+        }
+
+        .bigTitle {
+            font-size: 5rem;
+            padding-bottom: 3%;
+            font-weight: bolder;
+            color: #ff7f00;
+        }
+
+        .bigTitlebehind {
+            font-size: 1.5rem;
+            padding-left: 15px;
+        }
+
+        .jumbotron {
+            height: 200px;
+            margin-bottom: 3%;
+            background-color: #FFF9DB;
+        }
+
+        .advisoryDiv {
+            width: 700px;
+            height: 70px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        .advisoryButton {
+            width: 200px;
+            height: 50px;
+            border: #FF604A solid 1px;
+            text-align: center;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+        }
+
+        .pPadding {
+            padding-Top: 12px;
+            padding-left: 7px;
+            color: #FF604A;
+        }
+
+        .questionMark {
+            color: #FF604A;
+        }
+
+        .titleList {
+            list-style: none;
+            margin-left: -43px;
+        }
+
+        .titleListMargin {
+            margin-bottom: 5%;
+        }
+
+        .midTitle {
+            font-size: 2rem;
+            margin-bottom: 3%;
+        }
+
+        .accessDetailDiv {
+            width: 100%;
+            margin-bottom: 5%;
+        }
+
+        .accessDetailTitleDiv {
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            border: #FF604A 2px solid;
+            display: flex;
+            align-items: center;
+            color: black;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+
+        }
+
+        .accessDetailTitleFont {
+            padding-left: 55px;
+            padding-right: 20px;
+            width: 100%;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 0.25rem;
+            background-image: url(images/icon_q_orange.svg);
+            background-repeat: no-repeat;
+            background-position: 15px top;
+            background-size: 30px;
+
+        }
+
+        .accessDetailContentDiv {
+            background-image: url(images/icon_a_orange.svg);
+            background-repeat: no-repeat;
+            background-position: 15px 15px;
+            background-size: 30px;
+            width: 100%;
+            padding: 15px 0 0 55px;
+            font-size: 1rem;
+            border: #FF604A 1px solid;
+            background-color: #FFF9DB;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+            letter-spacing: 0.25rem;
+            margin-top: -1px;
+            color: rgb(63, 61, 53);
+        }
+
+        .accessDiv {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .qFont{
+            color: #FF604A;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="bigTitle">FAQ<sapn class="bigTitlebehind">常見問題</sapn>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="advisoryDiv">
+                    <p>介紹住宿相關問題</p>
+                    <p>如有上述FAQ中未提及之問題或難以決定選項時，請由此向本社區洽詢。</p>
+                </div>
+                <a href="#">
+                    <div class="advisoryButton d-flex justify-content-center align-items-center">
+                        <i class="far fa-question-circle questionMark"></i>
+                        <p class="pPadding">諮詢請點此</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row titleListMargin">
+            <ul class="d-flex w-100 justify-content-between">
+                <a href="#title1">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 付款方式</li>
+                </a>
+                <a href="#title2">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於訂房</li>
+                </a>
+                <a href="#title3">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於入住、退房</li>
+                </a>
+                <a href="#title4">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於住宿、客房</li>
+                </a>
+                <a href="#title5">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於行李</li>
+                </a>
+                <a href="#title6">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於飯店內設施</li>
+                </a>
+                <a href="#title7">
+                    <li class="titleList"><i class="fas fa-arrow-circle-down"></i> 關於其他服務</li>
+                </a>
+            </ul>
+        </div>
+        <div id="title1" class="row midTitle">
+            <p>1.付款方式</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access1" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">1-1</span> 客房費用什麼時候支付呢?</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access1" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>客房費用請在入住時一次付清。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access2" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">1-2</span> 可以使用信用卡嗎?</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access2" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>您可以使用VISA、MASTER、AMERICAN EXPRESS、UC、TOP&CARD、JCB、Diners Club付款。</p>
+                        <img src="images/credit_Card.jpg" class="pb-3">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access3" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">1-3</span> 住宿費用可以匯款嗎?</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access3" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>可以的，但本飯店只接受入住前匯款。麻煩您與飯店聯絡，將會告知您匯款帳戶。
+                            此外，如需要收據，請您告知。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access4" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">1-4</span> 在東京都需要另外支付住宿稅嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access4" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>在以下地區的飯店和旅舘住宿時，將在收費中加算規定的住宿稅。<br>
+
+                            【東京都內】<br>
+                            ・每人每晚10,000日元～14,999日元（含服務費/未稅）時 , 100日元<br>
+                            ・每人每晚15,000日元（含服務費／未稅）以上時, 200日元<br>
+                            ※未滿10,000日元無需課稅。<br>
+                            
+                            【京都市內】<br>
+                            ・每人每晚未滿20,000日元（含服務費/未稅）時, 200日元<br>
+                            ・每人每晚20,000日元～49,999日元（含服務費/未稅）時, 500日元<br>
+                            ・每人每晚50,000日元（含服務費/未稅）以上時, 1,000日元<br>
+                            ※從2018年10月1日起施行。<br>
+                            ※修學旅行等學校活動的參加者及帶隊老師免徵稅。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access5" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">1-5</span> 可以兌換外幣嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access5" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>本飯店未提供外幣兌換服務，不過可為您提供飯店附近的銀行資訊。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title2" class="row midTitle">
+            <p>2.關於訂房</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access6" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-1</span> 我忘了網站訂房的登入密碼。</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access6" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>請點選訂房登入頁面的｢ID / Pass Reminder｣，輸入您登錄的電子郵件地址、電話號碼，本飯店將寄發ID與密碼到您登錄的電子郵件地址。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access7" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-2</span> 無法登入</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access7" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>請點選「ID / Pass Reminder」，輸入您登錄的電子郵件地址、電話號碼，本飯店將寄發ID與密碼到您登錄的電子郵件地址。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access8" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-3</span> 我想要變更、取消訂房內容。</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access8" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>請點選訂房登入頁面的「View, Amend Cancel」，輸入登錄ID與密碼，或訂房代號以及您登錄的電子郵件地址，即能確認訂房、變更或取消訂房。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access9" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-4</span> 入住的幾天前可以透過官方網站訂房呢？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access9" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>原則上，包含當月份在內，入住前12個月內可以訂房；各飯店也可透過電話受理。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access10" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-5</span> 住宿可以候補嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access10" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>恕不接受候補，麻煩您隨時透過電話或網路洽詢空房情形。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access11" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">2-6</span> 會有訂房取消費用嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access11" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>入住日3天以前不收取消費用；如為入住當日（未連絡時），取消費用為住宿費用100％；入住日前一天，為住宿費用80％；入住日前2天，為住宿費用50％。<br>
+                            但15位以上的團體訂房時，入住日前的20天之內取消即產生費用；入住日前3至10天之內，為住宿費用的20％；入住日前11至20天之內，為住宿費用的10％。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title3" class="row midTitle">
+            <p>3.關於入住、退房</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access12" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">3-1</span> 請問入住、退房的時間。</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access12" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>入住為15:00以後；退房為11:00以前。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access13" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">3-2</span> 無法登入</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access13" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>請點選「ID / Pass Reminder」，輸入您登錄的電子郵件地址、電話號碼，本飯店將寄發ID與密碼到您登錄的電子郵件地址。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access14" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">3-3</span> 超過退房時間時，可以延後退房嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access14" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>一般退房為11:00，但可以延後退房。如有需要，請事先與櫃台聯絡，此服務將會額外收費。但客房客滿時，可能無法延後退房，敬請見諒。<br>
+                            飯店連絡方式</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title4" class="row midTitle">
+            <p>4.關於住宿、客房</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access15" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-1</span> 有禁菸房嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access15" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>有的。訂房時，請您預訂禁菸房。如無法提供該類型客房，本飯店也可能為您準備，請事先洽詢。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access16" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-2</span> 請問有關貴重物品的保管方式。</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access16" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>客房內備有保險箱，請您多加利用。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access17" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-3</span> 請問客房內的設備用品。（冰箱等）</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access17" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>客房內備有液晶電視、網路（LAN&i-Fi）、加濕空氣清淨機、冰箱、獨立空調設備、免治馬桶、吹風機、保險箱、衣架、記事本、鞋拔。<br>
+                            此外，依據客房類型，也可提供備有洗烘衣機、小廚房（IH電磁爐）、微波爐、熨褲機的客房。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access18" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-4</span> 請問客房內有哪些客房用品？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access18" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>客房內備有浴巾、沐浴乳、洗臉毛巾、洗髮乳、潤髮乳、浴室踏墊 、牙刷、洗手乳、睡衣。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access19" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-5</span> 請問長期停留時的打掃方式。</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access19" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>■除青山店、銀座店以外<br>
+                            連續住宿6晚以下時，每天進行「簡單打掃」。不含整理床鋪、浴室及清掃地板。<br>
+                            ✽「簡單打掃」：更換毛巾類、睡衣及牙刷組，並回收垃圾桶內垃圾。<br>
+                            住宿7晚以上時，每天則無「簡單打掃」，但每7晚進行一次「客房打掃」。<br>
+                            ✽「客房打掃」：整理床鋪、更換毛巾類及睡衣、補充客房內設備用品、打掃室內及回收垃圾桶內垃圾。<br>
+                            
+                            ※京都两替町通店自2018年12月19日起將執行新的客房清潔規則。<br>
+                            2018年10月1日之後(包括10月1日)的預訂房客，將適用變更後的新清潔規則，敬請見諒。<br>
+                            
+                            ■青山店、銀座店<br>
+                            配合房客需求，可擇一選擇「簡單打掃」或「客房打掃」。<br>
+                            ✽「簡單打掃」：更換毛巾類、睡衣及牙刷組，並回收垃圾桶內垃圾。<br>
+                            ✽「客房打掃」：整理床鋪、更換毛巾類及睡衣、補充客房內設備用品、打掃室內及回收垃圾桶內垃圾。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access20" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-6</span> 可以連接網路嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access20" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>所有客房均可免費使用透過高速有線LAN、無限LAN（Wi-Fi）連接的網路連線服務。<br>
+                            如需要LAN連接線，請告知櫃台，本飯店提供免費出借服務。<br>
+                            請房客自備電腦。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access21" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-7</span> 1間客房可以3個人住宿嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access21" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>部分飯店備有可供3位入住的客房。<br>
+                            詳細內容如下。<br>
+                            3人房（3張床）<br>
+                            澀谷、門前仲町、四谷<br>
+                            雙床房＋加床<br>
+                            蒲田、目黑、祐天寺、日本橋、用賀、五反田、水道橋、西新宿、京都兩替町通、京都新京極通、札幌、札幌大道、福岡天神<br>
+                            ※如有需要，請透過電話向各飯店洽詢。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access22" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-8</span> 可以和兒童同床嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access22" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>學齡前兒童可以免費同床入住。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access23" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-9</span> 兒童的住宿費用是多少呢？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access23" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>小學生以上的兒童，住宿費用與大人相同。<br>
+                            如為小學生以下的兒童與大人同房同床時，不須額外收費。訂房時，不須包含兒童人數，請僅以大人人數預訂。<br>
+                            如為小學生以上時，請視同大人訂房。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access24" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-10</span> 有兒童用的客房用品嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access24" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>本飯店未提供兒童用的客房用品。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access25" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-11</span> 有嬰兒床可以借用嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access25" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>本飯店未提供嬰兒床。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access26" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">4-12</span> 可以和寵物一起入住嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access26" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>當然沒問題。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title5" class="row midTitle">
+            <p>5.關於行李</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access27" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">5-1</span> 可以從飯店宅配行李嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access27" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>櫃台受理黑貓宅急便的預先付款、收件人付費服務。<br>
+                            本飯店備有託運單，請填寫送達地點後，告知櫃台服務人員。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access28" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">5-2</span> 入住前或退房後可以代為保管行李嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access28" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>如在入住時間前抵達時，櫃台可為您保管行李；退房後，也可當日為您保管行李。歡迎告知櫃台。<br>
+                            但無法保管貴重物品或容易損壞的行李，敬請見諒。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access29" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">5-3</span> 我想事先寄送行李，飯店可以代收嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access29" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>可以的。寄送行李到飯店時，請在託運單上寫明房客姓名與入住日期。但無法負責保管貴重物品或易碎物品，敬請見諒。<br>
+                            此外，也無法代收以收件人付費或貨到付款方式寄送的行李。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title6" class="row midTitle">
+            <p>6.關於飯店內設施</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access30" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-1</span> 有哪些用品可以借用呢？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access30" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>櫃台備有熨褲機、LAN連接線、手機充電器（iPhone、Android）、熨斗（附燙衣板）、DVD播放機，可免費提供使用。<br>
+                            數量有限，請盡早聯絡。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access31" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-2</span> 有自動販賣機嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access31" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>全館備有自動販賣機。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access32" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-3</span> 有洗衣服務嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access32" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>可到櫃台租借。費用後付。<br>
+                            ※金澤店不提供此服務。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access33" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-4</span> 館內有餐廳嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access33" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>部分飯店內設有餐廳。<br>
+                            未設置餐廳的飯店，有提供介紹飯店附近餐飲店的服務，歡迎向櫃台洽詢。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access34" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-5</span> 館內有會議室嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access34" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>館內沒有會議室。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-5 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access35" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">6-6</span> 客房或館內可以抽菸嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access35" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>吸菸房的客房內可以抽菸，其他共用空間則禁止抽菸。<br>
+                            青山PREMIER店、新橋店、新宿店、京都兩替町通店、高輪店、札幌店、博多店設有吸菸室。<br>
+                            ※高輪店、京都兩替町通店、京都新京極通店、札幌店、札幌大道店、博多店、福岡天神店的所有客房全面禁菸。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="title7" class="row midTitle">
+            <p>7.關於其他服務</p>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access36" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-1</span> 可以用英語溝通嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access36" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>本飯店有具備英語能力的服務人員常駐，請您安心。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access37" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-2</span> 有門禁時間嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access37" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>沒有門禁時間。<br>
+                            房客可以持磁卡鑰匙進出，本飯店採取房客以外人士無法進入客房樓層的措施，讓您可以安心住宿。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access38" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-3</span> 可以攜帶食物或飲料進入飯店嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access38" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>可以的。<br>
+                            客房內備有冰箱，請您多加利用。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access39" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-4</span> 附近有便利商店嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access39" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>各飯店步行5分鐘範圍內有便利商店。詳細內容請向櫃台洽詢。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access40" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-5</span> 有客房服務嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access40" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>本飯店未提供客房服務。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access41" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-6</span> 有影印服務嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access41" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>櫃台可以受理。（須付費）</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access42" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-7</span> 有傳真服務嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access42" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>櫃台可以受理。（須付費）</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mb-4 w-100">
+            <a id="colla1" src="#" data-toggle="collapse" data-target="#access43" class="w-100">
+                <div class="accessDetailTitleDiv">
+                    <div class="accessDetailTitleFont">
+                        <p><span class="qFont">7-8</span> 飯店有停車場嗎？</p>
+                        <img id="icon1" src="images/accordion_icn_open_orange.png" width="25px">
+                    </div>
+                </div>
+                <div id="access43" class="collapse in">
+                    <div class="accessDetailContentDiv">
+                        <p>僅東急STAY澀谷、東急STAY四谷、東急STAY札幌有設置。停車台數有限。使用時請事先另行諮詢後再預約。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+        var items = document.querySelectorAll('#colla1')
+
+        for (var i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", function () {
+                var className = this.getElementsByClassName('in collapse show')[0];
+                if (typeof className == "undefined") {
+                    this.getElementsByTagName('img')[0].src = 'images/accordion_icn_down_orange.png';
+                } else {
+                    this.getElementsByTagName('img')[0].src = 'images/accordion_icn_open_orange.png';
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

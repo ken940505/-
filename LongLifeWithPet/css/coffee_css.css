@@ -1,0 +1,264 @@
+body{
+    background-color: #f5f1ed;
+    background: url(../images/coffee_background1.png) no-repeat fixed top left,
+                url(../images/coffee_background2.png) no-repeat fixed bottom right;
+    background-size: 250px;
+    background-color: #fff;
+    /* font-family: 'Noto Sans TC', sans-serif; */
+    font-family: 'Noto Sans TC', sans-serif;
+    border-radius: 0.25rem;
+  }
+
+  .engFont {
+    font-family: 'Tangerine', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.videoAllDivSet {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.videoDivSet {
+    position: absolute;
+    background-color: #fff;
+    width: 1110px;
+    height: 150px;
+}
+
+.introLine1 {
+    position: absolute;
+    display: flex;
+    padding-bottom: 3%;
+    padding-right: 300px;
+}
+
+
+.introLine2 {
+    position: absolute;
+    font-weight: 400;
+    display: flex;
+    padding-bottom: 1%;
+    padding-left: 250px;
+    color: #FF7300;
+}
+
+.introText {
+    padding-right: 10px;
+    font-size: 1.5rem;
+}
+
+.newIcon {
+    position: absolute;
+    display: flex;
+    width: 100px;
+    margin-left: -30px;
+    margin-top: -30px;
+}
+
+.newImgDiv {
+    width: 380px;
+    padding-bottom: 3%;
+}
+
+.newImg {
+    width: 370px;
+
+}
+
+.picTextSet {
+    padding-top: 3%;
+}
+
+
+.pSet {
+    letter-spacing: 3px;
+    color: rgb(160, 67, 0);
+}
+
+.norImgDiv {
+    width: 240px;
+    padding-bottom: 3%;
+}
+
+.normalImg {
+    width: 230px;
+}
+
+.shoppindAndMemberDiv{
+    margin-bottom: 3%;
+}
+
+.posBordtDiv {
+    background-color: rgba(255, 255, 255, 0.2);
+    background-blend-mode: lighten;
+    background-image: url(../images/poster_background_leaves.png);
+    background-repeat: repeat;
+    background-position: bottom center;
+    width: 250px;
+    height: 700px;
+    color: #3b3b3b;
+    font-weight: 500;
+}
+
+.postPTitleSet {
+    padding: 15px 15px 0px 15px;
+    letter-spacing: 0.15rem;
+    font-size: 0.9rem;
+    line-height: 30px;
+}
+
+.postDividerPic {
+    background: url(../images/divider_leaves.png) no-repeat top;
+    background-size: 350px;
+    width: 250px;
+    height: 15px;
+    margin-top: -10px;
+}
+
+.postDivContentSet {
+    padding: 4px 15px 0px 15px;
+    letter-spacing: 0.25rem;
+    line-height: 2.5rem;
+    width: 250px;
+
+}
+
+.postBigContnetSet {
+    font-size: 0.9rem;
+    color: #3b3b3b;
+}
+
+.postPLittleContentSet {
+    line-height: 0px;
+    letter-spacing: 0px;
+    font-size: 6px;
+    color: #3b3b3b;
+}
+
+.shoppingDivSet {
+    width: 850px;
+    height: 720px;
+}
+
+.shoppingSmallDivSet {
+    width: 820px;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.postNewsDiv {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+}
+
+.memberIcon {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    font-size: 1.1rem;
+    color: white;
+    margin-left: 30px;
+}
+
+.memberAddText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CD853F;
+    width: 250px;
+    height: 50px;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+    margin-right: 30px;
+    border-radius: 5px;
+}
+
+
+.postNewsTitleDivPic {
+    background: url(../images/divider_vine.png) no-repeat top;
+    background-size: 350px;
+    width: 250px;
+    height: 15px;
+}
+
+.postNewsContentDivPic {
+    background: url(../images/divider_bowknot.png) no-repeat top;
+    background-size: 450px;
+    width: 250px;
+    height: 15px;
+}
+
+.postNewDivContentSet {
+    padding-left: 10px;
+    letter-spacing: 3px;
+    line-height: 30px;
+    width: 250px;
+    margin-top: -5px;
+    font-size: 0.9rem;
+}
+
+.gliderImg {
+    width: 200px;
+}
+
+.gliderDivSet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chinereFontType {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #3b3b3b;
+}
+
+.chinereBigFontType {
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.commandItemDivSet {
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.commandItemTitleSet {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+}
+
+a{
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.artworkFontType {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #3b3b3b;
+    margin-top: 3%;
+    letter-spacing: 0.25rem;
+}
