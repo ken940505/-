@@ -1,0 +1,121 @@
+.resgistered{
+    width: 450px;
+    height: 1000px;
+    background-color:darkgray;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+.title1{
+    color: white;
+}
+.title2{
+    color: white;
+}
+.title-text{
+    width: 350px;
+    text-align: center;
+    margin-top: 25px;
+}
+.name{
+    width: 350px;
+    height: 60px;
+}
+.firstname{
+    width: 175px;
+}
+.lastname{
+    width: 175px;
+}
+.email{
+    width: 350px;
+    margin-bottom:15px ;
+}
+.password{
+    width: 350px;
+    margin-bottom: 15px;
+}
+.usernameregbirthdate{
+    width: 350px;
+    height: 60px;
+    margin-top: 25px;
+}
+.birth{
+    width: 350px;
+}
+.month{
+    width: 100px;
+    height: 38px;
+}
+.date{
+    width: 100px;
+    color: darkgray;
+}
+.year{
+    width: 125px;
+}
+.emergence{
+    color: whitesmoke;
+}
+.emergencephone{
+    margin-top: 15px;
+}
+.phone-number{
+    width: 350px;
+}
+.male-female{
+    width: 350px;
+    margin-top: 15px;
+}
+.pettitle{
+    color:whitesmoke;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.petdetail{
+    color: whitesmoke;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.petgender-1{
+    width: 350px;
+    height: 60px;
+}
+.petgender-2{
+  
+    font-size: 16px;
+}
+
+.petweight{
+    width: 100px;
+}
+.petage{
+    width: 130px;
+}
+.petbirthday{
+    width: 120px;
+}
+.petselect{
+    
+    color: white;
+}
+
+.petselect1{
+    color: whitesmoke;
+}
+.btn{
+    margin-top: 45px;
+    width: 250px;
+    color: white;
+    background-color:rgba(134, 21, 21, 0.747);
+}
+.linka{
+    color: whitesmoke;
+}
+.linka:hover{
+    color: black;
+}
+.linkbut{
+    margin-top: 10px;
+}
