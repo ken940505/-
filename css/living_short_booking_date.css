@@ -5,6 +5,8 @@
 .con {
     display: flex;
     justify-content: center;
+    height: 550px;
+    
 }
 
 .month {
@@ -29,28 +31,30 @@
 
 .week-title {
     width: 490px;
-    height: 20px;
+    height: 30px;
     box-sizing: border-box;
     display: flex;
 }
 
 .day-title {
     box-sizing: border-box;
-    margin: 2px;
+    margin: 2px 2px 2px 2px;
     width: 70px;
-    height: 20px;
+    height: 30px;
     text-align: center;
 }
 
 .day {
     box-sizing: border-box;
-    border: 1px solid #000;
+    border: 1px solid #A1A1A1;
+    border-radius: 0.2rem;
     margin: 2px;
     width: 70px;
     height: 70px;
     text-align: center;
     line-height: 70px;
     font-size: 26px;
+    cursor: pointer;
 }
 
 .day-none {
@@ -67,6 +71,11 @@
 .con {
     display: block;
     margin: 0 auto;
+    /*----new-----*/
+    /* position: relative; */
+}
+.text-title{
+    font-size: 1.25rem;
 }
 .month p{
     width: 100%;
@@ -76,7 +85,9 @@
 .month {
     margin: 30px auto 50px auto;
     height: 320px;
-    width: 93%
+    width: 93%;
+    /*----new-----*/
+    /* position: absolute; */
 }
 .week {
     width: 300px;
@@ -107,7 +118,8 @@
 
 .day {
     box-sizing: border-box;
-    border: 1px solid #000;
+    border: 1px solid #A1A1A1;
+    border-radius: 0.2rem;
     margin: 2px;
     width: 38px;
     height: 50px;
@@ -127,4 +139,24 @@
     font-size: 20px;
     margin: 0 auto;
 }
+/*--箭頭按鈕--*/
+.change-monthset-btn {
+    margin: 0 5px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 400px;
+}
+.change-monthset-btn img{
+    width:30px;
+}
+/*
+.change-btn-left{
+    margin-left:8px;
+}
+.change-btn-right{
+    margin-right:-710px;
+}
+*/
+
 }

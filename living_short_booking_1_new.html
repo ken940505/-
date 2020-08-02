@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/mainstyle1.css">
+    <link rel="stylesheet" href="./css/living_short_booking_date.css">
+    <!-- <link rel="stylesheet" href="./fontawesome/css/all.css"> -->
+    <title>榕沛社區試住體驗之訂房系統</title>
+    <style>
+        /*----booking-nav----*/
+        .logoSize-small {
+            width: 4.5rem;
+        }
+
+        .nav-booking-container {
+            padding-top: 3px;
+        }
+
+        .nav-booking-text {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /*----web-font----*/
+        .web-title {
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+        }
+
+        .text-title {
+            display: flex;
+            justify-content: center;
+            margin: 5%;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+            margin-left: 3rem;
+        }
+
+        .web-text {
+            font-size: 1.5rem;
+            font-weight: 200;
+            line-height: 2.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        /* .checkIn-date {}
+        .checkOut-date {
+            margin-left: 3rem; 
+        } */
+        /*----day動態---*/
+        /* .day:active{
+            background-color: red;
+        } */
+
+        /*----change-btn---*/
+        .change-btn-container {
+            /* margin: 0 100px; */
+            position: relative;
+        }
+
+        .change-monthset-btn {
+            margin: 0 100px;
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: 430px;
+        }
+
+        .change-btn-left {
+            /* left:7.5rem; */
+            margin-left: 7.5rem;
+        }
+
+        .change-btn-right {
+            margin-right: 7.5rem;
+        }
+
+        .btn-cursor-able {
+            cursor: pointer;
+        }
+
+        .btn-cursor-disable {
+            cursor: not-allowed;
+        }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        /*----footer----*/
+        .living-booking-footer-backcolor {
+            background-color: #E4BEB3;
+        }
+
+        /*-----new date class----*/
+        /* .date-set-hidden {
+            display: none;
+        } */
+        /*和jq的show hide似乎會衝突 影響jq的show hide功能*/
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="navClass">
+        <div class="nav-booking-container">
+            <span><a href="./index.html"><img src="./images/logo.png" class="logoSize-small" alt=""></a></span>
+            <span class="nav-booking-text">試住體驗訂房系統</span>
+        </div>
+    </div>
+    <!-- <div class="change-monthset-btn">
+        <div class="btn-cursor-disable change-btn-left" id="iprevious">
+            <img src="./images/previous.png">
+        </div>
+        <div class="btn-cursor-able change-btn-right" id="inext">
+            <img src="./images/next.png">
+        </div>
+    </div> -->
+    <div class="change-btn-container">
+        <div class="change-monthset-btn btn-cursor-disable" id="iprevious" style="left:0;">
+            <img src="./images/previous.png">
+        </div>
+        <div class="change-monthset-btn btn-cursor-able" id="inext" style="right:0;">
+            <img src="./images/next.png">
+        </div>
+    </div>
+    <div class="container mt-5 mb-5" style="position: relative;">
+        <div class="web-title">一、選擇日期</div>
+        <div class="d-flex text-title">
+            <div class="col-md-6">
+                <span>入住日期：<span id="i-InDate-year"></span><span id="i-InDate-month"></span><span id="i-InDate-day"></span></span>
+                <span id="checkin-date"></span>
+            </div>
+            <div class="col-md-6">
+                <div>退房日期：<span id="i-OutDate-year"></span><span id="i-OutDate-month"></span><span id="i-OutDate-day"></span></span></div>
+                <span id="checkout-date"></span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="month" id="iset1m7">
+                <p>2020 年 <span id="i-m7">7</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                </div>
+                <div class="week">
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                </div>
+                <div class="week">
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                </div>
+                <div class="week">
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                </div>
+                <div class="week">
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                    <div class="day">31</div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                </div>
+            </div>
+            <div class="month" id="iset1m8">
+                <p>2020 年 <span id="i-m8">8</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                </div>
+                <div class="week">
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                </div>
+                <div class="week">
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                </div>
+                <div class="week">
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                </div>
+                <div class="week">
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                </div>
+                <div class="week">
+                    <div class="day">30</div>
+                </div>
+            </div>
+            <div class="month date-set-hidden" id="iset2m9">
+                <p>2020 年 <span id="i-m9">9</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                    <div class="day">06</div>
+                </div>
+                <div class="week">
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                    <div class="day">13</div>
+                </div>
+                <div class="week">
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                    <div class="day">20</div>
+                </div>
+                <div class="week">
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                    <div class="day">27</div>
+                </div>
+                <div class="week">
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                </div>
+            </div>
+            <div class="month date-set-hidden" id="iset2m10">
+                <p>2020 年 <span id="i-m10">10</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                </div>
+                <div class="week">
+                    <div class="day">05</div>
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                </div>
+                <div class="week">
+                    <div class="day">12</div>
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                </div>
+                <div class="week">
+                    <div class="day">19</div>
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                </div>
+                <div class="week">
+                    <div class="day">26</div>
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                    <div class="day">31</div>
+                    <div class="day-none"></div>
+                </div>
+            </div>
+            <div class="month date-set-hidden" id="iset3m11">
+                <p>2020 年 <span id="i-m11">11</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                </div>
+                <div class="week">
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                </div>
+                <div class="week">
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                </div>
+                <div class="week">
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                </div>
+                <div class="week">
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                    <div class="day">31</div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                </div>
+            </div>
+            <div class="month date-set-hidden" id="iset3m12">
+                <p>2020 年 <span id="i-m12">12</span> 月</p>
+                <div class="week-title">
+                    <div class="day-title">星期一</div>
+                    <div class="day-title">星期二</div>
+                    <div class="day-title">星期三</div>
+                    <div class="day-title">星期四</div>
+                    <div class="day-title">星期五</div>
+                    <div class="day-title">星期六</div>
+                    <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day-none"></div>
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                </div>
+                <div class="week">
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day">09</div>
+                </div>
+                <div class="week">
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15</div>
+                    <div class="day">16</div>
+                </div>
+                <div class="week">
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22</div>
+                    <div class="day">23</div>
+                </div>
+                <div class="week">
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29</div>
+                    <div class="day">30</div>
+                </div>
+                <div class="week">
+                    <div class="day">30</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="change-monthset-btn">
+        <div class="btn-cursor-disable change-btn-left" id="iprevious">
+            <img src="./images/previous.png">
+        </div>
+        <div class="btn-cursor-able change-btn-right" id="inext">
+            <img src="./images/next.png">
+        </div>
+    </div> -->
+    <div class="btn-center">
+        <a href="./living_short_booking_2.html" class="btn btn-info btn-lg fz125 ls025 my-2" role="button"
+            aria-pressed="true">下一步</a>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="living-booking-footer-backcolor">
+        <div class="footer-copyright text-center py-3"><a href="#" class="class_a">© 2020 Copyright: 榕沛社區
+                longlifewithpet.com</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+
+    <script>
+        $(function () {
+            //日曆格子(day)動態
+
+            //關於顯示月曆組數、按鈕功能的變數們
+            let setCount = 1; //顯示月曆組數，預設為顯示第一組
+            let lastSetCount = 3; //月曆組數有多少組，目前有3組，lastSetCount為最後的setCount
+
+            //關於抓取入住/退房日期的變數們
+            let dateClickCount = 0; //紀錄點擊日期的次數(目前設定2次為一個週期)
+            let InDate_month;
+            let InDate_day;
+            let OutDate_month;
+            let OutDate_day;
+
+            //初始化預設9-12月隱藏
+            $("#iset2m9,#iset2m10,#iset3m11,#iset3m12").hide();
+
+            $(".day").on("click", function () {
+                //console.log($(this).parent().parent().children("p").children("span").text());
+                //console.log($(this));
+                dateClickCount++;
+                if (dateClickCount >= 3) {
+                    dateClickCount = 1;
+                    $("#i-InDate-year").text("");                  
+                    $("#i-InDate-month").text("");
+                    $("#i-InDate-day").text("");
+                    $("#i-OutDate-year").text("");
+                    $("#i-OutDate-month").text("");
+                    $("#i-OutDate-day").text("");
+                }
+
+                switch (dateClickCount) {
+                    case 1:
+                        //重設日曆格子樣式
+                        $(".day").css("background-color", "#ffffff");
+                        $(".day").css("color", "#3B3B3B");
+                        //dateClickCount=1，點第1下抓入房日期
+                        console.log("dateClickCount" + dateClickCount);
+                        InDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
+                        InDate_day = parseInt($(this).text());
+                        $("#i-InDate-year").text("2020 年");
+                        $("#i-InDate-month").text(` ${InDate_month} 月`);
+                        $("#i-InDate-day").text(` ${InDate_day} 日`);
+                        console.log("InDate_month: " + InDate_month);
+                        console.log("InDate_day: " + InDate_day);
+                        //入住顏色動態
+                        $(this).css("background-color", "#538867");
+                        $(this).css("color", "#ffffff");
+                        // $(".day").on("mouseover",function(){
+                        //     $(this).css("background-color","#538867");
+                        // })
+                        break;
+                    case 2:
+                        //dateClickCount=2，點第2下抓退房日期
+                        console.log("dateClickCount" + dateClickCount);
+                        //抓退房日期
+                        OutDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
+                        OutDate_day = parseInt($(this).text());
+                        if (InDate_month === OutDate_month && OutDate_day > InDate_day) {
+                            $("#i-OutDate-year").text("2020 年");
+                            $("#i-OutDate-month").text(` ${OutDate_month} 月`);
+                            $("#i-OutDate-day").text(` ${OutDate_day} 日`);
+                            //退房顏色動態
+                            $(this).css("background-color", "#538867");
+                            $(this).css("color", "#ffffff");
+                        }
+                        else if (OutDate_month > InDate_month) {
+                            $("#i-OutDate-year").text("2020 年");
+                            $("#i-OutDate-month").text(` ${OutDate_month} 月`);
+                            $("#i-OutDate-day").text(` ${OutDate_day} 日`);
+                            //退房顏色動態
+                            $(this).css("background-color", "#538867");
+                            $(this).css("color", "#ffffff");
+                        }
+                        else {
+                            alert("請重新選取日期");
+                            dateClickCount = 0;
+                            $("#i-OutDate-year").text("");
+                            $("#i-InDate-month").text("");
+                            $("#i-InDate-day").text("");
+                            //退房顏色動態
+                            $(".day").css("background-color", "#ffffff");
+                            $(".day").css("color", "#3B3B3B");
+                        }
+                        console.log("OutDate_month: " + OutDate_month);
+                        console.log("OutDate_day: " + OutDate_day);
+                        break;
+                }
+            });
+
+            $("#inext").on("click", function () {
+                setCount++;
+                switch (setCount) {
+                    case 2:
+                        //當setCount=2，切換至第2組月曆(9、10月)
+                        console.log("setCount: " + setCount);
+                        $("#iset1m7,#iset1m8").hide();
+                        $("#iset2m9,#iset2m10").show();
+                        $("#iprevious").css("cursor", "pointer");
+                        break;
+                    case 3:
+                        //當setCount=3，切換至第3組月曆(11、12月)
+                        console.log("setCount: " + setCount);
+                        $("#iset2m9,#iset2m10").hide();
+                        $("#iset3m11,#iset3m12").show();
+                        $("#inext").css("cursor", "not-allowed");
+                        break;
+                    case 4:
+                        //當setCount=4，讓setCount變回3，控制setCount不大於3
+                        setCount = 3;
+                        console.log("setCount: " + setCount);
+                        break;
+                }
+
+                // if (setCount < 3) {
+                //     setCount++;
+                //     $("#set1-1,#set1-2").hide();
+                //     $("#set2-1,#set2-2").show();
+
+                //     // $("#set1-1").addClass("date-set-hidden");
+                //     // $("#set1-2").addClass("date-set-hidden");
+                //     // $("#set2-1").removeClass("data-set-hidden");//無法
+                //     // $("#set2-2").removeClass("data-set-hidden");//無法
+                //     //toggleClass
+                // }
+            })
+
+            $("#iprevious").on("click", function () {
+                setCount--;
+                switch (setCount) {
+                    case 0:
+                        //當setCount=1，讓setCount變回0，控制setCount不小於1(至少要有1組月曆)
+                        setCount = 1;
+                        console.log("setCount: " + setCount);
+                        break;
+                    case 1:
+                        //當setCount=1，切換至第1組月曆(7、8月)
+                        console.log("setCount: " + setCount);
+                        $("#iset2m9,#iset2m10").hide();
+                        $("#iset1m7,#iset1m8").show();
+                        $("#iprevious").css("cursor", "not-allowed");
+                        $("#inext").css("cursor", "pointer");
+                        break;
+                    case 2:
+                        //當setCount=2，切換至第2組月曆(9、10月)
+                        console.log("setCount: " + setCount);
+                        $("#iset3m11,#iset3m12").hide();
+                        $("#iset2m9,#iset2m10").show();
+                        break;
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -7,22 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/mainstyle1.css">
     <link rel="stylesheet" href="./css/living_short_booking_date.css">
     <!-- <link rel="stylesheet" href="./fontawesome/css/all.css"> -->
     <title>榕沛社區試住體驗之訂房系統</title>
     <style>
-        .logoSize-small{
+        .logoSize-small {
             width: 4.5rem;
         }
-        .nav-booking-container{
+
+        .nav-booking-container {
             padding-top: 3px;
         }
-        .nav-booking-text{
+
+        .nav-booking-text {
             font-size: 1.5rem;
             font-weight: 300;
         }
+
         .web-title {
             font-size: 2rem;
             font-weight: 400;
@@ -44,8 +48,9 @@
             line-height: 2.5rem;
             letter-spacing: 0.25rem;
         }
+
         /* modal樣式 */
-        /* .modal-title-center {
+        .modal-title-center {
             margin: 0 auto;
             font-size: 1.75rem;
         }
@@ -53,7 +58,11 @@
         .modal-dialog {
             overflow-y: initial !important
         }
-
+        ul,
+        li {
+            list-style: none;
+            padding-left: 0.6rem;
+        }
         .modal-body {
             height: 70vh;
             overflow-y: auto;
@@ -64,15 +73,19 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
             color: #3B3B3B;
-        } */
-      
+        }
+        /*-----*/
+
         .btn-center {
-            display: flex; 
+            display: flex;
             justify-content: center;
         }
-        .living-booking-footer-backcolor{
+
+        .living-booking-footer-backcolor {
             background-color: #E4BEB3;
         }
+
+       
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
@@ -84,7 +97,7 @@
     <div class="navClass">
         <div class="nav-booking-container">
             <span><a href="./index.html"><img src="./images/logo.png" class="logoSize-small" alt=""></a></span>
-            <span class="nav-booking-text">試住體驗訂房系統</span>           
+            <span class="nav-booking-text">試住體驗訂房系統</span>
         </div>
     </div>
     <div class="container mt-5 mb-5">
@@ -92,67 +105,69 @@
         <div class="web-text">1.住房資訊(參考booking_1:入住/退房日期、人數、活動、寵物、房型...)</div>
         <div class="web-text">2.(帶入)會員資料(姓名、性別、身分證字號、手機、健康狀況、年齡)(參考booking_2)(如住房人數為兩人，需有兩人的資料)</div>
         <div class="web-text">3.需打勾的框框:同意試住體驗須知</div>
+        <button type="button" class="btn btn-info fz125 ls025 my-2" data-toggle="modal"
+            data-target=".bd-example-modal-lg">試住體驗須知</button>
         <!-- 試住體驗須知請參考short網頁中的modal或雲端文件 -->
-        <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區試住體驗須知同意書</h5>
-                        </div>
-                        <div class="modal-body modal-body-text">
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區試住體驗須知同意書</h5>
+                    </div>
+                    <div class="modal-body modal-body-text">
+                        <ul>
+                            <li>壹、立同意書人為申請試住體驗，同意遵照　貴院下列規定辦理。</li>
+                        </ul>
+                        <ul>
+                            <li>貳、立同意書人如有違約，　貴院得逕行終止本合約，立同意書人除應繳清相關費用外，並應即將房屋內物品清空並遷離，否則視同廢棄物，貴院得逕行進入屋內處理，立同意書人絕無異議，並願負擔處理費用。
+                            </li>
                             <ul>
-                                <li>壹、立同意書人為申請試住體驗，同意遵照　貴院下列規定辦理。</li>
-                            </ul>
-                            <ul>
-                                <li>貳、立同意書人如有違約，　貴院得逕行終止本合約，立同意書人除應繳清相關費用外，並應即將房屋內物品清空並遷離，否則視同廢棄物，貴院得逕行進入屋內處理，立同意書人絕無異議，並願負擔處理費用。
+                                <li>一、
+                                    <strong>
+                                        <u>試住體驗天數以30日為限（如參加寵物試養計畫，試住體驗單次最短期限為30日、最長為60日）。</u></li>
+                                </strong>
+                                <li>二、
+                                    <strong>
+                                        <u>本申請不適用於榕沛社區長住服務申請，如欲申請長住，或住宿天數超過試住體驗期限，請依榕沛社區進住辦法辦理申請表、會談及體檢作業，合格後始通知選房及入住作業。</u>
                                 </li>
-                                <ul>
-                                    <li>一、
-                                        <strong>
-                                            <u>試住體驗天數以30日為限（如參加寵物試養計畫，試住體驗單次最短期限為30日、最長為60日）。</u></li>
-                                    </strong>
-                                    <li>二、
-                                        <strong>
-                                            <u>本申請不適用於榕沛社區長住服務申請，如欲申請長住，或住宿天數超過試住體驗期限，請依榕沛社區進住辦法辦理申請表、會談及體檢作業，合格後始通知選房及入住作業。</u>
-                                    </li>
-                                    </strong>
-                                    <li>三、於住宿期間（含同住者）需遵守下列生活公約，如未遵守生活公約經勸告無效者，本村得隨時逕行終止住宿，其未住天數費用，本村將無息退還。
-                                        <ul>
-                                            <li>(一) 不得酗酒、吸毒、賭博、竊盜、妨害風化、危害公共秩序、安全或其他不正當娛樂等嚴重影響本村形象之不法情事，本村並得視狀況報請警察機關處理。
-                                            </li>
-                                            <li>(二) 不可持有槍炮、彈藥、刀械、毒品或其他嚴重妨礙公共安全等物品。</li>
-                                            <li>(三)室內及陽台不得燃放爆竹、冥紙、紙張等易燃物品，以免造成危險或觸發火警感應鈴，誤傳火警。</li>
-                                            <li>(四)不私自接用公共用電或延長線，並禁用瓦斯爐等易燃或易爆等設備，否則因而損壞變壓器或發生安全事故，須負完全責任。</li>
-                                            <li>(五) 不在公共場所、通道及樓梯間等公共設施空間放置私人物品（如紙箱、鞋櫃等）、傢俱或晾曬衣服。</li>
-                                            <li>(六) 為維護公共秩序，不製造噪音以干擾其他住民安寧。</li>
-                                            <li>(七) 不得於村內推銷商（產）品或從事其他商業性行為。</li>
-                                            <li>(八)
-                                                <strong><u>如需飼養貓、狗等寵物，請選擇寵物住宅區，每房僅限一隻寵物，
-                                                        並遵守寵物住宿須知，不得在非寵物住宅區內飼養，以保安寧與衛生。</u></strong></li>
-                                        </ul>
-                                    </li>
-                                    <li>四、居住本村期間，如發現患有精神疾病、傳染病、或其他健康狀況改變，或喪失生活自理能力者，經本村工作團隊決定，可隨時終止住宿之權利，其未住天數費用，本村將無息退還。
-                                    </li>
-                                    <li>五、欲延長住宿時，最遲請於退住前三日上午10時前通知生活服務室，並辦理住宿異動申請及繳款。但本村得視房間使用狀態可調整變動住宿房間，如造成客戶不便，敬請見諒。
-                                    </li>
-                                    <li>六、欲提前退住者，請至生活服務室填寫體驗住宿異動表，住宿費依實際未住日數退還管理費。</li>
-                                </ul>
+                                </strong>
+                                <li>三、於住宿期間（含同住者）需遵守下列生活公約，如未遵守生活公約經勸告無效者，本村得隨時逕行終止住宿，其未住天數費用，本村將無息退還。
+                                    <ul>
+                                        <li>(一) 不得酗酒、吸毒、賭博、竊盜、妨害風化、危害公共秩序、安全或其他不正當娛樂等嚴重影響本村形象之不法情事，本村並得視狀況報請警察機關處理。
+                                        </li>
+                                        <li>(二) 不可持有槍炮、彈藥、刀械、毒品或其他嚴重妨礙公共安全等物品。</li>
+                                        <li>(三)室內及陽台不得燃放爆竹、冥紙、紙張等易燃物品，以免造成危險或觸發火警感應鈴，誤傳火警。</li>
+                                        <li>(四)不私自接用公共用電或延長線，並禁用瓦斯爐等易燃或易爆等設備，否則因而損壞變壓器或發生安全事故，須負完全責任。</li>
+                                        <li>(五) 不在公共場所、通道及樓梯間等公共設施空間放置私人物品（如紙箱、鞋櫃等）、傢俱或晾曬衣服。</li>
+                                        <li>(六) 為維護公共秩序，不製造噪音以干擾其他住民安寧。</li>
+                                        <li>(七) 不得於村內推銷商（產）品或從事其他商業性行為。</li>
+                                        <li>(八)
+                                            <strong><u>如需飼養貓、狗等寵物，請選擇寵物住宅區，每房僅限一隻寵物，
+                                                    並遵守寵物住宿須知，不得在非寵物住宅區內飼養，以保安寧與衛生。</u></strong></li>
+                                    </ul>
+                                </li>
+                                <li>四、居住本村期間，如發現患有精神疾病、傳染病、或其他健康狀況改變，或喪失生活自理能力者，經本村工作團隊決定，可隨時終止住宿之權利，其未住天數費用，本村將無息退還。
+                                </li>
+                                <li>五、欲延長住宿時，最遲請於退住前三日上午10時前通知生活服務室，並辦理住宿異動申請及繳款。但本村得視房間使用狀態可調整變動住宿房間，如造成客戶不便，敬請見諒。
+                                </li>
+                                <li>六、欲提前退住者，請至生活服務室填寫體驗住宿異動表，住宿費依實際未住日數退還管理費。</li>
                             </ul>
-                            <ul>
-                                <li>參、如因本約爭訟，同意以臺灣宜蘭地方法院為第一審管轄法院。</li>
-                            </ul>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <a href="paper/榕沛社區試住體驗須知同意書.pdf" download="榕沛社區試住體驗須知同意書.pdf" class="btn btn-primary fz125"
-                                role="button">下載同意書</a>
-                            <button type="button" class="btn btn-secondary ml-2 fz125" data-dismiss="modal">關閉視窗</button>
-                        </div>
+                        </ul>
+                        <ul>
+                            <li>參、如因本約爭訟，同意以臺灣宜蘭地方法院為第一審管轄法院。</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <a href="paper/榕沛社區試住體驗須知同意書.pdf" download="榕沛社區試住體驗須知同意書.pdf" class="btn btn-primary fz125"
+                            role="button">下載同意書</a>
+                        <button type="button" class="btn btn-secondary ml-2 fz125" data-dismiss="modal">關閉視窗</button>
                     </div>
                 </div>
-            </div> -->
+            </div>
+        </div>
 
-                            <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
             <div class="btn-center mr-3">
                 <a href="./living_short_booking_1.html" class="btn btn-info btn-lg fz125 ls025 my-2" role="button"
                     aria-pressed="true">上一步</a>
@@ -166,8 +181,9 @@
 
 
     <!-- Footer -->
-    <footer class="living-booking-footer-backcolor"> 
-        <div class="footer-copyright text-center py-3"><a href="#" class="class_a">© 2020 Copyright: 榕沛社區 longlifewithpet.com</a>
+    <footer class="living-booking-footer-backcolor">
+        <div class="footer-copyright text-center py-3"><a href="#" class="class_a">© 2020 Copyright: 榕沛社區
+                longlifewithpet.com</a>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
