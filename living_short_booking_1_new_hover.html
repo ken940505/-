@@ -141,11 +141,13 @@
         <div class="web-title">一、選擇日期</div>
         <div class="d-flex text-title">
             <div class="col-md-6">
-                <span>入住日期：<span id="i-InDate-year"></span><span id="i-InDate-month"></span><span id="i-InDate-day"></span></span>
+                <span>入住日期：<span id="i-InDate-year"></span><span id="i-InDate-month"></span><span
+                        id="i-InDate-day"></span></span>
                 <span id="checkin-date"></span>
             </div>
             <div class="col-md-6">
-                <div>退房日期：<span id="i-OutDate-year"></span><span id="i-OutDate-month"></span><span id="i-OutDate-day"></span></span></div>
+                <div>退房日期：<span id="i-OutDate-year"></span><span id="i-OutDate-month"></span><span
+                        id="i-OutDate-day"></span></span></div>
                 <span id="checkout-date"></span>
             </div>
         </div>
@@ -542,6 +544,7 @@
     <script src="./js/jquery-3.5.1.min.js"></script>
 
     <script>
+        //有hover效果的版本，可能會產生操作上的困惑?
         $(function () {
             //關於顯示月曆組數、按鈕功能的變數們
             let setCount = 1; //顯示月曆組數，預設為顯示第一組
@@ -553,74 +556,96 @@
             let InDate_day;
             let OutDate_month;
             let OutDate_day;
+            //mouseover的開關狀態，以區別click事件
+            var isMouseover = false;
+            var isClick = false;
 
             //初始化預設9-12月隱藏
             $("#iset2m9,#iset2m10,#iset3m11,#iset3m12").hide();
-            
+
             //按日曆格子，2次為一個週期，第3次要回到第1次的功能
-            $(".day").on("click", function () {
-                //console.log($(this).parent().parent().children("p").children("span").text());
-                //console.log($(this));
-                dateClickCount++;
-                if (dateClickCount >= 3) {
-                    dateClickCount = 1;
-                    $("#i-InDate-year,#i-InDate-month,#i-InDate-day,#i-OutDate-year,#i-OutDate-month,#i-OutDate-day").text("");
-                }
+            $(".day").on({
+                "mouseover": function () {
+                    //滑鼠按第二次後不會有hover效果
+                    if(dateClickCount<2){
+                      isMouseover = true;
+                    $(this).css({ "background-color": "#538865", "color": "#ffffff" });   
+                    }                   
+                },
+                "mouseout": function () {
+                    //滑鼠按第二次後不會有hover效果，當isMouseover=true才會執行
+                    if(dateClickCount<2 && isMouseover)
+                        $(this).css({ "background-color": "#ffffff", "color": "#3B3B3B" });                       
+                },
+                "click": function () {
+                    //console.log($(this).parent().parent().children("p").children("span").text());
+                    //console.log($(this));
+                    dateClickCount++;
+                    isClick = true;
+                    isMouseover = false;
+                    if (dateClickCount >= 3) {
+                        dateClickCount = 1;
+                        $("#i-InDate-year,#i-InDate-month,#i-InDate-day,#i-OutDate-year,#i-OutDate-month,#i-OutDate-day").text("");
+                    }
 
-                switch (dateClickCount) {
-                    case 1:
-                        //重設日曆格子樣式
-                        $(".day").css({"background-color": "#ffffff","color": "#3B3B3B"});
-                        //dateClickCount=1，點第1下抓入房日期
-                        console.log("dateClickCount" + dateClickCount); 
-                        
-                        //未完成的研究:如何抓取入/退房日期之間的格子 上色 計算天數
-                        //get this month:$(this).parent().siblings("div")
-                        //get this week: $(this).parent().closest("div").children(".day").text()
-                        //console.log($(this).parent().find('div.day').text()); //get this week
-                        //console.log($("#iset1m7").find('div.day').text()); //get month days
-                        //console.log($("#iset1m8").find('div.day').eq(0).text()); //get month days eq(0)
-                        //console.log($("#iset1m8").find('div.day').css("background-color", "#538867"));//八月全部格子上色
+                    if (isClick) {
+                        switch (dateClickCount) {
+                            case 1:
+                                //重設日曆格子樣式
+                                $(".day").css({ "background-color": "#ffffff", "color": "#3B3B3B" });
+                                //dateClickCount=1，點第1下抓入房日期
+                                console.log("dateClickCount" + dateClickCount);
 
-                        InDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
-                        InDate_day = parseInt($(this).text());
-                        $("#i-InDate-year").text("2020 年");
-                        $("#i-InDate-month").text(` ${InDate_month} 月`);
-                        $("#i-InDate-day").text(` ${InDate_day} 日`);
-                        console.log("InDate_month: " + InDate_month);
-                        console.log("InDate_day: " + InDate_day);
-                        //入住顏色動態
-                        $(this).css({"background-color": "#538867","color": "#ffffff"});
-                        break;
-                    case 2:                       
-                        console.log("dateClickCount" + dateClickCount);
-                        //dateClickCount=2，點第2下抓退房日期//抓退房日期
-                        OutDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
-                        OutDate_day = parseInt($(this).text());
-                        if (InDate_month === OutDate_month && OutDate_day > InDate_day) {
-                            $("#i-OutDate-year").text("2020 年");
-                            $("#i-OutDate-month").text(` ${OutDate_month} 月`);
-                            $("#i-OutDate-day").text(` ${OutDate_day} 日`);
-                            //退房顏色動態
-                            $(this).css({"background-color": "#538867","color": "#ffffff"});
+                                //未完成的研究:如何抓取入/退房日期之間的格子 上色 計算天數
+                                //get this month:$(this).parent().siblings("div")
+                                //get this week: $(this).parent().closest("div").children(".day").text()
+                                //console.log($(this).parent().find('div.day').text()); //get this week
+                                //console.log($("#iset1m7").find('div.day').text()); //get month days
+                                //console.log($("#iset1m8").find('div.day').eq(0).text()); //get month days eq(0)
+                                //console.log($("#iset1m8").find('div.day').css("background-color", "#538867"));//八月全部格子上色
+
+                                InDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
+                                InDate_day = parseInt($(this).text());
+                                $("#i-InDate-year").text("2020 年");
+                                $("#i-InDate-month").text(` ${InDate_month} 月`);
+                                $("#i-InDate-day").text(` ${InDate_day} 日`);
+                                console.log("InDate_month: " + InDate_month);
+                                console.log("InDate_day: " + InDate_day);
+                                //入住顏色動態
+                                $(this).css({ "background-color": "#538867", "color": "#ffffff" });
+                                break;
+                            case 2:
+                                console.log("dateClickCount" + dateClickCount);
+                                //dateClickCount=2，點第2下抓退房日期//抓退房日期
+                                OutDate_month = parseInt($(this).parent().parent().children("p").children("span").text());
+                                OutDate_day = parseInt($(this).text());
+                                if (InDate_month === OutDate_month && OutDate_day > InDate_day) {
+                                    $("#i-OutDate-year").text("2020 年");
+                                    $("#i-OutDate-month").text(` ${OutDate_month} 月`);
+                                    $("#i-OutDate-day").text(` ${OutDate_day} 日`);
+                                    //退房顏色動態
+                                    $(this).css({ "background-color": "#538867", "color": "#ffffff" });
+                                }
+                                else if (OutDate_month > InDate_month) {
+                                    $("#i-OutDate-year").text("2020 年");
+                                    $("#i-OutDate-month").text(` ${OutDate_month} 月`);
+                                    $("#i-OutDate-day").text(` ${OutDate_day} 日`);
+                                    //退房顏色動態
+                                    $(this).css({ "background-color": "#538867", "color": "#ffffff" });
+                                }
+                                else {
+                                    alert("請重新選取日期");
+                                    dateClickCount = 0;
+                                    $("#i-InDate-year,#i-InDate-month,#i-InDate-day,#i-OutDate-year,#i-OutDate-month,#i-OutDate-day").text("");
+                                    //重設日曆格子樣式
+                                    $(".day").css({ "background-color": "#ffffff", "color": "#3B3B3B" });
+                                }
+                                console.log("OutDate_month: " + OutDate_month);
+                                console.log("OutDate_day: " + OutDate_day);
+                                break;
                         }
-                        else if (OutDate_month > InDate_month) {
-                            $("#i-OutDate-year").text("2020 年");
-                            $("#i-OutDate-month").text(` ${OutDate_month} 月`);
-                            $("#i-OutDate-day").text(` ${OutDate_day} 日`);
-                            //退房顏色動態
-                            $(this).css({"background-color": "#538867","color": "#ffffff"});
-                        }
-                        else {
-                            alert("請重新選取日期");
-                            dateClickCount = 0;
-                            $("#i-InDate-year,#i-InDate-month,#i-InDate-day,#i-OutDate-year,#i-OutDate-month,#i-OutDate-day").text("");
-                            //重設日曆格子樣式
-                            $(".day").css({"background-color": "#ffffff","color": "#3B3B3B"});
-                        }
-                        console.log("OutDate_month: " + OutDate_month);
-                        console.log("OutDate_day: " + OutDate_day);
-                        break;
+                    }
+
                 }
             });
 
