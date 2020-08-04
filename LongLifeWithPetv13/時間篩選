@@ -1,0 +1,29 @@
+<!-- 已結束時間篩選按鈕 -->
+        <ul class="alltimeselect">
+          <li class="ultimeselect">
+            <div class="titletimeselect">時間排序</div>
+            <ul class="ultimeselect">
+              <li class="litimeselect">
+                <label for="timeselectmy1"><input type="radio" name="contact2" id="timeselectmy1">依最近時間</label>
+              </li>
+              <li class="litimeselect">
+                <label for="timeselectmy2"><input type="radio" name="contact2" id="timeselectmy2">依最後時間</label>
+              </li>
+              <li class="litimeselect">
+                <label for="timeselectmy3"><input type="radio" name="contact2" id="timeselectmy3">今日活動</label>
+              </li>
+            </ul>
+          </li>
+          <li class="ultimeselect" style="clear: both;">
+
+            <div class="titletimeselect">類別排序</div>
+            <ul class="ultimeselect">
+              <li class="litimeselect">
+                <label for="timeselectmy3"><input type="radio" name="contact2" id="timeselectmy4">運動類</label>
+              </li>
+              <li class="litimeselect">
+                <label for="timeselectmy5"><input type="radio" name="contact2" id="timeselectmy5">文藝類</label>
+              </li>
+            </ul>
+          </li>
+        </ul>

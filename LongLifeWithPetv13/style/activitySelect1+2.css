@@ -1,0 +1,52 @@
+/* <!-- 活動選擇按鈕  --> */
+.actselectbtn {
+    margin-top: 2%;
+    font-size: 2rem;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    background: #ccc;
+    color: #000;
+    display: inline-block;
+  }
+  .testbtn{
+    margin-left: 3%;
+   
+  }
+  .bar-block {
+    margin-bottom: 20px;
+  }
+  .actselectbtncolor {
+    background: gray !important;
+    color: #fff !important;
+  }
+
+  .actselectbtn2 {
+    margin-top: 2%;
+    font-size: 1.5rem;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    color: gray;
+    display: inline-block;
+  }
+  .actselecttitle2{
+    font-size: 1.5rem;
+    position: absolute;
+    left: 58%;
+    width: auto;
+    margin-top:-1.3rem ;
+    background-color: #e1f1e7;
+  }
+  .bar-block2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 100px;
+    border-top: 3px solid rgb(214, 214, 214);
+    border-bottom: 3px solid rgb(209, 209, 209);
+    
+  }
+
+  .actselectbtncolor2 {
+    color: black !important;
+  }

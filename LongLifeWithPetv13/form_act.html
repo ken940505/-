@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Noto Serif TC', serif ;         
+        }
+        .formclub{height: 450px;}
+        .formclub img{
+            float: left;
+            margin-left: 100px;
+            height: 450px;
+            width: 600px;   
+        }
+         fieldset {
+            width:500px;
+            margin:15px;
+            border:0px solid #acd6ff;
+            border-radius:15px;
+        }
+         legend {
+             color:rgb(0, 0, 0);
+             font-size: 2em;
+             /* text-align:center; */
+             margin-left:40px;
+             font-weight: 700;
+         }
+
+        .st1 {
+            width: 450px;
+            border-bottom: 3px solid #F0F0F0;
+            margin: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sub {
+            width: 450px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .t1 {
+            width: auto;
+            float: left;
+            text-align:center;
+            font-size: 25px;
+        }
+
+        textarea {
+            resize: none;
+        }
+        input{
+            font-size: 20px;
+        }
+        a{
+            color: black;
+            margin-left: 20px;}
+        .notice{
+            font-size: 1.5rem;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="formclub">
+        <img src="images/coffeeclub.jpg" alt="">
+        <form action="#" method="get" enctype="multipart/form-data">
+        <fieldset>
+           <legend>活動申請表單</legend>
+           <div class="st1">
+                <label class="t1" for="account1">申請人姓名:</label>
+                <input type="text" id="account1" name="account" value="" size="10">
+            </div>
+            <div class="st1">
+                <label class="t1" for="account1">活動名稱:</label>
+                <input type="text" id="account1" name="account" value="" size="10">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">活動地址:</label>
+                <input type="text" name="add2" size="30">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">活動日期:</label>
+                <input type="date" name="add2" size="30" min="" id="day">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">活動企劃書:<a download href="images/pic4.jpg">企劃書表格下載</a></label>
+                <input type="file" name="file1">
+            </div> 
+        </fieldset>
+        <div class="notice">
+            <h2>申請須知</h2>
+            <ul>
+                <li>需要兩位保證人</li>
+                <li>請先填寫活動企劃書</li>
+                <li>若申請成功將寄Email給申請人</li>
+            </ul>
+        </div>
+    </div>
+    
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var date_now = new Date();
+            var year = date_now.getFullYear();
+            var month = date_now.getMonth()+1 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);
+            var date = date_now.getDate() < 10 ? "0"+date_now.getDate() : date_now.getDate();
+            var month1 = date_now.getMonth()+2 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);
+            $("#day").attr("min",year+"-"+month+"-"+date);       
+        })
+        
+        </script>
+       
+</body>
+</html>

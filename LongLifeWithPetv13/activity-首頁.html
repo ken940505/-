@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./fontawesome/css/all.css">
+  <link rel="stylesheet" href="./style/activity.css">
+  <link rel="stylesheet" href="./style/act-from.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/date.css">
+  <link rel="stylesheet" href="./style/activitySelect1+2.css">
+  <title>LongLifeWithPet</title>
+
+  <style>
+    body {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .title_a {
+      color: #333;
+    }
+
+    .title_a:hover {
+      text-decoration: none;
+      color: rgb(190, 187, 187);
+    }
+
+    .class_a {
+      color: #333;
+    }
+
+    .class_a:hover {
+      text-decoration: none;
+      color: #666;
+    }
+
+    .list {
+
+      border-radius: 2px;
+      margin-left: 12px;
+      display: inline-block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      border-width: 0 0 1px 0;
+      background-color: rgb(255, 255, 255);
+      box-shadow: black;
+    }
+
+    .date {
+      color: rgb(185, 129, 129);
+      font-size: large;
+    }
+
+    .test {
+      display: flex;
+    }
+
+    .now {
+      font-size: larger;
+      margin: 0 100px;
+      position: relative;
+      height: auto;
+
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 3rem;
+      margin-top: 30px;
+    }
+
+    img {
+      height: auto;
+      min-height: initial;
+      width: 100%;
+    }
+
+    .organizer {
+      /* filter: contrast(.2); */
+      display: block;
+      color: grey;
+      font-weight: 400;
+    }
+
+    .pic {
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .myact {
+      background-image: url(images/actmyback.jpg);
+      margin-top: 80px;
+      width: 400px;
+      height: 800px;
+      /* display: flex; */
+      display: inline-block;
+      font-size: 1.2rem;
+      background-color: rgb(243, 247, 209);
+    }
+
+    .myact img {
+      height: 20px;
+      width: 390px;
+      margin-bottom: 10px;
+    }
+
+    /* .pic img {
+      width: 100%;
+      height: 100%;
+    } */
+
+    .custom-container-width {
+      margin-left: 10%;
+      max-width: 1400px;
+    }
+
+    .btn {
+      margin-left: 5%;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      white-space: nowrap;
+      background-color: #f8e8bc;
+      border-color: #ccd0d5;
+      color: #4b4f56;
+      border: 1px solid;
+      border-radius: 2px;
+      box-sizing: content-box;
+      font-size: 20px;
+      -webkit-font-smoothing: antialiased;
+      font-weight: bold;
+      justify-content: center;
+      padding: 0 8px;
+      position: relative;
+      text-align: center;
+      text-shadow: none;
+      vertical-align: middle;
+      margin-bottom: 5px;
+    }
+
+    button {
+      position: absolute;
+    }
+
+
+    /* <!-- 活動選擇按鈕  --> */
+    .alltimeselect {
+      background-color: rgb(226, 225, 225);
+      height: 500px;
+      width: 250px;
+      float: left;
+    }
+
+    .ultimeselect {
+      float: left;
+      position: relative;
+      list-style: none;
+
+    }
+
+    .litimeselect {
+      font-size: 1.5rem;
+      margin: 20px 20px;
+    }
+
+    .litimeselect:hover {
+      background-color: rgb(219, 219, 219);
+    }
+
+    .litimeselect input {
+      height: 20px;
+      width: 20px;
+    }
+
+    .litimeselect input[type='radio']:checked::after {
+      background-color: black;
+    }
+
+    .titletimeselect {
+      font-size: 1.5rem;
+      color: #333;
+      margin: 10px 30px;
+    }
+
+    /* 購物車 */
+    #class4 {
+      height: 600px;
+
+    }
+
+    .shoppingcart {
+      margin-top: 2%;
+
+    }
+
+    .shoppingcart-table {
+      font-size: 1.5rem;
+      width: 800px;
+      height: 300px;
+      background-color: white;
+    }
+
+    .shoppingcart-tr {
+      border: 1px solid black
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap');
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light navClass navClass-RWD">
+    <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ml-auto">
+        <li class="nav-item mt4">
+          <a class="nav-link fz15 ls025 " href="#">最新消息</a>
+        </li>
+        <li class="nav-item mt4">
+          <a class="nav-link fz15 ls025 " href="#">環境介紹</a>
+        </li>
+        <a class="navbar-brand" href="#"><img src="./images/logo.png" class="logoSize" alt=""></a>
+        <li class="nav-item mt4 dropdown ml3RWD">
+          <a class="nav-link fz15 ls025  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            服務項目
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item fz125 ls025 " href="#">長住服務</a>
+            <a class="dropdown-item fz125 ls025 " href="#">試住體驗</a>
+          </div>
+        </li>
+        <li class="nav-item mt4">
+          <a class="nav-link fz15 ls025" href="#">會員登入</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- 活動選擇按鈕  -->
+  <div class="bar-block">
+    <div class="container">
+      <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
+        onclick="openClass(event, 'class1')">舉辦中</a>
+      <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動</a>
+      <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
+      <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class4')">我的購物車</a>
+      <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class5')">活動申請</a>
+    </div>
+  </div>
+  <!-- 活動內容˙ -->
+  <div id="main" class="none">
+    <div id="title">
+      <div id="ten"></div>
+      <div id="img" title="close">x</div>
+    </div>
+    <div id="content">
+      <!-- 開頭 -->
+      <div class="content">
+
+        <div class="contentphoto">
+          <img src="images/plant.jpg" alt="">
+        </div>
+        <div class="contenttitle">
+          <span class="condate">
+            <span class="datemonth">7月</span>
+            <span class="dateday">23號</span>
+          </span>
+          <div class="cttitle">草頭娃娃製作</div>
+          <div class="cthost">園藝社主辦<button class="btn" style="margin-left: 20%;">參加</button></div>
+          <div class="ctdatetime">7月23號上午9:00~7月23號上午12:00</div>
+          <div class="hosthttp">主辦方網站
+            <a href="http://localhost:8080/plantclub.html">http://localhost:8080/plantclub.html</a></div>
+
+        </div>
+      </div>
+      <!-- 詳情 -->
+      <div class="details">
+        <div class="detailinside">
+          <h4 id="test1">詳情</h4>
+        </div>
+
+      </div>
+      <!-- 參加人員Participants -->
+      <div class="Participants">
+        <div class="Participantsinside">
+          <h4 id="test2">參加人員</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="test">
+    <div class="now">
+
+      <!-- 現在活動   -->
+      <div id="class1" class="container-fluid custom-container-width class">
+        <div class="bar-block2 container-fluid">
+          <div class="actselecttitle2">類別</div>
+          <div class="row justify-content-center">
+            <a href="javascript:void(0)" class="col-2 bar-item2 actselectbtn2 tablink2 testbtn2"
+              onclick="openClass2(event, 'class6')">全部</a>
+            <a href="javascript:void(0)" class="col-2 bar-item2 actselectbtn2 tablink2"
+              onclick="openClass2(event, 'class7')">運動</a>
+            <a href="javascript:void(0)" class="col-2 bar-item2 actselectbtn2 tablink2"
+              onclick="openClass2(event, 'class8')">文藝</a>
+            <a href="javascript:void(0)" class="col-2 actselectbtn2 tablink2"
+              onclick="openClass2(event, 'class9')">寵物</a>
+            <a href="javascript:void(0)" class="col-2 actselectbtn2 tablink2"
+              onclick="openClass2(event, 'class10')">節慶</a>
+          </div>
+        </div>
+        <!-- 現在活動全部   -->
+        <div id="class6" class="container-fluid   class2">
+          <div class="ulflow" style="display: flex;">
+            <div class="card-group row justify-content-between no-gutters">
+              <div class="col-xl-3 col-lg-6 col-sm-12">
+                <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                  <img class="card-img-top pic" src="./images/plant.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">草頭娃娃製作</h5>
+                    <div class="date">2020/07/1</div>
+                    <div>報名時限:2020/06/25 12:00</div>
+                    <span class="organizer">園藝社</span>
+                    <span>剩餘人次:20</span>
+                    <div>$500
+                      <button id="open" class="btn">詳情</button>
+                      <button class="btn">參加</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-sm-12">
+                <div class="card " style="border-color: transparent; margin-right: 20px;">
+                  <img class="card-img-top pic" src="./images/petclub.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">寵物交流</h5>
+                    <div class="date">2020/07/2</div>
+                    <div>報名時限:2020/06/26 12:00</div>
+                    <span class="organizer">寵物社</span>
+                    <span>剩餘人次:30</span>
+                    <div>$200
+                      <button class="btn">詳情</button>
+                      <button class="btn">參加</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-sm-12">
+                <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                  <img class="card-img-top pic" src="./images/petclub.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">草頭娃娃製作</h5>
+                    <div class="date">2020/07/1</div>
+                    <div>報名時限:2020/06/25 12:00</div>
+                    <span class="organizer">園藝社</span>
+                    <span>剩餘人次:20</span>
+                    <div>$500
+                      <button class="btn">詳情</button>
+                      <button class="btn">參加</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-sm-12">
+                <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                  <img class="card-img-top pic" src="./images/petclub.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">草頭娃娃製作</h5>
+                    <div class="date">2020/07/1</div>
+                    <div>報名時限:2020/06/25 12:00</div>
+                    <span class="organizer">園藝社</span>
+                    <span>剩餘人次:20</span>
+                    <div>$500
+                      <button class="btn">詳情</button>
+                      <button class="btn">參加</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 現在活動運動   -->
+        <div id="class7" class="container-fluid class2">
+          <div class="card-group row justify-content-between no-gutters">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- 現在活動文藝   -->
+        <div id="class8" class="container-fluid class2">
+          <div class="card-group row justify-content-between no-gutters">
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- 現在活動寵物   -->
+        <div id="class9" class="container-fluid class2">
+          <div class="card-group row justify-content-between no-gutters">
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/petclub.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">草頭娃娃製作</h5>
+                  <div class="date">2020/07/1</div>
+                  <div>報名時限:2020/06/25 12:00</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社</span>
+                  <span>剩餘人次:20</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- 現在活動節慶   -->
+        <div id="class10" class="container-fluid class2">
+          <div class="card-group row justify-content-between no-gutters">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                <img class="card-img-top" src="./images/act七夕.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">七夕</h5>
+                  <div class="date">2020/08/25</div>
+                  <div>報名時限:2020/08/18 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:200</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+                <img class="card-img-top" src="./images/act中元普度.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">中元普渡</h5>
+                  <div class="date">2020/09/03</div>
+                  <div>報名時限:2020/08/25 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/act中秋節烤肉.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">中秋烤肉</h5>
+                  <div class="date">2020/10/4</div>
+                  <div>報名時限:2020/09/27 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$600
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+                <img class="card-img-top" src="./images/act國慶日.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">國慶升旗典禮</h5>
+                  <div class="date">2020/10/10</div>
+                  <div>報名時限:2020/10/03 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$0
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- 申請中活動-->
+        <div id="class2" class="container-fluid custom-container-width class">
+          <div class="card-group row justify-content-between no-gutters">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;margin-bottom: 30px;">
+                <img class="card-img-top" src="./images/act七夕.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">七夕</h5>
+                  <div class="date">2020/08/25</div>
+                  <div>報名時限:2020/08/18 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:200</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    12:00:00
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+                <img class="card-img-top" src="./images/act中元普度.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">中元普渡</h5>
+                  <div class="date">2020/09/03</div>
+                  <div>報名時限:2020/08/25 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$500
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/act中秋節烤肉.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">中秋烤肉</h5>
+                  <div class="date">2020/10/4</div>
+                  <div>報名時限:2020/09/27 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$600
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12">
+              <div class="card " style="border-color: transparent; margin-right: 20px;">
+
+                <img class="card-img-top" src="./images/act國慶日.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">國慶升旗典禮</h5>
+                  <div class="date">2020/10/10</div>
+                  <div>報名時限:2020/10/03 12:00</div>
+                  <span class="organizer">社區委員會</span>
+                  <span>剩餘人次:100</span>
+                  <div>$0
+                    <button class="btn">詳情</button>
+                    <button class="btn">參加</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              
+        </div>
+      
+        <!-- 我的活動 -->
+        <div id="class3" class="container-fluid class">
+
+          <div style="display: flex;">
+            <ul class="">
+              <li class="list">
+                <div class="line">
+                  <div class="pic">
+                    <img src="images/petclub.jpg" alt="">
+                  </div>
+                  <div class="date">2020/07/16</div>
+                  <span class="">寵物交流</span>
+                  <span class="organizer">寵物社
+                    <button class="btn">詳情</button>
+                    <button class="btn">取消退費???</button>
+                  </span>
+                </div>
+              </li>
+              <li class="list">
+                <div class="line">
+                  <div class="pic">
+                    <img src="images/plant.jpg" alt="">
+                  </div>
+                  <div class="date">2020/07/16</div>
+                  <span class="">草頭娃娃製作</span>
+                  <span class="organizer">園藝社
+                    <button class="btn">詳情</button>
+                    <button class="btn">心得討論</button>
+                  </span>
+                </div>
+              </li>
+            </ul>
+            <div class="con">
+              <div class="month">
+                <p>2020 年 7 月</p>
+                <div class="week-title">
+                  <div class="day-title">星期一</div>
+                  <div class="day-title">星期二</div>
+                  <div class="day-title">星期三</div>
+                  <div class="day-title">星期四</div>
+                  <div class="day-title">星期五</div>
+                  <div class="day-title">星期六</div>
+                  <div class="day-title">星期日</div>
+                </div>
+                <div class="week">
+                  <div class="day-none"></div>
+                  <div class="day-none"></div>
+                  <div class="day">01</div>
+                  <div class="day">02</div>
+                  <div class="day">03</div>
+                  <div class="day">04</div>
+                  <div class="day">05</div>
+                </div>
+                <div class="week">
+                  <div class="day">06</div>
+                  <div class="day">07</div>
+                  <div class="day">08</div>
+                  <div class="day">09</div>
+                  <div class="day">10</div>
+                  <div class="day">11</div>
+                  <div class="day">12</div>
+                </div>
+                <div class="week">
+                  <div class="day">13</div>
+                  <div class="day">14</div>
+                  <div class="day">15</div>
+                  <div class="day">16</div>
+                  <div class="day">17</div>
+                  <div class="day">18</div>
+                  <div class="day">19</div>
+                </div>
+                <div class="week">
+                  <div class="day">20</div>
+                  <div class="day">21</div>
+                  <div class="day">22</div>
+                  <div class="day">23</div>
+                  <div class="day">24</div>
+                  <div class="day">25</div>
+                  <div class="day">26</div>
+                </div>
+                <div class="week">
+                  <div class="day">27</div>
+                  <div class="day">28</div>
+                  <div class="day">29</div>
+                  <div class="day">30</div>
+                  <div class="day">31</div>
+                  <div class="day-none"></div>
+                  <div class="day-none"></div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 我的購物車 -->
+      <div id="class4" class="container class">
+        <div class="shoppingcart">
+          <table class="shoppingcart-table">
+            <tr class="shoppingcart-tr">
+              <th>活動</th>
+              <th>日期</th>
+              <th>價錢</th>
+              <th>取消</th>
+            </tr>
+            <tr class="shoppingcart-tr">
+              <td><img src="images/plant.jpg" alt="" style="height: 200px;width: 200px;">草頭娃娃製作</td>
+              <td>2020/07/15</td>
+              <td>500</td>
+              <td><button class="btn">取消</button></td>
+            </tr>
+            <tr class="shoppingcart-tr">
+              <td> <img src="images/petclub.jpg" alt="" style="height: 200px;width: 200px;">寵物交流</td>
+              <td>2020/07/16</td>
+              <td>200</td>
+              <td><button class="btn">取消</button></td>
+            </tr>
+            <tr class="shoppingcart-tr">
+              <td> </td>
+              <td><button class="btn">清空購物車</button></td>
+              <td><a href="./activity-付費.html"><button class="btn">結帳</button></a></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div style="margin-top: 30px;">
+        </div>
+      </div>
+
+      <!-- 活動申請 -->
+      <div id="class5" class="class container">
+        <div class="formclub ">
+          <form action="#" method="get" enctype="multipart/form-data">
+            <fieldset>
+              <div class="st1">
+                <label class="t1" for="account1">申請人姓名:</label>
+                <input type="text" id="account1" name="account" value="" size="10">
+              </div>
+              <div class="st1">
+                <label class="t1" for="account2">活動名稱:</label>
+                <input type="text" id="account2" name="account" value="" size="10">
+              </div>
+              <div class="st1">
+                <label for="" class="t1">活動地址:</label>
+                <input type="text" name="add2" size="30">
+              </div>
+              <div class="st1">
+                <label for="" class="t1">活動日期:</label>
+                <input type="date" name="add2" size="30" min="" id="day">
+              </div>
+              <div class="st1">
+                <label for="" class="t1">活動企劃書:<a download href="images/pic4.jpg">企劃書表格下載</a></label>
+                <input type="file" name="file1">
+              </div>
+              <div class="sub">
+                <input type="submit" value="送出">
+                <input type="reset" value="清除">
+              </div>
+            </fieldset>
+            <div class="notice">
+              <h2>申請須知</h2>
+              <ul>
+                <li>需要兩位保證人</li>
+                <li>請先填寫活動企劃書</li>
+                <li>若申請成功將寄Email給申請人</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      </ul>
+    </div>
+  
+    <!-- footer -->
+    <footer class="page-footer font-small danger-color">
+
+      <div style="background-color: #f7882f;">
+        <div class="container">
+          <div class="row py-4 d-flex align-items-center">
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h4 class="mb-0">榕沛社區　Long Life With Pet</h4>
+            </div>
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+              </a>
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center text-md-left mt-5">
+        <div class="row mt-3">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold">榕沛社區</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">關於本社區</a>
+            </p>
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">社區大事誌</a>
+            </p>
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">創辦宗旨</a>
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold">了解更多</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">常見問題</a>
+            </p>
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">榕沛故事棧</a>
+            </p>
+            <p class="ft-a">
+              <a href="#" class="footer-a class_a">加入我們</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold class_a">公開資料</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p class="ft-a">
+              <a href="#!" class="footer-info class_a">訂閱電子報</a>
+            </p>
+            <p class="ft-a">
+              <a href="#!" class="footer-info class_a">年度報告</a>
+            </p>
+          </div>
+          <div class="col-md-5 col-lg-5 col-xl-3 mx-auto mb-md-0 mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">聯絡我們</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <i class="fas fa-home mr-3"></i>宜蘭市縣民大道二段700號</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i>longlife@gmail.com</p>
+            <p>
+              <i class="fas fa-phone mr-3"></i>03 932 2214</p>
+            <p>
+              <i class="fas fa-print mr-3"></i>週一至週五 10:00 - 18:00</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#" class="class_a"> longlifewithpet.com</a>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script src="/js/activity.js"></script>
+    <script src="/js/activitySelect.js"></script>
+    <script src="/js/activitySelect2.js"></script>
+    <script src="/js/formdate.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
