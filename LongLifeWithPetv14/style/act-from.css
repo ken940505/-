@@ -1,0 +1,44 @@
+        .formclub{width:800px;height: auto;background-color: white;}
+        
+         fieldset {
+            width:500px;
+            margin:15px;
+            border:0px solid #acd6ff;
+            border-radius:15px;
+           
+        }
+         legend {
+             color:rgb(0, 0, 0);
+             font-size: 2em;
+             margin-left:40px;
+             font-weight: 700;
+         }
+
+        .st1 {
+            width: 450px;
+            border-bottom: 3px solid #F0F0F0;
+            margin: 20px;
+            padding-bottom: 10px;
+        }
+
+        .sub {
+            width: 450px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .t1 {
+            width: auto;
+            text-align:center;
+            font-size: 25px;
+        }
+
+        textarea {
+            resize: none;
+        }
+       
+        .notice{
+            font-size: 1.5rem;
+            margin-left: 100px;
+            
+        }
