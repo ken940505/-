@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            border-radius: 0.25rem;
+            color: #3b3b3b;
+        }
+
+        .title {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .backColor {
+            padding: 3%;
+            background-color:#FFF9DB;
+            margin-top: 5%;
+            margin-right: 35%;
+            margin-left: 35%;
+            margin-bottom: 10%;
+            border-radius: 25px;
+        }
+
+
+        .formFont {
+            letter-spacing: 0.25rem;
+            line-height: 1.5rem;
+        }
+
+        .formDivSet {
+            margin-bottom: -2px;
+            width: 230px;
+        }
+
+
+        .labelSet {
+            /* width: 125px; */
+            height: 30px;
+            line-height: 30px;
+            letter-spacing: 0.25rem;
+        }
+
+        .lavelDivSet {
+            width: 230px;
+        }
+
+        .radioButtonSet {
+            /* margin-left: 235px; */
+            margin-top: -10px;
+        }
+
+
+        .pPadding {
+            color: white;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn-center {
+            text-align: center;
+        }
+
+        .btns {            
+            text-align: center;
+            
+        }
+        .btn1{
+            width: 70%;
+            background-color:white;
+            border: orange solid 2px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .btn1:hover{
+            background-color: orange;
+        }
+        .btn2{
+            width: 70%;
+            background-color:orange;            
+            border-radius: 10px;
+        }
+        .Help:hover{
+            color:	#66B3FF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backColor shadow">
+        <div class="container">
+            <div class="mb-5">
+                <div class="row mb-2">
+                    <div class="d-flex justify-content-center">
+                        <h3 class="title formFont">榕沛社區會員登入</h3>
+                    </div>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top formDivSet w-30">
+                            <div class="labelSet"><label for="inputmail">會員信箱</label></div>
+                        </div>
+                        <input type="text" class="form-control w-70" id="inpumail">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-30">
+                            <div class="labelSet"><label for="inputpassword">會員密碼</label></div>
+                        </div>
+                        <input type="password" class="form-control w-70" id="inputID">
+                    </div>
+                    <hr>
+                    <div class="form-group form-check d-flex justify-content-between w-100">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">記住我</label>
+                        <a class="Help" href="">需要協助?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="btns w-100">
+                <button type="submit" class="btn btn1">登入</button>
+            </div>
+            <div class="btns w-100">
+                <button type="submit" class="btn btn2">註冊</button>
+            </div>
+
+
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+                integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+                integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+                crossorigin="anonymous"></script>
+            <script src="js/glider.min.js"></script>
+            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                crossorigin=""></script>
+</body>
+
+</html>
