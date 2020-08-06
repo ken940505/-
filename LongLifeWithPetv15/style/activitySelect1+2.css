@@ -1,0 +1,114 @@
+/* <!-- 活動選擇按鈕1  --> */
+.actselectbtn {
+    border-radius: 0.5rem;
+    margin-top: 2%;
+    font-size: 2rem;
+    /* height: 50px; */
+    width: 200px;
+    text-align: center;
+    background: #ccc;
+    color: #000;
+    display: inline-block;
+    
+  }
+  
+  .actselectbtn:hover{
+    color: white;
+    background-color: rgb(140, 151, 114);
+    text-decoration:none
+  }
+  .testbtn{
+    margin-left: 3%;
+   
+  }
+  .bar-block {
+    margin-bottom: 20px;
+  }
+  .actselectbtncolor {
+    background: gray !important;
+    color: #fff !important;
+  }
+/* <!-- 活動選擇按鈕2  --> */
+.mh11 {
+  color: rgba(255,255,255,1);
+  transition: all 0.5s;
+  position: relative;
+  }
+  
+  .mh11:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* border: 1px solid rgba(255,255,255,0.5); */
+  transition: all 0.3s;
+  }
+  .mh11:hover:before{
+  opacity: 0;
+  transform: scale(1.2,1.2);
+  }
+  .mh11:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  background-color: rgba(94, 91, 91, 0.25);
+  transition: all 0.3s;
+  transform: scale(0.5,0.5);
+  }
+  .mh11:hover:after{
+  opacity: 1 ;
+  transform: scale(1,1);
+  }
+  .actselect2{
+    float: left;
+  }
+
+  .actselectul2 {
+    list-style-type:none;
+    clear: both;
+    width: 200px; 
+  }
+  .actselectul2 li{
+    height: auto;
+    width: 150px; 
+  }
+  .actselectul2 li:hover{
+    background-color: rgb(225, 226, 224);
+  }
+  .actselectul2 li a{
+    display:inline-block;
+    height: 50px;
+    width: 150px; 
+  }
+  .actselectul2 li a:hover{
+    color: #000;
+    text-decoration:none
+  }
+  .actselectbtn2 {
+    font-size: 1.5rem;
+    color: gray; 
+  }
+  .actselecttitle2{
+    font-size: 1.5rem;
+    margin-bottom: 20%;
+   
+  }
+  .bar-block2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 100px;
+    
+    
+  }
+
+  .actselectbtncolor2 {
+    color: black !important;
+  }
