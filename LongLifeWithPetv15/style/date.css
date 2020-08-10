@@ -1,8 +1,7 @@
 .con {
-    display: flex;
     justify-content: center;
     background-color: white;
-    width: 490px;
+    width:800px;
     height: 550px;
 }
 
