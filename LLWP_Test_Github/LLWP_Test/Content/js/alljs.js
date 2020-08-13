@@ -272,7 +272,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     //設定標題欄
-    document.title = "活動總覽";
     //視窗的拖動
     var bool = false;
     var offsetX = 0;
