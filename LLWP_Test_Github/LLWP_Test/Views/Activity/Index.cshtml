@@ -1,0 +1,1008 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bar-block">
+    <div class="container">
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
+           onclick="openClass(event, 'class1')">舉辦中</a>
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動</a>
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class4')">我的購物車</a>
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class5')">活動申請</a>
+    </div>
+</div>
+<!-- 活動內容˙ -->
+<div id="main" class="none">
+    <div id="title">
+        <div id="ten"></div>
+        <div id="img" title="close">x</div>
+    </div>
+    <div id="content">
+        <!-- 開頭 -->
+        <div class="content">
+
+            <div class="contentphoto">
+                <img src="images/plant.jpg" alt="">
+            </div>
+            <div class="contenttitle">
+                <span class="condate">
+                    <span class="datemonth">7月</span>
+                    <span class="dateday">23號</span>
+                </span>
+                <div class="cttitle">草頭娃娃製作</div>
+                <div class="cthost">園藝社主辦<button class="activity_Index_btn" style="margin-left: 20%;">參加</button></div>
+                <div class="ctdatetime">7月23號上午9:00~7月23號上午12:00</div>
+                <div class="hosthttp">
+                    主辦方網站
+                    <a href="http://localhost:8080/plantclub.html">http://localhost:8080/plantclub.html</a>
+                </div>
+
+            </div>
+        </div>
+        <!-- 詳情 -->
+        <div class="details">
+            <div class="detailinside">
+                <h4 id="test1">詳情</h4>
+            </div>
+
+        </div>
+        <!-- 參加人員Participants -->
+        <div class="Participants">
+            <div class="Participantsinside">
+                <h4 id="test2">參加人員</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="test">
+    <div class="now">
+
+        <!-- 現在活動   -->
+        <div id="class1" class="container-fluid  class">
+            <div class="actselect2">
+                <div class="actselecttitle2">類別</div>
+                <ul class="actselectul2">
+                    <li>
+                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 testbtn2 mh11"
+                           onclick="openClass2(event, 'class6')">文藝<span style="float: right;">8</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mh11"
+                           onclick="openClass2(event, 'class7')">運動<span style="float: right;">8</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mh11"
+                           onclick="openClass2(event, 'class8')">音樂<span style="float: right;">8</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mh11"
+                           onclick="openClass2(event, 'class9')">寵物<span style="float: right;">4</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mh11"
+                           onclick="openClass2(event, 'class10')">節慶<span style="float: right;">4</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 現在活動文藝   -->
+            <div id="class6" class="container-fluid  custom-container-width class2">
+                <div class="ulflow" style="display: flex;">
+                    <div class="card-group row justify-content-between no-gutters">
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A001草頭娃娃製作.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">草頭娃娃製作</h5>
+                                    <div class="date">2020/07/1</div>
+                                    <div>報名時限:2020/06/25 12:00</div>
+                                    <span class="organizer">活動中心小教室</span>
+                                    <span>剩餘人次:20</span>
+                                    <div>
+                                        $200
+                                        <button id="open" class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A002戶外寫生.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">戶外寫生</h5>
+                                    <div class="date">2020-07-08</div>
+                                    <div>報名時限:2020-07-01 12:00</div>
+                                    <span class="organizer">大草皮</span>
+                                    <span>剩餘人次:30</span>
+                                    <div>
+                                        $100
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A003茶藝研究.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">茶藝研究</h5>
+                                    <div class="date">2020-08-05</div>
+                                    <div>報名時限:2020-07-29 12:00</div>
+                                    <span class="organizer">活動中心小教室</span>
+                                    <span>剩餘人次:20</span>
+                                    <div>
+                                        $100
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A004圍棋交流.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">圍棋交流</h5>
+                                    <div class="date">2020-09-16</div>
+                                    <div>報名時限:2020-09-09 12:00</div>
+                                    <span class="organizer">活動中心大教室</span>
+                                    <span>剩餘人次:40</span>
+                                    <div>
+                                        $免費
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A005讀書會.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">讀書會</h5>
+                                    <div class="date">2020-10-21</div>
+                                    <div>報名時限:2020-10-14 12:00</div>
+                                    <span class="organizer">活動中心小教室</span>
+                                    <span>剩餘人次:20</span>
+                                    <div>
+                                        $免費
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A006象棋交流.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">象棋交流</h5>
+                                    <div class="date">2020-11-05</div>
+                                    <div>報名時限:2020-11-12 12:00</div>
+                                    <span class="organizer">活動中心小教室</span>
+                                    <span>剩餘人次:20</span>
+                                    <div>
+                                        $免費
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A007攝影交流.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">攝影交流</h5>
+                                    <div class="date">2020-11-25</div>
+                                    <div>報名時限:2020-11-18 12:00</div>
+                                    <span class="organizer">活動中心大教室</span>
+                                    <span>剩餘人次:40</span>
+                                    <div>
+                                        $100
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-12">
+                            <div class="card cardstyle">
+                                <img class="card-img-top pic" src="~/Content/images/A008圍巾編織.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">圍巾編織</h5>
+                                    <div class="date">2020-12-02</div>
+                                    <div>報名時限:2020-11-25 12:00</div>
+                                    <span class="organizer">活動中心小教室</span>
+                                    <span>剩餘人次:20</span>
+                                    <div>
+                                        $100
+                                        <button class="activity_Index_btn">詳情</button>
+                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 現在活動運動   -->
+            <div id="class7" class="container-fluid custom-container-width class2">
+                <div class="card-group row justify-content-between no-gutters">
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B001有氧舞蹈.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">有氧舞蹈</h5>
+                                <div class="date">2020-07-06</div>
+                                <div>報名時限:2020-06-29 12:00</div>
+                                <span class="organizer">社區委員會</span>
+                                <span>剩餘人次:40</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B002羽球雙打.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">羽球雙打</h5>
+                                <div class="date">2020-07-29</div>
+                                <div>報名時限:2020-07-22 12:00</div>
+                                <span class="organizer">活動中心羽球場</span>
+                                <span>剩餘人次:20</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B003瑜珈.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">瑜珈</h5>
+                                <div class="date">2020-08-15</div>
+                                <div>報名時限:2020-08-08 12:00</div>
+                                <span class="organizer">活動中心韻律室</span>
+                                <span>剩餘人次:40</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B004太極拳.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">太極拳</h5>
+                                <div class="date">2020-09-09</div>
+                                <div>報名時限:2020-09-02 12:00</div>
+                                <span class="organizer">活動中心韻律室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B005飛輪有氧.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">飛輪有氧</h5>
+                                <div class="date">2020-09-12</div>
+                                <div>報名時限:2020-09-05 12:00</div>
+                                <span class="organizer">活動中心飛輪室</span>
+                                <span>剩餘人次:20</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B006桌球雙打.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">桌球雙打</h5>
+                                <div class="date">2020-10-07</div>
+                                <div>報名時限:2020-09-30 12:00</div>
+                                <span class="organizer">活動中心桌球室</span>
+                                <span>剩餘人次:20</span>
+                                <div>
+                                    $150
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B007戶外健行.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">戶外健行</h5>
+                                <div class="date">2020-11-04</div>
+                                <div>報名時限:2020-10-28 12:00</div>
+                                <span class="organizer">活動中心門口</span>
+                                <span>剩餘人次:20</span>
+                                <div>
+                                    $200
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/B008拳擊有氧.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">拳擊有氧</h5>
+                                <div class="date">2020-12-16</div>
+                                <div>報名時限:2020-12-09 12:00</div>
+                                <span class="organizer">活動中心韻律室</span>
+                                <span>剩餘人次:40</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 現在活動音樂   -->
+            <div id="class8" class="container-fluid custom-container-width class2">
+                <div class="card-group row justify-content-between no-gutters">
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C001木吉他入門.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">木吉他入門</h5>
+                                <div class="date">2020-07-01</div>
+                                <div>報名時限:2020-06-24 12:00</div>
+                                <span class="organizer">社區委員會</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $200
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C002古典音樂鑑賞.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">古典音樂鑑賞</h5>
+                                <div class="date">2020-07-22</div>
+                                <div>報名時限:2020-07-15 12:00</div>
+                                <span class="organizer">活動中心音樂室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C003夏夜演唱會.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">夏夜演唱會</h5>
+                                <div class="date">2020-08-19</div>
+                                <div>報名時限:2020-08-12 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:200</span>
+                                <div>
+                                    $500
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C004合唱團教唱.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">合唱團教唱</h5>
+                                <div class="date">2020-09-23</div>
+                                <div>報名時限:2020-09-16 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:50</span>
+                                <div>
+                                    $100
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C005小提琴演奏.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">小提琴演奏</h5>
+                                <div class="date">2020-10-28</div>
+                                <div>報名時限:2020-10-21 12:00</div>
+                                <span class="organizer">活動中心音樂室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $500
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C006流行歌教唱.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">流行歌教唱</h5>
+                                <div class="date">2020-11-04</div>
+                                <div>報名時限:2020-10-28 12:00</div>
+                                <span class="organizer">活動中心音樂室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C007國樂樂器入門.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">國樂樂器入門</h5>
+                                <div class="date">2020-11-11</div>
+                                <div>報名時限:2020-11-04 12:00</div>
+                                <span class="organizer">活動中心音樂室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $200
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/C008貝斯入門.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">貝斯入門</h5>
+                                <div class="date">2020-11-18</div>
+                                <div>報名時限:2020-11-11 12:00</div>
+                                <span class="organizer">活動中心音樂室</span>
+                                <span>剩餘人次:30</span>
+                                <div>
+                                    $200
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 現在活動寵物   -->
+            <div id="class9" class="container-fluid custom-container-width class2">
+                <div class="card-group row justify-content-between no-gutters">
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/D001寵物玩具製作.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">寵物玩具製作</h5>
+                                <div class="date">2020-07-15</div>
+                                <div>報名時限:2020-07-08 12:00</div>
+                                <span class="organizer">社區委員會</span>
+                                <span>剩餘人次:40</span>
+                                <div>
+                                    $300
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/D002寵物交流.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">寵物交流</h5>
+                                <div class="date">2020-08-12</div>
+                                <div>報名時限:2020-08-05 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/D003寵物沙龍照.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">寵物沙容照</h5>
+                                <div class="date">2020-10-14</div>
+                                <div>報名時限:2020-10-07 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:60</span>
+                                <div>
+                                    $300
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/D004寵物健康講座.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">寵物健康講座</h5>
+                                <div class="date">2020/11/25</div>
+                                <div>報名時限:2020/11/18 12:00</div>
+                                <span class="organizer">活動中心講堂</span>
+                                <span>剩餘人次:100</span>
+                                <div>
+                                    $0
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 現在活動節慶   -->
+            <div id="class10" class="container-fluid custom-container-width class2">
+                <div class="card-group row justify-content-between no-gutters">
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E001七夕觀星.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">七夕觀星</h5>
+                                <div class="date">2020/08/25</div>
+                                <div>報名時限:2020/08/18 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E002中元普渡.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">中元普渡</h5>
+                                <div class="date">2020-09-02</div>
+                                <div>報名時限:2020/08/26 12:00</div>
+                                <span class="organizer">活動中心廣場</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E003中秋聯歡.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">中秋烤肉</h5>
+                                <div class="date">2020/10/4</div>
+                                <div>報名時限:2020/09/27 12:00</div>
+                                <span class="organizer">社區委員會</span>
+                                <span>剩餘人次:100</span>
+                                <div>
+                                    $600
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E004國慶升旗典禮.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">國慶升旗典禮</h5>
+                                <div class="date">2020/10/10</div>
+                                <div>報名時限:2020/10/03 12:00</div>
+                                <span class="organizer">社區委員會</span>
+                                <span>剩餘人次:200</span>
+                                <div>
+                                    $0
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E005冬至湯圓夜.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">冬至湯圓夜</h5>
+                                <div class="date">2020-12-21</div>
+                                <div>報名時限:2020-12-14 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E006聖誕晚會.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">聖誕晚會</h5>
+                                <div class="date">2020-12-25</div>
+                                <div>報名時限:2020-12-18 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E007跨年晚會.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">跨年晚會</h5>
+                                <div class="date">2020-12-31</div>
+                                <div>報名時限:2020-12-24 12:00</div>
+                                <span class="organizer">大草皮</span>
+                                <span>剩餘人次:不限</span>
+                                <div>
+                                    $免費
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-12">
+                        <div class="card cardstyle">
+                            <img class="card-img-top pic" src="~/Content/images/E008元旦圍爐.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">元旦圍爐</h5>
+                                <div class="date">2021/1/4</div>
+                                <div>報名時限:2020/12/25 12:00</div>
+                                <span class="organizer">活動中心禮堂</span>
+                                <span>剩餘人次:200</span>
+                                <div>
+                                    $200
+                                    <button class="activity_Index_btn">詳情</button>
+                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 申請中活動-->
+        <div id="class2" class="container-fluid custom-container-width class">
+            <div class="card-group row justify-content-between no-gutters">
+                <div class="col-xl-3 col-lg-6 col-sm-12">
+                    <div class="card cardstyle">
+                        <img class="card-img-top pic" src="~/Content/images/A009書法.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">書法</h5>
+                            <div class="date">2020-10-17</div>
+                            <span class="organizer">活動中心小教室</span>
+                            <span>申請進度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    管委會
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-12">
+                    <div class="card cardstyle">
+                        <img class="card-img-top pic" src="~/Content/images/A010舞台劇賞析.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">舞台劇賞析</h5>
+                            <div class="date">2020-10-24</div>
+                            <span class="organizer">活動中心禮堂</span>
+                            <span>申請進度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    管委會
+                                </div>
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    財委會
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-12">
+                    <div class="card cardstyle">
+                        <img class="card-img-top pic" src="~/Content/images/C009爵士鼓入門.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">爵士鼓入門</h5>
+                            <div class="date">2020/12/9</div>
+                            <span class="organizer">活動中心音樂室</span>
+                            <span>申請進度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    管委會
+                                </div>
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    財委會
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-12">
+                    <div class="card cardstyle">
+                        <img class="card-img-top pic" src="~/Content/images/B009核心雕塑.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">核心雕塑</h5>
+                            <div class="date">2020/12/16</div>
+                            <span class="organizer">活動中心韻律室</span>
+                            <span>申請進度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    管委會
+                                </div>
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40"
+                                     aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                    財委會
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 我的活動 -->
+        <div id="class3" class="container-fluid custom-container-width class">
+            <div class="row no-gutters">
+                <div class="con col-lg-6">
+                    <div class="month">
+                        <p>2020 年 7 月</p>
+                        <div class="week-title">
+                            <div class="day-title">星期一</div>
+                            <div class="day-title">星期二</div>
+                            <div class="day-title">星期三</div>
+                            <div class="day-title">星期四</div>
+                            <div class="day-title">星期五</div>
+                            <div class="day-title">星期六</div>
+                            <div class="day-title">星期日</div>
+                        </div>
+                        <div class="week">
+                            <div class="day-none"></div>
+                            <div class="day-none"></div>
+                            <div class="day">01</div>
+                            <div class="day">02</div>
+                            <div class="day">03</div>
+                            <div class="day">04</div>
+                            <div class="day">05</div>
+                        </div>
+                        <div class="week">
+                            <div class="day">06</div>
+                            <div class="day">07</div>
+                            <div class="day">08</div>
+                            <div class="day">09</div>
+                            <div class="day">10</div>
+                            <div class="day">11</div>
+                            <div class="day">12</div>
+                        </div>
+                        <div class="week">
+                            <div class="day">13</div>
+                            <div class="day">14</div>
+                            <div class="day">15</div>
+                            <div class="day">16</div>
+                            <div class="day">17</div>
+                            <div class="day">18</div>
+                            <div class="day">19</div>
+                        </div>
+                        <div class="week">
+                            <div class="day">20</div>
+                            <div class="day">21</div>
+                            <div class="day">22</div>
+                            <div class="day">23</div>
+                            <div class="day">24</div>
+                            <div class="day">25</div>
+                            <div class="day">26</div>
+                        </div>
+                        <div class="week">
+                            <div class="day">27</div>
+                            <div class="day">28</div>
+                            <div class="day">29</div>
+                            <div class="day">30</div>
+                            <div class="day">31</div>
+                            <div class="day-none"></div>
+                            <div class="day-none"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 " style=" background-color: #ffffff;">
+                    <table class="table table-striped">
+                        <thead class="thead-info">
+                            <tr class="table-warning">
+                                <th scope="col">#</th>
+                                <th scope="col">活動</th>
+                                <th scope="col">時間</th>
+                                <th scope="col">地點</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <th scope="row">A001</th>
+                                <td>草頭娃娃製作</td>
+                                <td>2020/07/1</td>
+                                <td>活動中心小教室</td>
+                                <td><button class="activity_Index_btn">詳情</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">A002</th>
+                                <td>戶外寫生</td>
+                                <td>2020/7/8</td>
+                                <td>大草皮</td>
+                                <td><button class="activity_Index_btn">詳情</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C002</th>
+                                <td>古典音樂鑑賞</td>
+                                <td>2020/7/22</td>
+                                <td>活動中心音樂室</td>
+                                <td><button class="activity_Index_btn">詳情</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 我的購物車 -->
+    <div id="class4" class="container class">
+        <div class="shoppingcart">
+            <table class="shoppingcart-table">
+                <tr class="shoppingcart-tr" style="text-align: center;">
+                    <th>活動名稱</th>
+                    <th>開始日期</th>
+                    <th>活動價格</th>
+                    <th></th>
+                </tr>
+                <tr class="shoppingcart-tr" style="text-align: center;">
+                    <td>
+                        <img src="images/A001草頭娃娃製作.jpg" alt="" style="height: 200px;width: 200px;">
+                        <div>草頭娃娃製作</div>
+                    </td>
+                    <td>2020/07/15</td>
+                    <td>500</td>
+                    <td><button class="activity_Index_btn">取消</button></td>
+                </tr>
+                <tr class="shoppingcart-tr" style="text-align: center;">
+                    <td>
+                        <img src="images/D002寵物交流.jpg" alt="" style="height: 200px;width: 200px;">
+                        <div>寵物交流</div>
+                    </td>
+                    <td>2020/07/16</td>
+                    <td>200</td>
+                    <td><button class="activity_Index_btn">取消</button></td>
+                </tr>
+                <tr class="shoppingcart-tr">
+                    <td colspan="4" style="text-align: center;">
+                        <button class="activity_Index_btn">清空</button><a href="./activity-付費.html"><button class="activity_Index_btn">結帳</button></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top: 30px;">
+
+
+        </div>
+    </div>
+
+    <!-- 活動申請 -->
+    <div id="class5" class="class container">
+        <div class="formclub ">
+            <form action="#" method="get" enctype="multipart/form-data">
+                <fieldset>
+                    <div class="st1">
+                        <label class="t1" for="account1">主辦姓名:</label>
+                        <input type="text" id="account1" name="account" value="" size="30">
+                    </div>
+                    <div class="st1">
+                        <label class="t1" for="email1">電子郵件:</label>
+                        <input type="text" id="email1" name="account" value="" size="30">
+                    </div>
+                    <div class="st1">
+                        <label class="t1" for="account2">活動名稱:</label>
+                        <input type="text" id="account2" name="account" value="" size="30">
+                    </div>
+                    <div class="st1">
+                        <label for="add2" class="t1">活動場所:</label>
+                        <input type="text" id="add2" name="add2" size="30">
+                    </div>
+                    <div class="st1">
+                        <label for="" class="t1">活動日期:</label>
+                        <input type="date" name="add2" size="30" min="" id="day">
+                    </div>
+                    <div class="st1">
+                        <label for="" class="t1">活動企劃書:<a download href="images/pic4.jpg">企劃書表格下載</a></label>
+                        <input type="file" name="file1">
+                    </div>
+                    <div class="sub">
+                        <input type="submit" value="送出" style="font-size: large">
+                        <input type="reset" value="清除" style="font-size: large">
+                    </div>
+                </fieldset>
+                <div class="notice">
+                    <h2>申請須知</h2>
+                    <ul>
+                        <li>需要兩位保證人</li>
+                        <li>請附上活動企劃書</li>
+                        <li>申請結果將以電子郵件告知</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+    </ul>
+</div>
+
