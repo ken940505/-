@@ -19,14 +19,134 @@
     <link rel="stylesheet" href="~/Content/css/allcss.css">
 </head>
 <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light navClass navClass-RWD">
+        <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025 " href="#">最新消息</a>
+                </li>
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025 " href="#">環境介紹</a>
+                </li>
+                <a class="navbar-brand" href="#"><img src="~/Content/images/logo.png" class="logoSize" alt=""></a>
+                <li class="nav-item mt4 dropdown ml3RWD">
+                    <a class="nav-link fz15 ls025  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        服務項目
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item fz125 ls025 " href="#">長住服務</a>
+                        <a class="dropdown-item fz125 ls025 " href="./tryStep1.html">試住體驗</a>
+                    </div>
+                </li>
+                <li class="nav-item mt4">
+                    <a class="nav-link fz15 ls025" href="#">會員登入</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
     <div class="body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="page-footer font-medium danger-color">
+
+            <div class="bgc4">
+                <div class="container">
+                    <div class="row py-4 d-flex align-items-center">
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h3 class="mb-0 f-rwd fz2 fz15RWD">榕沛社區&nbsp;&nbsp;&nbsp;&nbsp;Long Life With Pet</h3>
+                        </div>
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f white-text mr-4 fz125"> </i>
+                            </a>
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter white-text mr-4"> </i>
+                            </a>
+                            <a class="gplus-ic">
+                                <i class="fab fa-google-plus-g white-text mr-4 fz125"> </i>
+                            </a>
+                            <a class="li-ic">
+                                <i class="fab fa-linkedin-in white-text mr-4 fz125"> </i>
+                            </a>
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram white-text mr-4 fz125"> </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center text-md-left mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h5 class="text-uppercase font-weight-bold">榕沛社區</h5>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">關於本社區</a>
+                        </p>
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">社區大事誌</a>
+                        </p>
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">創辦宗旨</a>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h5 class="text-uppercase font-weight-bold">了解更多</h5>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">常見問題</a>
+                        </p>
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">榕沛故事棧</a>
+                        </p>
+                        <p class="ft-a">
+                            <a href="#" class="footer-a class_a">加入我們</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h5 class="text-uppercase font-weight-bold class_a">公開資料</h5>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+                        <p class="ft-a">
+                            <a href="#!" class="footer-info class_a">訂閱電子報</a>
+                        </p>
+                        <p class="ft-a">
+                            <a href="#!" class="footer-info class_a">年度報告</a>
+                        </p>
+                    </div>
+                    <div class="col-md-5 col-lg-5 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                        <!-- Links -->
+                        <h5 class="text-uppercase font-weight-bold">聯絡我們</h5>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
+                        <p>
+                            <i class="fas fa-home mr-3"></i>宜蘭市縣民大道二段700號
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i>longlife@gmail.com
+                        </p>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i>03 932 2214
+                        </p>
+                        <p>
+                            <i class="fas fa-print mr-3"></i>週一至週五 10:00 - 18:00
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3">
+                © 2020 Copyright:
+                <a href="#" class="class_a"> longlifewithpet.com</a>
+            </div>
         </footer>
     </div>
 
