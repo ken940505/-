@@ -1,0 +1,323 @@
+﻿
+@{
+    ViewBag.Title = "plantclub";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin-left: 5%;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        body {
+            background-color: rgb(238, 250, 226);
+            font-family: 'Noto Serif TC', serif;
+            color: brown;
+        }
+
+        article p {
+            width: 70%;
+            height: 50%;
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 2;
+            font-size: 1.1rem;
+            color: rgb(167, 34, 34);
+        }
+
+        article img {
+            position: relative;
+            width: 65%;
+            height: 35%;
+            max-height: 450px;
+            max-width: 700px;
+            float: left;
+            margin-right: 20px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .announcement {
+            display: inline-block;
+            height: 420px;
+            width: 350px;
+            margin-top: 30px;
+        }
+
+            .announcement div {
+                margin-left: 5%;
+                margin-top: 5%;
+                color: rgb(138, 70, 6);
+            }
+
+            .announcement img {
+                width: 340px;
+            }
+
+            .announcement h4 img {
+                width: auto;
+            }
+
+        .ulist {
+            width: 50%;
+            float: left;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        .list {
+            width: 40%;
+            list-style: none;
+            display: inline-table;
+            /* margin-left: 15px; */
+            /* margin-top: 10px; */
+        }
+
+        .userlist {
+            width: 40%;
+            list-style: none;
+            display: inline-block;
+        }
+
+        .list a img {
+            width: 350px;
+            height: 280px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .list a {
+            color: rgb(138, 70, 6);
+        }
+
+        .photo {
+            clear: both;
+            margin: 20px 0 5 40px;
+            width: 75%;
+        }
+
+        .photoimg img {
+            height: 200px;
+            width: 200px;
+            margin-top: 10px;
+            margin-left: 35px;
+            transition: all 0.6s;
+            border-radius: 2px;
+        }
+
+        .photoimg a {
+            color: rgb(138, 70, 6);
+            margin-left: 88%;
+        }
+
+        .user {
+            width: 75%;
+        }
+
+            .user div {
+                line-height: 2;
+            }
+
+            .user ul li {
+                width: 350px;
+                margin-left: 20px;
+                margin-right: 30px;
+            }
+
+                .user ul li figure img {
+                    width: 350px;
+                    height: 300px;
+                }
+
+        .userlist img {
+            width: 350px;
+        }
+
+        h4 {
+            border-bottom: 1.3px solid rgb(102, 192, 75);
+            width: 95%;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+            h4 img {
+                margin-left: 7px;
+            }
+
+        .backclub {
+            margin-left: 35%;
+            margin-bottom: 40px;
+        }
+
+            .backclub a {
+                color: black;
+                font-size: 1.5rem;
+            }
+    </style>
+    <script>
+        document.createElement("article");
+        document.createElement("figure");
+        document.createElement("figcaption");
+    </script>
+</head>
+
+<body>
+    <article>
+        <h2><img src="~/Content/images/logo.jfif" alt="" style="width: 50px;height: auto;">園藝社</h2>
+        <img src="~/Content/images/plantclub.jpg" alt="">
+        <p>
+            園藝社，這是個什麼樣的社團？初進的人可能發現怎麼裏面的人
+            都很靦腆、樸拙，久了便發現其實每個社員
+            都很活潑、熱情。我們設計一系列課程，戶外活動如參觀
+            苗圃、農改場、花店、公園植物巡禮、菜集、果攤等。
+        </p>
+
+        <p>
+            社上有個小苗圃、種花、草，是社員解憂散心的去處，
+            常可看見大男生、大女生呆在植物前出神，蠻有趣的
+            。園藝社就是這麼一個地方，來到這裏，我們希望每個人都能挖
+            到自己需要的寶藏，曾經失去的或從來就沒有的。伴你成長。歡迎你們！
+        </p>
+
+    </article>
+
+    <div class="">
+        <ul class="ulist">
+            <h4>
+                近期活動<img src="~/Content/images/figure-7.gif" alt="">
+            </h4>
+            <li class="list ">
+                <a href="">
+                    <img src="~/Content/images/A001草頭娃娃製作.jpg" alt="">
+                    <span>2020/07/23</span>
+                    <span>草頭娃娃製作</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="">
+                    <img src="~/Content/images/plant2.jpg" alt="">
+                    <span>2020/07/28</span>
+                    <span>多肉植物組盆 </span>
+                </a>
+            </li>
+        </ul>
+        <div class="announcement">
+            <h4>
+                公告<img src="~/Content/images/figure-7.gif" alt="">
+            </h4>
+            <div>2020/07/21 社辦暫停開放一天</div>
+            <img src="~/Content/images/line-118.gif" alt="">
+            <div>2020/07/22 社辦整天開放</div>
+            <img src="~/Content/images/line-118.gif" alt="">
+            <div>2020/07/23 社辦舉辦草頭娃娃製作活動</div>
+            <img src="~/Content/images/line-118.gif" alt="">
+
+        </div>
+
+    </div>
+    <div class="photo">
+        <h4>
+            活動照片<img src="~/Content/images/figure-7.gif" alt="">
+        </h4>
+        <div class="photoimg">
+            <img src="~/Content/images/oldplant2.jfif" alt="">
+            <img src="~/Content/images/oldplant1.jfif" alt="">
+            <img src="~/Content/images/oldplant2.jfif" alt="">
+            <img src="~/Content/images/oldplant1.jfif" alt="">
+            <img src="~/Content/images/oldplant2.jfif" alt="">
+            <a href="">看更多...</a>
+
+        </div>
+    </div>
+
+    <div class="user">
+        <h4>
+            社員心得分享<img src="~/Content/images/figure-7.gif" alt="">
+        </h4>
+        <ul class="">
+            <li class="userlist">
+                <img src="~/Content/images/line60013.gif" alt="">
+                <figure>
+                    <img src="~/Content/images/plant2.jpg" alt="">
+                    <figcaption>活動:多肉植物組盆&nbsp&nbsp&nbsp&nbsp吳曉明</figcaption>
+                </figure>
+                <div>
+                    若能將學到的技術再融合各人生活或工作中的經驗
+                    其實真的可以有更多的創意及發想現在生活壓力繁重
+                    許多人或許找不到抒壓的管道
+                    為求便利
+                    大多求助於用藥
+                    但日積月累
+                    對身體 經濟都會造成一定程度的負擔
+                    園藝治療不失為一項可以參考的方式
+                    未來自己會朝這方面來學習
+                    以及協助有需要的人們
+                    來認識園藝治療
+                </div>
+                <img src="~/Content/images/line60013.gif" alt="">
+            </li>
+            <li class="userlist">
+                <img src="~/Content/images/line60013.gif" alt="">
+                <figure>
+                    <img src="~/Content/images/A001草頭娃娃製作.jpg" alt="">
+                    <figcaption>活動:草頭娃娃製作&nbsp&nbsp&nbsp&nbsp陳大名</figcaption>
+
+                </figure>
+                <div>
+                    若能將學到的技術再融合各人生活或工作中的經驗
+                    其實真的可以有更多的創意及發想現在生活壓力繁重
+                    許多人或許找不到抒壓的管道
+                    為求便利
+                    大多求助於用藥
+                    但日積月累
+                    對身體 經濟都會造成一定程度的負擔
+                    園藝治療不失為一項可以參考的方式
+                    未來自己會朝這方面來學習
+                    以及協助有需要的人們
+                    來認識園藝治療
+                </div>
+                <img src="~/Content/images/line60013.gif" alt="">
+            </li>
+            <li class="userlist">
+                <img src="~/Content/images/line60013.gif" alt="">
+                <figure>
+                    <img src="~/Content/images/plant2.jpg" alt="">
+                    <figcaption>活動:多肉植物組盆&nbsp&nbsp&nbsp&nbsp吳曉明</figcaption>
+
+                </figure>
+                <div>
+                    若能將學到的技術再融合各人生活或工作中的經驗
+                    其實真的可以有更多的創意及發想現在生活壓力繁重
+                    許多人或許找不到抒壓的管道
+                    為求便利
+                    大多求助於用藥
+                    但日積月累
+                    對身體 經濟都會造成一定程度的負擔
+                    園藝治療不失為一項可以參考的方式
+                    未來自己會朝這方面來學習
+                    以及協助有需要的人們
+                    來認識園藝治療
+                </div>
+                <img src="~/Content/images/line60013.gif" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="backclub"><a href="/Activity/club">返回社團總覽</a></div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

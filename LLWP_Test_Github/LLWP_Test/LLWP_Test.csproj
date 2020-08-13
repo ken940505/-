@@ -2091,6 +2091,7 @@
     <Content Include="Views\Activity\Index.cshtml" />
     <Content Include="Views\Activity\Inside.cshtml" />
     <Content Include="Views\Activity\club.cshtml" />
+    <Content Include="Views\Activity\plantclub.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -285,7 +285,7 @@ $(document).ready(function () {
     })
         .mouseup(function () {
             bool = false;
-        })
+        });
     $(document).mousemove(function (e) {
         if (!bool)
             return;
@@ -300,7 +300,7 @@ $(document).ready(function () {
         $("#main").addClass("none");
         // $("#open").addClass("show");
     });
-    $("#open").click(function () {
+    $(".open").click(function () {
         $("#main").removeClass("none");
         $("#main").addClass("show");
     });

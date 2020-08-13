@@ -23,5 +23,10 @@ namespace LLWP_Test.Controllers
         {
             return View();
         }
+        public ActionResult plantclub()
+        {
+            return View();
+        }
+
     }
 }
