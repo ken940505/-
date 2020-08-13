@@ -269,7 +269,7 @@ $(document).ready(function () {
         }
     })
 })
-
+//活動
 $(document).ready(function () {
     //設定標題欄
     //視窗的拖動
@@ -284,7 +284,7 @@ $(document).ready(function () {
     })
         .mouseup(function () {
             bool = false;
-        })
+        });
     $(document).mousemove(function (e) {
         if (!bool)
             return;
@@ -299,7 +299,7 @@ $(document).ready(function () {
         $("#main").addClass("none");
         // $("#open").addClass("show");
     });
-    $("#open").click(function () {
+    $(".open").click(function () {
         $("#main").removeClass("none");
         $("#main").addClass("show");
     });
@@ -338,10 +338,9 @@ function openClass2(evt, className) {
     evt.currentTarget.classList.add("actselectbtncolor2");
     
 }
-var mybtn = document.getElementsByClassName("testbtn2")[0];
-    mybtn.click();
-//var mybtn = document.getElementsByClassName("testbtn2")[0];
-//mybtn.click();
+var mybtn2 = document.getElementsByClassName("testbtn2")[0];
+    mybtn2.click();
+
 
 $(function () {
     var date_now = new Date();
