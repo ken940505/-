@@ -318,8 +318,10 @@ function openClass(evt, className) {
     }
     document.getElementById(className).style.display = "block";
     evt.currentTarget.classList.add("actselectbtncolor");
+    
 }
-
+var mybtn = document.getElementsByClassName("testbtn")[0];
+    mybtn.click();
 //var mybtn = document.getElementsByClassName("testbtn")[0];
 //mybtn.click();
 
@@ -335,8 +337,10 @@ function openClass2(evt, className) {
     }
     document.getElementById(className).style.display = "block";
     evt.currentTarget.classList.add("actselectbtncolor2");
+    
 }
-
+var mybtn = document.getElementsByClassName("testbtn2")[0];
+    mybtn.click();
 //var mybtn = document.getElementsByClassName("testbtn2")[0];
 //mybtn.click();
 
