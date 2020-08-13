@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Access";
+    Layout = "~/Views/Shared/_Layout_access.cshtml";
+}
+
+    <div class="access_container container">
+        <div class="title">
+            <h2 class="titleBigFont">榕沛社區</h2>
+            <div class="titleDivPicFlex">
+                <div class="titleDivPic"></div>
+            </div>
+            <h3 class="titleh3Font">由國道三號（二高）通霄交流道144-145km下，往通霄市區方向接台1線左轉，<br>過通霄隧道後左轉接縣道121，前行10公里即可抵達飛牛牧場。</h3>
+            <div style="display: flex; justify-content: center;">
+                <div class="topInfoDiv1">
+                    <i class="access_i fas fa-map-marker-alt fa-2x topIconMargin1"></i>
+                    <p class="topInfoFont">宜蘭縣宜蘭市陽明路132巷</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; ">
+                <div class="topInfoDiv2">
+                    <i class="access_i fas fa-phone-alt fa-2x topIconMargin2"></i>
+                    <p class="topInfoFont">02-12345678</p>
+                </div>
+            </div>
+        </div>
+        <div class="titleBorder divmargin">
+            <a href="#access">
+                <div class="divFlex">
+                    <i class="access_i fas fa-arrow-circle-down"></i>
+                    <p class="FontMargin">前往交通方式</p>
+                </div>
+            </a>
+            <a href="#around">
+                <div class="divFlex">
+                    <i class="access_i fas fa-arrow-circle-down"></i>
+                    <p class="FontMargin">前往周邊資訊</p>
+                </div>
+            </a>
+        </div>
+        <div class="divmargin">
+            <div class="shadow" id="mainMap"></div>
+        </div>
+        <div id="access" class="access_bigTitle">
+            交通方式
+        </div>
+        <div class="accessDiv">
+            <div class="accessDetailDiv">
+                <div class="mb-5 d-flex justify-content-center">
+                    <a id="colla1" src="#" data-toggle="collapse" data-target="#access1">
+                        <div class="access_accessDetailTitleDiv">
+                            <div class="access_accessDetailTitleFont">
+                                <p>搭乘方式 - 火車</p>
+                                <img id="icon1" src="~/Content/images/accordion_icn_open.png" width="25px">
+                            </div>
+                        </div>
+                        <div id="access1" class="collapse in">
+                            <div class="access_accessDetailContentDiv">
+                                <p>搭乘台灣鐵路(海線)至通霄車站下車</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>轉搭公車或轉搭計程車入園</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>計程車車程15分鐘</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>抵達榕沛社區</p>
+                                <p>※車費參考價約NT$270~300</p>
+                                <p>※離園前可至服務中心代叫計程車</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="mb-5 d-flex justify-content-center">
+                    <a id="colla1" src="#" data-toggle="collapse" data-target="#access2">
+                        <div class="access_accessDetailTitleDiv">
+                            <div class="access_accessDetailTitleFont">
+                                <p>搭乘方式 - 公車</p>
+                                <img id="icon2" src="~/Content/images/accordion_icn_open.png" width="25px">
+                            </div>
+                        </div>
+                        <div id="access2" class="collapse in">
+                            <div class="access_accessDetailContentDiv">
+                                <p>出火車站後前行至【和平路】路口</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>搭乘“苗栗客運”往【福興站或大坑尾站】</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>於【崎下站】下車</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>往榕沛社區方向步行2公里</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>抵達榕沛社區</p>
+                                <p>※車票參考價約NT$35。</p>
+                                <p>※溫馨提示：苗栗客運-通霄站參考時刻表06:00、07:35、08:40、10:00、11:35、15:00及18:00共7班</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-5 accessDetailDiv">
+                <div class="mb-5 d-flex justify-content-center">
+                    <a id="colla1" src="#" data-toggle="collapse" data-target="#access3">
+                        <div class="access_accessDetailTitleDiv">
+                            <div class="access_accessDetailTitleFont">
+                                <p>搭乘方式 - 自行開車</p>
+                                <img id="icon3" src="~/Content/images/accordion_icn_open.png" width="25px">
+                            </div>
+                        </div>
+                        <div id="access3" class="collapse in">
+                            <div class="access_accessDetailContentDiv">
+                                <p>由國道三號（二高）通霄交流道144-145km下</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>往通霄市區方向接台1線左轉</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>過通霄隧道後左轉接縣道121</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>前行10公里</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>抵達榕沛社區</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="mb-5 d-flex justify-content-center">
+                    <a id="colla1" src="#" data-toggle="collapse" data-target="#access4">
+                        <div class="access_accessDetailTitleDiv">
+                            <div class="access_accessDetailTitleFont">
+                                <p>搭乘方式 - 高鐵</p>
+                                <img id="icon4" src="~/Content/images/accordion_icn_open.png" width="25px">
+                            </div>
+                        </div>
+                        <div id="access4" class="collapse in">
+                            <div class="access_accessDetailContentDiv">
+                                <p>搭高鐵到【高鐵苗栗站】後</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>轉搭計程車入園</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>車程時間約40分鐘</p>
+                                <i class="fas fa-arrow-down accessDetailContentIcon"></i>
+                                <p>抵達榕沛社區</p>
+                                <p>※車費參考價約NT$700~800</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="around" class="access_bigTitle">
+            周遭環境情報
+        </div>
+        <div id="box">
+            <ul id="box_ul">
+                <li id="btn1" class="selected access_li">餐廳</li>
+                <li id="btn2" class="access_li">購物商場</li>
+                <li id="btn3" class="access_li">便利商店</li>
+                <li id="btn4" class="access_li">寵物相關用品店</li>
+                <li id="btn5" class="access_li">老人相關用品店</li>
+                <li id="btn6" class="access_li">觀光景點</li>
+            </ul>
+        </div>
+        <div style="height: 150px;"></div>
+        <div class="shadow" id="subMap" style="clear:both;"></div>
+        <div style="height: 50px;"></div>
+    </div>
+
+
+

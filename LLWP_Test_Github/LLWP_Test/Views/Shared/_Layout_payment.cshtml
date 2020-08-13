@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="~/Content/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/glider.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/allcss.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navClass-act">
+        <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <a class="navbar-brand-step3" href="./index.html"><img src="~/Content/images/logo.png" class="logoSize-step3" alt=""></a>
+                <li class="nav-item">
+                    <a class="nav-link fz15 ls025 nav-reser" style="width: 240px;">試住體驗預約系統</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer class="page-footer font-medium danger-color">
+
+            <div class="bgc4">
+                <div class="container">
+                    <div class="row py-2 d-flex align-items-center">
+                        <p class="fz125 mt1 mb1 mr-auto ml-auto">榕沛社區 © 2020 Copyright:longlifewithpet.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script type="text/javascript" src="~/Content/js/glider.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/alljs.js" charset="big5"></script>
+    <script type="text/javascript" src="~/Content/js/sweetalert.js"></script>
+</body>
+</html>

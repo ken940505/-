@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row topTitleDiv d-flex align-items-end">
+        <img src="~/Content/images/contact.svg">
+        <p class="topTitleh2">聯絡我們</p>
+    </div>
+</div>
+<div class="container">
+    <div class=" backColor shadow ml-5 mr-5 d-flex justify-content-center">
+        <div>
+            <div class="row mb-5 pl-5">
+                <div class="contact_containerFont mb-5">
+                    <p class="formFont">
+                        榕沛社區非常感謝您的蒞臨!!<br>
+                        榕沛社區一直以提供專業及親切的服務為信念，期許能為每一位賓客提供最盡善盡美的服務品質，<br>
+                        對於每一次的意見及建議，將是本社區提供專業服務的最佳能量，我們會持續朝著營造高品質服務目標努力。<br>
+                        歡迎您在這次旅程中有美好的渡假心得或更棒的建議，寫下來分享給我們!!<br>
+                        我們以追求客戶滿意為目標，重視所有的顧客意見，歡迎您寫下個人意見供社區參考，亦請留下姓名及聯絡方式，方便我們提供您更貼心的服務。<br>
+                        謹代表本社區全體同仁致上最真摯之感謝!!<br>
+                        更期待與您在相見!!
+                    </p>
+                </div>
+                <div class="w-75 mb-2">
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputName">姓名</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputName">
+                    </div>
+                    <div class="radioButtonSet">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                   class="custom-control-input" checked>
+                            <label class="custom-control-label" for="customRadioInline1">先生</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                   class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">女士</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputPhone">連絡電話</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputPhone">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputCellPhone">行動電話</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputCellPhone">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputEmail">電子信箱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputEmail">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputEmail">電子信箱(確認)</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputEmail">
+                    </div>
+                    <hr class="mb-5">
+                    <p style="color: #FF604A;">※若您為公司法人單位，請填寫公司名稱與部門名稱，感謝您。</p>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputCompanyName">公司名稱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputCompanyName">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputDepartment">部門名稱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputDepartment">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="reactiontextarea">意見反應</label></div>
+                        </div>
+                        <textarea class="form-control  mb-2 " id="reactiontextarea" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="w-100 h-100 d-flex justify-content-center align-items-center mb-5">
+                    <a href="#">
+                        <div class="submitButton d-flex justify-content-center align-items-center mb-5">
+                            <p class="contact_pPadding">送出資訊</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

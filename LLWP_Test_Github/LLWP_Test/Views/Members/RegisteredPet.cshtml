@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "RegisteredPet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="backColor shadow">
+    <div class="container">
+        <div class=" mb-5">
+            <div class="row mb-2">
+                <div class="">
+                    <h3 class="title formFont">註冊</h3>
+                    <h5 class="title formFont">入住寵物資料</h5>
+                </div>
+                <div class="form-group w-100 d-flex">
+                    <div class="d-flex align-items-top formDivSet w-25">
+                        <div class="labelSet"><label for="inpetName">品種</label></div>
+                    </div>
+                    <input type="text" class="form-control w-75" id="inpetName">
+                </div>
+                <hr>
+                <div class="form-group w-100 d-flex">
+                    <div class="labelSet w-25"><label for="inputGender">性別</label></div>
+                    <div class="w-75 d-flex ">
+                        <select class="col-sm-4" name="Gender">
+                            <option value="">選擇</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group d-flex w-100">
+                    <div class="formDivSet w-25">
+                        <div class="labelSet"><label for="inputID">體重</label></div>
+                    </div>
+                    <input type="text" class="form-control w-75" id="inpetWeight">
+                </div>
+                <hr>
+                <hr class="mb-5">
+                <div class="form-group w-100 d-flex">
+                    <div class="labelSet w-25"><label for="inputBirthday">出生日期</label></div>
+                    <div class="w-75 d-flex ">
+                        <select class="col-sm-4" name="birth_year">
+                            <option value="">年</option>
+                            <option value="20">2020</option>
+                            <option value="21">2021</option>
+                            <option value="22">2022</option>
+                            <option value="23">2023</option>
+                            <option value="24">2024</option>
+                            <option value="25">2025</option>
+                            <option value="26">2026</option>
+                            <option value="27">2027</option>
+                            <option value="28">2028</option>
+                        </select>
+                        <select class="col-sm-3" name="birth_month" id="birth_month">
+                            <option>月</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select class="col-sm-3" name="birth_day" id="birth_day">
+                            <option>日</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group d-flex w-100">
+                    <div class="formDivSet w-25">
+                        <div class="labelSet"><label for="">晶片號碼</label></div>
+                    </div>
+                    <input type="text" class="form-control w-75" id="petNumber">
+                </div>
+                <hr>
+                <div class="form-group w-100 d-flex">
+                    <div class="labelSet w-25"><label for="inputFix">絕育</label></div>
+                    <div class="w-75 d-flex ">
+                        <select class="col-sm-4" name="fix">
+                            <option value="">是否絕育</option>
+                            <option value="20">是</option>
+                            <option value="21">否</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group w-100 d-flex">
+                    <div class="labelSet w-25"><label for="inputvaccine">施打疫苗</label></div>
+                    <div class="w-75 d-flex ">
+                        <select class="col-sm-4" name="vaccine">
+                            <option value="">是否施打</option>
+                            <option value="20">是</option>
+                            <option value="21">否</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group d-flex w-100">
+                    <div class="formDivSet w-25">
+                        <div class="labelSet">
+                            <label class="" for="customFile">個人照片</label>
+                        </div>
+                    </div>
+                    <input type="file" class=" w-75" id="customFile">
+                </div>
+                <hr>
+                <div class="submit1 w-100">
+
+                    <button type="button" class="btn btn btn-dark w-50">完成</button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+    </div>
+</div>
