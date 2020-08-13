@@ -269,7 +269,7 @@ $(document).ready(function () {
         }
     })
 })
-
+//活動
 $(document).ready(function () {
     //設定標題欄
     document.title = "活動總覽";
@@ -339,10 +339,9 @@ function openClass2(evt, className) {
     evt.currentTarget.classList.add("actselectbtncolor2");
     
 }
-var mybtn = document.getElementsByClassName("testbtn2")[0];
-    mybtn.click();
-//var mybtn = document.getElementsByClassName("testbtn2")[0];
-//mybtn.click();
+var mybtn2 = document.getElementsByClassName("testbtn2")[0];
+    mybtn2.click();
+
 
 $(function () {
     var date_now = new Date();
