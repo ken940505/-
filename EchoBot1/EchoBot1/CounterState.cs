@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EchoBot1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,5 +11,7 @@ namespace EchoBot1
         public int TurnCount { get; set; } = 0;
 
         public string CurrentConversationFlow { get; set; } = "askName";
+
+        public RoomReservation RoomReservation { get; set; } = new RoomReservation();
     }
 }
