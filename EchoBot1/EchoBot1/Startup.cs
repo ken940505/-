@@ -74,7 +74,8 @@ namespace EchoBot1
                 var accessors = new EchoBotAccessors(conversationState, userState)
                 {
                     CounterState = conversationState.CreateProperty<CounterState>(EchoBotAccessors.CounterStateName),
-                    UserInfo = userState.CreateProperty<UserInfo>(EchoBotAccessors.UserInfoName)
+                    UserInfo = userState.CreateProperty<UserInfo>(EchoBotAccessors.UserInfoName),
+                    DialogState = conversationState.CreateProperty<DialogState>(EchoBotAccessors.DialogStateName)
                 };
 
                 return accessors;
