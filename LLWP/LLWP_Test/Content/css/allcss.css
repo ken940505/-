@@ -1119,12 +1119,12 @@ a {
     font-size: 1.75rem;
 }
 
-.modal-dialog {
+.booking-modal-dialog {
     overflow-y: initial !important
     /* y方向的捲軸 */
 }
 
-.modal-body {
+.booking-modal-body {
     height: 70vh;
     overflow-y: auto;
     /* y方向的捲軸 */
