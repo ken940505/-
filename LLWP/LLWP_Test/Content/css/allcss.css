@@ -318,7 +318,7 @@ body {
 }
 
 .topInfoDiv1 {
-    width: 370px;
+    width: 450px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -2258,16 +2258,17 @@ textarea {
     border-radius: 0.25rem;
     margin-top: 2%;
     font-size: 2rem;
-    height: 50px;
+    /* height: 50px; */
     width: 200px;
     text-align: center;
-    background: #f0ad4e;
+    background: #ccc;
     color: #000;
     display: inline-block;
 }
 
     .actselectbtn:hover {
-        background-color: #d69539;
+        color: white;
+        background-color: rgb(140, 151, 114);
         text-decoration: none
     }
 
@@ -2436,9 +2437,9 @@ textarea {
 
 .day-title {
     box-sizing: border-box;
-    margin: -4px 2px;
+    margin: 2px;
     width: 70px;
-    height: 30px;
+    height: 20px;
     text-align: center;
 }
 
@@ -2502,7 +2503,7 @@ textarea {
 
     .day-title {
         box-sizing: border-box;
-        margin: 6px 2px;
+        margin: 2px;
         width: 38px;
         height: 20px;
         text-align: center;
@@ -2535,47 +2536,143 @@ textarea {
     }
 }
 
-
-/* 購物車 */
-#class4 {
-    height: 600px;
-    margin-top:50px;
-    margin-bottom:100px;
-}
-
-.shoppingcart {
-    margin-top: 2%;
-}
-
-.shoppingcart-table {
-    font-size: 1.5rem;
-    width: 800px;
-    height: 300px;
+.con {
+    justify-content: center;
     background-color: white;
+    width: 800px;
+    height: 550px;
 }
 
-.shoppingcart-tr {
-    border: 1px solid black
+.month {
+    width: 490px;
+    height: 550px;
+    margin: 20px 50px 10px 50px;
 }
 
-.title_a {
-    color: #333;
-}
-
-    .title_a:hover {
-        text-decoration: none;
-        color: #666;
+    .month p {
+        margin: 10px 10px;
+        font-size: 20px;
+        text-align: center;
     }
 
-.class_a {
-    color: #333;
+.week {
+    width: 490px;
+    height: 70px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 4px 0;
 }
 
-    .class_a:hover {
-        text-decoration: none;
-        color: #666;
+.week-title {
+    width: 490px;
+    height: 20px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.day-title {
+    box-sizing: border-box;
+    margin: 2px;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+}
+
+.day {
+    background-color: #f5f1ed;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    margin: 2px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 26px;
+}
+
+.day-none {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin: 2px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 26px;
+}
+
+@media screen and (max-width: 600px) {
+    .con {
+        display: block;
+        margin: 0 auto;
     }
 
+    .month p {
+        width: 100%;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .month {
+        margin: 30px auto 50px auto;
+        height: 320px;
+        width: 93%
+    }
+
+    .week {
+        width: 300px;
+        height: 50px;
+        box-sizing: border-box;
+        display: flex;
+        margin: 4px auto;
+        justify-content: center;
+    }
+
+    .week-title {
+        width: 300px;
+        height: 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .day-title {
+        box-sizing: border-box;
+        margin: 2px;
+        width: 38px;
+        height: 20px;
+        text-align: center;
+        font-size: 8px;
+        margin: 0 auto;
+    }
+
+    .day {
+        box-sizing: border-box;
+        border: 1px solid #000;
+        margin: 2px;
+        width: 38px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        margin: 0 auto;
+    }
+
+    .day-none {
+        box-sizing: border-box;
+        border: 1px solid transparent;
+        margin: 2px;
+        width: 38px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        margin: 0 auto;
+    }
+}
+
+/*以上為活動*/
 .left {
     /*font-family: 'Noto Serif TC', serif;*/
     margin-left: 200px;
@@ -2586,20 +2683,20 @@ textarea {
 .club {
     position: relative;
     height: 285px;
-    width: 280px;
+    width: 300px;
     filter: contrast(.5);
     transition: all 0.5s ease 0s;
     z-index: 0;
     margin-left: -20px;
     margin-bottom: 20px;
-    border-radius: .25rem;
+    border-top-left-radius: .25rem;
 }
 
     .club:hover {
         filter: contrast(1);
         transform: scale(1.2 );
         z-index: 1;
-        border-radius: .25rem;
+        border-radius:.25rem;
     }
 
 .allclub_img {
@@ -2613,8 +2710,8 @@ textarea {
     margin-left: 120px;
     margin-top:100px;
     color: white;
-    font-weight:500;
     /*font-weight: bold;*/
+    font-weight:500;
     font-size: 48px;
 }
 
@@ -2623,5 +2720,140 @@ textarea {
     font-weight: 700
 }
 
+.list {
+    border-radius: 2px;
+    margin-left: 12px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
+.line {
+    border-width: 0 0 1px 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: black;
+}
+
+.date {
+    color: rgb(185, 129, 129);
+    font-size: large;
+}
+
+.test {
+    display: flex;
+    margin-top: 2%;
+}
+
+.now {
+    margin: 0 50px;
+    position: relative;
+    height: auto;
+}
+
+.title-act {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 30px;
+}
+
+.organizer {
+    /* filter: contrast(.2); */
+    display: block;
+    color: grey;
+    font-weight: 400;
+}
+
+.pic {
+    border-radius: .25rem .25rem 0% 0%;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardstyle {
+    margin-right: 20px;
+    margin-bottom: 30px;
+    border-radius: .25rem;
+    border: transparent;
+}
+
+.myact {
+    background-image: url(images/actmyback.jpg);
+    margin-top: 80px;
+    width: 400px;
+    height: 800px;
+    /* display: flex; */
+    display: inline-block;
+    font-size: 1.2rem;
+    background-color: rgb(243, 247, 209);
+}
+
+    .myact img {
+        height: 20px;
+        width: 390px;
+        margin-bottom: 10px;
+    }
+
+.custom-container-width {
+    margin-left: 10%;
+    max-width: 1400px;
+}
+
+/* <!-- 活動選擇按鈕  --> */
+.alltimeselect {
+    background-color: rgb(226, 225, 225);
+    height: 500px;
+    width: 250px;
+    float: left;
+}
+
+.ultimeselect {
+    float: left;
+    position: relative;
+    list-style: none;
+}
+
+.litimeselect {
+    font-size: 1.5rem;
+    margin: 20px 20px;
+}
+
+    .litimeselect:hover {
+        background-color: rgb(219, 219, 219);
+    }
+
+    .litimeselect input {
+        height: 20px;
+        width: 20px;
+    }
+
+        .litimeselect input[type='radio']:checked::after {
+            background-color: black;
+        }
+
+.titletimeselect {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 30px;
+}
+
+/* 購物車 */
+#class4 {
+    height: 800px;
+}
+
+.shoppingcart {
+    margin-top: 2%;
+    margin-right: 14%;
+}
+
+.shoppingcart-table {
+    font-size: 1.5rem;
+    width: 1000px;
+    height: 300px;
+    background-color: white;
+}
+
+.shoppingcart-tr {
+    border: 1px solid black
+}
 /*以上為活動*/

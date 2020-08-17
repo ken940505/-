@@ -5,7 +5,7 @@
 }
 <div class="bar-block">
     <div class="container">
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" bar-item actselectbtn tablink testbtn"
+        <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
            onclick="openClass(event, 'class1')">舉辦中</a>
         <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動</a>
         <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
@@ -17,7 +17,7 @@
 <div id="main" class="none">
     <div id="title">
         <div id="ten"></div>
-        <div id="img" title="close">x</div>
+        <div id="img" title="close">X</div>
     </div>
     <div id="content">
         <!-- 開頭 -->
@@ -31,7 +31,7 @@
                     <span class="dateday">23號</span>
                 </span>
                 <div class="cttitle">草頭娃娃製作</div>
-                <div class="cthost">園藝社主辦<button class="activity_Index_btn" style="margin-left: 20%;">參加</button></div>
+                <div class="cthost">園藝社主辦<button class="activity_Index_btn addActivity" style="margin-left: 20%;" onclick="addActivity()">參加</button></div>
                 <div class="ctdatetime">7月23號上午9:00~7月23號上午12:00</div>
                 <div class="hosthttp">
                     主辦方網站
@@ -81,7 +81,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mh11"
-                           onclick="openClass2(event, 'class10')">節慶<span style="float: right;">4</span></a>
+                           onclick="openClass2(event, 'class10')">節慶<span style="float: right;">8</span></a>
                     </li>
                 </ul>
             </div>
@@ -101,7 +101,7 @@
                                     <div>
                                         $200
                                         <button class="activity_Index_btn open">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                        <button class="activity_Index_btn "  onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                     <div>
                                         $100
                                         <button class="activity_Index_btn open">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                        <button class="activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -946,7 +946,10 @@
                 </tr>
                 <tr class="shoppingcart-tr">
                     <td colspan="4" style="text-align: center;">
-                        <button class="activity_Index_btn">清空</button><a href="./activity-付費.html"><button class="activity_Index_btn">結帳</button></a>
+                        <button class="activity_Index_btn">清空</button>
+                        <a href="/Activity/actshoppingcart">
+                            <button class="activity_Index_btn"> 結帳</button>
+                        </a>
                     </td>
                 </tr>
             </table>

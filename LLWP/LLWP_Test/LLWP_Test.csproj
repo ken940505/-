@@ -2101,6 +2101,7 @@
     <Content Include="Views\Activity\club.cshtml" />
     <Content Include="Views\Home\longCover.cshtml" />
     <Content Include="Views\Shared\_Layout_Member.cshtml" />
+    <Content Include="Views\Activity\actshoppingcart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2135,7 +2136,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties content_4bootstrap_1min_1css_1map__JsonSchema="https://json.schemastore.org/taurus" />
+      <UserProperties Content_4bootstrap_1css_1map__JSONSchema="https://json.schemastore.org/template" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

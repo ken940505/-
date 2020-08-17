@@ -272,7 +272,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     //設定標題欄
-    
     //視窗的拖動
     var bool = false;
     var offsetX = 0;
@@ -285,7 +284,7 @@ $(document).ready(function () {
     })
         .mouseup(function () {
             bool = false;
-        })
+        });
     $(document).mousemove(function (e) {
         if (!bool)
             return;
@@ -300,13 +299,10 @@ $(document).ready(function () {
         $("#main").addClass("none");
         // $("#open").addClass("show");
     });
-    $("#open").click(function () {
+    $(".open").click(function () {
         $("#main").removeClass("none");
         $("#main").addClass("show");
     });
-
-    openClass2(null, 'class6')
-    openClass(null,'class1')
 });
 
 function openClass(evt, className) {
@@ -320,12 +316,11 @@ function openClass(evt, className) {
         tablinks[i].classList.remove("actselectbtncolor");
     }
     document.getElementById(className).style.display = "block";
-
     evt.currentTarget.classList.add("actselectbtncolor");
-    if (!evt) return;
-    evt.currentTarget.classList.add("actselectbtncolor2");
-}
 
+}
+var mybtn = document.getElementsByClassName("testbtn")[0];
+mybtn.click();
 //var mybtn = document.getElementsByClassName("testbtn")[0];
 //mybtn.click();
 
@@ -340,12 +335,12 @@ function openClass2(evt, className) {
         tablinks[i].classList.remove("actselectbtncolor2");
     }
     document.getElementById(className).style.display = "block";
-    if (!evt) return;
     evt.currentTarget.classList.add("actselectbtncolor2");
-}
 
-//var mybtn = document.getElementsByClassName("testbtn2")[0];
-//mybtn.click();
+}
+var mybtn2 = document.getElementsByClassName("testbtn2")[0];
+mybtn2.click();
+
 
 $(function () {
     var date_now = new Date();
@@ -354,4 +349,15 @@ $(function () {
     var date = date_now.getDate() < 10 ? "0" + date_now.getDate() : date_now.getDate();
     var month1 = date_now.getMonth() + 2 < 10 ? "0" + (date_now.getMonth() + 1) : (date_now.getMonth() + 1);
     $("#day").attr("min", year + "-" + month + "-" + date);
-})
+});
+
+function addActivity() {
+    Swal.fire({
+        
+        icon: 'success',
+        title: '已加入購物車',
+        showConfirmButton: false,
+        timer: 1500
+    
+    });
+}
