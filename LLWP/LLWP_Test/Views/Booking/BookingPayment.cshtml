@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "榕沛社區 - 試住體驗訂單確認";
+    Layout = "~/Views/Shared/_Layout_payment.cshtml";
+}
+
+<div class="container">
+
+
+
+    <div class="checkOrder_detailDiv mt5">
+        <h3 class="mt5 mb2 fz2">住房明細</h3>
+        <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff;">
+            <div class="w-40 ml15">
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        訂單編號：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        20200930123456
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        入住日期：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        2020/09/30
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        退房日期：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        2020/10/23
+                    </div>
+
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        住宿天數：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        23 天
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        房間類型：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        寵物房 一房兩廳
+                    </div>
+                </div>
+            </div>
+            <div class="w-40 ml15">
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        住宿人數：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        1 位
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        會員編號(一)：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        M123456789
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        會員姓名(一)：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        黃文星
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        會員編號(二)：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        無
+                    </div>
+                </div>
+                <div class="d-flex checkOrder_detailContainerDivSet">
+                    <div class="checkOrder_detailLeft">
+                        會員姓名(二)：
+                    </div>
+                    <div class="checkOrder_detailRight">
+                        無
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="mt5 mb2 fz2">活動明細</h3>
+        <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb10">活動一</h5>
+                    <h6 class="card-subtitle mb-2 text-muted fz125">吉他入門</h6>
+                    <p class="card-text">
+                        日期：2020/10/02(五)<br>
+                        時間：14:00<br>
+                        費用：100 元<br>
+                        活動地點：活動中心音樂室
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb10">活動二</h5>
+                    <h6 class="card-subtitle mb-2 text-muted fz125">寵物沙龍照</h6>
+                    <p class="card-text">
+                        日期：2020/10/14(三)<br>
+                        時間：13:00<br>
+                        費用：300 元<br>
+                        活動地點：大草皮
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb10">活動三</h5>
+                    <h6 class="card-subtitle mb-2 text-muted fz125">讀書會</h6>
+                    <p class="card-text">
+                        日期：2020/10/21(三)<br>
+                        時間：19:00<br>
+                        費用：0 元<br>
+                        活動地點：活動中心小教室
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mt5 mb-3 containerFont">
+                <span>付款方式</span>
+            </div>
+            <div class="divMargin">
+                <div class="bg-white rounded-lg shadow-sm p-5 row" style="display: block;">
+                    <!-- Credit card form tabs -->
+                    <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+                        <li class="nav-item">
+                            <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill">
+                                <i class="fa fa-credit-card"></i>
+                                信用卡支付
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
+                                <i class="fab fa-paypal"></i>
+                                Paypal支付
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
+                                <i class="fa fa-university"></i>
+                                銀行匯款支付
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+
+                        <!-- credit card info-->
+                        <div id="nav-tab-card" class="tab-pane fade show active">
+                            <p class="alert alert-warning">Some text success or error</p>
+                            <img src="~/Content/images/credit_Card.png" class="pb-3" width="200px">
+                            <form role="form">
+
+                                <div class="form-group">
+                                    <label class="d-flex" for="cardNumber">
+                                        信用卡卡號<span class="mustSign">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" name="cardNumber" placeholder="輸入您的信用卡號碼"
+                                               class="form-control" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text text-muted">
+                                                <i class="fab fa-cc-visa mx-1"></i>
+                                                <i class="fab fa-cc-amex mx-1"></i>
+                                                <i class="fab fa-cc-mastercard mx-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="d-flex" for="username">
+                                        信用卡姓名<span class="mustSign">*</span>
+                                    </label>
+                                    <input type="text" name="username" placeholder="請輸入持卡者姓名(與信用卡上一致)" required
+                                           class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label class="d-flex">
+                                                <span class="hidden-xs">有效期限</span><span class="mustSign">*</span>
+                                            </label>
+                                            <div class="input-group d-flex w-75 justify-content-between">
+                                                <select class="form-control col-sm-6" name="expiry_month"
+                                                        id="expiry_month">
+                                                    <option>月</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                                <select class="form-control col-sm-5" name="expiry_year">
+                                                    <option value="">年</option>
+                                                    <option value="20">2020</option>
+                                                    <option value="21">2021</option>
+                                                    <option value="22">2022</option>
+                                                    <option value="23">2023</option>
+                                                    <option value="24">2024</option>
+                                                    <option value="25">2025</option>
+                                                    <option value="26">2026</option>
+                                                    <option value="27">2027</option>
+                                                    <option value="28">2028</option>
+                                                    <option value="29">2029</option>
+                                                    <option value="30">2030</option>
+                                                    <option value="31">2031</option>
+                                                    <option value="32">2032</option>
+                                                    <option value="33">2033</option>
+                                                    <option value="34">2034</option>
+                                                    <option value="35">2035</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group d-flex">
+                                            <label data-toggle="tooltip"
+                                                   title="Three-digits code on the back of your card">
+                                                安全碼(CVV)
+                                                <i class="fa fa-question-circle"></i>
+                                                <span class="mustSign">*</span>
+                                            </label>
+                                        </div>
+                                        <input style="margin-top: -10px;" type="text" required class="form-control"
+                                               placeholder="CVV">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End -->
+                        <!-- Paypal info -->
+                        <div id="nav-tab-paypal" class="tab-pane fade">
+                            <p>Paypal is easiest way to pay online</p>
+                            <p>
+                                <button type="button" class="btn btn-primary rounded-pill">
+                                    <i class="fab fa-paypal mr-1"></i></i> Log into my Paypal
+                                </button>
+                            </p>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <!-- End -->
+                        <!-- bank transfer info -->
+                        <div id="nav-tab-bank" class="tab-pane fade">
+                            <h6>Bank account details</h6>
+                            <dl>
+                                <dt>Bank</dt>
+                                <dd> THE WORLD BANK</dd>
+                            </dl>
+                            <dl>
+                                <dt>Account number</dt>
+                                <dd>7775877975</dd>
+                            </dl>
+                            <dl>
+                                <dt>IBAN</dt>
+                                <dd>CZ7775877975656</dd>
+                            </dl>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <!-- End -->
+                    </div>
+                    <!-- End -->
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid">
+            <div class="container pb3">
+                <div class="row justify-content-between">
+                    <a class="btn btn-warning fz15 ls025" href="/Booking/BookingRoomSelect" role="button">返回上一步</a>
+                    <a class="btn btn-warning fz15 ls025" href="#" role="button" id="sure-check">確定結帳</a>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="mt5 mb2 fz2">注意事項</h3>
+        <div class="row p-3 rounded mb-5 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
+            <ul>
+                <li class="mb-2 ml3">
+                    重要提示:若您是以信用卡付款，請於入住時出示用於此預訂的信用卡以及一張附有照片的有效證件，否則，社區有權將此預訂視為無效訂單，或是要求收取額外費用。<br>
+                    如果您是為他人預訂住宿但不會與其同行，則請對方務必攜帶此預訂入住憑證辦理入住即可。
+                </li>
+                <li class="mb-2 ml3">您預訂的客房在預訂入住日期當天將保證仍是空房，如果您未依預訂日期入住，您預訂的房間將有可能被取消。更多取消與No-show相關政策請見預訂過程及訂單確認信上的說明。</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+</div>
+

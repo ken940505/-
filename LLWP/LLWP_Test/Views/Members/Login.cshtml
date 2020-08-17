@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "榕沛社區 - 會員登入";
+    Layout = "~/Views/Shared/_Layout_Member.cshtml";
+}
+
+
+<div class="backColor1 shadow">
+    <div class="container">
+        <div class="mb5">
+            <div class="mb-5">
+                <div class="row mb-2 db100">
+                    <div class="jcc ml10">
+                        <h3 class="tac mb10">榕沛社區會員登入</h3>
+                    </div>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                            <div class="labelSet-login w-30"><label for="inputmail" class="fz125" style="line-height:40px">會員信箱</label></div>
+                        </div>
+                        <input type="text" class="form-control ml3" id="inpumail">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                            <div class="labelSet-login"><label for="inputpassword" class="fz125" style="line-height:40px">會員密碼</label></div>
+                        </div>
+                        <input type="password" class="form-control ml3" id="inputID">
+                    </div>
+                    <hr>
+                    <div class="form-group form-check d-flex justify-content-between w-100">
+                        <input type="checkbox" class="form-check-input ml3 form-check-input-act input-act" id="exampleCheck1">
+                        <label class="form-check-label ml10 fz1" for="exampleCheck1" style="margin-top:.1rem">記住我</label>
+                        <a class="Help" href="">需要協助?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt3" style="display:flex; justify-content:space-around;">
+                <div>
+                    <a href="/Members/MemberProfile" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true">登入</a>
+                </div>
+                <div>
+                    <a href="/Members/RegisteredLongTime" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true">註冊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

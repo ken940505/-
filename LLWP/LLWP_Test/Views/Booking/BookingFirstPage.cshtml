@@ -1,0 +1,278 @@
+﻿
+@{
+    ViewBag.Title = "榕沛社區 - 試住體驗介紹";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container mt-5 mb-5">
+        <div class="web-title">
+            <div>試住體驗</div>
+        </div>
+        <div class="row main-row">
+            <div class="row-img col-lg-7 col-sl-12 align-self-center">
+                <img src="~/Content/images/livingpic1.jpg" alt="" style="width: 100%;" class="mt-2 mb-2">
+            </div>
+            <div class="row-text col-lg-5 col-sl-12 align-self-center">
+                <p class="img-text">歡迎您帶上心愛的寵物<br>一同體驗榕沛社區的生活</p>
+                <div class="btn-center">
+                    <!-- <div class="btn-handmade" id="btn-living-expr">申請試住體驗</div> -->
+                    <a href="/Members/RegisteredLongTime" class="btn btn-warning btn-lg fz125 ls025 my-2" role="button"
+                       aria-pressed="true">申請試住體驗</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="web-title">收費標準</div>
+            <table class="long-table">
+                <tbody>
+                    <tr>
+                        <th class="long-th">房型</th>
+                        <th class="long-th">人數</th>
+                        <th class="long-th">無寵物同住之價格</th>
+                        <th class="long-th">有寵物同住之價格</th>
+                    </tr>
+                    <tr>
+                        <td class="long-td">一房一廳</td>
+                        <td class="long-td">最多 2 人</td>
+                        <td class="long-td">一般：1700元/日，長者：1500元/日</td>
+                        <td class="long-td">一般：1800元/日，長者：1600元/日</td>
+                    </tr>
+                    <tr>
+                        <td class="long-td">一房二廳</td>
+                        <td class="long-td">最多 2 人</td>
+                        <td class="long-td">一般：1900元/日，長者：1700元/日</td>
+                        <td class="long-td">一般：2000元/日，長者：1800元/日</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="web-text">
+                <div>註：</div>
+                <div>1. 長者為年齡60歲以上者。</div>
+                <div>2. 每房限養一隻寵物，須遵守寵物住宿須知。</div>
+                <button type="button" class="btn btn-warning fz125 ls025 my-2" data-toggle="modal"
+                        data-target=".modal-petliving-application">
+                    寵物住宿須知
+                </button>
+            </div>
+            <!-- modal bd--petlivivg-application -->
+            <div class="modal fade modal-petliving-application" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區寵物住宿須知</h5>
+                        </div>
+                        <div class="modal-body modal-body-text">
+                            <ul>
+                                <li>壹、飼主為申請寵物住宿，同意遵照　貴院下列規定辦理。</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    貳、飼主如有違反本住宿須知，　貴院得逕行終止寵物住宿服務，飼主除應繳清相關費用外，並應即將房屋內物品清空並遷離，否則視同廢棄物，貴院得逕行進入屋內處理，立同意書人絕無異議，並願負擔處理費用。
+                                </li>
+                                <ul>
+                                    <li>
+                                        一、
+                                        <strong>
+                                            <u>寵物可住宿天數同飼主於本社區之住宿天數（需視是否參加寵物試養計畫、試住體驗或長住服務而定），寵物種類限定貓或狗，每房限住一隻寵物。</u>
+                                    </li>
+                                    </strong>
+                                    <li>
+                                        二、
+                                        <strong>本社區無寵物安親服務，如有需要，可協助尋找專門機構處理寵物安親事宜。</strong>
+                                    </li>
+                                    <li>
+                                        三、飼主需提供一年內有效之疫苗證明（包含狂犬病與綜合疫苗）與寄生蟲檢驗證明。
+                                    </li>
+                                    <li>
+                                        四、若發現寵物身體不適，或有就醫之需要（如發現寄生蟲、跳蚤等），優先徵詢飼主意見決定醫療方式。如為緊急情況或第一時間無法聯絡上，則飼主同意優先送往鄰近合格獸醫院治療，醫療費用由飼主負擔。
+                                    </li>
+                                    <li>
+                                        五、若寵物在館內受傷，經動物醫院評估為館內人員疏失造成，由本社區負擔醫藥費用。
+                                    </li>
+                                    <li>
+                                        六、若寵物直接或間接因本身固有疾病而發生意外事故，例如年老壽終正寢、有隱藏性疾病、先天性疾病（如癲癇）、慢性疾病（如心臟病）等非人為因素引起的傷亡，則不在本社區賠償與法律責任範圍之內。
+                                    </li>
+                                    <li>
+                                        七、於住宿期間（含同住者）需遵守下列事項，如未遵守經勸告無效者，本社區得隨時逕行終止住宿，其未住天數費用，本社區將無息退還。
+                                        <ul>
+                                            <li>
+                                                (一) 如飼主未經告知將寵物單獨滯留於房內超過1天，且本社區無法連絡飼主，將視為惡意棄養，即報請動物保護處依動保法交由警察機關處置。
+                                            </li>
+                                            <li>(二) 如發現有寵物不當飼養之情況，本社區得暫停寵物住宿之權利。</li>
+                                            <li>(三) 為維護公共秩序，不製造噪音以干擾其他住民安寧。</li>
+                                            <li>(四) 飼主須維護房內設備及整潔，如寵物造成損害，飼主須負擔賠償費用及復原義務。</li>
+                                            <li>(五) 不得將寵物攜帶至非寵物住宅區。</li>
+                                            <li>(六) 如寵物有攻擊他人或其他寵物之情形，本社區得暫停寵物住宿之權利，並請飼主負擔相關的賠償責任。</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        八、寵物居住本社區期間，如發現患有精神疾病、傳染病、或其他健康狀況改變，造成其他房客或寵物之嚴重困擾，經本社區工作團隊決定，可隨時終止住宿之權利，其未住天數費用，本村將無息退還。
+                                    </li>
+                                    <li>
+                                        九、欲延長住宿時，最遲請於退住前三日上午10時前通知生活服務室（分機22122），並辦理住宿異動申請及繳款。但本村得視房間使用狀態可調整變動住宿房間，如造成客戶不便，敬請見諒。
+                                    </li>
+                                    <li>十、欲提前退住者，請至生活服務室填寫體驗住宿異動表，住宿費依實際未住日數退還管理費。</li>
+                                </ul>
+                            </ul>
+                            <ul>
+                                <li>參、如因本約爭訟，同意以臺灣宜蘭地方法院為第一審管轄法院。</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a href="paper/榕沛社區寵物住宿須知.pdf" download="榕沛社區寵物住宿須知.pdf" class="btn btn-primary"
+                               role="button" style="font-size: 1.2rem;">下載寵物住宿須知</a>
+                            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal"
+                                    style="font-size: 1.2rem;">
+                                關閉視窗
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="web-text">
+                <div class="web-title">試住說明</div>
+                <div>1. 考量本村長者住宿安寧與安全，3歲(含)以下嬰幼兒不適合入住，其他具備生活自理能力者皆可入住。</div>
+                <div>
+                    2.榕沛社區為宜蘭市社會局核准之老人住宅，依規定申請者(含同住者)需生活能自理，如有聘僱看護，或使用四腳助行器、輪椅、無法上下樓梯、管路、法定傳染病或精神疾病者，本社區無法受理體驗住宿申請，造成不便之處，敬請見諒。
+                </div>
+                <div>3. 試住體驗天數30天以內（含30天）為限。</div>
+                <div>4. 如參加寵物試養計畫，詳情請參考《寵物試養計畫說明》。</div>
+                <button type="button" class="btn btn-warning fz125 ls025 my-2" data-toggle="modal"
+                        data-target=".modal-petliving-plan">
+                    寵物試養計畫說明
+                </button>
+                <div>5. 請詳閱試住體驗須知，本院始得受理申請體驗住宿並保有核准住宿最後決定權。</div>
+                <button type="button" class="btn btn-warning fz125 ls025 my-2" data-toggle="modal"
+                        data-target=".bd-example-modal-lg">
+                    試住體驗須知
+                </button>
+                <div>註：如有疑問，可線上諮詢，或來電詢問相關事宜：03-932-2214（服務時間：週一至週五 10:00 - 18:00）。</div>
+                <a href="" class="btn btn-warning btn-lg fz125 ls025 my-2" role="button" aria-pressed="true">使用線上諮詢服務</a>
+            </div>
+            <!-- modal bd- try petliving-plan -->
+            <div class="modal fade modal-petliving-plan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區寵物試養計畫說明</h5>
+                        </div>
+                        <div class="modal-body modal-body-text">
+                            <ul>
+                                <li>榕沛社區與動物收容所長期合作，幫助健康寵物尋找合適的飼主，並提供飼主相關的訓練課程，學習如何照顧寵物。</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    壹、計畫內容如下：
+                                </li>
+                                <ul>
+                                    <li>
+                                        一、
+                                        <u>如飼主或寵物出現不適合同住之情況（如健康因素、同住情況不佳等），本社區得中止計畫。</u>
+                                    </li>
+                                    </strong>
+                                    <li>
+                                        二、參與本計畫之寵物皆有一年之內疫苗檢驗證明（包含狂犬病與綜合疫苗）、健康檢查報告（含寄生蟲檢驗）。
+                                    </li>
+                                    <li>
+                                        三、若發現寵物身體不適，或有就醫之需要（如發現寄生蟲、跳蚤等），優先徵詢飼主意見決定醫療方式。如為緊急情況或第一時間無法聯絡上，則飼主同意優先送往鄰近合格獸醫院治療，醫療費用由飼主負擔。
+                                    </li>
+                                    <li>
+                                        四、若寵物直接或間接因本身固有疾病而發生意外事故，例如年老壽終正寢、有隱藏性疾病、先天性疾病（如癲癇）、慢性疾病（如心臟病）等非人為因素引起的傷亡，則不在本社區賠償與法律責任範圍之內。
+                                    </li>
+                                    <li>
+                                        五、於住宿期間（含同住者）需遵守本社區之<strong>寵物住宿須知</strong>，如未遵守經勸告無效者，本村得隨時逕行終止住宿，其未住天數費用，本村將無息退還。
+                                    </li>
+                                </ul>
+                            </ul>
+                            <ul>
+                                <li>貳、參加方式：申請試住體驗或長住服務時，可一同申請。詳情請參考申請試住體驗或長住服務之相關說明。</li>
+                            </ul>
+                            <ul>
+                                <li>參、如有疑問，可來電詢問相關事宜：03-932-2214（服務時間：週一至週五 10:00 - 18:00）。</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a href="paper/榕沛社區寵物試養計畫說明.pdf" download="榕沛社區寵物試養計畫說明.pdf" class="btn btn-primary"
+                               role="button" style="font-size: 1.2rem;">下載寵物試養計畫說明</a>
+                            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal"
+                                    style="font-size: 1.2rem;">
+                                關閉視窗
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- large short living modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title modal-title-center" id="exampleModalLongTitle">榕沛社區試住體驗須知同意書</h5>
+                        </div>
+                        <div class="modal-body modal-body-text">
+                            <ul>
+                                <li>壹、立同意書人為申請試住體驗，同意遵照　貴院下列規定辦理。</li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    貳、立同意書人如有違約，　貴院得逕行終止試住體驗天數以30日以內（含30天）為限本合約，立同意書人除應繳清相關費用外，並應即將房屋內物品清空並遷離，否則視同廢棄物，貴院得逕行進入屋內處理，立同意書人絕無異議，並願負擔處理費用。
+                                </li>
+                                <ul>
+                                    <li>
+                                        一、
+                                        <strong>
+                                            <u>本申請不適用於榕沛社區長住服務申請，如欲申請長住，或住宿天數超過試住體驗期限（30日），請依榕沛社區進住辦法辦理申請表、會談及體檢作業，合格後始通知選房及入住作業。</u>
+                                    </li>
+                                    </strong>
+                                    <li>
+                                        二、於住宿期間（含同住者）需遵守下列生活公約，如未遵守生活公約經勸告無效者，本村得隨時逕行終止住宿，其未住天數費用，本村將無息退還。
+                                        <ul>
+                                            <li>
+                                                (一) 不得酗酒、吸毒、賭博、竊盜、妨害風化、危害公共秩序、安全或其他不正當娛樂等嚴重影響本村形象之不法情事，本村並得視狀況報請警察機關處理。
+                                            </li>
+                                            <li>(二) 不可持有槍炮、彈藥、刀械、毒品或其他嚴重妨礙公共安全等物品。</li>
+                                            <li>(三)室內及陽台不得燃放爆竹、冥紙、紙張等易燃物品，以免造成危險或觸發火警感應鈴，誤傳火警。</li>
+                                            <li>(四)不私自接用公共用電或延長線，並禁用瓦斯爐等易燃或易爆等設備，否則因而損壞變壓器或發生安全事故，須負完全責任。</li>
+                                            <li>(五) 不在公共場所、通道及樓梯間等公共設施空間放置私人物品（如紙箱、鞋櫃等）、傢俱或晾曬衣服。</li>
+                                            <li>(六) 為維護公共秩序，不製造噪音以干擾其他住民安寧。</li>
+                                            <li>(七) 不得於村內推銷商（產）品或從事其他商業性行為。</li>
+                                            <li>
+                                                (八)
+                                                <strong>
+                                                    <u>
+                                                        如需飼養貓、狗等寵物，請選擇寵物住宅區，每房僅限一隻寵物，
+                                                        並遵守寵物住宿須知，不得在非寵物住宅區內飼養，以保安寧與衛生。
+                                                    </u>
+                                                </strong>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        三、居住本村期間，如發現患有精神疾病、傳染病、或其他健康狀況改變，或喪失生活自理能力者，經本村工作團隊決定，可隨時終止住宿之權利，其未住天數費用，本村將無息退還。
+                                    </li>
+                                    <li>
+                                        四、欲延長住宿時，最遲請於退住前三日上午10時前通知生活服務室，並辦理住宿異動申請及繳款。但本村得視房間使用狀態可調整變動住宿房間，如造成客戶不便，敬請見諒。
+                                    </li>
+                                    <li>五、欲提前退住者，請至生活服務室填寫體驗住宿異動表，住宿費依實際未住日數退還管理費。</li>
+                                </ul>
+                            </ul>
+                            <ul>
+                                <li>參、如因本約爭訟，同意以臺灣宜蘭地方法院為第一審管轄法院。</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a href="paper/榕沛社區試住體驗須知同意書.pdf" download="榕沛社區試住體驗須知同意書.pdf" class="btn btn-primary fz125"
+                               role="button">下載同意書</a>
+                            <button type="button" class="btn btn-secondary ml-2 fz125"
+                                    data-dismiss="modal">
+                                關閉視窗
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

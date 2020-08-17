@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "榕沛社區 - 聯絡我們";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row topTitleDiv d-flex align-items-end">
+        <img src="~/Content/images/contact.svg">
+        <p class="topTitleh2">聯絡我們</p>
+    </div>
+</div>
+<div class="container">
+    <div class=" backColor-reg shadow ml-5 mr-5 d-flex justify-content-center">
+        <div>
+            <div class="row mb-5 pl-5">
+                <div class="contact_containerFont mb-5">
+                    <p class="formFont">
+                        若您對榕沛社區有任何問題或建議，歡迎填妥以下資料並送出，我們將盡快安排專人回覆，謝謝您 !
+                    </p>
+                </div>
+                <div class="w-75 mb-2">
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputName">姓名</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputName">
+                    </div>
+                    <div class="radioButtonSet">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                   class="custom-control-input" checked>
+                            <label class="custom-control-label" for="customRadioInline1">先生</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                   class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">女士</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputPhone">連絡電話</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputPhone">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputCellPhone">行動電話</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputCellPhone">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputEmail">電子信箱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputEmail">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="inputEmail">電子信箱(確認)</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputEmail">
+                    </div>
+                    <hr class="mb-5">
+                    <p style="color: #FF604A;">※若您為公司法人單位，請填寫公司名稱與部門名稱，感謝您。</p>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputCompanyName">公司名稱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputCompanyName">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet">
+                            <div class="labelSet"><label for="inputDepartment">部門名稱</label></div>
+                        </div>
+                        <input type="text" class="form-control" id="inputDepartment">
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet">
+                            <div class="mustDiv">必填</div>
+                            <div class="labelSet"><label for="reactiontextarea">意見反應</label></div>
+                        </div>
+                        <textarea class="form-control  mb-2 " id="reactiontextarea" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="w-100 h-100 d-flex justify-content-center align-items-center mb-5">
+                    <a href="#">
+                        <div class="submitButton d-flex justify-content-center align-items-center mb-5">
+                            <p class="contact_pPadding">送出資訊</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
