@@ -102,6 +102,17 @@ namespace EchoBot1.Dialog
 
         private async Task<DialogTurnResult> StartRootAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
+            CounterState state = await GetCounterState(stepContext.Context);
+
+            if (state.TurnCount == 0)
+            {
+                //await stepContext.Context.SendActivityAsync(
+                //MessageFactory.Text("若要中途重新啟動，請輸入「離開」"),
+                //cancellationToken);
+                state.TurnCount++;
+                return await stepContext.NextAsync();
+            }
+
             return await stepContext.PromptAsync("textPrompt", new PromptOptions()
             {
                 Prompt = MessageFactory.Text("您好，能夠幫到您什麽？"),
@@ -175,6 +186,13 @@ namespace EchoBot1.Dialog
             (await GetCounterState(stepContext.Context))
                 .RoomReservation.NumberOfPepole = (int)stepContext.Result;
 
+            if (stepContext.Result == null) { }
+            else if (stepContext.Result.ToString() == "離開")
+            {
+                await stepContext.Context.SendActivityAsync("已經取消訂單");
+                return await stepContext.EndDialogAsync(cancellationToken: cancellationToken);
+            }
+
             var choices = new List<Choice>()
             {
                 new Choice("單人床"),
@@ -196,6 +214,13 @@ namespace EchoBot1.Dialog
             (await GetCounterState(stepContext.Context))
                 .RoomReservation.NumberOfNightToStay = (int)stepContext.Result - 1;
 
+            if (stepContext.Result == null) { }
+            else if (stepContext.Result.ToString() == "離開")
+            {
+                await stepContext.Context.SendActivityAsync("已經取消訂單");
+                return await stepContext.EndDialogAsync(cancellationToken: cancellationToken);
+            }
+
             return await stepContext.PromptAsync("number",
                 new PromptOptions()
                 {
@@ -211,6 +236,13 @@ namespace EchoBot1.Dialog
                 .RoomReservation.StartDate =
                 DateTime.Parse(((List<DateTimeResolution>)stepContext.Result).First().Value);
 
+            if (stepContext.Result == null) { }
+            else if (stepContext.Result.ToString() == "離開")
+            {
+                await stepContext.Context.SendActivityAsync("已經取消訂單");
+                return await stepContext.EndDialogAsync(cancellationToken: cancellationToken);
+            }
+
             return await stepContext.PromptAsync("number", new PromptOptions()
             {
                 Prompt = MessageFactory.Text("請輸入要住幾天"),
@@ -221,6 +253,13 @@ namespace EchoBot1.Dialog
         private async Task<DialogTurnResult> GetStartStayDateAsync
             (WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
+            if (stepContext.Result == null) { }
+            else if (stepContext.Result.ToString() == "離開")
+            {
+                await stepContext.Context.SendActivityAsync("已經取消訂單");
+                return await stepContext.EndDialogAsync(cancellationToken: cancellationToken);
+            }
+
             return await stepContext.PromptAsync("dateTime",
                 new PromptOptions()
                 {

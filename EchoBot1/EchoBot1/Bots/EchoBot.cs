@@ -24,6 +24,8 @@ namespace EchoBot1.Bots
         private readonly ILogger _logger;
         private readonly HotelDialogSet _dialogs;
 
+
+
         public EchoBot(EchoBotAccessors accessors, ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
@@ -67,10 +69,9 @@ namespace EchoBot1.Bots
             // Get the conversation state from the turn context.
             return await _accessors.CounterState.GetAsync(turnContext, () => new CounterState());
         }
-
         protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
         {
-            var welcomeText = "您好，請問要什麼樣的服務？ 請輸入「訂房」";
+            string welcomeText = "這裡是智慧客服小榕，您好！";
             foreach (var member in membersAdded)
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)

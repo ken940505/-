@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "EchoBot1/1.0.0": {
         "dependencies": {
+          "Bot.Builder.Community.Dialogs.FormFlow": "4.9.5",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.1",
           "Microsoft.Bot.Builder.Dialogs": "4.9.4",
           "Microsoft.Bot.Builder.Integration.AspNet.Core": "4.9.2",
@@ -105,8 +106,8 @@
           "Microsoft.AspNetCore.WebSockets": "3.1.0.0",
           "Microsoft.AspNetCore.WebUtilities": "3.1.0.0",
           "Microsoft.CSharp.Reference": "4.0.0.0",
-          "Microsoft.Extensions.Caching.Abstractions": "3.1.0.0",
-          "Microsoft.Extensions.Caching.Memory": "3.1.0.0",
+          "Microsoft.Extensions.Caching.Abstractions.Reference": "3.1.0.0",
+          "Microsoft.Extensions.Caching.Memory.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Binder.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "3.1.0.0",
@@ -317,6 +318,68 @@
           "EchoBot1.dll": {}
         }
       },
+      "Bot.Builder.Community.Dialogs.FormFlow/4.9.5": {
+        "dependencies": {
+          "Microsoft.Bot.Builder.Dialogs": "4.9.4",
+          "Microsoft.Recognizers.Text": "1.3.2",
+          "Microsoft.Recognizers.Text.Choice": "1.3.2",
+          "Microsoft.Recognizers.Text.DataTypes.TimexExpression": "1.3.2",
+          "Microsoft.Recognizers.Text.DateTime": "1.3.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Bot.Builder.Community.Dialogs.FormFlow.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/ar/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/netstandard2.0/cs/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard2.0/de-DE/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "de-DE"
+          },
+          "lib/netstandard2.0/el/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "el"
+          },
+          "lib/netstandard2.0/en/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "en"
+          },
+          "lib/netstandard2.0/es/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/fa/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/netstandard2.0/fr/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.0/it/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.0/ja/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.0/nl/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/netstandard2.0/pt-BR/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/ru/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.0/zh-Hans/Bot.Builder.Community.Dialogs.FormFlow.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Bot.Builder.Community.Dialogs.FormFlow.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/3.1.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -367,8 +430,8 @@
       "Microsoft.Bot.Builder.Dialogs/4.9.4": {
         "dependencies": {
           "Microsoft.Bot.Builder": "4.9.4",
-          "Microsoft.Recognizers.Text.Choice": "1.2.9",
-          "Microsoft.Recognizers.Text.DateTime": "1.2.9"
+          "Microsoft.Recognizers.Text.Choice": "1.3.2",
+          "Microsoft.Recognizers.Text.DateTime": "1.3.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Bot.Builder.Dialogs.dll": {
@@ -461,6 +524,18 @@
         }
       },
       "Microsoft.CSharp/4.7.0": {},
+      "Microsoft.Extensions.Caching.Abstractions/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.1.0"
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0",
+          "Microsoft.Extensions.Options": "2.1.0"
+        }
+      },
       "Microsoft.Extensions.Configuration/2.1.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.1.0"
@@ -605,8 +680,9 @@
       },
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.3": {},
-      "Microsoft.Recognizers.Text/1.2.9": {
+      "Microsoft.Recognizers.Text/1.3.2": {
         "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "2.0.0",
           "System.Collections.Immutable": "1.4.0",
           "System.ValueTuple": "4.4.0"
         },
@@ -625,9 +701,9 @@
           "lib/netstandard2.0/Microsoft.Recognizers.Text.dll": {}
         }
       },
-      "Microsoft.Recognizers.Text.Choice/1.2.9": {
+      "Microsoft.Recognizers.Text.Choice/1.3.2": {
         "dependencies": {
-          "Microsoft.Recognizers.Text": "1.2.9",
+          "Microsoft.Recognizers.Text": "1.3.2",
           "System.Collections.Immutable": "1.4.0"
         },
         "runtime": {
@@ -640,11 +716,22 @@
           "lib/netstandard2.0/Microsoft.Recognizers.Text.Choice.dll": {}
         }
       },
-      "Microsoft.Recognizers.Text.DateTime/1.2.9": {
+      "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.3.2": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll": {}
+        }
+      },
+      "Microsoft.Recognizers.Text.DateTime/1.3.2": {
         "dependencies": {
-          "Microsoft.Recognizers.Text": "1.2.9",
-          "Microsoft.Recognizers.Text.Number": "1.2.9",
-          "Microsoft.Recognizers.Text.NumberWithUnit": "1.2.9",
+          "Microsoft.Recognizers.Text": "1.3.2",
+          "Microsoft.Recognizers.Text.Number": "1.3.2",
+          "Microsoft.Recognizers.Text.NumberWithUnit": "1.3.2",
           "System.Collections.Immutable": "1.4.0"
         },
         "runtime": {
@@ -657,9 +744,9 @@
           "lib/netstandard2.0/Microsoft.Recognizers.Text.DateTime.dll": {}
         }
       },
-      "Microsoft.Recognizers.Text.Number/1.2.9": {
+      "Microsoft.Recognizers.Text.Number/1.3.2": {
         "dependencies": {
-          "Microsoft.Recognizers.Text": "1.2.9",
+          "Microsoft.Recognizers.Text": "1.3.2",
           "System.Collections.Immutable": "1.4.0"
         },
         "runtime": {
@@ -672,10 +759,10 @@
           "lib/netstandard2.0/Microsoft.Recognizers.Text.Number.dll": {}
         }
       },
-      "Microsoft.Recognizers.Text.NumberWithUnit/1.2.9": {
+      "Microsoft.Recognizers.Text.NumberWithUnit/1.3.2": {
         "dependencies": {
-          "Microsoft.Recognizers.Text": "1.2.9",
-          "Microsoft.Recognizers.Text.Number": "1.2.9",
+          "Microsoft.Recognizers.Text": "1.3.2",
+          "Microsoft.Recognizers.Text.Number": "1.3.2",
           "System.Collections.Immutable": "1.4.0"
         },
         "runtime": {
@@ -2025,13 +2112,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Caching.Abstractions/3.1.0.0": {
+      "Microsoft.Extensions.Caching.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Caching.Abstractions.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Caching.Memory/3.1.0.0": {
+      "Microsoft.Extensions.Caching.Memory.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Caching.Memory.dll": {}
         },
@@ -3257,6 +3344,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Bot.Builder.Community.Dialogs.FormFlow/4.9.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QFrFpLAjThVeDgnIrfvaU5YwfcNcp2KVt/b9TrHhsKx0kw073cVINP3Jjlr4TqKPdflPn4QatxeaEfMSMPp/eA==",
+      "path": "bot.builder.community.dialogs.formflow/4.9.5",
+      "hashPath": "bot.builder.community.dialogs.formflow.4.9.5.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.JsonPatch/3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3326,6 +3420,20 @@
       "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kGMEV53Od1ES0BDh7OOKbTW9Zu5dbbQ72yI936dvvbHlde3puuq/WRKAccFgcB2PuRjox1HFhA9+t53RYqfuEA==",
+      "path": "microsoft.extensions.caching.abstractions/2.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NqvVdYLbX7N2J2Wz9y3zjhE66JRdROiZZsGhA2u4a9IcIq/jzINC/cLM96BHA+TSOZFPxVdWneqB6/yt9u846A==",
+      "path": "microsoft.extensions.caching.memory/2.0.0",
+      "hashPath": "microsoft.extensions.caching.memory.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/2.1.0": {
       "type": "package",
@@ -3446,40 +3554,47 @@
       "path": "microsoft.netcore.targets/1.1.3",
       "hashPath": "microsoft.netcore.targets.1.1.3.nupkg.sha512"
     },
-    "Microsoft.Recognizers.Text/1.2.9": {
+    "Microsoft.Recognizers.Text/1.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RHJUVyePozmWm/C0T0zbEQ25eNJgjsRUq9Ly3SiuYZJeYFXb8H6NnFkZBN6iHy/d9QtrRHnZmSDqGj1+ECs4YA==",
-      "path": "microsoft.recognizers.text/1.2.9",
-      "hashPath": "microsoft.recognizers.text.1.2.9.nupkg.sha512"
+      "sha512": "sha512-URNFAH3Q6rJILL2PixaOcUfoLOFRaiEw7K6AsVsbMzThBZeNU8GMpJb2mFABCyx5I43DrmpB0vl/7EmRP/16RQ==",
+      "path": "microsoft.recognizers.text/1.3.2",
+      "hashPath": "microsoft.recognizers.text.1.3.2.nupkg.sha512"
     },
-    "Microsoft.Recognizers.Text.Choice/1.2.9": {
+    "Microsoft.Recognizers.Text.Choice/1.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qrKntk3j8wjAHfbzdSAHDz2d82BiwXANZzSwrkCUdwj1MZmz5U0EI3vEFT19m5t/dju7U/4ARGpzDEyjwEoLqQ==",
-      "path": "microsoft.recognizers.text.choice/1.2.9",
-      "hashPath": "microsoft.recognizers.text.choice.1.2.9.nupkg.sha512"
+      "sha512": "sha512-4cPOSKNCN0BIeaAfSV7DnR/XxsTscm9lWgEzhYIbrXd94UuHzZuUR+0U5MaYTB9W6t7yoHJLSChAaGq4pAAMYw==",
+      "path": "microsoft.recognizers.text.choice/1.3.2",
+      "hashPath": "microsoft.recognizers.text.choice.1.3.2.nupkg.sha512"
     },
-    "Microsoft.Recognizers.Text.DateTime/1.2.9": {
+    "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dbZox2gglj8qEmdhtRiaDboI18BDIxhkamvTDFTBtf5fg6VUEgZACO0RaVenmCw039DWlIDqNqk6XyRpRzn/xw==",
-      "path": "microsoft.recognizers.text.datetime/1.2.9",
-      "hashPath": "microsoft.recognizers.text.datetime.1.2.9.nupkg.sha512"
+      "sha512": "sha512-bTIQbNtjrLwvXuBRc2FT3N4/TIT19xA0vmVw8imKsRCX9zuv2yxNOOqIWe7TH3uULftCrZWs55AtD3hB4Pvqrw==",
+      "path": "microsoft.recognizers.text.datatypes.timexexpression/1.3.2",
+      "hashPath": "microsoft.recognizers.text.datatypes.timexexpression.1.3.2.nupkg.sha512"
     },
-    "Microsoft.Recognizers.Text.Number/1.2.9": {
+    "Microsoft.Recognizers.Text.DateTime/1.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ukOZPTimOVlDCwZTjisGkqBkW36+uJfzLyGNR6yn2cYWXL40TgfEzwtvOio5o0q/VYRVB17XHlwLUIVW0dJDaQ==",
-      "path": "microsoft.recognizers.text.number/1.2.9",
-      "hashPath": "microsoft.recognizers.text.number.1.2.9.nupkg.sha512"
+      "sha512": "sha512-KGDTLJflS2qJVFHDaWivRHH8lp/Udpjd3v0We7MDYFNcnNsJKjlW3zXwx3DYmStRtGgFD+o9/oNLDFKhBUFdFg==",
+      "path": "microsoft.recognizers.text.datetime/1.3.2",
+      "hashPath": "microsoft.recognizers.text.datetime.1.3.2.nupkg.sha512"
     },
-    "Microsoft.Recognizers.Text.NumberWithUnit/1.2.9": {
+    "Microsoft.Recognizers.Text.Number/1.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CVXByaIYWxDBxVeGvTMaG/xbAh5+CORhQNLkrcmqKNw8WAl20bBZxZJFwe77gVZ2UN9OQ0NX2yI+R86NOddtQg==",
-      "path": "microsoft.recognizers.text.numberwithunit/1.2.9",
-      "hashPath": "microsoft.recognizers.text.numberwithunit.1.2.9.nupkg.sha512"
+      "sha512": "sha512-eYFPcfeQeF3gbb9ReEFT9OHznSI8WmU7dwVuTXbRreySZEfdDM967Vg0sGlcnploe9XDcqPPd66851htVR2dqg==",
+      "path": "microsoft.recognizers.text.number/1.3.2",
+      "hashPath": "microsoft.recognizers.text.number.1.3.2.nupkg.sha512"
+    },
+    "Microsoft.Recognizers.Text.NumberWithUnit/1.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s7f+sqnJFmNV1BD32ESN02Exs2WJgA79aCDFIVg4plw3PBTxIFO+79BDf0J2WeH0JeSXpQekWuedIXFXQc5x+A==",
+      "path": "microsoft.recognizers.text.numberwithunit/1.3.2",
+      "hashPath": "microsoft.recognizers.text.numberwithunit.1.3.2.nupkg.sha512"
     },
     "Microsoft.Rest.ClientRuntime/2.3.21": {
       "type": "package",
@@ -4522,12 +4637,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Caching.Abstractions/3.1.0.0": {
+    "Microsoft.Extensions.Caching.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Caching.Memory/3.1.0.0": {
+    "Microsoft.Extensions.Caching.Memory.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
