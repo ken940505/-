@@ -76,6 +76,11 @@ namespace EchoBot1.Dialog
                 return await stepContext.BeginDialogAsync(
                     askNameWaterfall, null, cancellationToken);
             }
+            else if (stepContext.Result.ToString() == "離開")
+            {
+                await stepContext.Context.SendActivityAsync("已經取消訂單");
+                return await stepContext.ReplaceDialogAsync("root", null, cancellationToken);
+            }
             else if (stepContext.Result.ToString() == "訂房")
             {
                 return await stepContext.BeginDialogAsync(
@@ -106,9 +111,9 @@ namespace EchoBot1.Dialog
 
             if (state.TurnCount == 0)
             {
-                //await stepContext.Context.SendActivityAsync(
-                //MessageFactory.Text("若要中途重新啟動，請輸入「離開」"),
-                //cancellationToken);
+                await stepContext.Context.SendActivityAsync(
+                MessageFactory.Text("若要中途重新啟動，請輸入「離開」"),
+                cancellationToken);
                 state.TurnCount++;
                 return await stepContext.NextAsync();
             }
