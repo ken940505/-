@@ -21,6 +21,7 @@
 
 </head>
 <body>
+
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light navClass navClass-RWD">
         <button onclick="navRWD()" class="navbar-toggler navBtnRWD" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -37,14 +38,11 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item fz125 ls025 " href="/Home/Environment">關於我們</a>
+                        <a class="dropdown-item fz125 ls025 " href="/Home/Access">環境介紹</a>
                         <a class="dropdown-item fz125 ls025 " href="/Home/QandA">常見問答</a>
                         <a class="dropdown-item fz125 ls025 " href="/Home/Contact">聯繫我們</a>
                     </div>
                 </li>
-                <li class="nav-item mt4 ml3RWD">
-                    <a class="nav-link fz15 ls025 " href="/Home/Access">環境介紹</a>
-                </li>
-                <a class="navbar-brand" href="/Home/Index"><img src="~/Content/images/logo.png" class="logoSize" alt=""></a>
                 <li class="nav-item mt4 dropdown ml3RWD">
                     <a class="nav-link fz15 ls025 ml3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,6 +51,23 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item fz125 ls025 " href="/Home/longCover">長住服務</a>
                         <a class="dropdown-item fz125 ls025 " href="/Booking/BookingFirstPage">試住體驗</a>
+                    </div>
+                </li>
+
+                <a id="navIcon" class="navbar-brand" href="/Home/Index">
+                    @*<img onmouseover="src='./Content/images/logoHover.png';" onmouseout="src='./Content/images/logo.png';" src='./Content/images/logo.png' class="logoSize1" alt="">*@
+                    <img src="~/Content/images/logo.png" class="logoSize2" alt="">
+                </a>
+                
+                <li class="nav-item mt4 dropdown ml3RWD">
+                    <a class="nav-link fz15 ls025 ml3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        榕沛生活
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item fz125 ls025 " href="/Activity/club">社團介紹</a>
+                        <a class="dropdown-item fz125 ls025 " href="/Activity/Index">活動總覽</a>
+
                     </div>
                 </li>
                 <li class="nav-item mt4 ml3RWD">

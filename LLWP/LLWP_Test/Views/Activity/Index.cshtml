@@ -14,10 +14,10 @@
     </div>
 </div>
 <!-- 活動內容˙ -->
-<div id="main" class="none">
+<div id="main" class="none" style="max-width:500px">
     <div id="title">
         <div id="ten"></div>
-        <div id="img" title="close">X</div>
+        <div id="img" title="close" class="fz15">X</div>
     </div>
     <div id="content">
         <!-- 開頭 -->
@@ -28,10 +28,10 @@
             <div class="contenttitle">
                 <span class="condate">
                     <span class="datemonth">7月</span>
-                    <span class="dateday">23號</span>
+                    <div class="dateday">23號</div>
                 </span>
                 <div class="cttitle">草頭娃娃製作</div>
-                <div class="cthost">園藝社主辦<button class="activity_Index_btn addActivity" style="margin-left: 20%;" onclick="addActivity()">參加</button></div>
+                <div class="cthost">園藝社主辦<button class="btn btn-warning activity_Index_btn addActivity" style="margin-left: 20%;" onclick="addActivity()">參加</button></div>
                 <div class="ctdatetime">7月23號上午9:00~7月23號上午12:00</div>
                 <div class="hosthttp">
                     主辦方網站
@@ -44,6 +44,9 @@
         <div class="details">
             <div class="detailinside">
                 <h4 id="test1">詳情</h4>
+                <div class="fz125">想為居家環境增添綠意嗎？這時不妨動手做出玩偶般的草頭寶寶，
+                為植物妝點各種表情，更顯得生動活潑，還能依照心情更換打扮。照顧方式很簡單，只要
+                每天給水就可以生存，草葉枯成黃色還能變化造型，是十分簡單的擺飾品。</div>
             </div>
 
         </div>
@@ -94,14 +97,16 @@
                                 <img class="card-img-top pic" src="~/Content/images/A001草頭娃娃製作.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">草頭娃娃製作</h5>
-                                    <div class="date">2020/07/1</div>
-                                    <div>報名時限:2020/06/25 12:00</div>
+                                    <div class="date">2020-07-01</div>
+                                    <div>報名時限:2020-06-25 12:00</div>
                                     <span class="organizer">活動中心小教室</span>
                                     <span>剩餘人次:20</span>
                                     <div>
-                                        $200
-                                        <button class="activity_Index_btn open">詳情</button>
-                                        <button class="activity_Index_btn "  onclick="addActivity()">參加</button>
+                                        $200                                     
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -116,9 +121,11 @@
                                     <span class="organizer">大草皮</span>
                                     <span>剩餘人次:30</span>
                                     <div>
-                                        $100
-                                        <button class="activity_Index_btn open">詳情</button>
-                                        <button class="activity_Index_btn" onclick="addActivity()">參加</button>
+                                        $100                                    
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -133,9 +140,11 @@
                                     <span class="organizer">活動中心小教室</span>
                                     <span>剩餘人次:20</span>
                                     <div>
-                                        $100
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                        $100                                    
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -151,8 +160,10 @@
                                     <span>剩餘人次:40</span>
                                     <div>
                                         $免費
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -168,8 +179,10 @@
                                     <span>剩餘人次:20</span>
                                     <div>
                                         $免費
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -185,8 +198,10 @@
                                     <span>剩餘人次:20</span>
                                     <div>
                                         $免費
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -202,8 +217,10 @@
                                     <span>剩餘人次:40</span>
                                     <div>
                                         $100
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -219,8 +236,10 @@
                                     <span>剩餘人次:20</span>
                                     <div>
                                         $100
-                                        <button class="activity_Index_btn">詳情</button>
-                                        <button class="activity_Index_btn">參加</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                        <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                     </div>
                                 </div>
                             </div>
@@ -242,8 +261,10 @@
                                 <span>剩餘人次:40</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -259,8 +280,11 @@
                                 <span>剩餘人次:20</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -276,8 +300,10 @@
                                 <span>剩餘人次:40</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -293,8 +319,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -310,8 +338,10 @@
                                 <span>剩餘人次:20</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -327,8 +357,10 @@
                                 <span>剩餘人次:20</span>
                                 <div>
                                     $150
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -344,8 +376,10 @@
                                 <span>剩餘人次:20</span>
                                 <div>
                                     $200
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -361,8 +395,10 @@
                                 <span>剩餘人次:40</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -383,8 +419,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $200
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -400,8 +438,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -417,8 +457,10 @@
                                 <span>剩餘人次:200</span>
                                 <div>
                                     $500
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -434,8 +476,10 @@
                                 <span>剩餘人次:50</span>
                                 <div>
                                     $100
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -451,8 +495,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $500
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -469,8 +515,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -486,8 +534,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $200
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -503,8 +553,10 @@
                                 <span>剩餘人次:30</span>
                                 <div>
                                     $200
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -525,8 +577,10 @@
                                 <span>剩餘人次:40</span>
                                 <div>
                                     $300
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -542,8 +596,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -559,8 +615,11 @@
                                 <span>剩餘人次:60</span>
                                 <div>
                                     $300
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                    
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -575,9 +634,11 @@
                                 <span class="organizer">活動中心講堂</span>
                                 <span>剩餘人次:100</span>
                                 <div>
-                                    $0
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                    $免費
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -598,8 +659,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -615,8 +678,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -632,8 +697,10 @@
                                 <span>剩餘人次:100</span>
                                 <div>
                                     $600
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -649,8 +716,10 @@
                                 <span>剩餘人次:200</span>
                                 <div>
                                     $0
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -666,8 +735,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -683,8 +754,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -700,8 +773,10 @@
                                 <span>剩餘人次:不限</span>
                                 <div>
                                     $免費
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -717,8 +792,10 @@
                                 <span>剩餘人次:200</span>
                                 <div>
                                     $200
-                                    <button class="activity_Index_btn">詳情</button>
-                                    <button class="activity_Index_btn">參加</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-warning  activity_Index_btn open">詳情</button>
+                                    <button class="btn btn-warning activity_Index_btn" onclick="addActivity()">參加</button>
                                 </div>
                             </div>
                         </div>
@@ -815,8 +892,8 @@
         </div>
 
         <!-- 我的活動 -->
-        <div id="class3" class="container-fluid custom-container-width class">
-            <div class="row no-gutters">
+        <div id="class3" class="container-fluid custom-container-width class" >
+            <div class="row no-gutters" style="border:#F8B73B 2px solid; background-color: #ffffff;">
                 <div class="con col-lg-6">
                     <div class="month">
                         <p>2020 年 7 月</p>
@@ -876,11 +953,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" style=" background-color: #ffffff;">
-                    <table class="table table-striped">
+                <div class="col-lg-5" style="margin-left:45px">
+                    <table class="table table-striped " style="margin-top:12%">
                         <thead class="thead-info">
                             <tr class="table-warning">
-                                <th scope="col">#</th>
+                                <th scope="col">代號</th>
                                 <th scope="col">活動</th>
                                 <th scope="col">時間</th>
                                 <th scope="col">地點</th>
@@ -893,21 +970,21 @@
                                 <td>草頭娃娃製作</td>
                                 <td>2020/07/1</td>
                                 <td>活動中心小教室</td>
-                                <td><button class="activity_Index_btn">詳情</button></td>
+                                <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">A002</th>
                                 <td>戶外寫生</td>
                                 <td>2020/7/8</td>
                                 <td>大草皮</td>
-                                <td><button class="activity_Index_btn">詳情</button></td>
+                                <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">C002</th>
                                 <td>古典音樂鑑賞</td>
                                 <td>2020/7/22</td>
                                 <td>活動中心音樂室</td>
-                                <td><button class="activity_Index_btn">詳情</button></td>
+                                <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -918,7 +995,7 @@
 
     <!-- 我的購物車 -->
     <div id="class4" class="container class">
-        <div class="shoppingcart">
+        <div class="shoppingcart mt5">
             <table class="shoppingcart-table">
                 <tr class="shoppingcart-tr" style="text-align: center;">
                     <th>活動名稱</th>
@@ -926,44 +1003,41 @@
                     <th>活動價格</th>
                     <th></th>
                 </tr>
-                <tr class="shoppingcart-tr" style="text-align: center;">
+                <tr class="shoppingcart-tr" style="text-align:center;">
                     <td>
                         <img src="~/Content/images/A001草頭娃娃製作.jpg" alt="" style="height: 200px;width: 200px;">
                         <div>草頭娃娃製作</div>
                     </td>
                     <td>2020/07/15</td>
                     <td>500</td>
-                    <td><button class="activity_Index_btn">取消</button></td>
+                    <td><button class="btn btn-warning activity_Index_btn">取消</button></td>
                 </tr>
-                <tr class="shoppingcart-tr" style="text-align: center;">
+                <tr class="shoppingcart-tr" style="text-align:center;">
                     <td>
                         <img src="~/Content/images/D002寵物交流.jpg" alt="" style="height: 200px;width: 200px;">
                         <div>寵物交流</div>
                     </td>
                     <td>2020/07/16</td>
                     <td>200</td>
-                    <td><button class="activity_Index_btn">取消</button></td>
+                    <td><button class="btn btn-warning activity_Index_btn">取消</button></td>
                 </tr>
                 <tr class="shoppingcart-tr">
-                    <td colspan="4" style="text-align: center;">
-                        <button class="activity_Index_btn">清空</button>
+                    <td colspan="4" style="text-align:center;">
+                        <button class="btn btn-danger activity_Index_bt fz15 mr3">清空</button>
                         <a href="/Activity/actshoppingcart">
-                            <button class="activity_Index_btn"> 結帳</button>
+                            <button class="btn btn-warning activity_Index_bt fz15 ml3"> 結帳</button>
                         </a>
                     </td>
                 </tr>
             </table>
         </div>
-        <div style="margin-top: 30px;">
-
-
-        </div>
+       
     </div>
 
     <!-- 活動申請 -->
-    <div id="class5" class="class container">
-        <div class="formclub ">
-            <form action="#" method="get" enctype="multipart/form-data">
+    <div id="class5" class="class container">    
+        <div class="formclub mt5">        
+            <form action="#" method="get" enctype="multipart/form-data" class="mt2 mb10">
                 <fieldset>
                     <div class="st1">
                         <label class="t1" for="account1">主辦姓名:</label>
@@ -986,22 +1060,32 @@
                         <input type="date" name="add2" size="30" min="" id="day">
                     </div>
                     <div class="st1">
-                        <label for="" class="t1">活動企劃書:<a download href="images/pic4.jpg">企劃書表格下載</a></label>
-                        <input type="file" name="file1">
+                        <label for="" class="t1">活動企劃書:</label>
+                        <div>下載:
+                            <a download href="images/pic4.jpg" class="btn btn-primary mb2">企劃書表格</a>
+                        </div>
+                        <div>上傳:                        
+                            <label class="btn btn-info">
+                                <input id="upload_act" style="display:none;" type="file" name="file1">
+                                上傳企劃書
+                            </label>
+                        </div>                      
+                    </div>
+                    <div class="notice">
+                        <h2>申請須知</h2>
+                        <ul>
+                            <li>需要兩位保證人</li>
+                            <li>請附上活動企劃書</li>
+                            <li>申請結果將以電子郵件告知</li>
+                        </ul>
                     </div>
                     <div class="sub">
-                        <input type="submit" value="送出" style="font-size: large">
-                        <input type="reset" value="清除" style="font-size: large">
+                        <input type="reset" value="清除" class="btn btn-danger activity_Index_bt fz15 mr5">
+                        <input type="submit" value="送出" class="btn btn-warning activity_Index_bt fz15 ml5">
+
                     </div>
                 </fieldset>
-                <div class="notice">
-                    <h2>申請須知</h2>
-                    <ul>
-                        <li>需要兩位保證人</li>
-                        <li>請附上活動企劃書</li>
-                        <li>申請結果將以電子郵件告知</li>
-                    </ul>
-                </div>
+
         </div>
     </div>
    

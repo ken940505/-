@@ -1,7 +1,7 @@
 
 $('.access_li').css('width', $('#box').width() / 3);
 
-var items = document.querySelectorAll('#colla1')
+var items = document.querySelectorAll('#colla1');
 
 for (var i = 0; i < items.length; i++) {
     items[i].addEventListener("click", function () {
@@ -11,18 +11,18 @@ for (var i = 0; i < items.length; i++) {
         } else {
             this.getElementsByTagName('img')[0].src = '../Content/images/accordion_icn_open.png';
         }
-    })
+    });
 }
 
 $('.carousel').carousel({
     interval: 4000
-})
+});
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-})
+});
 
-var colla2items = document.querySelectorAll('#colla2')
+var colla2items = document.querySelectorAll('#colla2');
 
 for (var i = 0; i < colla2items.length; i++) {
     colla2items[i].addEventListener("click", function () {
@@ -32,7 +32,7 @@ for (var i = 0; i < colla2items.length; i++) {
         } else {
             this.getElementsByTagName('img')[0].src = '../Content/images/accordion_icn_open_orange.png';
         }
-    })
+    });
 }
 
 //Τhover狦セ
@@ -189,28 +189,40 @@ $(function () {
     let navPosition = $("#navbar").offset().top;
 
     $(window).scroll(function () {
+        var navIcon = document.querySelectorAll('#navIcon');
         let scrollTop = $(this).scrollTop();
-        if (scrollTop > navPosition)
+        if (scrollTop > navPosition) {
             $("#navbar").addClass("fixed-nav");
-        else
+            navIcon[0].addEventListener("mouseover", function () {
+                this.getElementsByTagName('img')[0].src = '../Content/images/logoHoverWhite.png';
+            });
+            navIcon[0].addEventListener("mouseout", function () {
+                this.getElementsByTagName('img')[0].src = '../Content/images/logo.png';
+            });
+        }
+        else {
             $("#navbar").removeClass("fixed-nav");
+            navIcon[0].addEventListener("mouseover", function () {
+                this.getElementsByTagName('img')[0].src = '../Content/images/logoHover.png';
+            });
+
+            navIcon[0].addEventListener("mouseout", function () {
+                this.getElementsByTagName('img')[0].src = '../Content/images/logo.png';
+            });
+        }
     });
 });
 
-//$(function () {
-//    var nav = $("#navbar");
-//    if (nav.length) {
-//        navPosition = nav.offset().top;
-//    }
+$(document).ready(function () {
+    var navIcon = document.querySelectorAll('#navIcon');
+    navIcon[0].addEventListener("mouseover", function () {
+        this.getElementsByTagName('img')[0].src = '../Content/images/logoHover.png';
+    });
 
-//    $(window).scroll(function () {
-//        let scrollTop = $(this).scrollTop();
-//        if (scrollTop > navPosition)
-//            $("#navbar").addClass("fixed-nav");
-//        else
-//            $("#navbar").removeClass("fixed-nav");
-//    });
-//});
+    navIcon[0].addEventListener("mouseout", function () {
+        this.getElementsByTagName('img')[0].src = '../Content/images/logo.png';
+    });
+});
 
 $(document).ready(function () {
     $(".tab-content > li").last().hide(); //留旅.tab-content糷程li
@@ -222,13 +234,20 @@ $(document).ready(function () {
             $(".tab-content > li").last().hide();
             $(".tab-content > li").first().show();
             $('.tab-content > li').css('background-color', '#b1d3c5')  //糷li场э#b1d3c5
+            $('.tabs > li').first().css('background-color', '#b1d3c5')//.tabs糷程liэ#e1f1e7
+
+            $('.tabs > li').last().css('background-color', '#e1f1e7')//.tabs糷程liэ#e1f1e7
+
         }
 
         if (type === 2) {
             $(".tab-content > li").first().hide();
             $(".tab-content > li").last().show();
-            $('.tab-content > li').css('background-color', '#e1f1e7')//糷li场э#e1f1e7
-            $('.tabs > li').last().css('background-color', '#e1f1e7')//.tabs糷程liэ#e1f1e7
+
+            $('.tab-content > li').css('background-color', '#b1d3c5')//糷li场э#e1f1e7
+            $('.tabs > li').first().css('background-color', '#e1f1e7')//.tabs糷程liэ#e1f1e7
+
+            $('.tabs > li').last().css('background-color', '#b1d3c5')//.tabs糷程liэ#e1f1e7
         }
 
     })
@@ -276,11 +295,11 @@ $(document).ready(function () {
     var bool = false;
     var offsetX = 0;
     var offsetY = 0;
-    $("#title").mousedown(function () {
+    $("#ten").mousedown(function () {
         bool = true;
         offsetX = event.offsetX;
         offsetY = event.offsetY;
-        $("#ten").css('cursor', 'move');
+        //$("#ten").css('cursor', 'move');
     })
         .mouseup(function () {
             bool = false;

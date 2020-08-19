@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "榕沛社區 - 加入會員";
+    ViewBag.Title = "榕沛社區 - 會員申請";
     Layout = "~/Views/Shared/_Layout_Member.cshtml";
 }
 <div class="backColor-reg shadow">
@@ -17,18 +17,7 @@
                     </div>
                     <input type="text" class="form-control w-75" id="inputName">
                 </div>
-                <div class="radioButtonSet">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                               class="custom-control-input" checked>
-                        <label class="custom-control-label" for="customRadioInline1">先生</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                               class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline2">女士</label>
-                    </div>
-                </div>
+
                 <hr>
                 <div class="form-group d-flex w-100">
                     <div class="formDivSet w-25">
@@ -48,7 +37,18 @@
                     <div class="formDivSet w-25">
                         <div class="labelSet"><label for="gender"></label>性別</div>
                     </div>
-                    <input type="text" class="form-control w-75" id="inputgender">
+                    <div class="radioButtonSet">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                   class="custom-control-input" checked>
+                            <label class="custom-control-label" for="customRadioInline1">先生</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                   class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">女士</label>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group d-flex w-100">
@@ -75,8 +75,8 @@
                 <hr class="mb-5">
                 <div class="form-group w-100 d-flex">
                     <div class="labelSet w-25"><label for="inputBirthday">出生日期</label></div>
-                    <div class="w-75 d-flex ">
-                        <select class="col-sm-4" name="birth_year">
+                    <div class="w-75 d-flex " style="justify-content: space-between;">
+                        <select class="col-sm-4" name="birth_year" style="height:38px; padding:0 80px 0 15px">
                             <option value="">年</option>
                             <option value="20">2020</option>
                             <option value="21">2021</option>
@@ -88,7 +88,7 @@
                             <option value="27">2027</option>
                             <option value="28">2028</option>
                         </select>
-                        <select class="col-sm-3" name="birth_month" id="birth_month">
+                        <select class="col-sm-3" name="birth_month" id="birth_month" style=" padding:0 80px 0 15px" ;>
                             <option>月</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -103,7 +103,7 @@
                             <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
-                        <select class="col-sm-3" name="birth_day" id="birth_day">
+                        <select class="col-sm-3" name="birth_day" id="birth_day" style=" padding:0 80px 0 15px" ;>
                             <option>日</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -151,23 +151,23 @@
                     <input type="file" class=" w-75" id="customFile">
                 </div>
                 <hr>
-                <div class="form-group w-100 d-flex">
-                    <div class="labelSet w-25"><label for="inputforPet">參與試養計畫</label></div>
+                <div class="form-group w-100 d-flex" style="height:38px">
+                    <div class="labelSet w-25"><label for="inputforPet">是否參加試養計劃</label></div>
                     <div class="w-75 d-flex ">
                         <select class="col-sm-4" name="forpet">
-                            <option value="">參與計畫</option>
+                            <option value="">是否參加</option>
                             <option value="1">是</option>
                             <option value="2">否</option>
                         </select>
                     </div>
                 </div>
-                <hr>
-                <div class="submit1 w-100">
-
-                    <button type="button" class="btn btn btn-dark w-50">下一頁</button>
+                <hr>完成
+                <div class="mt10 jcc" style="width:100%; display:flex;">
+                    <a href="/Booking/BookingCalendar" style="display:block; width:250px;" class="btn btn-warning btn-lg" role="button" aria-pressed="true">完成，前往訂房</a>
                 </div>
             </div>
         </div>
         <!-- Modal -->
     </div>
 </div>
+
