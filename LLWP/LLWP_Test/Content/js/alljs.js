@@ -1,7 +1,7 @@
 
 $('.access_li').css('width', $('#box').width() / 3);
 
-var items = document.querySelectorAll('#colla1');
+var items = document.querySelectorAll('#colla1')
 
 for (var i = 0; i < items.length; i++) {
     items[i].addEventListener("click", function () {
@@ -11,18 +11,18 @@ for (var i = 0; i < items.length; i++) {
         } else {
             this.getElementsByTagName('img')[0].src = '../Content/images/accordion_icn_open.png';
         }
-    });
+    })
 }
 
 $('.carousel').carousel({
     interval: 4000
-});
+})
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-});
+})
 
-var colla2items = document.querySelectorAll('#colla2');
+var colla2items = document.querySelectorAll('#colla2')
 
 for (var i = 0; i < colla2items.length; i++) {
     colla2items[i].addEventListener("click", function () {
@@ -32,7 +32,7 @@ for (var i = 0; i < colla2items.length; i++) {
         } else {
             this.getElementsByTagName('img')[0].src = '../Content/images/accordion_icn_open_orange.png';
         }
-    });
+    })
 }
 
 //有hover效果的版本
@@ -224,6 +224,8 @@ $(document).ready(function () {
     });
 });
 
+
+
 $(document).ready(function () {
     $(".tab-content > li").last().hide(); //隱藏.tab-content下一層的最後一個li
 
@@ -339,7 +341,7 @@ function openClass(evt, className) {
 
 }
 var mybtn = document.getElementsByClassName("testbtn")[0];
-//mybtn.click();
+mybtn.click();
 //var mybtn = document.getElementsByClassName("testbtn")[0];
 //mybtn.click();
 
@@ -358,7 +360,7 @@ function openClass2(evt, className) {
 
 }
 var mybtn2 = document.getElementsByClassName("testbtn2")[0];
-//mybtn2.click();
+mybtn2.click();
 
 
 $(function () {

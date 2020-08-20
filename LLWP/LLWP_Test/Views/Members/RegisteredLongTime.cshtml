@@ -6,7 +6,7 @@
 <div class="backColor-reg shadow">
     <div class="container">
         <div class=" mb-5">
-            <div class="row mb-2">
+            <div class="row mb-2 longmember">
                 <div class="">
                     <h3 class="title formFont">註冊</h3>
                     <h5 class="title formFont">成為榕沛會員</h5>
@@ -30,7 +30,13 @@
                     <div class="formDivSet w-25">
                         <div class="labelSet"><label for="country">國籍</label></div>
                     </div>
-                    <input type="text" class="form-control w-75" id="inputCountry">
+                    <div class="w-75 d-flex ">
+                        <select class="col-sm-4" name="txtCountry">
+                            <option value="">選擇國籍</option>
+                            <option value="1">本國籍</option>
+                            <option value="2">外國籍</option>
+                        </select>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group d-flex w-100">

@@ -26,6 +26,9 @@ body{
     background-color: #f8b73b;  
     top:0;
 }
+.logoSize{
+    width: 100px;
+}
 .w150{
     width: 150px;
 }
@@ -121,6 +124,9 @@ body{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 10;
+}
+.br25{
+    border-radius: 0.25rem;
 }
 .fcw{
     color: #ffffff;

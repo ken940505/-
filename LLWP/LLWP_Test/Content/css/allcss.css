@@ -26,7 +26,6 @@ body {
     white-space: nowrap;
     margin-left: 2rem;
 }
-
 .dropdown-menu {
     margin: -.04rem 0 0;
     border-radius: 0 0 .25rem .25rem;
@@ -48,7 +47,7 @@ body {
     position:relative;
 }*/
 
-    /*.navbar-brand a {
+/*.navbar-brand a {
         position: absolute;
         -webkit-transition: opacity .5s ease-in-out;
         -moz-transition: opacity .5s ease-in-out;
@@ -56,11 +55,11 @@ body {
         transition: opacity .5s ease-in-out;
     }*/
 
-    /*.navbar-brand a:last-child:hover {
+/*.navbar-brand a:last-child:hover {
         opacity: 0;
     }*/
 
-    /*.navbar-brand a:last-child:hover {
+/*.navbar-brand a:last-child:hover {
         visibility:visible;
     }
 
@@ -70,11 +69,10 @@ body {
 
 
 
-        .logoSize2 {
-            width: 100px;
-            /*visibility:hidden;*/
-        }
-
+.logoSize2 {
+    width: 100px;
+    /*visibility:hidden;*/
+}
 /*以下為陳至為*/
 
 .coffee_body {
@@ -1109,9 +1107,13 @@ a {
     margin-top: 35px;
     text-align: center;
 }
-
+.nav-linkMember {
+    font-size: 1.5rem;
+}
+.longmember{
+    font-size:1.25rem;
+}
 /*以上為許斯惟*/
-
 /*以下為訂房*/
 /*長住和試住共同的*/
 .web-title {
@@ -1890,6 +1892,7 @@ a {
     background-color: #e1f1e7;
 }
 
+
 .tab-content-act {
     background-color: #b1d3c5;
     border-radius: 0 0 0.25rem 0.25rem;
@@ -2074,8 +2077,16 @@ a {
         text-decoration: none;
     }
 
+.width210 {
+    width:210px;
+}
+
+.ml180 {
+    margin-left:180px;
+}
+
 .divMargin {
-    margin-top:5%;
+    margin-top: 5%;
     margin-bottom: 5%;
 }
 
@@ -2913,6 +2924,7 @@ textarea {
 }
 /*以上為活動*/
 
+
 /*以下為智慧客服鈴鐺*/
 
 body .add-notification, html .add-notification {
@@ -2928,12 +2940,12 @@ body .add-notification, html .add-notification {
         color: #fff;
         border-radius: 100px;
         height: 30px;
-        padding:0px;
+        padding: 0px;
         font-family: "Open Sans";
         outline: none;
         transition: all 150ms ease-in-out;
         font-weight: 600;
-        width:125px;
+        width: 125px;
     }
 
         body .add-notification button:hover, html .add-notification button:hover {
