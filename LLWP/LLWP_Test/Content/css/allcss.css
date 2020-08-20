@@ -2912,3 +2912,260 @@ textarea {
    padding-top:10px
 }
 /*以上為活動*/
+
+/*以下為智慧客服鈴鐺*/
+
+body .add-notification, html .add-notification {
+    position: fixed;
+    left: 94%;
+    bottom: 10%;
+}
+
+    body .add-notification button, html .add-notification button {
+        transform: translate(-50%);
+        background: #ED7B01;
+        border: 2px solid #ED7B01;
+        color: #fff;
+        border-radius: 100px;
+        height: 30px;
+        padding:0px;
+        font-family: "Open Sans";
+        outline: none;
+        transition: all 150ms ease-in-out;
+        font-weight: 600;
+        width:125px;
+    }
+
+        body .add-notification button:hover, html .add-notification button:hover {
+            background: #F8B73B;
+            color: #fff;
+            border: 2px solid #F8B73B;
+        }
+
+        body .add-notification button:focus, html .add-notification button:focus {
+            background: #F8B73B !important;
+            color: #fff !important;
+            cursor: pointer !important;
+            border: 2px solid #F8B73B !important;
+            box-shadow: 0 0 0 0rem #FFF !important;
+        }
+
+        body .add-notification button:active, html .add-notification button:active {
+            background: #F8B73B !important;
+            color: #fff !important;
+            cursor: pointer !important;
+            border: 2px solid #F8B73B !important;
+            box-shadow: 0 0 0 0rem #FFF !important;
+        }
+
+        body .add-notification button:visited, html .add-notification button:visited {
+            background: #F8B73B !important;
+            color: #fff !important;
+            cursor: pointer !important;
+            border: 2px solid #F8B73B !important;
+            box-shadow: 0 0 0 0rem #FFF !important;
+        }
+
+.bellset {
+    cursor: pointer;
+}
+
+.bell {
+    position: fixed;
+    bottom: 17%;
+    left: 94%;
+    transform: translate(-50%, -50%);
+}
+
+    .bell .bell-top {
+        background: #ED7B01;
+        width: 40px;
+        height: 35px;
+        border-radius: 50% 50% 0 0;
+    }
+
+        .bell .bell-top:before {
+            content: '';
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: inherit;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+
+        .bell .bell-top:after {
+            content: '';
+            border-bottom: 10px solid #ED7B01;
+            border-left: 8px solid #ED7B01;
+            border-right: 8px solid #ED7B01;
+            height: 0;
+            width: 55px;
+            position: fixed;
+            left: -8px;
+            bottom: -10px;
+        }
+
+    .bell .bell-bot {
+        width: 12px;
+        height: 8px;
+        background: #ED7B01;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        border-radius: 0 0 16px 16px;
+    }
+
+
+    .bell .bell-notification {
+        /* background: #FF4C12; */
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        position: fixed;
+        right: -40px;
+        top: -30px;
+        color: #fff;
+        font-family: "Open Sans";
+        font-size: 40px;
+        line-height: 70px;
+        text-align: center;
+        opacity: 0;
+    }
+
+.bell-top-anim {
+    animation: abanico 1000ms ease-in-out;
+    transform-origin: top;
+}
+
+.bell-bot-anim {
+    animation: badalo 1000ms ease-in-out;
+}
+
+.new-not {
+    animation: popup 500ms forwards;
+}
+
+@keyframes abanico {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    7.5% {
+        transform: rotate(25deg);
+    }
+
+    30% {
+        transform: rotate(-25deg);
+    }
+
+    45% {
+        transform: rotate(15deg);
+    }
+
+    58% {
+        transform: rotate(-10deg);
+    }
+
+    70% {
+        transform: rotate(5deg);
+    }
+
+    87.5% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes badalo {
+    15% {
+        transform: translateX(-25px) rotate(7deg);
+    }
+
+    32.5% {
+        transform: translateX(10px) rotate(-7deg);
+    }
+
+    50% {
+        transform: translateX(-15px) rotate(7deg);
+    }
+
+    65% {
+        transform: translateX(5px) rotate(-7deg);
+    }
+
+    80% {
+        transform: translateX(-15px) rotate(7deg);
+    }
+
+    90% {
+        transform: translateX(0px) rotate(-7deg);
+    }
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/*以上為智慧客服鈴鐺*/
+
+
+/*以下為智慧客服*/
+
+#webchat {
+    height: 100%;
+    width: 100%;
+}
+
+.embed-responsive-16by9::before {
+    padding-top: 0px;
+    max-height: 500px;
+}
+
+.webchat__bubble:not(.webchat__bubble--from-user)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 16px;
+    height: 39px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-width: 10px;
+    border-bottom-color: currentColor;
+    border-radius: 0 0 0 78px;
+    color: #FFF9DB;
+}
+
+.webchat__bubble.webchat__bubble--from-user::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 16px;
+    height: 35px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-top-width: 10px;
+    border-top-color: currentColor;
+    border-radius: 0 78px 0 0;
+    color: #F5F1ED;
+}
+
+/*以上為智慧客服*/

@@ -58,7 +58,7 @@
                     @*<img onmouseover="src='./Content/images/logoHover.png';" onmouseout="src='./Content/images/logo.png';" src='./Content/images/logo.png' class="logoSize1" alt="">*@
                     <img src="~/Content/images/logo.png" class="logoSize2" alt="">
                 </a>
-                
+
                 <li class="nav-item mt4 dropdown ml3RWD">
                     <a class="nav-link fz15 ls025 ml3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,8 +81,49 @@
     <div class="body-content">
         @RenderBody()
 
-        <footer class="page-footer font-medium danger-color">
+        <div class="text-center">
+            <div class="bellset" data-toggle="modal" data-target="#modalEchoBot" onclick="addNotification()">
+                <div class="bell">
+                    <div class="bell-top"></div>
+                    <div class="bell-bot"></div>
+                    <div class="bell-notification"></div>
+                </div>
+                <div class="add-notification">
+                    <button type="button" class="btn btn-default">　呼 叫 小 榕　</button>
+                </div>
+            </div>
+        </div>
+        <!--Modal: Name-->
 
+        <div class="modal fade" id="modalEchoBot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <div class="modal-header justify-content-center mb-0 p-0 pt-3">
+                        <p>智慧客服</p>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body mb-0 p-0" style=" overflow: auto; height: 500px;">
+                        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half h-100">
+                            <div id="webchat" role="main"></div>
+                            @*<iframe
+                                src='https://webchat.botframework.com/embed/EchoBot20200815Test?s=PR139WlkAhQ.Toi2U8ZysOjcUpyyMSTcsgzae2zvbbReBvgCCFFplns'
+                                style='min-width: 400px; width: 100%; max-height: 500px;'></iframe>*@
+                        </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-outline-primary btn-rounded btn-md" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+
+        <footer class="page-footer font-medium danger-color">
             <div class="bgc4">
                 <div class="container">
                     <div class="row py-4 d-flex align-items-center">
@@ -188,6 +229,7 @@
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
     <script type="text/javascript" src="~/Content/js/glider.min.js" charset="big5"></script>
     <script type="text/javascript" src="~/Content/js/alljs.js" charset="big5"></script>
 </body>

@@ -244,6 +244,7 @@
     <Content Include="Content\images\LLWP_ICON.png" />
     <Content Include="Content\images\LLWP_ICON2.png" />
     <Content Include="Content\images\LLWP_LOGO.png" />
+    <Content Include="Content\images\LLWP_LOGO2.png" />
     <Content Include="Content\images\logo.jfif" />
     <Content Include="Content\images\logoHover.png" />
     <Content Include="Content\images\main03.jpg" />
