@@ -54,7 +54,11 @@
                     </div>
                 </li>
 
-                <a class="navbar-brand" href="/Home/Index"><img src="~/Content/images/logo.png" class="logoSize" alt=""></a>
+                <a id="navIcon" class="navbar-brand" href="/Home/Index">
+                    @*<img onmouseover="src='./Content/images/logoHover.png';" onmouseout="src='./Content/images/logo.png';" src='./Content/images/logo.png' class="logoSize1" alt="">*@
+                    <img src="~/Content/images/logo.png" class="logoSize2" alt="">
+                </a>
+
                 <li class="nav-item mt4 dropdown ml3RWD">
                     <a class="nav-link fz15 ls025 ml3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,8 +108,8 @@
                         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half h-100">
                             <div id="webchat" role="main"></div>
                             @*<iframe
-                            src='https://webchat.botframework.com/embed/EchoBot20200815Test?s=PR139WlkAhQ.Toi2U8ZysOjcUpyyMSTcsgzae2zvbbReBvgCCFFplns'
-                            style='min-width: 400px; width: 100%; max-height: 500px;'></iframe>*@
+                                src='https://webchat.botframework.com/embed/EchoBot20200815Test?s=PR139WlkAhQ.Toi2U8ZysOjcUpyyMSTcsgzae2zvbbReBvgCCFFplns'
+                                style='min-width: 400px; width: 100%; max-height: 500px;'></iframe>*@
                         </div>
                     </div>
                     <!--Footer-->
@@ -225,6 +229,7 @@
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
     <script type="text/javascript" src="~/Content/js/glider.min.js" charset="big5"></script>
     <script type="text/javascript" src="~/Content/js/alljs.js" charset="big5"></script>
 </body>

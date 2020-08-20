@@ -341,7 +341,7 @@ function openClass(evt, className) {
 
 }
 var mybtn = document.getElementsByClassName("testbtn")[0];
-mybtn.click();
+//mybtn.click();
 //var mybtn = document.getElementsByClassName("testbtn")[0];
 //mybtn.click();
 
@@ -360,7 +360,7 @@ function openClass2(evt, className) {
 
 }
 var mybtn2 = document.getElementsByClassName("testbtn2")[0];
-mybtn2.click();
+//mybtn2.click();
 
 
 $(function () {
@@ -452,4 +452,4 @@ function addNotification() {
 
     }
 
-}
+} 
