@@ -1927,6 +1927,7 @@
     <Content Include="Content\fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="Content\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Content\js\sweetalert.js" />
+    <Content Include="Content\js\webchat.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\video\videoBanner.mp4" />
     <Content Include="Content\video\videoTryPet.mp4" />

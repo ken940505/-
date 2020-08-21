@@ -33,5 +33,12 @@ namespace LLWP_Test.Controllers
         {
             return View();
         }
+
+        public ActionResult PaypalPartial()
+        {
+            //List<CartVM> cart = Session["cart"] as List<CartVM>;
+
+            return View();
+        }
     }
 }

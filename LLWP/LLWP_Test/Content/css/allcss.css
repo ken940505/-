@@ -3181,3 +3181,11 @@ body .add-notification, html .add-notification {
 }
 
 /*以上為智慧客服*/
+
+/*以下為串PAYPAL*/
+form.paypalform {
+    position: absolute;
+    left: -2000px;
+}
+
+/*以上為串PAYPAL*/
