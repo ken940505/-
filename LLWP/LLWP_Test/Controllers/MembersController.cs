@@ -24,7 +24,7 @@ namespace LLWP_Test.Controllers
             msg.Body = "測試一下"; //郵件內容
             msg.BodyEncoding = System.Text.Encoding.UTF8;//郵件內容編碼 
             msg.IsBodyHtml = true;//是否是HTML郵件 
-                                    //msg.Priority = MailPriority.High;//郵件優先級 
+                                  //msg.Priority = MailPriority.High;//郵件優先級 
 
             SmtpClient client = new SmtpClient();
             client.Credentials = new System.Net.NetworkCredential("longlifewithpet@gmail.com", "llwp3135"); //這裡要填正確的帳號跟密碼

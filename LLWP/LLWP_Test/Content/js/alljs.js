@@ -388,6 +388,7 @@ $("button.placeorder").click(function (e) {
 
     var $this = $(this);
 
+    //var url = "/cart/PlaceOrder";
     var url = "/Booking/BookingPayment";
 
     $.post(url);
