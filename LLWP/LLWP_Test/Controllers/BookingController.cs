@@ -93,6 +93,6 @@ namespace LLWP_Test.Controllers
 
         //    // Reset session
         //    Session["cart"] = null;
-        }
+        //}
     }
 }
