@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f5f1ed;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #3b3b3b;
+}
+.navClass{
+    padding: 0;
+    background-color: #f5f1ed;
+}
+ .nav-link{
+    width: 180px;
+    text-align: center;
+} 
+.fixed-nav{
+     /*display: none;*/ 
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    /*height: 110px;*/
+    background-color: #f8b73b;  
+    top:0;
+}
+.logoSize{
+    width: 100px;
+}
+.w150{
+    width: 150px;
+}
+.mt1{
+    margin-top: 1%;
+}
+.mt2{
+    margin-top: 2%;
+}
+.mt3{
+    margin-top: 3%;
+}
+.mt4{
+    margin-top: 4%;
+}
+.mt5{
+    margin-top: 5%;
+}
+.mt10{
+    margin-top: 10%;
+}
+.mt20{
+    margin-top: 20%;
+}
+.mb2{
+    margin-bottom: 2%;
+}
+.mb5{
+    margin-bottom: 5%;
+}
+.ml5{
+    margin-left: 5%;
+}
+.ml10{
+    margin-left: 10%;
+}
+.ml12 {
+    margin-left: 12%;
+}
+.mr3{
+    margin-right: 3%;
+}
+.tac{
+    text-align: center;
+}
+.tae{
+    text-align: end;
+}
+.ls025{
+    letter-spacing: 0.25rem;
+}
+.lh25{
+    line-height: 2.5rem;
+}
+.taj{
+    text-align: justify;
+}
+.fw400{
+    font-weight: 400;
+}
+.fz125{
+    font-size: 1.25rem;
+}
+.fz15{
+    font-size: 1.5rem;
+}
+.fz2{
+    font-size: 2rem;
+}
+.fz25{
+    font-size: 2.5rem;
+}
+.fz3{
+    font-size: 5rem;
+}
+.card-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+.bannerVideoContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.bannerVideoWidth{
+    width: 80%;
+    height: 100%;
+}
+.bannerVideoCover{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+.br25{
+    border-radius: 0.25rem;
+}
+.fcw{
+    color: #ffffff;
+}
+.wid50{
+    width: 50%;
+}
+.wid80{
+    width: 80%;
+}
+.wid100{
+    width: 100%;
+}
+.navRWDClass{
+    background-color: #b1d3c5;
+}
+.bgc3{
+    background-color: #fff9db;
+}
+.bgc4{
+    background-color: #f8b73b;
+}
+.footer-a,.footer-info,.class_a{
+    text-decoration: none;
+    color: #3b3b3b;
+}
+.footer-a:hover,.footer-info:hover,.class_a:hover{
+    text-decoration: none;
+    color: #3b3b3b;
+}
+.footer-a:checked,.footer-info:checked,.class_a:checked{
+    text-decoration: none;
+    color: #3b3b3b;
+}
+.workCover{
+    background-color: #fff9db;
+}
+.workPic{
+    display: block;
+    margin: 20px auto;
+    width: 225px; 
+    height: 225px; 
+    overflow:hidden;
+    border-radius: 0.25rem;
+}
+.work-txt{
+    margin-bottom: 20px;
+}
+.dbm0a{
+    display: block; 
+    margin: 0 auto;
+}
+.workPic img{
+    transform:scale(1,1);
+    transition: all 1s ease-out;
+    border-radius: 0.25rem;
+}
+.workPic img:hover{
+    transform:scale(1.2,1.2); 
+    border-radius: 0.25rem;
+}
+.workBorder{
+    border: #3b3b3b 2px solid;
+    border-radius: 0.25rem;
+}
+
+@media screen and (max-width:576px){
+    .navClass-RWD{
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        background-color: #f8b73b;
+        margin: 0 0 1% 0;
+    }
+    .navbar-brand{
+        display: none;
+    }
+    .navBtnRWD{
+        margin: 3%;
+    }
+    .bannerVideoContainer{
+        display: block;
+    }
+    .bannerVideoWidth{
+        margin-top: 10%;
+        width: 100%;
+    }
+    .bannerVideoCover{
+        margin-top: -15%;
+        height: 100%;
+        width: 100%;
+        background-color: transparent;
+    }
+    .br0RWD{
+        border-radius: 0;
+    }
+    .mt50RWD{
+        margin-top: 50%;
+    }
+    .fGaryRWD{
+        color: #3b3b3b;
+    }
+    .p0RWD{
+        padding: 0;
+    }
+    .m0RWD{
+        margin: 0;
+    }
+    .m3RWD{
+        margin: 3%;
+    }
+    .mt75RWD{
+        margin-top: 75%;
+    }
+    .ml0RWD{
+        margin-left: 10%;
+    }
+    .ml3RWD{
+        margin-left: 3%;
+    }
+    .tacRWD{
+        text-align: center;
+    }
+    .h100RWD{
+        height: 100%;
+    }
+    .wid100RWD{
+        width: 100%;
+    }
+    .fz15RWD{
+        font-size: 1.5rem;
+    }
+    .fz25RWD{
+        font-size: 2.5rem;
+    }
+    .aboutUsPic{
+        width: 100%;
+    }
+    .aboutUsTxt{
+        width: 100%;
+    }
+    .banner-btn{
+        display: flex;
+        justify-content: center;
+    }
+    .hideRWD{
+        display: none;
+    }
+}
+
+ 

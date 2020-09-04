@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "榕沛社區 - 會員登入";
+    Layout = "~/Views/Shared/_Layout_Member.cshtml";
+    string s1 = ViewBag.CODE.Substring(0, 1) + ".png";
+    string s2 = ViewBag.CODE.Substring(1, 1) + ".png";
+    string s3 = ViewBag.CODE.Substring(2, 1) + ".png";
+    string s4 = ViewBag.CODE.Substring(3, 1) + ".png";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="backColor1">
+        <div class="container">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">一般會員</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">管理人員</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="mb5" style="margin-top:20px">
+                        <div class="mb-5">
+                            <div class="row mb-2 db100">
+                                <div class="jcc ml10">
+                                    <h3 class="tac mb10">會員登入</h3>
+                                </div>
+                                <div class="form-group w-100 d-flex">
+                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                                        <div class="labelSet-login w-30">
+                                            <label for="inputmail" class="fz125" style="line-height:40px">會員信箱</label>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control ml3" name="txtAccount" id="inpumail">
+                                </div>
+                                <hr>
+                                <div class="form-group d-flex w-100">
+                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                                        <div class="labelSet-login">
+                                            <label for="inputpassword" class="fz125" style="line-height:40px">會員密碼</label>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control ml3" name="txtPassword" id="inputID">
+                                </div>
+                                <hr>
+                                <div class="form-group d-flex" style="justify-content:center">
+                                    <div class="w-25" style="margin-right:15px">
+                                        <input type="text" class="form-control ml3" name="txtCord" id="">
+                                    </div>
+                                    <div class="form-group  d-flex" style="margin-right:15px">
+                                        <div id="codeIn" class="d-flex" style="border:solid 1px black">
+                                            <img src="/images/@s1" width="30px" height="38px" />
+                                            <img src="/images/@s2" width="30px" height="38px" />
+                                            <img src="/images/@s3" width="30px" height="38px" />
+                                            <img src="/images/@s4" width="30px" height="38px" />
+                                        </div>
+                                    </div>
+                                    <div class="w-25" style="color:blue">
+                                        <a id="resetCode" style="cursor:pointer; line-height:40px">重新產生</a>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="form-group form-check d-flex justify-content-between w-100">
+                                    <input type="checkbox" class="form-check-input ml3 form-check-input-act input-act" id="exampleCheck1">
+                                    <label class="form-check-label ml10 fz1" for="exampleCheck1" style="margin-top:.1rem">記住我</label>
+                                    <a class="Help" href="">需要協助?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt3" style="display:flex; justify-content:space-around;">
+                            <div>
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                            </div>
+                            <div>
+                                <a href="~/Members/RegisteredLongTime" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true">註冊</a>
+                            </div>
+
+                        </div>
+                        <div class="mt3" style="display:flex; justify-content:space-around;">
+                            <span style="color:red">@Context.Session.GetString("SK_AUTHERROR")</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="mb5" style="margin-top:20px">
+                        <div class="mb-5">
+                            <div class="row mb-2 db100">
+                                <div class="jcc ml10">
+                                    <h3 class="tac mb10">管理員登入</h3>
+                                </div>
+                                <div class="form-group w-100 d-flex">
+                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                                        <div class="labelSet-login w-30">
+                                            <label for="inputmail" class="fz125" style="line-height:40px">帳號</label>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control ml3" name="txtAccount" id="inpumail">
+                                </div>
+                                <hr>
+                                <div class="form-group d-flex w-100">
+                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                                        <div class="labelSet-login">
+                                            <label for="inputpassword" class="fz125" style="line-height:40px">密碼</label>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control ml3" name="txtPassword" id="inputID">
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="mt3" style="display:flex; justify-content:space-around;">
+                            <div>
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

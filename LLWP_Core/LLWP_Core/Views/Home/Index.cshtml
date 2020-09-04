@@ -1,0 +1,368 @@
+﻿
+@{
+    ViewBag.Title = "榕沛社區 - 首頁";
+}
+<div class="bannerVideoContainer">
+    <div class="bannerVideoCover br25 br0RWD mt75RWD">
+        <h3 class="animate__animated animate__fadeInLeft animate__slow fz3 fz25RWD mt20 ml5 m0RWD fcw fGaryRWD fw400 ls025 tacRWD">
+            榕沛社區
+        </h3>
+        <p class="animate__animated animate__fadeInLeft animate__slow animate__delay-3s fz25 fz15RWD mt1 ml5 ml3RWD fcw fGaryRWD ls025">
+            全台首間開放寵物入住的養老院
+        </p>
+        <p class="animate__animated animate__fadeInLeft animate__slower animate__delay-3s fz25 fz15RWD mt1 ml5 ml3RWD fcw fGaryRWD ls025">
+            可帶著愛貓或愛犬同住，讓退休生活更加多釆多姿
+        </p>
+        <div class="banner-btn">
+            <a class="btn btn-outline-warning btn-lg banner-btn animate__animated animate__fadeInLeft animate__slower animate__delay-5s fz15 fz15RWD mt1 ml5 m0RWD ml3RWD fcw fGaryRWD ls025" href="#" role="button">了解更多</a>
+        </div>
+    </div>
+    <video loop="true" autoplay="autoplay" muted="true" class="bannerVideoWidth br25 br0RWD">
+        <source type="video/mp4" src="~/video/videoBanner.mp4" />
+    </video>
+
+</div>
+<div class="container mt5 mb5 mt75RWD">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <img src="~/images/aboutUs.png" alt="aboutus" class="br25 aboutUsPic">
+        </div>
+        <div class="col-lg-6 col-md-12 mt2 aboutUsTxt">
+            <h3 class="fz25 ls025 tacRWD fw400 ml10">關於我們</h3>
+            <p class="fz15 taj mt3 ml10 m0RWD lh25">
+                榕沛社區提供住戶和寵物可以一起生活、共同養老的服務，讓長輩在入住養老院時不需要和心愛的寵物分開。<br class="mt5" />若住戶日後因故無法繼續飼養，我們也會協助尋找合適的領養者或照顧寵物至終老，住戶可預付寵物的生活所需費用，不足的部分將會透過網路公眾募資籌措。
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bgc3 py-5">
+    <div class="container">
+        <h3 class="tac tacRWD fz25">預約入住</h3>
+        <div class="row">
+
+            <div class="col-lg-6 col-sm-12 mt3 mb2">
+
+                <a href="#"><img src="~/images/longstay.png" alt="course" class="wid80 br2500 dbm0a"></a>
+                <div><a class="btn rounded-top-0 rounded-right-0 btn-warning btn-lg dbm0a wid80 fz15 ls025" style="border-radius: 0 0 .3rem .3rem;" asp-action="LongCover" asp-controller="Home" role="button">長住申請</a></div>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 mt3 mb2">
+                <a href="#"><img src="~/images/shortterm.png" alt="course" class="wid80 br2500 dbm0a"></a>
+
+                <div><a class="btn btn-warning btn-lg dbm0a wid80 fz15 ls025" style="border-radius: 0 0 .3rem .3rem;" href="/Booking/BookingFirstPage" role="button">試住體驗</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt5">
+    <div class="card-deck">
+        <div class="card">
+            <img src="~/images/activity2.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title tac ls025 fz2">社團活動</h5>
+                <p class="card-text fz125 lh25 taj">榕沛社區的住戶成立了許多不同種類的社團，體驗入住的房客也可以參與社團活動，部份活動成品會在榕沛 Cafe' 對外販售。</p>
+                <div class="card-btn">
+                    <a href="/Activity/club" class="btn btn-outline-warning fz125 ls025">社團介紹</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/images/activity1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title tac ls025 fz2">榕沛生活</h5>
+                <p class="card-text fz125 lh25 taj">社區內有菜園、大草坪和各種豐富的室內外設施，且會不時舉辦活動，例如家庭園遊會及卡拉 OK 大賽等，住戶可以自由報名參加。</p>
+                <div class="card-btn">
+                    <a href="/Activity/Index" class="btn btn-outline-warning fz125 ls025">活動總覽</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/images/cafe.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title tac fz2"><span class="ls025">榕沛</span>Cafe'</h5>
+                <p class="card-text fz125 lh25 taj">榕沛 Cafe' 的服務生是一群親切熱情的爺爺奶奶，我們同時也是一間寵物友善咖啡廳，非常歡迎您帶家中的貓貓狗狗來訪喔。</p>
+                <div class="card-btn">
+                    <a asp-action="CoffeeTop" asp-controller="Home" class="btn btn-outline-warning fz125 ls025">進入官網</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bgc3">
+    <div class="container mt5 mt55RWD">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mt5">
+                <h3 class="fz25 ls025 mt3 tacRWD fw400">寵物試養計劃</h3>
+                <p class="fz15 taj mt2 m0RWD lh25">
+                    住戶除了帶著自家的寵物入住外，也可在入住後向收容所申請領養，現在只要參加試住體驗，即可和宜蘭收容所的貓咪或狗狗狗共同相處一段時間，以了解自己是否適合有寵物陪伴的生活。
+                </p>
+                <div class="card-btn mb5">
+                    <a href="#" class="btn btn-warning fz15 ls025">計劃詳情</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mt5 mb5 aboutUsTxt">
+                <video loop="true" autoplay="autoplay" muted="true" class="wid100 br25">
+                    <source type="video/mp4" src="~/video/videoTryPet.mp4" />
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt3">
+    <h3 class="tac tacRWD fz25 mb5">近期課程</h3>
+    <div class="row">
+
+        <div class="col-lg-6 col-sm-12">
+            <a href="#"><img src="~/images/course3.png" alt="course" class="wid100 br25"></a>
+            <ul class="list-unstyled lh25">
+                <li class="tac fz15 mt2">【手作課程】照顧多肉第一課</li>
+                <li class="ml10 fz125">開課時間  |  10/07 (三)  09:30</li>
+                <li class="ml10 fz125">開課地點  |  園藝社社辦</li>
+                <li class="ml10 fz125">適合對象  |  剛認識多肉植物的新手</li>
+                <li class="ml10 fz125">學習重點  |  多肉植物換盆步驟教學<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  無根多肉開根訣竅</li>
+                <li class="ml10 fz125">課程成品  |  一盆三寸多肉植物</li>
+                <li class="ml10 fz125">課程費用  |  每人費用 680 元<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  含工具使用、材料及師資</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <a href="#"><img src="~/images/course4.png" alt="course" class="wid100 br25"></a>
+            <ul class="list-unstyled lh25">
+                <li class="tac fz15 mt2">小動物中西方按摩手技</li>
+                <li class="ml10 fz125">開課時間  |  10/15 (五)  14:30</li>
+                <li class="ml10 fz125">開課地點  |  汪喵社社辦</li>
+                <li class="ml10 fz125">適合對象  |  一般飼主</li>
+                <li class="ml10 fz125">學習重點  |  整合按摩入門手法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  實作練習</li>
+                <li class="ml10 fz125">課程費用  |  每人費用 200 元</li>
+                <li class="ml10 fz125">其他備註  |  請學員攜帶自家毛孩<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  或約 30cm 大小之絨毛玩偶</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer class="page-footer font-small mdb-color lighten-3 pt-5 pb-5 mt5 bgc3 hideRWD">
+
+    <!-- Footer Elements -->
+    <div class="container-fluid">
+        <h3 class="tac tacRWD fz25 mb2">住戶相簿</h3>
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg" visibility: hidden>
+                    <img src="~/images/album1.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half">
+                    <img src="~/images/album2.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album3.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album4.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album5.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg" visibility: hidden>
+                    <img src="~/images/album6.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg" visibility: hidden>
+                    <img src="~/images/album7.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half">
+                    <img src="~/images/album8.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album9.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album10.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg">
+                    <img src="~/images/album11.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <!--Image-->
+                <div class="view overlay z-depth-1-half fotimg" visibility: hidden>
+                    <img src="~/images/album12.png" class="img-fluid fotimg br25"
+                         alt="">
+                    <a href="">
+                        <div class="mask rgba-white-light"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="container mt3 mb5 hideRWD">
+    <h3 class="tac tacRWD fz25 mb5">活動作品</h3>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="workCover workBorder">
+                <div class="workPic br25">
+                    <img src="~/images/works1.png" class="br25  workImg">
+                </div>
+                <div class="work-txt">
+                    <p class="tac tacRWD fz15">園藝作品</p>
+                    <p class="tac tacRWD fz125">多肉石蓮</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="workCover workBorder">
+                <div class="workPic br25">
+                    <img src="~/images/works2.png" class="br25 workImg">
+                </div>
+                <div class="work-txt">
+                    <p class="tac tacRWD fz15">陶藝作品</p>
+                    <p class="tac tacRWD fz125">Q版佛祖</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="workCover workBorder">
+                <div class="workPic br25 border">
+                    <img src="~/images/works3.png" class="br25 workImg">
+                </div>
+                <div class="work-txt">
+                    <p class="tac tacRWD fz15">書法作品</p>
+                    <p class="tac tacRWD fz125">禪的藝術</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="workCover workBorder">
+                <div class="workPic br25 border">
+                    <img src="~/images/works4.png" class="br25 workImg">
+                </div>
+                <div class="work-txt">
+                    <p class="tac tacRWD fz15">陶藝作品</p>
+                    <p class="tac tacRWD fz125">一對柴柴</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

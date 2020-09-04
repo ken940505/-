@@ -1,0 +1,311 @@
+﻿@model LLWP_Core.ViewModels.ViewModelMP
+
+@{
+    /**/
+
+    ViewData["Title"] = "RegisteredLongTime";
+    Layout = "~/Views/Shared/_Layout_Member.cshtml";
+}
+
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@using (Html.BeginForm("RegisteredLongTime", "Members", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    <div class="backColor-reg shadow">
+        <div class="container">
+            <div class=" mb-5">
+                <div class="row mb-2 longmember">
+                    <div class="w-100 pb-5" style="margin-top:-50px">
+                        @if (Model.merberData.FMeId != 0)
+                        {
+                            <h2 class="title formFont">修改會員資料</h2>
+                        }
+                        else
+                        {
+                            <h2 class="title formFont">註冊</h2>
+                            <h3 class="title formFont">成為榕沛會員</h3>
+                        }
+                    </div>
+                    @Html.EditorFor(model => model.merberData.FMeId, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    @Html.EditorFor(model => model.merberData.FMeNumber, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    @Html.EditorFor(model => model.merberData.FMePhoto, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    @Html.EditorFor(model => model.petData.FPeNumber, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    @Html.EditorFor(model => model.petData.FPePhoto, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top formDivSet  w-25">
+                            <div class="labelSet">
+                                <label for="">姓名</label>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            @Html.EditorFor(model => model.merberData.FMeName, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                        </div>
+                        <div class="w-25" style="margin-left:15px">
+                            @Html.ValidationMessageFor(model => model.merberData.FMeName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="">身分證/居留證</label>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            @Html.EditorFor(model => model.merberData.FMePersonId, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                        </div>
+                        <div class="w-25" style="margin-left:15px">
+                            @Html.ValidationMessageFor(model => model.merberData.FMePersonId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="gender"></label>性別
+                            </div>
+                        </div>
+                        <div class=" d-flex">
+                            @Html.RadioButtonFor(model => model.merberData.FMeGender, "男")
+                            先生
+                            @Html.RadioButtonFor(model => model.merberData.FMeGender, "女")
+                            女士
+                        </div>
+                        <div style="margin-left:15px">
+                            @Html.ValidationMessageFor(model => model.merberData.FMeGender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet w-25">
+                            <div class="labelSet">
+                                <label for="inputEmail">電子信箱</label>
+                            </div>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeMail, new { htmlAttributes = new { @class = "form-control" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMeMail, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet w-25">
+                            <div class="labelSet">
+                                <label for="">密碼</label>
+                            </div>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMePass, new { htmlAttributes = new { @class = "form-control" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMePass, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="inputPhone">手機</label>
+                            </div>
+                        </div>
+                        <div class="w-50">@Html.EditorFor(model => model.merberData.FMePhone, new { htmlAttributes = new { @class = "form-control" } })</div>
+                        <div class="w-25" style="margin-left:15px">  @Html.ValidationMessageFor(model => model.merberData.FMePhone, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <hr class="mb-5">
+                    <div class="form-group w-100 d-flex">
+                        <div class="labelSet w-25">
+                            <label for="inputBirthday">出生日期</label>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeBirth, new { htmlAttributes = new { @class = "form-control", type = "text" } })</div>
+                        <div class="w-25" style="margin-left:15px"> @Html.ValidationMessageFor(model => model.merberData.FMeBirth, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="labelSet w-25">
+                            <label for="">年齡</label>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeAge, new { htmlAttributes = new { @class = "form-control" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMeAge, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label class="" for="customFile">個人照片</label>
+                            </div>
+                        </div>
+                        <input type="file" class=" w-75" name="fPhotodata">
+                    </div>
+                    <hr />
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="emperson">緊急聯絡人</label>
+                            </div>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeEmerName, new { htmlAttributes = new { @class = "form-control", type = "text" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMeEmerName, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="empphone">緊急連絡人電話</label>
+                            </div>
+                        </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeEmerPhone, new { htmlAttributes = new { @class = "form-control", type = "text" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMeEmerPhone, "", new { @class = "text-danger" })</div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label>攜帶寵物</label>
+                            </div>
+                        </div>
+                        <div class="w-75 d-flex ">
+                            <select class="col-sm-4 trypet">
+                                <option value="1">是</option>
+                                <option selected value="2">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Modal -->
+                </div>
+            </div>
+        </div>
+        <div class="container" id="Pet">
+            <div class=" mb-5">
+                <div class="row mb-2 longmember">
+                    <div class="">
+                        <h5 class="title formFont">入住寵物資料</h5>
+                    </div>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="inpetName">品種</label>
+                            </div>
+                        </div>
+                        @Html.EditorFor(model => model.petData.FPeVarity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.petData.FPeVarity, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="gender"></label>性別
+                            </div>
+                        </div>
+                        <div class=" d-flex ">
+                            @Html.RadioButtonFor(model => model.petData.FPeSex, "公")
+                            公
+                            @Html.RadioButtonFor(model => model.petData.FPeSex, "母")
+                            母
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="inputID">體重</label>
+                            </div>
+                        </div>
+                        @Html.EditorFor(model => model.petData.FPeWeight, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.petData.FPeWeight, "", new { @class = "text-danger" })
+                        <hr>
+                        <hr class="mb-5">
+                    </div>
+                    <div class="form-group w-100 d-flex">
+                        <div class="labelSet w-25">
+                            <label for="">出生日期</label>
+                        </div>
+                        <div class="w-75 d-flex " style="justify-content: space-between;">
+                            @Html.EditorFor(model => model.petData.FPeBirth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.petData.FPeBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="">年齡</label>
+                            </div>
+                        </div>
+                        @Html.EditorFor(model => model.petData.FPeAge, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.petData.FPeAge, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label for="">晶片號碼</label>
+                            </div>
+                        </div>
+                        @Html.EditorFor(model => model.petData.FPeNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.petData.FPeNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex style=" height:38px"">
+                        <div class="labelSet w-25">
+                            <label for="inputFix">絕育</label>
+                        </div>
+                        <div class=" w-75 d-flex ">
+                            @Html.RadioButtonFor(model => model.petData.FPeFix, "是")
+                            是
+                            @Html.RadioButtonFor(model => model.petData.FPeFix, "否")
+                            否
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+
+                        <div class="labelSet w-25">
+                            <label for="inputvaccine">施打疫苗</label>
+                        </div>
+                        <div class=" w-75 d-flex ">
+                            @Html.RadioButtonFor(model => model.petData.FPeVac, "是")
+                            已施打
+                            @Html.RadioButtonFor(model => model.petData.FPeVac, "否")
+                            未施打
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label class="" for="">寵物照片</label>
+                            </div>
+                        </div>
+                        <input type="file" class=" w-75" name="FPePhotodata">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!-- Modal -->
+        </div>
+        <div class="row">
+            @if (@Model.merberData.FMePhoto != null)
+            {
+                <div class="card mr-5" style="width: 18rem;">
+                    <img src="/upImage/@Model.merberData.FMePhoto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">個人照片</h5>
+                    </div>
+                </div>
+            }
+            @if (@Model.petData.FPePhoto != null)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img src="/upImage/@Model.petData.FPePhoto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">寵物照片</h5>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mt10 jcc" style="width:100%; display:flex;">
+            <input type="submit" value="完成" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+        </div>
+    </div>
+
+
+}
