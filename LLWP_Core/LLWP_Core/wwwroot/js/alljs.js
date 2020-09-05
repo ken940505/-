@@ -1,4 +1,3 @@
-
 $('.access_li').css('width', $('#box').width() / 3);
 
 var items = document.querySelectorAll('#colla1')
@@ -373,12 +372,12 @@ $(function () {
 
 function addActivity() {
     Swal.fire({
-        
+
         icon: 'success',
         title: '已加入購物車',
         showConfirmButton: false,
         timer: 1500
-    
+
     });
 }
 
@@ -446,11 +445,11 @@ $("#resetCode").click(function () {
             var s4 = data.substr(3, 1) + ".png";
             $("#codeIn").html(
                 `
-<img src="/images/${s1}" width="30px" height="38px" />
-<img src="/images/${s2}" width="30px" height="38px" />
-<img src="/images/${s3}" width="30px" height="38px" />
-<img src="/images/${s4}" width="30px" height="38px" />
-`);
+                <img src="/images/${s1}" width="30px" height="38px" />
+                <img src="/images/${s2}" width="30px" height="38px" />
+                <img src="/images/${s3}" width="30px" height="38px" />
+                <img src="/images/${s4}" width="30px" height="38px" />
+                `);
         }
     });
 });
@@ -470,4 +469,23 @@ $(document).ready(function () {
 
         }
     })
+})
+
+$("#calendarButton").click(function () {
+    var InYear = document.getElementById("i-InDate-year").innerText;
+    var InMonth = document.getElementById("i-InDate-month").innerText;
+    var InDate = document.getElementById("i-InDate-day").innerText;
+    var OutYear = document.getElementById("i-OutDate-year").innerText;
+    var OutMonth = document.getElementById("i-OutDate-month").innerText;
+    var OutDate = document.getElementById("i-OutDate-day").innerText;
+
+    $.ajax({
+        url: "/Booking/DateIntoSession",
+        type: "Post",
+        data: { "InYear": InYear, "InMonth": InMonth, "InDate": InDate, "OutYear": OutYear, "OutMonth": OutMonth, "OutDate": OutDate },
+        success: function (data) {
+            console.log("success");
+        }
+    });
+
 })

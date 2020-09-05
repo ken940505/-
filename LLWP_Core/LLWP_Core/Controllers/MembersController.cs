@@ -24,7 +24,7 @@ namespace LLWP_Core.Controllers
 
         public void SendEmail(string emailAddress)
         {
-            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+            MailMessage msg = new MailMessage();
             msg.To.Add(emailAddress);
             msg.From = new MailAddress("longlifewithpet@gmail.com", "榕沛社區", System.Text.Encoding.UTF8);
             msg.Subject = "加入榕沛會員：繼續完成信箱認證";
@@ -104,18 +104,19 @@ namespace LLWP_Core.Controllers
             var p = new ViewModelMP();
             if (id == null)
             {
-                var idEqualZero = new TMemberdata { FMeId = 0 };
-                p = new ViewModelMP { merberData = idEqualZero };
+                var TMemberdataidEqualZero = new TMemberdata { FMeId = 0 };
+                var TMempetdataidEqualZero = new TMempetdata { FPeId = 0 };
+                p = new ViewModelMP { merberData = TMemberdataidEqualZero, petData = TMempetdataidEqualZero };
                 return View(p);
             }
                
             var memberdbdata = _db.TMemberdata.FirstOrDefault(o => o.FMeId == id);
-
             var memberNumber = memberdbdata.FMeNumber;
-            var petdbData = _db.TMempetdata.FirstOrDefault(o => o.FPeMemNumber == memberNumber);
 
             if (memberdbdata == null)
                 return NotFound();
+
+            var petdbData = _db.TMempetdata.FirstOrDefault(o => o.FPeMemNumber == memberNumber);
 
             var memberData = new TMemberdata
             {
@@ -156,7 +157,11 @@ namespace LLWP_Core.Controllers
                 };
             }
             else
-                p = new ViewModelMP { merberData = memberData };
+            {
+                var TMempetdataidEqualZero = new TMempetdata { FPeId = 0 };
+                p = new ViewModelMP { merberData = memberData, petData = TMempetdataidEqualZero };
+            }
+            
 
             return View(p);
         }
