@@ -484,8 +484,9 @@ $("#calendarButton").click(function () {
         type: "Post",
         data: { "InYear": InYear, "InMonth": InMonth, "InDate": InDate, "OutYear": OutYear, "OutMonth": OutMonth, "OutDate": OutDate },
         success: function (data) {
-            console.log("success");
+            $("#NextDtageToBookingRoomSelect").click();
         }
     });
 
 })
+

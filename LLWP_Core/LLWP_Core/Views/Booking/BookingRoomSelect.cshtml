@@ -1,18 +1,16 @@
-﻿
+﻿@model LLWP_Core.ViewModels.BookingVM
 @{
     ViewData["Title"] = "榕沛社區 - 試住體驗細項選擇";
     Layout = "~/Views/Shared/_Layout_Booking.cshtml";
 }
-
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <a class="navbar-brand-step3" href="./index.html"><img src="~/Content/images/logo.png" class="logoSize-step3" alt=""></a>
+        <a class="navbar-brand-step3" href="./index.html"><img src="/images/logo.png" class="logoSize-step3" alt=""></a>
         <li class="nav-item">
             <a class="nav-link fz15 ls025 nav-reser">試住體驗預約系統</a>
         </li>
     </ul>
 </div>
-  </nav>
 <div class="container">
     <div class="row justify-content-md-center mt5 mb5">
         <div class="col col-lg-6">
@@ -24,13 +22,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="~/Content/images/r1.png" class="d-block w-100 br25" alt="...">
+                        <img src="/images/r1.png" class="d-block w-100 br25">
                     </div>
                     <div class="carousel-item">
-                        <img src="~/Content/images/r2.png" class="d-block w-100 br25" alt="...">
+                        <img src="/images/r2.png" class="d-block w-100 br25">
                     </div>
                     <div class="carousel-item">
-                        <img src="~/Content/images/r3.png" class="d-block w-100 br25" alt="...">
+                        <img src="/images/r3.png" class="d-block w-100 br25">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -95,197 +93,115 @@
 <div class="container-fluid bgc3" id="pOneAct">
     <div class="container pt3 pb5">
         <h3 class="mb3 fz2">您入住期間的活動：</h3>
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15">端午節活動</h5>
-                    <p class="card-text">
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/05/30 10:00</li>
-                            <li>活動大綱：自己動手包粽子</li>
-                            <li>費用：材料費每人 50 元<br>開放長期住戶之親友報名參加</li>
-                        </ul>
-                    </p>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            參加
-                        </label>
+        <div class="card-deck flex-wrap justify-content-center">
+            @foreach (var item in Model.activitydata)
+            {
+                <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                    <img src="@item.FActivityImages" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title tac ls025 fz15">@item.FActivityName</h5>
+                        <p class="card-text">
+                            <ul class="list-unstyled fz1 lh25 ml10">
+                                <li>日期時間：@item.FActivityTime</li>
+                                @if (item.FActivityPrice == 0)
+                                {
+                                    <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                }
+                                else
+                                {
+                                    <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (限額 @item.FActivitypeopleLimit 人)</li>
+                                }
+                            </ul>
+                        </p>
+                        <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                            <label class="form-check-label ac-lab mr3 mt2">
+                                <input class="form-check-input-act ac-input" type="checkbox" value="@item.FActivityId" id="@item.FActivityId">
+                            </label>
+                            <label class="fz125" for="@item.FActivityId">
+                                參加
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15">書法課入門</h5>
-                    <p class="card-text">
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/05 14:00</li>
-                            <li>活動大綱：書法技巧指導與實作</li>
-                            <li>費用：免費 ( 限額 20 名 )<br>現場免費提供宣紙，需自備筆墨</li>
-                        </ul>
-                    </p>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            參加
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15">長青樂陶陶</h5>
-                    <p class="card-text">
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/21 10:00</li>
-                            <li>活動大綱：基礎杯盤製作</li>
-                            <li>費用：每人 350 元 <br>( 含材料、講師及燒製費 )</li>
-                        </ul>
-                    </p>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            參加
-                        </label>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
-</div>
 </div>
 <div class="container-fluid bgc3" id="pTwoAct">
     <div class="container pt3 pb3">
         <h3 class="fz2">您入住期間的活動：</h3>
         <div class="tryAct-nav mt3">
             <!-- 表頭 -->
-            <ul class="tabs fz125">
+            <ul class="tabs fz125 paddingCancel40">
                 <li class="tabs-first tac p1" data-type="1">房客一</li>
                 <!-- data- 可自訂 -->
                 <li class="tabs-last tac p1" data-type="2">房客二</li>
             </ul>
             <!-- 內容 -->
-            <ul class="tab-content tab-content-act">
-                <li class="act-list pt3">
-                    <div class="card mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">端午節活動</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/05/30 10:00</li>
-                            <li>活動大綱：自己動手包粽子</li>
-                            <li>費用：材料費每人 50 元<br>開放長期住戶之親友報名參加</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
+            <ul class="tab-content tab-content-act paddingCancel40">
+                <li class="act-list pt3 row justify-content-around rowCancelmlmr">
+                    @foreach (var item in Model.activitydata)
+                    {
+                        <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                            <img src="@item.FActivityImages" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title tac ls025 fz15">@item.FActivityName</h5>
+                                <p class="card-text">
+                                    <ul class="list-unstyled fz1 lh25 ml10">
+                                        <li>日期時間：@item.FActivityTime</li>
+                                        @if (item.FActivityPrice == 0)
+                                        {
+                                            <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                        }
+                                        else
+                                        {
+                                            <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (限額 @item.FActivitypeopleLimit 人)</li>
+                                        }
+                                    </ul>
+                                </p>
+                                <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                                    <label class="form-check-label ac-lab mr3 mt2">
+                                        <input class="form-check-input-act ac-input" type="checkbox" value="1-@item.FActivityId" id="1-@item.FActivityId">
+                                    </label>
+                                    <label class="fz125" for="1-@item.FActivityId">
+                                        參加
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="card ml5 mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">書法課入門</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/05 14:00</li>
-                            <li>活動大綱：書法技巧指導與實作</li>
-                            <li>費用：免費 ( 限額 20 名 )<br>現場免費提供宣紙，需自備筆墨</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card ml5 mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">長青樂陶陶</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/21 10:00</li>
-                            <li>活動大綱：基礎杯盤製作</li>
-                            <li>費用：每人 350 元<br>( 含材料、講師及燒製費 )</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
-                        </div>
-
-                    </div>
+                    }
                 </li>
-                <li class="act-list pt3 act-list-last">
-                    <div class="card mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">端午節活動</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/05/30 10:00</li>
-                            <li>活動大綱：自己動手包粽子</li>
-                            <li>費用：材料費每人 50 元<br>開放長期住戶之親友報名參加</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
+                <li class="act-list pt3 act-list-last row justify-content-around rowCancelmlmr">
+                    @foreach (var item in Model.activitydata)
+                    {
+                        <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                            <img src="@item.FActivityImages" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title tac ls025 fz15">@item.FActivityName</h5>
+                                <p class="card-text">
+                                    <ul class="list-unstyled fz1 lh25 ml10">
+                                        <li>日期時間：@item.FActivityTime</li>
+                                        @if (item.FActivityPrice == 0)
+                                        {
+                                            <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                        }
+                                        else
+                                        {
+                                            <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (限額 @item.FActivitypeopleLimit 人)</li>
+                                        }
+                                    </ul>
+                                </p>
+                                <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                                    <label class="form-check-label ac-lab mr3 mt2">
+                                        <input class="form-check-input-act ac-input" type="checkbox" value="2-@item.FActivityId" id="2-@item.FActivityId">
+                                    </label>
+                                    <label class="fz125" for="2-@item.FActivityId">
+                                        參加
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="card ml5 mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">書法課入門</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/05 14:00</li>
-                            <li>活動大綱：書法技巧指導與實作</li>
-                            <li>費用：免費 ( 限額 20 名 )<br>現場免費提供宣紙，需自備筆墨</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card ml5 mt1 mb5" style="width: 18rem;">
-                        <h5 class="card-title tac ls025 fz15 mt5 mb0">長青樂陶陶</h5>
-                        <ul class="list-unstyled fz1 lh25 ml10">
-                            <li>日期時間：2021/06/21 10:00</li>
-                            <li>活動大綱：基礎杯盤製作</li>
-                            <li>費用：每人 350 元<br>( 含材料、講師及燒製費 )</li>
-                        </ul>
-                        <div class="form-ac-check br25 ac-check">
-
-                            <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                                <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                            </label>
-                            <label class="fz125">
-                                參加
-                            </label>
-                        </div>
-
-                    </div>
+                    }
                 </li>
             </ul>
         </div>
@@ -294,67 +210,95 @@
 <div class="container-fluid" id="petTry">
     <div class="container pt3 pb5">
         <h3 class="mb3 fz2">請選擇一隻參加試養計劃的寵物：</h3>
-        <div class="card-deck">
-            <div class="card">
-                <img src="~/Content/images/tryPet2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">多多</h5>
-                    <ul class="list-unstyled fz1 lh25 ml15">
-                        <li>種類：狗狗<span class="ml10">性別：男生</span></li>
-                        <li>年齡： 5 歲<span class="ml10">體重：9公斤</span></li>
-                        <li>已絕育：是<span class="ml10">個性：活潑可愛</span></li>
-                    </ul>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            試養多多
-                        </label>
+        <div class="card-deck flex-wrap justify-content-center">
+            @foreach (var item in Model.tryPetTable)
+            {
+                <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                    <img src="@item.FTryPetPhoto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">@item.FTryPetName</h5>
+                        <p class="card-text">
+                            <ul class="list-unstyled fz1 lh25 ml15">
+                                <li>種類：@item.FTryPetVar　<span class="ml10">性別：@item.FTryPetSex</span></li>
+                                <li>年齡： @item.FTryPetAge 歲<span class="ml10">體重：@item.FTryPetWei 公斤</span></li>
+                                <li>已絕育：@item.FTryPetFix<span class="ml10">個性：@item.FTryPetNature</span></li>
+                            </ul>
+                        </p>
+                        <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                            <label class="form-check-label ac-lab mr3 mt2">
+                                <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet-@item.FTryPetId" id="pet-@item.FTryPetId">
+                            </label>
+                            <label class="fz125" for="pet-@item.FTryPetId">
+                                試養 @item.FTryPetName
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="~/Content/images/tryPet4.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">小夢</h5>
-                    <ul class="list-unstyled fz1 lh25 ml15">
-                        <li>種類：貓咪<span class="ml10">性別：女生</span></li>
-                        <li>年齡： 7 歲<span class="ml10">體重：3.7公斤</span></li>
-                        <li>已絕育：是<span class="ml10">個性：獨立自主</span></li>
-                    </ul>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            試養小夢
-                        </label>
+            }
+            @*<div class="card-deck flex-wrap justify-content-center">
+                <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                    <img src="/images/tryPet2.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">多多</h5>
+                        <p class="card-text">
+                            <ul class="list-unstyled fz1 lh25 ml15">
+                                <li>種類：狗狗<span class="ml10">性別：男生</span></li>
+                                <li>年齡： 5 歲<span class="ml10">體重：9公斤</span></li>
+                                <li>已絕育：是<span class="ml10">個性：活潑可愛</span></li>
+                            </ul>
+                        </p>
+                        <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                            <label class="form-check-label ac-lab mr3 mt2">
+                                <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet1" id="pet1">
+                            </label>
+                            <label class="fz125" for="pet1">
+                                試養多多
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="~/Content/images/tryPet6.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">妹妹</h5>
-                    <ul class="list-unstyled fz1 lh25 ml15">
-                        <li>種類：貓咪<span class="ml10">性別：女生</span></li>
-                        <li>年齡： 5 歲<span class="ml10">體重：3.9公斤</span></li>
-                        <li>已絕育：是<span class="ml10">個性：害羞慢熱</span></li>
-                    </ul>
-                    <div class="form-ac-check br25 ac-check">
-
-                        <label class="form-check-label ac-lab mr3 mt2" for="defaultCheck1">
-                            <input class="form-check-input-act ac-input" type="checkbox" value="" id="defaultCheck3">
-                        </label>
-                        <label class="fz125">
-                            試養妹妹
-                        </label>
+                <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                    <img src="/images/tryPet4.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">小夢</h5>
+                        <p class="card-text">
+                            <ul class="list-unstyled fz1 lh25 ml15">
+                                <li>種類：貓咪<span class="ml10">性別：女生</span></li>
+                                <li>年齡： 7 歲<span class="ml10">體重：3.7公斤</span></li>
+                                <li>已絕育：是<span class="ml10">個性：獨立自主</span></li>
+                            </ul>
+                        </p>
+                        <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                            <label class="form-check-label ac-lab mr3 mt2">
+                                <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet2" id="pet2">
+                            </label>
+                            <label class="fz125" for="pet2">
+                                試養小夢
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="card ml-4 mr-4" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                    <img src="c" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">妹妹</h5>
+                        <p class="card-text">
+                            <ul class="list-unstyled fz1 lh25 ml15">
+                                <li>種類：貓咪<span class="ml10">性別：女生</span></li>
+                                <li>年齡： 5 歲<span class="ml10">體重：3.9公斤</span></li>
+                                <li>已絕育：是<span class="ml10">個性：害羞慢熱</span></li>
+                            </ul>
+                        </p>
+                        <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                            <label class="form-check-label ac-lab mr3 mt2">
+                                <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet3" id="pet3">
+                            </label>
+                            <label class="fz125" for="pet3">
+                                試養妹妹
+                            </label>
+                        </div>
+                    </div>
+                </div>*@
         </div>
     </div>
 </div>

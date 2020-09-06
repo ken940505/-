@@ -19,8 +19,8 @@
             <div class="col-md-6">
                 <span>
                     入住日期：<span id="i-InDate-year"></span><span id="i-InDate-month"></span><span id="i-InDate-day"></span>
+                    <input type="hidden" id="" />
                 </span>
-                <span id="checkin-date"></span>
             </div>
             <div class="col-md-6">
                 <div>
@@ -388,8 +388,9 @@
 
     </div>
     <div class="btn-center pb3">
-        <a @*asp-action="BookingFirstPage" asp-controller="Booking"*@ id="calendarButton" class="btn btn-warning btn-lg fz125 ls025 my-2" role="button"
+        <a id="calendarButton" class="btn btn-warning btn-lg fz125 ls025 my-2" role="button"
            aria-pressed="true">下一步</a>
+        <button asp-action="BookingRoomSelect" asp-controller="Booking" id="NextDtageToBookingRoomSelect" style="display:none"></button>
     </div>
 </form>
 

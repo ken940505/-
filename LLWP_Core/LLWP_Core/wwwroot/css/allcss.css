@@ -1898,9 +1898,18 @@ a {
     border-radius: 0 0 0.25rem 0.25rem;
 }
 
+.paddingCancel40{
+    padding-left:0px;
+}
+
+.rowCancelmlmr{
+    margin-left:0px;
+    margin-right:0px;
+}
+
 .tab-content-check {
     background-color: #fff9db;
-    border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+    border-radius: 0rem 0.2rem 0.25rem 0.25rem;
     padding: 5%;
 }
 
