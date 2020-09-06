@@ -490,3 +490,40 @@ $("#calendarButton").click(function () {
 
 })
 
+$("#refreshPet").click(function () {
+    $.ajax({
+        url: "/Booking/RefreshPet",
+        type: "Get",
+        success: function (data) {
+            $("#petBlock").html("");
+            $.each(data, function (index, data) {
+                $("#petBlock").append(
+                    `
+                    <div class="card ml-4 mr-3" style="min-width:310px;max-width:310px; margin-bottom:20px">
+                        <img src="${data.fTryPetPhoto}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title tac ls025 fz15 mt2 mb3 mb0">${data.fTryPetName}</h5>
+                            <p class="card-text">
+                                <ul class="list-unstyled fz1 lh25 ml15">
+                                    <li>種類：${data.fTryPetVar}　<span class="ml10">性別：${data.fTryPetSex}</span></li>
+                                    <li>年齡： ${data.fTryPetAge} 歲<span class="ml10">體重：${data.fTryPetWei} 公斤</span></li>
+                                    <li>已絕育：${data.fTryPetFix}<span class="ml10">個性：${data.fTryPetNature}</span></li>
+                                </ul>
+                            </p>
+                            <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
+                                <label class="form-check-label ac-lab mr3 mt2">
+                                    <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet-${data.fTryPetId}" id="pet-${data.fTryPetId}">
+                                </label>
+                                <label class="fz125" for="pet-${data.fTryPetId}">
+                                    試養 ${data.fTryPetName}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                )
+            })
+        }
+    })
+
+})

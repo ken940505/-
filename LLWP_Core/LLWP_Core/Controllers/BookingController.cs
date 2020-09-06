@@ -7,6 +7,7 @@ using LLWP_Core.Models;
 using LLWP_Core.Utility;
 using LLWP_Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace LLWP_Core.Controllers
 {
@@ -86,6 +87,31 @@ namespace LLWP_Core.Controllers
             };
 
             return View(activityAndtryPet);
+        }
+
+        public IActionResult RefreshPet()
+        {
+            var tryPetData = _db.TTryPetTable.OrderBy(p => p.FTryPetId).ToList();
+
+            var list = new List<string>();
+            var tryPetListSelectNumber = new List<string>();
+            for (int i = 0; i < tryPetData.Count; i++)
+            {
+                list.Add((100 + i).ToString());
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                Random rand = new Random();
+                var randNumber = rand.Next(0, list.Count - i);
+                tryPetListSelectNumber.Add(list[randNumber]);
+                list.RemoveAt(randNumber);
+            }
+
+            var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] ||
+                                                          p.FTryPetNum == tryPetListSelectNumber[1] ||
+                                                          p.FTryPetNum == tryPetListSelectNumber[2]).ToList();
+
+            return Json(tryPetDataSelect);
         }
 
         public IActionResult BookingPayment()
