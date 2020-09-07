@@ -12,5 +12,6 @@ namespace LLWP_Core.Utility
         public static readonly string SK_TMEMBERDATA = "SK_TMEMBERDATA";
         public static readonly string SK_AUTHERROR = "SK_AUTHERROR";
         public static readonly string SK_BOOKINGDATA = "SK_AUTHERROR";
+        public static readonly string SK_ROOMTYPE = "SK_ROOMTYPE";
     }
 }

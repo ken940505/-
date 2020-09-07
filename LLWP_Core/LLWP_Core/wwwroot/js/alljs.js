@@ -512,7 +512,7 @@ $("#refreshPet").click(function () {
                             </p>
                             <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
                                 <label class="form-check-label ac-lab mr3 mt2">
-                                    <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet-${data.fTryPetId}" id="pet-${data.fTryPetId}">
+                                    <input type="radio" name="petradio" class="form-check-input-act ac-input" value="${data.fTryPetId}" id="pet-${data.fTryPetId}">
                                 </label>
                                 <label class="fz125" for="pet-${data.fTryPetId}">
                                     ¸Õ¾i ${data.fTryPetName}

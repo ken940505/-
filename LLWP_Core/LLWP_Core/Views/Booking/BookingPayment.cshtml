@@ -1,15 +1,28 @@
-﻿
+﻿@model LLWP_Core.ViewModels.BookingPaymentVM
+@using Microsoft.AspNetCore.Http;
 @{
     ViewData["Title"] = "榕沛社區 - 試住體驗訂單確認";
     Layout = "~/Views/Shared/_Layout_payment.cshtml";
+    var petRoom = "";
+    var roomType = "一房一廳";
+    var gender = "先生";
+    if (Model.tortable.FOrTryPet == "Y")
+    {
+        petRoom = "寵物房";
+    }
+    if (@Context.Session.GetString("SK_ROOMTYPE") == "2")
+    {
+        roomType = "一房二廳";
+    }
+
 }
 
 <div class="container">
 
-
+    
 
     <div class="checkOrder_detailDiv mt5">
-        <h3 class="mt5 mb2 fz2">住房明細</h3>
+        <h3 class="mt5 mb2 fz2">住房明細 </h3>
         <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff;">
             <div class="w-40 ml15">
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -17,7 +30,7 @@
                         訂單編號：
                     </div>
                     <div class="checkOrder_detailRight">
-                        20200930123456
+                        @Model.tortable.FOrNum
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -25,7 +38,7 @@
                         入住日期：
                     </div>
                     <div class="checkOrder_detailRight">
-                        2020/09/30
+                        @Model.tortable.FOrCheckIn
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -33,7 +46,7 @@
                         退房日期：
                     </div>
                     <div class="checkOrder_detailRight">
-                        2020/10/23
+                        @Model.tortable.FOrCheckOut
                     </div>
 
                 </div>
@@ -42,7 +55,7 @@
                         住宿天數：
                     </div>
                     <div class="checkOrder_detailRight">
-                        23 天
+                        @Model.tortable.FOrday 天
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -50,17 +63,21 @@
                         房間類型：
                     </div>
                     <div class="checkOrder_detailRight">
-                        寵物房 一房兩廳
+                        @petRoom @roomType
                     </div>
                 </div>
+
+
             </div>
+
+
             <div class="w-40 ml15">
                 <div class="d-flex checkOrder_detailContainerDivSet">
                     <div class="checkOrder_detailLeft">
                         住宿人數：
                     </div>
-                    <div class="checkOrder_detailRight">
-                        1 位
+                    <div class="checkOrder_detailRight" style="margin-left:30px">
+                        @Model.tortable.FOrPeople 位
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -68,7 +85,7 @@
                         會員編號(一)：
                     </div>
                     <div class="checkOrder_detailRight">
-                        M123456789
+                        @Model.memberdata.FMePersonId
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -76,7 +93,7 @@
                         會員姓名(一)：
                     </div>
                     <div class="checkOrder_detailRight">
-                        黃文星
+                        @Model.memberdata.FMeName
                     </div>
                 </div>
                 <div class="d-flex checkOrder_detailContainerDivSet">
@@ -97,45 +114,68 @@
                 </div>
             </div>
         </div>
-        <h3 class="mt5 mb2 fz2">活動明細</h3>
-        <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title mb10">活動一</h5>
-                    <h6 class="card-subtitle mb-2 text-muted fz125">吉他入門</h6>
-                    <p class="card-text">
-                        日期：2020/10/02(五)<br>
-                        時間：14:00<br>
-                        費用：100 元<br>
-                        活動地點：活動中心音樂室
-                    </p>
-                </div>
+        @if (Model.tortable.FOrGuestOneActivityA != null)
+        {
+            @if (Model.memberdata.FMeGender == "女")
+            {
+                gender = "小姐";
+            }
+            <h3 class="mt5 mb2 fz2">活動明細：房客一　@Model.memberdata.FMeName @gender</h3>
+            <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
+                @foreach (var item in Model.activitydataOne)
+                {
+                    <div class="card ml-4 mr-4 mt-4" style="min-width:280px;max-width:280px; margin-bottom:20px">
+                        <img src="@item.FActivityImages" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title tac ls025 fz15">@item.FActivityName</h5>
+                            <p class="card-text">
+                                <ul class="list-unstyled fz1 lh25 ml10">
+                                    <li>日期時間：@item.FActivityTime</li>
+                                    @if (item.FActivityPrice == 0)
+                                    {
+                                        <li>費用：免費參加</li>
+                                    }
+                                    else
+                                    {
+                                        <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元</li>
+                                    }
+                                    <li>活動地點：@item.FActivityLocation</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                }
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title mb10">活動二</h5>
-                    <h6 class="card-subtitle mb-2 text-muted fz125">寵物沙龍照</h6>
-                    <p class="card-text">
-                        日期：2020/10/14(三)<br>
-                        時間：13:00<br>
-                        費用：300 元<br>
-                        活動地點：大草皮
-                    </p>
-                </div>
+        }
+        @if (Model.tortable.FOrGuestTwoActivityA != null)
+        {
+            <h3 class="mt5 mb2 fz2">活動明細：會員二</h3>
+            <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
+                @foreach (var item in Model.activitydataTwo)
+                {
+                    <div class="card ml-4 mr-4 mt-4" style="min-width:280px;max-width:280px; margin-bottom:20px">
+                        <img src="@item.FActivityImages" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title tac ls025 fz15">@item.FActivityName</h5>
+                            <p class="card-text">
+                                <ul class="list-unstyled fz1 lh25 ml10">
+                                    <li>日期時間：@item.FActivityTime</li>
+                                    @if (item.FActivityPrice == 0)
+                                    {
+                                        <li>費用：免費參加</li>
+                                    }
+                                    else
+                                    {
+                                        <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元</li>
+                                    }
+                                    <li>活動地點：@item.FActivityLocation</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                }
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title mb10">活動三</h5>
-                    <h6 class="card-subtitle mb-2 text-muted fz125">讀書會</h6>
-                    <p class="card-text">
-                        日期：2020/10/21(三)<br>
-                        時間：19:00<br>
-                        費用：0 元<br>
-                        活動地點：活動中心小教室
-                    </p>
-                </div>
-            </div>
-        </div>
+        }
         <h3 class="mt5 mb2 fz2">注意事項</h3>
         <div class="row p-3 rounded mb-5 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
             <ul>
@@ -181,7 +221,7 @@
                         <!-- credit card info-->
                         <div id="nav-tab-card" class="tab-pane fade show active">
                             <p class="alert alert-warning">Some text success or error</p>
-                            <img src="~/Content/images/credit_Card.png" class="pb-3" width="200px">
+                            <img src="/images/credit_Card.png" class="pb-3" width="200px">
                             <form role="form">
 
                                 <div class="form-group">
@@ -276,11 +316,13 @@
                             <p>
                                 <button type="button" class="placeorder btn btn-primary rounded-pill">
                                     <i class="fab fa-paypal mr-1"></i></i> Log into my Paypal
-                                </button>
-                            </p>
-                            <p class="text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </ button >
+
+                                    </ p >
+
+                                    < p class="text-muted">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             </p>
                         </div>
                         <!-- End -->
@@ -328,15 +370,18 @@
         <input type="hidden" name="business" value="jultranet-facilitator@gmail.com">
 
         @*@foreach (var item in Model)
-            {*@
-        @*<input type="hidden" name="item_name_@count" value="@item.ProductName">
+            {
+        <input type="hidden" name="item_name_@count" value="@item.ProductName">
             <input type="hidden" name="amount_@count" value="@item.Price">
-            <input type="hidden" name="quantity_@count" value="@item.Quantity">*@
-        @*count++;*@
+            <input type="hidden" name="quantity_@count" value="@item.Quantity">
+        <input type="hidden" name="item_name_@count" value="@item.ProductName">
+        <input type="hidden" name="amount_@count" value="@item.Price">
+        <input type="hidden" name="quantity_@count" value="@item.Quantity">
+        count++;
         <input type="hidden" name="item_name_1" value="2">
         <input type="hidden" name="amount_1" value="2">
         <input type="hidden" name="quantity_1" value="2">
-        @*}*@
+        }*@
 
         <input type="hidden" name="currency_code" value="USD">
         <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" formtarget="_blank">

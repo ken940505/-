@@ -23,16 +23,15 @@ namespace LLWP_Core.Utility
             return code;
         }
 
-
         public static string DateToString (string Year, string Month, string Day, string InOrOut)
         {
             string[] YearArray = Year.Split(' ');
             string[] MonthArray = Month.Split(' ');
             string[] DayArray = Day.Split(' ');
 
-
             Year = YearArray[0];
             Month = MonthArray[1].Length == 1 ? "0" + MonthArray[1] : MonthArray[1];
+
             if (InOrOut == "out")
                 Day = DayArray[1].Length == 1 ? "0" + (Convert.ToInt32(DayArray[1])+1).ToString() : (Convert.ToInt32(DayArray[1]) + 1).ToString();
             else
@@ -52,7 +51,6 @@ namespace LLWP_Core.Utility
             var Year = DateTime.Now.Year.ToString();
             var Month = DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString();
             var Day = DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString();
-
 
             return string.Format("{0}{1}{2}{3}", Year, Month, Day, randNumber);
         }

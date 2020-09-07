@@ -76,19 +76,19 @@ namespace LLWP_Core.Controllers
 
             var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] || 
                                                                p.FTryPetNum == tryPetListSelectNumber[1] || 
-                                                               p.FTryPetNum == tryPetListSelectNumber[2]);
+                                                               p.FTryPetNum == tryPetListSelectNumber[2]).ToList();
 
             var activityAndtryPet = new BookingVM
             {
                 activitydata = activityData,
-                tryPetTable = tryPetDataSelect.ToList()
+                tryPetTable = tryPetDataSelect
             };
 
             return View(activityAndtryPet);
         }
 
         [HttpPost]
-        public IActionResult BookingRoomSelect(int peopleNum, int takePet, int joinTryPet, int roomType, int?[] addActivity, int?[] addActivity1, int?[] addActivity2, int[]? petradio)
+        public IActionResult BookingRoomSelect(int peopleNum, int takePet, int joinTryPet, int roomType, int?[] addActivity, int?[] addActivity1, int?[] addActivity2, int[] petradio)
         {
             TMemberdata memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
 
@@ -101,10 +101,15 @@ namespace LLWP_Core.Controllers
             bookingData.FOrDate = SD.DateTimeNow();
             bookingData.FOrGuestOneId = memberdata.FMeId;
             bookingData.FOrPeople = peopleNum;
-            bookingData.FOrTryPetId = petradio[0];
+            if (petradio.Length == 0)
+                bookingData.FOrTryPetId = null;
+            else
+                bookingData.FOrTryPetId = petradio[0];
 
             if (joinTryPet == 1)
                 bookingData.FOrTryPet = "Y";
+            else
+                bookingData.FOrTryPet = "";
 
             var totalMoney = 0M;
 
@@ -113,10 +118,16 @@ namespace LLWP_Core.Controllers
                 bookingData.FOrGuestOneActivityA = SD.FillingArray(addActivity)[0];
                 bookingData.FOrGuestOneActivityB = SD.FillingArray(addActivity)[1];
                 bookingData.FOrGuestOneActivityC = SD.FillingArray(addActivity)[2];
-                for (int i = 0; i < SD.FillingArray(addActivity).Length; i++)
+                if (bookingData.FOrGuestOneActivityA != null)
                 {
-                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == SD.FillingArray(addActivity)[i]).FActivityPrice;
+                    for (int i = 0; i < addActivity.Length; i++)
+                    {
+                        totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity[i]).FActivityPrice;
+                    }
                 }
+                bookingData.FOrGuestTwoActivityA = null;
+                bookingData.FOrGuestTwoActivityB = null;
+                bookingData.FOrGuestTwoActivityC = null;
             }
             else
             {
@@ -126,20 +137,28 @@ namespace LLWP_Core.Controllers
                 bookingData.FOrGuestTwoActivityA = SD.FillingArray(addActivity2)[0];
                 bookingData.FOrGuestTwoActivityB = SD.FillingArray(addActivity2)[1];
                 bookingData.FOrGuestTwoActivityC = SD.FillingArray(addActivity2)[2];
-                for (int i = 0; i < addActivity1.Length; i++)
+
+                if (bookingData.FOrGuestOneActivityA != null)
                 {
-                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity1[i]).FActivityPrice;
+                    for (int i = 0; i < addActivity1.Length; i++)
+                    {
+                        totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity1[i]).FActivityPrice;
+                    }
                 }
 
-                for (int i = 0; i < addActivity2.Length; i++)
+                if (bookingData.FOrGuestTwoActivityA != null)
                 {
-                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity2[i]).FActivityPrice;
+                    for (int i = 0; i < addActivity2.Length; i++)
+                    {
+                        totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity2[i]).FActivityPrice;
+                    }
                 }
             }
 
             bookingData.FOrTotalPrice = totalMoney + SD.DaysMoney(bookingData.FOrday, roomType);
 
             HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
+            HttpContext.Session.SetObject(CDictionary.SK_ROOMTYPE, roomType);
 
             return RedirectToAction(nameof(BookingPayment));
         }
@@ -163,8 +182,8 @@ namespace LLWP_Core.Controllers
             }
 
             var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] ||
-                                                          p.FTryPetNum == tryPetListSelectNumber[1] ||
-                                                          p.FTryPetNum == tryPetListSelectNumber[2]).ToList();
+                                                               p.FTryPetNum == tryPetListSelectNumber[1] ||
+                                                               p.FTryPetNum == tryPetListSelectNumber[2]).ToList();
 
             return Json(tryPetDataSelect);
         }
@@ -172,7 +191,33 @@ namespace LLWP_Core.Controllers
 
         public IActionResult BookingPayment()
         {
-            return View();
+            var tortable = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
+            var activityOne = new List<TActivitydata>();
+            var activityTwo = new List<TActivitydata>();
+
+            if(tortable.FOrGuestOneActivityA != null)
+            {
+                activityOne = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestOneActivityA || 
+                                                           a.FActivityId == tortable.FOrGuestOneActivityB ||
+                                                           a.FActivityId == tortable.FOrGuestOneActivityC).ToList();
+            }
+
+            if(tortable.FOrGuestTwoActivityA != null)
+            {
+                activityTwo = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestTwoActivityA ||
+                                                           a.FActivityId == tortable.FOrGuestTwoActivityB ||
+                                                           a.FActivityId == tortable.FOrGuestTwoActivityC).ToList();
+            }
+
+            var bookingPaymentVM = new BookingPaymentVM
+            {
+                memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER),
+                tortable = tortable,
+                activitydataOne = activityOne,
+                activitydataTwo = activityTwo
+            };
+
+            return View(bookingPaymentVM);
         }
 
         public IActionResult BookingFirstPage()
