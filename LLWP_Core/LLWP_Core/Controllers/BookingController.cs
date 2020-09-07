@@ -8,6 +8,7 @@ using LLWP_Core.Utility;
 using LLWP_Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Packaging;
 
 namespace LLWP_Core.Controllers
 {
@@ -25,33 +26,30 @@ namespace LLWP_Core.Controllers
             return View();
         }
 
-        public void DateIntoSession(string InYear, string InMonth, string InDate, string OutYear, string OutMonth, string OutDate)
+        public IActionResult DateIntoSession(string InYear, string InMonth, string InDate, string OutYear, string OutMonth, string OutDate)
         {
-            string[] InYearArray = InYear.Split(' ');
-            string[] InMonthArray = InMonth.Split(' ');
-            string[] InDateArray = InDate.Split(' ');
-            string[] OutYearArray = OutYear.Split(' ');
-            string[] OutMonthArray = OutMonth.Split(' ');
-            string[] OutDateArray = OutDate.Split(' ');
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return Json(Url.Action("LogIn", "Members"));
 
-            InYear = InYearArray[0];
-            InMonth = InMonthArray[1].Length == 1 ? "0" + InMonthArray[1] : InMonthArray[1];
-            InDate = InDateArray[1].Length == 1 ? "0" + InDateArray[1] : InDateArray[1];
-            OutYear = OutYearArray[0];
-            OutMonth = OutMonthArray[1].Length == 1 ? "0" + OutMonthArray[1] : OutMonthArray[1];
-            OutDate = OutDateArray[1].Length == 1 ? "0" + OutDateArray[1] : OutDateArray[1];
+            if ((InYear == null) || (InMonth == null) || (InDate == null) || (OutYear == null) || (OutMonth == null) || (OutDate == null))
+                return Json(Url.Action("BookingCalendar", "Booking"));
 
-            var bookingData = new TOrTable 
-            { 
-                FOrCheckIn = string.Format("{0}-{1}-{2}",InYear,InMonth,InDate),
-                FOrCheckOut = string.Format("{0}-{1}-{2}",OutYear,OutMonth,OutDate)
+            var bookingData = new TOrTable
+            {
+                FOrCheckIn = SD.DateToString(InYear, InMonth, InDate,"in"),
+                FOrCheckOut = SD.DateToString(OutYear, OutMonth, OutDate, "out"),
+                FOrday = (Convert.ToDateTime(SD.DateToString(OutYear, OutMonth, OutDate, "out")) - Convert.ToDateTime(SD.DateToString(InYear, InMonth, InDate,"in"))).Days
             };
 
             HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
+            return Json(Url.Action("BookingRoomSelect", "Booking"));
         }
 
         public IActionResult BookingRoomSelect()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return Json(Url.Action("LogIn", "Members"));
+
             var bookingData = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
 
             if (bookingData == null)
@@ -77,8 +75,8 @@ namespace LLWP_Core.Controllers
             }
 
             var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] || 
-                                                          p.FTryPetNum == tryPetListSelectNumber[1] || 
-                                                          p.FTryPetNum == tryPetListSelectNumber[2]);
+                                                               p.FTryPetNum == tryPetListSelectNumber[1] || 
+                                                               p.FTryPetNum == tryPetListSelectNumber[2]);
 
             var activityAndtryPet = new BookingVM
             {
@@ -87,6 +85,63 @@ namespace LLWP_Core.Controllers
             };
 
             return View(activityAndtryPet);
+        }
+
+        [HttpPost]
+        public IActionResult BookingRoomSelect(int peopleNum, int takePet, int joinTryPet, int roomType, int?[] addActivity, int?[] addActivity1, int?[] addActivity2, int[]? petradio)
+        {
+            TMemberdata memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
+
+            if (memberdata == null)
+                return Json(Url.Action("LogIn", "Members"));
+
+            TOrTable bookingData = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
+
+            bookingData.FOrNum = SD.fOrNumRandomId();
+            bookingData.FOrDate = SD.DateTimeNow();
+            bookingData.FOrGuestOneId = memberdata.FMeId;
+            bookingData.FOrPeople = peopleNum;
+            bookingData.FOrTryPetId = petradio[0];
+
+            if (joinTryPet == 1)
+                bookingData.FOrTryPet = "Y";
+
+            var totalMoney = 0M;
+
+            if (peopleNum == 1)
+            {
+                bookingData.FOrGuestOneActivityA = SD.FillingArray(addActivity)[0];
+                bookingData.FOrGuestOneActivityB = SD.FillingArray(addActivity)[1];
+                bookingData.FOrGuestOneActivityC = SD.FillingArray(addActivity)[2];
+                for (int i = 0; i < SD.FillingArray(addActivity).Length; i++)
+                {
+                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == SD.FillingArray(addActivity)[i]).FActivityPrice;
+                }
+            }
+            else
+            {
+                bookingData.FOrGuestOneActivityA = SD.FillingArray(addActivity1)[0];
+                bookingData.FOrGuestOneActivityB = SD.FillingArray(addActivity1)[1];
+                bookingData.FOrGuestOneActivityC = SD.FillingArray(addActivity1)[2];
+                bookingData.FOrGuestTwoActivityA = SD.FillingArray(addActivity2)[0];
+                bookingData.FOrGuestTwoActivityB = SD.FillingArray(addActivity2)[1];
+                bookingData.FOrGuestTwoActivityC = SD.FillingArray(addActivity2)[2];
+                for (int i = 0; i < addActivity1.Length; i++)
+                {
+                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity1[i]).FActivityPrice;
+                }
+
+                for (int i = 0; i < addActivity2.Length; i++)
+                {
+                    totalMoney += _db.TActivitydata.FirstOrDefault(id => id.FActivityId == addActivity2[i]).FActivityPrice;
+                }
+            }
+
+            bookingData.FOrTotalPrice = totalMoney + SD.DaysMoney(bookingData.FOrday, roomType);
+
+            HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
+
+            return RedirectToAction(nameof(BookingPayment));
         }
 
         public IActionResult RefreshPet()
@@ -113,6 +168,7 @@ namespace LLWP_Core.Controllers
 
             return Json(tryPetDataSelect);
         }
+
 
         public IActionResult BookingPayment()
         {

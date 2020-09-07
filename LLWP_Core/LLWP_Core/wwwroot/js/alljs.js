@@ -484,7 +484,7 @@ $("#calendarButton").click(function () {
         type: "Post",
         data: { "InYear": InYear, "InMonth": InMonth, "InDate": InDate, "OutYear": OutYear, "OutMonth": OutMonth, "OutDate": OutDate },
         success: function (data) {
-            $("#NextDtageToBookingRoomSelect").click();
+            window.location.href = data;
         }
     });
 
@@ -525,5 +525,9 @@ $("#refreshPet").click(function () {
             })
         }
     })
+})
 
+$("#BookingNextStage1").click(function () {
+    $("#BookingNextStage2").click();
+    console.log("click")
 })
