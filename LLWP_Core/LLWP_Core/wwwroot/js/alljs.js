@@ -381,24 +381,28 @@ function addActivity() {
     });
 }
 
-$("button.placeorder").click(function (e) {
-    e.preventDefault();
+//$("button.placeorder").click(function (e) {
+//    e.preventDefault();
 
-    var $this = $(this);
+//    var $this = $(this);
 
-    //var url = "/cart/PlaceOrder";
-    var url = "/Booking/BookingPayment";
+//    //var url = "/cart/PlaceOrder";
+//    var url = "/Booking/BookingPayment";
 
-    $.post(url);
+//    $.post(url);
 
-    $(".ajaxbg").show();
+//    $(".ajaxbg").show();
 
-    $.post(url, {}, function (data) {
-        $(".ajaxbg span").text("Thank you. You will now be redirected to paypal.");
-        setTimeout(function () {
-            $('form input[name="submit"]').click();
-        }, 2000);
-    });
+//    $.post(url, {}, function (data) {
+//        $(".ajaxbg span").text("Thank you. You will now be redirected to paypal.");
+//        setTimeout(function () {
+//            $('form input[name="submit"]').click();
+//        }, 2000);
+//    });
+//});
+
+$("button.placeorderforstripe").click(function () {
+    $(".stripe-button-el").click();
 });
 
 function formActivity() {

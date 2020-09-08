@@ -9,6 +9,7 @@ using LLWP_Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NuGet.Packaging;
+using Stripe;
 
 namespace LLWP_Core.Controllers
 {
@@ -48,7 +49,7 @@ namespace LLWP_Core.Controllers
         public IActionResult BookingRoomSelect()
         {
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
-                return Json(Url.Action("LogIn", "Members"));
+                return RedirectToAction("LogIn", "Members");
 
             var bookingData = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
 
@@ -93,7 +94,7 @@ namespace LLWP_Core.Controllers
             TMemberdata memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
 
             if (memberdata == null)
-                return Json(Url.Action("LogIn", "Members"));
+                return RedirectToAction("LogIn", "Members");
 
             TOrTable bookingData = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
 
@@ -109,7 +110,7 @@ namespace LLWP_Core.Controllers
             if (joinTryPet == 1)
                 bookingData.FOrTryPet = "Y";
             else
-                bookingData.FOrTryPet = "";
+                bookingData.FOrTryPet = null;
 
             var totalMoney = 0M;
 
@@ -191,11 +192,18 @@ namespace LLWP_Core.Controllers
 
         public IActionResult BookingPayment()
         {
+            TMemberdata memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
+
+            if (memberdata == null)
+                return RedirectToAction("LogIn", "Members");
+
             var tortable = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
+            var roomType = HttpContext.Session.GetObject<int>(CDictionary.SK_ROOMTYPE);
             var activityOne = new List<TActivitydata>();
             var activityTwo = new List<TActivitydata>();
+            var tryPetData = new TTryPetTable();
 
-            if(tortable.FOrGuestOneActivityA != null)
+            if (tortable.FOrGuestOneActivityA != null)
             {
                 activityOne = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestOneActivityA || 
                                                            a.FActivityId == tortable.FOrGuestOneActivityB ||
@@ -209,15 +217,43 @@ namespace LLWP_Core.Controllers
                                                            a.FActivityId == tortable.FOrGuestTwoActivityC).ToList();
             }
 
+            if (tortable.FOrTryPet == "Y")
+            {
+                tryPetData = _db.TTryPetTable.FirstOrDefault(p => p.FTryPetId == tortable.FOrTryPetId);
+            }
+
             var bookingPaymentVM = new BookingPaymentVM
             {
-                memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER),
+                memberdata = memberdata,
                 tortable = tortable,
                 activitydataOne = activityOne,
-                activitydataTwo = activityTwo
+                activitydataTwo = activityTwo,
+                tryPetTable = tryPetData,
+                roomType = roomType,
+                daysMoney = SD.DaysMoney(tortable.FOrday, roomType),
+                activityMoney = tortable.FOrTotalPrice - SD.DaysMoney(tortable.FOrday, roomType)
             };
 
             return View(bookingPaymentVM);
+        }
+
+        [HttpPost]
+        public IActionResult BookingPayment(string stripeToken)
+        {
+            var tortable = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
+
+            var options = new ChargeCreateOptions
+            {
+                Amount = Convert.ToInt32(tortable.FOrTotalPrice * 100 / 30),
+                Currency = "usd",
+                Description = "Order ID : " + tortable.FOrNum,
+                Source = stripeToken
+            };
+
+            var service = new ChargeService();
+            Charge charge = service.Create(options);
+
+            return RedirectToAction(nameof(BookingPayment));
         }
 
         public IActionResult BookingFirstPage()

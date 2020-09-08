@@ -54,6 +54,9 @@ namespace LLWP_Core.Controllers
 
         public IActionResult LogIn()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) != null)
+                return RedirectToAction(nameof(MemberProfile));
+
             var code = HttpContext.Session.GetObject<string>(CDictionary.SK_CODE);
             //string code = Session[Cdictionary.SK_CODE] as string;//驗證碼
             code = SD.CodeCreate(4);
@@ -190,7 +193,7 @@ namespace LLWP_Core.Controllers
                 if (ModelState.IsValid)
                     _db.TMemberdata.Add(p.merberData);
                 else
-                    return View();
+                    return View(p);
 
                 if (selectPet == "1")
                 {

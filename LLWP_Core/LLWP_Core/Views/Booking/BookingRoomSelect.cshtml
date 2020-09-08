@@ -99,9 +99,17 @@
                             <p class="card-text">
                                 <ul class="list-unstyled fz1 lh25 ml10">
                                     <li>日期時間：@item.FActivityTime</li>
-                                    @if (item.FActivityPrice == 0)
+                                    @if (item.FActivityPrice == 0 && item.FActivitypeopleLimit == null)
+                                    {
+                                        <li>費用：免費參加 (不限人數)</li>
+                                    }
+                                    else if (item.FActivityPrice == 0 && item.FActivitypeopleLimit != null)
                                     {
                                         <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                    }
+                                    else if (item.FActivityPrice != 0 && item.FActivitypeopleLimit == null)
+                                    {
+                                        <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (不限人數)</li>
                                     }
                                     else
                                     {
@@ -145,9 +153,17 @@
                                     <p class="card-text">
                                         <ul class="list-unstyled fz1 lh25 ml10">
                                             <li>日期時間：@item.FActivityTime</li>
-                                            @if (item.FActivityPrice == 0)
+                                            @if (item.FActivityPrice == 0 && item.FActivitypeopleLimit == null)
+                                            {
+                                                <li>費用：免費參加 (不限人數)</li>
+                                            }
+                                            else if (item.FActivityPrice == 0 && item.FActivitypeopleLimit != null)
                                             {
                                                 <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                            }
+                                            else if (item.FActivityPrice != 0 && item.FActivitypeopleLimit == null)
+                                            {
+                                                <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (不限人數)</li>
                                             }
                                             else
                                             {
@@ -177,9 +193,17 @@
                                     <p class="card-text">
                                         <ul class="list-unstyled fz1 lh25 ml10">
                                             <li>日期時間：@item.FActivityTime</li>
-                                            @if (item.FActivityPrice == 0)
+                                            @if (item.FActivityPrice == 0 && item.FActivitypeopleLimit == null)
+                                            {
+                                                <li>費用：免費參加 (不限人數)</li>
+                                            }
+                                            else if (item.FActivityPrice == 0 && item.FActivitypeopleLimit != null)
                                             {
                                                 <li>費用：免費參加 (限額 @item.FActivitypeopleLimit 人)</li>
+                                            }
+                                            else if (item.FActivityPrice != 0 && item.FActivitypeopleLimit == null)
+                                            {
+                                                <li>費用：@string.Format("{0:#}", @item.FActivityPrice) 元 (不限人數)</li>
                                             }
                                             else
                                             {

@@ -8,8 +8,12 @@ namespace LLWP_Core.ViewModels
 {
     public class BookingPaymentVM
     {
+        public int roomType { get; set; }
+        public decimal daysMoney { get; set; }
+        public decimal activityMoney { get; set; }
         public TMemberdata memberdata { get; set; }
         public TOrTable tortable { get; set; }
+        public TTryPetTable tryPetTable { get; set; }
         public IEnumerable<TActivitydata> activitydataOne { get; set; }
         public IEnumerable<TActivitydata> activitydataTwo { get; set; }
     }
