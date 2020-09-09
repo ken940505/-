@@ -13,5 +13,6 @@ namespace LLWP_Core.Utility
         public static readonly string SK_AUTHERROR = "SK_AUTHERROR";
         public static readonly string SK_BOOKINGDATA = "SK_BOOKINGDATA";
         public static readonly string SK_ROOMTYPE = "SK_ROOMTYPE";
+        public static readonly string SK_PAY = "SK_PAY";
     }
 }

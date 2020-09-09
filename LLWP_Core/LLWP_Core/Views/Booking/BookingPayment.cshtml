@@ -371,120 +371,37 @@
                             <!-- credit card info-->
                             <div id="nav-tab-card" class="tab-pane fade show active">
                                 <img src="/images/credit_Card.png" class="pb-3" width="200">
-                                <form role="form">
-                                    <p>通過Stripe進行信用卡支付功能！</p>
-                                    @{
-                                        var stripetotalMoney = @Model.tortable.FOrTotalPrice * 100 / 30;
+                                <p>通過Stripe進行信用卡支付功能！</p>
 
+                                @if(Context.Session.GetString("SK_PAY") == "2")
+                                {
+                                    var stripetotalMoney = @Model.tortable.FOrTotalPrice * 100 / 30;
                                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                                 data-key="@Stripe.Value.PublishableKey"
                                                 data-amount="@stripetotalMoney"
                                                 data-name="榕沛社區訂房功能"
                                                 data-label="Stripe 信用卡支付"
-                                                data-description="信用卡將支付 @string.Format("{0:#}",Model.tortable.FOrTotalPrice) 元@*總住宿日 @Model.tortable.FOrday 天*@"
+                                                data-description="支付 @string.Format("{0:#}",Model.tortable.FOrTotalPrice) 元，總住宿日 @Model.tortable.FOrday 天"
                                                 data-locale="auto"
                                                 data-allow-remember-me="false"
                                                 data-currency="USD"
                                                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
                                         </script>
-                                        <script>
-                                            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                                        </script>
-                                    }
-                                    <p>
-                                        <button type="button" class="placeorderforstripe btn btn-primary rounded-pill"><i class="fab fa-cc-stripe"></i> Stripe 信用卡支付</button>
-                                    </p>
-                                    @*<div class="form-group">
-                                            <label class="d-flex" for="cardNumber">
-                                                信用卡卡號<span class="mustSign">*</span>
-                                            </label>
-                                            <div class="input-group">
-                                                <input type="text" name="cardNumber" placeholder="輸入您的信用卡號碼"
-                                                       class="form-control" required>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text text-muted">
-                                                        <i class="fab fa-cc-visa mx-1"></i>
-                                                        <i class="fab fa-cc-amex mx-1"></i>
-                                                        <i class="fab fa-cc-mastercard mx-1"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="d-flex" for="username">
-                                                信用卡姓名<span class="mustSign">*</span>
-                                            </label>
-                                            <input type="text" name="username" placeholder="請輸入持卡者姓名(與信用卡上一致)" required
-                                                   class="form-control">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="form-group">
-                                                    <label class="d-flex">
-                                                        <span class="hidden-xs">有效期限</span><span class="mustSign">*</span>
-                                                    </label>
-                                                    <div class="input-group d-flex w-75 justify-content-between">
-                                                        <select class="form-control col-sm-6" name="expiry_month"
-                                                                id="expiry_month">
-                                                            <option>月</option>
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                            <option value="05">05</option>
-                                                            <option value="06">06</option>
-                                                            <option value="07">07</option>
-                                                            <option value="08">08</option>
-                                                            <option value="09">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                        </select>
-                                                        <select class="form-control col-sm-5" name="expiry_year">
-                                                            <option value="">年</option>
-                                                            <option value="20">2020</option>
-                                                            <option value="21">2021</option>
-                                                            <option value="22">2022</option>
-                                                            <option value="23">2023</option>
-                                                            <option value="24">2024</option>
-                                                            <option value="25">2025</option>
-                                                            <option value="26">2026</option>
-                                                            <option value="27">2027</option>
-                                                            <option value="28">2028</option>
-                                                            <option value="29">2029</option>
-                                                            <option value="30">2030</option>
-                                                            <option value="31">2031</option>
-                                                            <option value="32">2032</option>
-                                                            <option value="33">2033</option>
-                                                            <option value="34">2034</option>
-                                                            <option value="35">2035</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group d-flex">
-                                                    <label data-toggle="tooltip"
-                                                           title="Three-digits code on the back of your card">
-                                                        安全碼(CVV)
-                                                        <i class="fa fa-question-circle"></i>
-                                                        <span class="mustSign">*</span>
-                                                    </label>
-                                                </div>
-                                                <input style="margin-top: -10px;" type="text" required class="form-control"
-                                                       placeholder="CVV">
-                                            </div>
-                                        </div>*@
-                                </form>
+                                    <script>
+                                        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                                    </script>
+                                }
+                                <p>
+                                    <button type="button" class="placeorderforstripe btn btn-primary rounded-pill" id="stripe-button" name="stipeButton" value="stipeButton"><i class="fab fa-cc-stripe"></i> Stripe 信用卡支付</button>
+                                </p>
                             </div>
                             <!-- End -->
                             <!-- Paypal info -->
                             <div id="nav-tab-paypal" class="tab-pane fade">
                                 <p>Paypal is easiest way to pay online</p>
+
                                 <p>
-                                    <button type="button" class="placeorder btn btn-primary rounded-pill"><i class="fab fa-paypal mr-1"></i></i> Log into my Paypal</button>
+                                    <button type="submit" class="placeorder btn btn-primary rounded-pill" name="payPalButton" value="payPalButton"><i class="fab fa-paypal mr-1"></i></i> Log into my Paypal</button>
                                 </p>
                             </div>
                             <!-- End -->
@@ -526,29 +443,7 @@
         </div>
     </div>
 </form>
-    <!--<div class="paypaldiv">
-        <form class="paypalform" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_cart">
-            <input type="hidden" name="upload" value="1">
-            <input type="hidden" name="business" value="jultranet-facilitator@gmail.com">-->
-    @*@foreach (var item in Model)
-            {
-        <input type="hidden" name="item_name_@count" value="@item.ProductName">
-            <input type="hidden" name="amount_@count" value="@item.Price">
-            <input type="hidden" name="quantity_@count" value="@item.Quantity">
-        <input type="hidden" name="item_name_@count" value="@item.ProductName">
-        <input type="hidden" name="amount_@count" value="@item.Price">
-        <input type="hidden" name="quantity_@count" value="@item.Quantity">
-        count++;
-        <input type="hidden" name="item_name_1" value="2">
-        <input type="hidden" name="amount_1" value="2">
-        <input type="hidden" name="quantity_1" value="2">
-        }*@
 
-    <!--<input type="hidden" name="currency_code" value="USD">
-            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" formtarget="_blank">
-        </form>
-    </div>-->
 
 
 

@@ -535,3 +535,7 @@ $("#BookingNextStage1").click(function () {
     $("#BookingNextStage2").click();
     console.log("click")
 })
+
+$("#stripe-button").click(function () {
+
+})

@@ -5,8 +5,10 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using LLWP_Core.Models;
 using LLWP_Core.Utility;
+using LLWP_Core.Utility.PayPalHelper;
 using LLWP_Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NuGet.Packaging;
 using Stripe;
@@ -16,10 +18,12 @@ namespace LLWP_Core.Controllers
     public class BookingController : Controller
     {
         private readonly dbLLWPContext _db;
+        public IConfiguration configuration { get; }
 
-        public BookingController(dbLLWPContext db)
+        public BookingController(dbLLWPContext db, IConfiguration _configuration)
         {
             _db = db;
+            configuration = _configuration;
         }
 
         public IActionResult BookingCalendar()
@@ -89,7 +93,7 @@ namespace LLWP_Core.Controllers
         }
 
         [HttpPost]
-        public IActionResult BookingRoomSelect(int peopleNum, int takePet, int joinTryPet, int roomType, int?[] addActivity, int?[] addActivity1, int?[] addActivity2, int[] petradio)
+        public IActionResult BookingRoomSelect(int peopleNum, int takePet, int joinTryPet, int roomType, int?[] addActivity, int?[] addActivity1, int?[] addActivity2, int[] petradio, int[] pay)
         {
             TMemberdata memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
 
@@ -160,6 +164,7 @@ namespace LLWP_Core.Controllers
 
             HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
             HttpContext.Session.SetObject(CDictionary.SK_ROOMTYPE, roomType);
+            HttpContext.Session.SetObject(CDictionary.SK_PAY, pay[0]);
 
             return RedirectToAction(nameof(BookingPayment));
         }
@@ -238,27 +243,47 @@ namespace LLWP_Core.Controllers
         }
 
         [HttpPost]
-        public IActionResult BookingPayment(string stripeToken)
+        public async Task<IActionResult> BookingPayment(string stripeToken, string stipeButton, string payPalButton)
         {
             var tortable = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
 
-            var options = new ChargeCreateOptions
+            if (stipeButton != null)
             {
-                Amount = Convert.ToInt32(tortable.FOrTotalPrice * 100 / 30),
-                Currency = "usd",
-                Description = "Order ID : " + tortable.FOrNum,
-                Source = stripeToken
-            };
+                var options = new ChargeCreateOptions
+                {
+                    Amount = Convert.ToInt32(tortable.FOrTotalPrice * 100 / 30),
+                    Currency = "usd",
+                    Description = "Order ID : " + tortable.FOrNum,
+                    Source = stripeToken
+                };
 
-            var service = new ChargeService();
-            Charge charge = service.Create(options);
+                var service = new ChargeService();
+                Charge charge = service.Create(options);
+            }
 
+            if (payPalButton != null)
+            {
+                var total = Convert.ToDouble(Convert.ToInt64(tortable.FOrTotalPrice / 30));
+                var payPalAPI = new PayPalAPI(configuration);
+                string url = await payPalAPI.getRedirectURLToPayPal(total, "TWD");
+                return Redirect(url);
+            }
+            
             return RedirectToAction(nameof(BookingPayment));
+        }
+
+        public async Task<IActionResult> Success([FromQuery(Name = "paymentId")] string paymentId, [FromQuery(Name = "PayerID")] string payerID)
+        {
+            var payPalAPI = new PayPalAPI(configuration);
+            PayPalPaymentExecutedResponse result = await payPalAPI.executedPayment(paymentId, payerID);
+
+            
+
+            return RedirectToAction("MemberProfile", "Members");
         }
 
         public IActionResult BookingFirstPage()
         {
-
             return View();
         }
     }
