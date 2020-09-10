@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "ComfirmPassword";
+    Layout = "~/Views/Shared/_Layout_Member.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="container" style="height:930px">
+        <div style="margin-top:25px">
+            <h4>輸入驗證碼</h4>
+        </div>
+        <div style="margin-top:25px">
+            <input type="text" name="MailCord" />
+            <span style="color:red">@Context.Session.GetString("SK_PASS")</span>
+        </div>
+        <div style="margin-top:25px">
+            <input type="submit" value="送出" />
+        </div>
+
+    </div>
+}
+

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace LLWP_Core.Utility
@@ -77,6 +78,27 @@ namespace LLWP_Core.Utility
             var money = roomType == 1 ? days * 1700 : days * 1900;
 
             return money;
+        }
+
+        public static void SendEmail(string emailAddress, string body)
+        {
+            MailMessage msg = new MailMessage();
+            msg.To.Add(emailAddress);
+            msg.From = new MailAddress("longlifewithpet@gmail.com", "榕沛社區", System.Text.Encoding.UTF8);
+            msg.Subject = "榕沛會員：密碼更改";
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = "驗證碼為:" + body;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+            msg.IsBodyHtml = true;
+
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new System.Net.NetworkCredential("longlifewithpet@gmail.com", "llwp3135");
+            client.Host = "smtp.gmail.com";
+            client.Port = 25;
+            client.EnableSsl = true;
+            client.Send(msg);
+            client.Dispose();
+            msg.Dispose();
         }
     }
 }

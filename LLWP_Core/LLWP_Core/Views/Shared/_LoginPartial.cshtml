@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{ 
+    var cust = Context.Session.GetString("SK_CUSTOMERNAME");
+    var replacecust = "";
+    if (cust != null)
+        replacecust = cust.Replace('"', ' ');
+}
+
+
+@if (cust != null)
+{
+    using (Html.BeginForm("LogOff", "Members", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink(replacecust + "您好!!", "MemberProfile", "Members", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:black; line-height:35px", @class = "mr-3" })
+            </li>
+            <li class="white-text" style="color:white;">
+                <a class="btn" style="color:white; background-color:#CD853F;" href="javascript:document.getElementById('logoutForm').submit()">登出</a>
+            </li>
+        </ul>
+    }
+}

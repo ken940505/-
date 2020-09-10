@@ -22,38 +22,25 @@ namespace LLWP_Core.Controllers
             hostingEnvironment = environment;
         }
 
-
-        public void SendEmail(string emailAddress)
-        {
-            MailMessage msg = new MailMessage();
-            msg.To.Add(emailAddress);
-            msg.From = new MailAddress("longlifewithpet@gmail.com", "榕沛社區", System.Text.Encoding.UTF8);
-            msg.Subject = "加入榕沛會員：繼續完成信箱認證";
-            msg.SubjectEncoding = System.Text.Encoding.UTF8;
-            msg.Body = "測試一下"; 
-            msg.BodyEncoding = System.Text.Encoding.UTF8;
-            msg.IsBodyHtml = true;
-
-            SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("longlifewithpet@gmail.com", "llwp3135");
-            client.Host = "smtp.gmail.com"; 
-            client.Port = 25;
-            client.EnableSsl = true; 
-            client.Send(msg); 
-            client.Dispose();
-            msg.Dispose();
-        }
-
         // GET: Members
         public IActionResult MemberProfile()
         {
-            HttpContext.Session.Remove(CDictionary.SK_PAY);
             HttpContext.Session.Remove(CDictionary.SK_Payment);
 
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
                 return RedirectToAction("Login");
 
-            return View();
+            var memberDate = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
+
+            var memberNumber = memberDate.FMeNumber;
+
+            ViewModelMP MPVM = new ViewModelMP();
+
+            var petData = _db.TMempetdata.FirstOrDefault(p => p.FPeMemNumber == memberDate.FMeNumber);
+
+            MPVM = new ViewModelMP { merberData = memberDate, petData = petData };
+
+            return View(MPVM);
         }
 
         public IActionResult LogIn()
@@ -76,7 +63,7 @@ namespace LLWP_Core.Controllers
             var code = HttpContext.Session.GetObject<string>(CDictionary.SK_CODE);
             if (!code.Equals(p.txtCord))
             {
-                HttpContext.Session.SetObject("SK_AUTHERROR","驗證碼錯誤，登入失敗");
+                HttpContext.Session.SetObject("SK_AUTHERROR", "驗證碼錯誤，登入失敗");
                 return RedirectToAction("Login");
             }
 
@@ -90,7 +77,22 @@ namespace LLWP_Core.Controllers
             }
 
             HttpContext.Session.SetObject(CDictionary.SK_LOGINED_CUSTOMER, cust);
+            HttpContext.Session.SetObject(CDictionary.SK_CUSTOMERNAME, cust.FMeName);
             return RedirectToAction("MemberProfile");
+        }
+
+        public ActionResult LogOff()
+        {
+            HttpContext.Session.Remove(CDictionary.SK_LOGINED_CUSTOMER);
+            HttpContext.Session.Remove(CDictionary.SK_CUSTOMERNAME);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public string CreateCodeIn()
+        {
+            var code = SD.CodeCreate(4);
+            HttpContext.Session.SetObject(CDictionary.SK_CODE, code);
+            return code;
         }
 
         public IActionResult RegisteredPet()
@@ -116,7 +118,7 @@ namespace LLWP_Core.Controllers
                 p = new ViewModelMP { merberData = TMemberdataidEqualZero, petData = TMempetdataidEqualZero };
                 return View(p);
             }
-               
+
             var memberdbdata = _db.TMemberdata.FirstOrDefault(o => o.FMeId == id);
             var memberNumber = memberdbdata.FMeNumber;
 
@@ -168,7 +170,7 @@ namespace LLWP_Core.Controllers
                 var TMempetdataidEqualZero = new TMempetdata { FPeId = 0 };
                 p = new ViewModelMP { merberData = memberData, petData = TMempetdataidEqualZero };
             }
-            
+
 
             return View(p);
         }
@@ -177,6 +179,11 @@ namespace LLWP_Core.Controllers
         public IActionResult RegisteredLongTime(ViewModelMP p)
         {
             string selectPet = Request.Form["selectPet"];
+
+
+            if (!ModelState.IsValid)
+                return View(p);
+
             if (p.merberData.FMeId == 0)
             {
                 if (p.fPhotodata != null)
@@ -188,16 +195,14 @@ namespace LLWP_Core.Controllers
                     p.merberData.FMePhoto = "/" + photName;
                 }
 
-                var code = "";
-                code = SD.CodeCreate(6);
+                var code = SD.CodeCreate(6);
 
                 p.merberData.FMeNumber = code;
                 p.petData.FPeMemNumber = code;
+                p.petData.FPeMem = code;
+                p.petData.FPeNumber = code;
 
-                if (ModelState.IsValid)
-                    _db.TMemberdata.Add(p.merberData);
-                else
-                    return View(p);
+                _db.TMemberdata.Add(p.merberData);
 
                 if (selectPet == "1")
                 {
@@ -211,6 +216,8 @@ namespace LLWP_Core.Controllers
                     }
                     _db.TMempetdata.Add(p.petData);
                 }
+
+                _db.SaveChanges();
 
                 return RedirectToAction(nameof(LogIn));
             }
@@ -227,6 +234,8 @@ namespace LLWP_Core.Controllers
 
                 _db.Update(p.merberData);
 
+                HttpContext.Session.SetObject(CDictionary.SK_LOGINED_CUSTOMER, p.merberData);
+
                 if (selectPet == "1" && p.petData.FPeMemNumber != null)
                 {
                     if (p.fPePhotodata != null)
@@ -240,8 +249,9 @@ namespace LLWP_Core.Controllers
 
                     _db.Update(p.petData);
                 }
+                _db.SaveChanges();
             }
-            
+
             _db.SaveChanges();
 
             return RedirectToAction(nameof(MemberProfile));
@@ -252,11 +262,77 @@ namespace LLWP_Core.Controllers
             return View();
         }
 
-        public string CreateCodeIn()
+        public IActionResult ForgetPassword()
         {
-            var code = SD.CodeCreate(4);
-            HttpContext.Session.SetObject(CDictionary.SK_CODE, code);
-            return code;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ForgetPassword(Clogin Mail)
+        {
+            HttpContext.Session.SetObject(CDictionary.SK_MAILCODE, SD.CodeCreate(6));
+
+            string fEmail = (Mail.txtMail);//抓取mail用戶           
+            TMemberdata cust = _db.TMemberdata.FirstOrDefault(t => t.FMeMail == fEmail);
+
+            if (fEmail == null)
+            {
+                HttpContext.Session.SetObject(CDictionary.SK_ERROR, "請勿空白");
+                return View();
+            }
+
+            if (cust != null)
+            {
+                HttpContext.Session.SetObject(CDictionary.SK_CHANGEMAIL, cust);
+                SD.SendEmail(fEmail, HttpContext.Session.GetObject<string>(CDictionary.SK_MAILCODE));
+                return RedirectToAction("ComfirmPass");
+            }
+
+            HttpContext.Session.SetObject(CDictionary.SK_ERROR, "無此帳號");
+            return View();
+        }
+
+        public IActionResult ComfirmPass()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ComfirmPass(Clogin Password)
+        {
+            if (!HttpContext.Session.GetObject<string>(CDictionary.SK_MAILCODE).Equals(Password.MailCord))
+            {
+                HttpContext.Session.SetObject(CDictionary.SK_PASS, "驗證碼錯誤");
+                return RedirectToAction("ComfirmPass");
+            }
+
+            return RedirectToAction("EditPassword");
+        }
+
+        public IActionResult EditPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(Clogin Password)
+        {
+            var Cust = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_CHANGEMAIL);
+
+            TMemberdata changeData = _db.TMemberdata.FirstOrDefault(m => m.FMeMail == Cust.FMeMail);
+
+            if (Password.txtPassword == Password.txtNewPassword)
+            {
+                changeData.FMePass = Password.txtPassword;
+                _db.SaveChanges();
+            }
+            else
+            {
+                HttpContext.Session.SetObject(CDictionary.SK_ERROR, "與前一次輸入密碼不同");
+                return View();
+            }
+
+            return RedirectToAction("Login");
         }
     }
 }

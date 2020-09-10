@@ -12,10 +12,10 @@ namespace LLWP_Core.Models
         [DisplayName("性別")]
         [Required]
         public string FMeGender { get; set; }
+        public string FMeNumber { get; set; }
 
         [DisplayName("姓名")]
         [Required]
-        public string FMeNumber { get; set; }
         public string FMeName { get; set; }
 
         [DisplayName("生日")]

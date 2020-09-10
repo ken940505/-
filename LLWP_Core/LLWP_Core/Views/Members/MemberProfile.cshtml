@@ -1,4 +1,4 @@
-﻿
+﻿@model LLWP_Core.ViewModels.ViewModelMP
 @{
     ViewData["Title"] = "榕沛社區 - 會員個人資訊";
     Layout = "~/Views/Shared/_Layout_Member.cshtml";
@@ -9,7 +9,6 @@
         <div>
             <div class="divMargin">
                 <div class="bg-white rounded-lg shadow-sm p-5">
-                    <!-- Credit card form tabs -->
                     <ul role="tablist" class="nav bg-light nav-tabs  nav-fill mb-3  w-100" style="border: none;">
                         <li class="nav-item">
                             <a data-toggle="pill" href="#nav-tab-memberdata" class="nav-link nav-linkMember active  ">
@@ -42,11 +41,7 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- End -->
-                    <!-- Credit card form content -->
                     <div class="tab-content">
-
-                        <!-- credit card info-->
                         <div id="nav-tab-health" class="tab-pane fade show ml180">
                             <div class="w-100 detailTitleSet pt-5">
                                 <p class="fz15">健康資訊</p>
@@ -76,9 +71,6 @@
                                         50kg
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
                         <div id="nav-tab-memberdata" class="tab-pane fade show active ml180">
@@ -87,7 +79,7 @@
                                     <p class="fz15">會員資料</p>
                                 </div>
                                 <div>
-                                    <a class="fz125" style="color:blue" href="">(修改)</a>
+                                    <a class="fz125" style="color:blue" asp-action="RegisteredLongTime" asp-controller="Members" asp-route-id="@Model.merberData.FMeId">(修改)</a>
                                 </div>
                             </div>
                             <div class="detailDivSet">
@@ -96,7 +88,7 @@
 
                                     </div>
                                     <div class="w-100">
-                                        <img src="/images/marco.jpg">
+                                        <img src="@Html.DisplayFor(model => model.merberData.FMePhoto)" width="300" height="225">
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet mt3">
@@ -104,7 +96,7 @@
                                         會員編號：
                                     </div>
                                     <div class="">
-                                        0001
+                                        @Html.DisplayFor(model => model.merberData.FMeNumber)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -112,7 +104,7 @@
                                         姓名：
                                     </div>
                                     <div class="">
-                                        Marco
+                                        @Html.DisplayFor(model => model.merberData.FMeName)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -120,7 +112,7 @@
                                         生日：
                                     </div>
                                     <div class="">
-                                        1993/08/12
+                                        @Html.DisplayFor(model => model.merberData.FMeBirth)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -128,7 +120,7 @@
                                         性別：
                                     </div>
                                     <div class="">
-                                        男
+                                        @Html.DisplayFor(model => model.merberData.FMeGender)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -136,7 +128,7 @@
                                         信箱：
                                     </div>
                                     <div class="">
-                                        Marco@gmail.com
+                                        @Html.DisplayFor(model => model.merberData.FMeMail)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -144,7 +136,7 @@
                                         密碼：
                                     </div>
                                     <div class="">
-                                        *******
+                                        @Html.DisplayFor(model => model.merberData.FMePass)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -152,7 +144,7 @@
                                         電話：
                                     </div>
                                     <div class="">
-                                        0914444853
+                                        @Html.DisplayFor(model => model.merberData.FMePhone)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -160,7 +152,7 @@
                                         年齡：
                                     </div>
                                     <div class="">
-                                        35
+                                        @Html.DisplayFor(model => model.merberData.FMeAge)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -168,15 +160,7 @@
                                         身分證字號/居留證：
                                     </div>
                                     <div class="">
-                                        F1114555986
-                                    </div>
-                                </div>
-                                <div class="d-flex detailContainerDivSet">
-                                    <div class="width210">
-                                        國籍：
-                                    </div>
-                                    <div class="">
-                                        烏干達
+                                        @Html.DisplayFor(model => model.merberData.FMePersonId)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -184,7 +168,7 @@
                                         緊急聯絡人：
                                     </div>
                                     <div class="">
-                                        MMarco
+                                        @Html.DisplayFor(model => model.merberData.FMeEmerName)
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
@@ -192,14 +176,12 @@
                                         緊急聯絡人電話：
                                     </div>
                                     <div class="">
-                                        0988654123
+                                        @Html.DisplayFor(model => model.merberData.FMeEmerPhone)
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <!-- End -->
-                        <!-- Paypal info -->
                         <div id="nav-tab-petdata" class="tab-pane fade ml180">
                             <div class="w-100 detailTitleSet pt-5 d-flex">
                                 <div>
@@ -215,7 +197,7 @@
 
                                     </div>
                                     <div class="w-100">
-                                        <img src="/images/dog.jpg" width="300">
+                                        <img src="@Html.DisplayFor(model => model.petData.FPePhoto)" width="300" height="225">
                                     </div>
                                 </div>
                                 <div class="detailDivSet w-100">
@@ -224,15 +206,7 @@
                                             飼養會員編號：
                                         </div>
                                         <div class="">
-                                            0001
-                                        </div>
-                                    </div>
-                                    <div class="d-flex detailContainerDivSet">
-                                        <div class="width210">
-                                            寵物編號：
-                                        </div>
-                                        <div class="">
-                                            0001
+                                            @Html.DisplayFor(model => model.petData.FPeMemNumber)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -240,7 +214,7 @@
                                             晶片號碼：
                                         </div>
                                         <div class="">
-                                            900073000258909
+                                            @Html.DisplayFor(model => model.petData.FPeNumber)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -248,7 +222,7 @@
                                             品種：
                                         </div>
                                         <div class="">
-                                            阿柴
+                                            @Html.DisplayFor(model => model.petData.FPeVarity)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -256,7 +230,7 @@
                                             年齡：
                                         </div>
                                         <div class="">
-                                            5歲
+                                            @Html.DisplayFor(model => model.petData.FPeAge)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -264,7 +238,7 @@
                                             體重:
                                         </div>
                                         <div class="">
-                                            9kg
+                                            @Html.DisplayFor(model => model.petData.FPeWeight)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -272,7 +246,7 @@
                                             生日：
                                         </div>
                                         <div class="">
-                                            1996/02/29
+                                            @Html.DisplayFor(model => model.petData.FPeBirth)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -280,7 +254,7 @@
                                             性別：
                                         </div>
                                         <div class="">
-                                            母
+                                            @Html.DisplayFor(model => model.petData.FPeSex)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -288,7 +262,7 @@
                                             施打疫苗：
                                         </div>
                                         <div class="">
-                                            已施打
+                                            @Html.DisplayFor(model => model.petData.FPeVac)
                                         </div>
                                     </div>
                                     <div class="d-flex detailContainerDivSet">
@@ -296,7 +270,7 @@
                                             絕育：
                                         </div>
                                         <div class="">
-                                            已絕育
+                                            @Html.DisplayFor(model => model.petData.FPeFix)
                                         </div>
                                     </div>
 
@@ -360,9 +334,7 @@
                                         2 位
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <div id="nav-tab-activity" class="tab-pane fade ml180">
                             <div class="w-100 detailTitleSet pt-5">
@@ -401,7 +373,6 @@
                                         活動中心音樂室
                                     </div>
                                 </div>
-
                             </div>
                             <div class="detailDivSet w-100">
                                 <div class="d-flex detailContainerDivSet">
@@ -436,11 +407,7 @@
                                         活動中心音樂室
                                     </div>
                                 </div>
-
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
