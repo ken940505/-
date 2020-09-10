@@ -7,6 +7,7 @@ using LLWP_Core.Models;
 using LLWP_Core.Utility;
 using LLWP_Core.Utility.PayPalHelper;
 using LLWP_Core.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -41,9 +42,9 @@ namespace LLWP_Core.Controllers
 
             var bookingData = new TOrTable
             {
-                FOrCheckIn = SD.DateToString(InYear, InMonth, InDate,"in"),
+                FOrCheckIn = SD.DateToString(InYear, InMonth, InDate, "in"),
                 FOrCheckOut = SD.DateToString(OutYear, OutMonth, OutDate, "out"),
-                FOrday = (Convert.ToDateTime(SD.DateToString(OutYear, OutMonth, OutDate, "out")) - Convert.ToDateTime(SD.DateToString(InYear, InMonth, InDate,"in"))).Days
+                FOrday = (Convert.ToDateTime(SD.DateToString(OutYear, OutMonth, OutDate, "out")) - Convert.ToDateTime(SD.DateToString(InYear, InMonth, InDate, "in"))).Days
             };
 
             HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
@@ -60,8 +61,8 @@ namespace LLWP_Core.Controllers
             if (bookingData == null)
                 return RedirectToAction(nameof(BookingCalendar));
 
-            var activityData = _db.TActivitydata.Where(o => string.Compare(o.FActivityTime,bookingData.FOrCheckIn) >= 0 && 
-                                                            string.Compare(o.FActivityTime,bookingData.FOrCheckOut) <= 0).ToList();
+            var activityData = _db.TActivitydata.Where(o => string.Compare(o.FActivityTime, bookingData.FOrCheckIn) >= 0 &&
+                                                            string.Compare(o.FActivityTime, bookingData.FOrCheckOut) <= 0).ToList();
 
             var tryPetData = _db.TTryPetTable.OrderBy(p => p.FTryPetId).ToList();
 
@@ -69,7 +70,7 @@ namespace LLWP_Core.Controllers
             var tryPetListSelectNumber = new List<string>();
             for (int i = 0; i < tryPetData.Count; i++)
             {
-                list.Add((100+i).ToString());
+                list.Add((100 + i).ToString());
             }
             for (int i = 0; i < 3; i++)
             {
@@ -79,8 +80,8 @@ namespace LLWP_Core.Controllers
                 list.RemoveAt(randNumber);
             }
 
-            var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] || 
-                                                               p.FTryPetNum == tryPetListSelectNumber[1] || 
+            var tryPetDataSelect = _db.TTryPetTable.Where(p => p.FTryPetNum == tryPetListSelectNumber[0] ||
+                                                               p.FTryPetNum == tryPetListSelectNumber[1] ||
                                                                p.FTryPetNum == tryPetListSelectNumber[2]).ToList();
 
             var activityAndtryPet = new BookingVM
@@ -114,7 +115,7 @@ namespace LLWP_Core.Controllers
             if (joinTryPet == 1)
                 bookingData.FOrTryPet = "Y";
             else
-                bookingData.FOrTryPet = null;
+                bookingData.FOrTryPet = "N";
 
             var totalMoney = 0M;
 
@@ -164,7 +165,6 @@ namespace LLWP_Core.Controllers
 
             HttpContext.Session.SetObject(CDictionary.SK_BOOKINGDATA, bookingData);
             HttpContext.Session.SetObject(CDictionary.SK_ROOMTYPE, roomType);
-            HttpContext.Session.SetObject(CDictionary.SK_PAY, pay[0]);
 
             return RedirectToAction(nameof(BookingPayment));
         }
@@ -210,12 +210,12 @@ namespace LLWP_Core.Controllers
 
             if (tortable.FOrGuestOneActivityA != null)
             {
-                activityOne = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestOneActivityA || 
+                activityOne = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestOneActivityA ||
                                                            a.FActivityId == tortable.FOrGuestOneActivityB ||
                                                            a.FActivityId == tortable.FOrGuestOneActivityC).ToList();
             }
 
-            if(tortable.FOrGuestTwoActivityA != null)
+            if (tortable.FOrGuestTwoActivityA != null)
             {
                 activityTwo = _db.TActivitydata.Where(a => a.FActivityId == tortable.FOrGuestTwoActivityA ||
                                                            a.FActivityId == tortable.FOrGuestTwoActivityB ||
@@ -243,11 +243,16 @@ namespace LLWP_Core.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BookingPayment(string stripeToken, string stipeButton, string payPalButton)
+        public async Task<IActionResult> BookingPayment(string stripeToken, string payPalButton)
         {
             var tortable = HttpContext.Session.GetObject<TOrTable>(CDictionary.SK_BOOKINGDATA);
 
-            if (stipeButton != null)
+            HttpContext.Session.SetObject(CDictionary.SK_Payment, true);
+
+            _db.TOrTable.Add(tortable);
+            _db.SaveChanges();
+
+            if (stripeToken != null)
             {
                 var options = new ChargeCreateOptions
                 {
@@ -266,9 +271,10 @@ namespace LLWP_Core.Controllers
                 var total = Convert.ToDouble(Convert.ToInt64(tortable.FOrTotalPrice / 30));
                 var payPalAPI = new PayPalAPI(configuration);
                 string url = await payPalAPI.getRedirectURLToPayPal(total, "TWD");
+                //HttpContext.Session.SetObject(CDictionary.SK_Payment, true);
                 return Redirect(url);
             }
-            
+
             return RedirectToAction(nameof(BookingPayment));
         }
 
@@ -276,10 +282,7 @@ namespace LLWP_Core.Controllers
         {
             var payPalAPI = new PayPalAPI(configuration);
             PayPalPaymentExecutedResponse result = await payPalAPI.executedPayment(paymentId, payerID);
-
-            
-
-            return RedirectToAction("MemberProfile", "Members");
+            return RedirectToAction(nameof(BookingPayment));
         }
 
         public IActionResult BookingFirstPage()

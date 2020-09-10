@@ -1,4 +1,10 @@
-﻿document.getElementById("sure-check").addEventListener("click", function () {
+﻿var paymentCheckedInput = $("#paymentCheckedInput").val();
+
+if (paymentCheckedInput == "true")
+    paysurecheck();
+
+
+function paysurecheck() {
     Swal.fire({
         title: '付款成功',
         text: '將為您跳轉至會員中心',
@@ -6,14 +12,11 @@
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Custom image',
-
     });
 
     setTimeout(function () { window.location.href = "/Members/MemberProfile" }, 5000);
+}
 
-      
-
-});
 function actsurecheck() {
     Swal.fire({
         title: '付款成功',

@@ -7,6 +7,7 @@ using LLWP_Core.Models;
 using LLWP_Core.ViewModels;
 using System.IO;
 using Microsoft.Extensions.Hosting;
+using Stripe.BillingPortal;
 
 namespace LLWP_Core.Controllers
 {
@@ -46,6 +47,9 @@ namespace LLWP_Core.Controllers
         // GET: Members
         public IActionResult MemberProfile()
         {
+            HttpContext.Session.Remove(CDictionary.SK_PAY);
+            HttpContext.Session.Remove(CDictionary.SK_Payment);
+
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
                 return RedirectToAction("Login");
 

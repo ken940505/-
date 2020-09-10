@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,7 +40,6 @@ namespace LLWP_Core
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,13 +55,13 @@ namespace LLWP_Core
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseRouting();
             StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             app.UseSession();
-            app.UseAuthorization();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
+            app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

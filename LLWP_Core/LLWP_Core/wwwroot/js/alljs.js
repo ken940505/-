@@ -533,9 +533,17 @@ $("#refreshPet").click(function () {
 
 $("#BookingNextStage1").click(function () {
     $("#BookingNextStage2").click();
-    console.log("click")
 })
 
-$("#stripe-button").click(function () {
 
-})
+//$("#paypal-button").click(function () {
+//    $.ajax({
+//        url: "/Booking/PayPalPayment",
+//        type: "Get",
+//        success: function (data) {
+//            console.log(data);
+//            document.location.href = data;
+
+//        }
+//    })  
+//})

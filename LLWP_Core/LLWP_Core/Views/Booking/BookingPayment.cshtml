@@ -97,17 +97,35 @@
                         <div class="checkOrder_detailLeft">
                             會員編號(二)：
                         </div>
-                        <div class="checkOrder_detailRight">
-                            無
-                        </div>
+                        @if (Model.tortable.FOrPeople == 1)
+                        {
+                            <div class="checkOrder_detailRight">
+                                無
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="checkOrder_detailRight">
+                                59580201002
+                            </div>
+                        }
                     </div>
                     <div class="d-flex checkOrder_detailContainerDivSet">
                         <div class="checkOrder_detailLeft">
                             會員姓名(二)：
                         </div>
-                        <div class="checkOrder_detailRight">
-                            無
-                        </div>
+                        @if (Model.tortable.FOrPeople == 1)
+                        {
+                            <div class="checkOrder_detailRight">
+                                無
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="checkOrder_detailRight">
+                                王瑩恆
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -146,7 +164,7 @@
             }
             @if (Model.tortable.FOrGuestTwoActivityA != null)
             {
-                <h3 class="mt5 mb2 fz2">活動明細：會員二</h3>
+                <h3 class="mt5 mb2 fz2">活動明細：會員二　王瑩恆 小姐</h3>
                 <div class="row p-3 rounded mb-2 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
                     @foreach (var item in Model.activitydataTwo)
                     {
@@ -173,7 +191,7 @@
                     }
                 </div>
             }
-            @if (Model.tortable.FOrTryPet != null)
+            @if (Model.tortable.FOrTryPet == "Y")
             {
                 <h3 class="mt5 mb2 fz2">試養寵物與訂單金額明細</h3>
                 <div class="d-flex justify-content-lg-center">
@@ -373,20 +391,20 @@
                                 <img src="/images/credit_Card.png" class="pb-3" width="200">
                                 <p>通過Stripe進行信用卡支付功能！</p>
 
-                                @if(Context.Session.GetString("SK_PAY") == "2")
+                                @if (Context.Session.GetString("SK_ROOMTYPE") == "1")
                                 {
                                     var stripetotalMoney = @Model.tortable.FOrTotalPrice * 100 / 30;
-                                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                data-key="@Stripe.Value.PublishableKey"
-                                                data-amount="@stripetotalMoney"
-                                                data-name="榕沛社區訂房功能"
-                                                data-label="Stripe 信用卡支付"
-                                                data-description="支付 @string.Format("{0:#}",Model.tortable.FOrTotalPrice) 元，總住宿日 @Model.tortable.FOrday 天"
-                                                data-locale="auto"
-                                                data-allow-remember-me="false"
-                                                data-currency="USD"
-                                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
-                                        </script>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                            data-key="@Stripe.Value.PublishableKey"
+                                            data-amount="@stripetotalMoney"
+                                            data-name="榕沛社區訂房功能"
+                                            data-label="Stripe 信用卡支付"
+                                            data-description="支付 @string.Format("{0:#}",Model.tortable.FOrTotalPrice) 元，總住宿日 @Model.tortable.FOrday 天"
+                                            data-locale="auto"
+                                            data-allow-remember-me="false"
+                                            data-currency="USD"
+                                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+                                    </script>
                                     <script>
                                         document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                                     </script>
@@ -401,7 +419,7 @@
                                 <p>Paypal is easiest way to pay online</p>
 
                                 <p>
-                                    <button type="submit" class="placeorder btn btn-primary rounded-pill" name="payPalButton" value="payPalButton"><i class="fab fa-paypal mr-1"></i></i> Log into my Paypal</button>
+                                    <button type="submit" class="placeorder btn btn-primary rounded-pill" id="paypal-button" name="payPalButton" value="payPalButton"><i class="fab fa-paypal mr-1"></i> Log into my Paypal</button>
                                 </p>
                             </div>
                             <!-- End -->
@@ -430,7 +448,7 @@
                         <!-- End -->
                     </div>
                 </div>
-
+                <input type="hidden" id="paymentCheckedInput" value="@Context.Session.GetString("SK_Payment")" />
             </div>
             <div class="container-fluid">
                 <div class="container pb3">
