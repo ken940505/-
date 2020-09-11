@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "BookingPayment";
+    Layout = "~/Views/Shared/_Layout_actshoppingcart.cshtml";
 }
 
 <div class="container">
@@ -8,49 +9,11 @@
 
         <h3 class="mt5 mb2 fz2">活動明細</h3>
         <div style="border:#F8B73B 2px solid; background-color: #ffffff; ">
-            <div class="row p-3 rounded mb-2 fz125 lh25" style="display: flex; justify-content: space-around;">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title mb10">活動一</h5>
-                        <h6 class="card-subtitle mb-2 text-muted fz125">草頭娃娃製作</h6>
-                        <p class="card-text">
-                            日期：2020/07/1<br>
-                            時間：14:00<br>
-                            費用：200 元<br>
-                            活動地點：活動中心小教室
-                        </p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title mb10">活動二</h5>
-                        <h6 class="card-subtitle mb-2 text-muted fz125">戶外寫生</h6>
-                        <p class="card-text">
-                            日期：2020-07-08<br>
-                            時間：14:00<br>
-                            費用：100 元<br>
-                            活動地點：大草皮
-                        </p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title mb10">活動三</h5>
-                        <h6 class="card-subtitle mb-2 text-muted fz125">吉他入門</h6>
-                        <p class="card-text">
-                            日期：2020/10/02(五)<br>
-                            時間：14:00<br>
-                            費用：100 元<br>
-                            活動地點：活動中心音樂室
-                        </p>
-                    </div>
-                </div>
-
+            <div id="ordershoppingcart" class="row p-3 rounded fz125 lh25 ml3" style="display: flex;">
             </div>
             <ul>
-                <li class="mb2 ml5 fz15" style="list-style-type:disc;">總額:400</li>
+                <li class="mb2 ml5 fz15" style="list-style-type:disc;">總金額$<span id="pricetotal">0</span></li>
             </ul>
-
         </div>
 
 
@@ -222,26 +185,56 @@
             <div class="container pb3">
                 <div class="row justify-content-between">
                     <a class="btn btn-warning fz15 ls025" href="/Activity/Index" role="button">返回上一步</a>
-                    <a class="btn btn-warning fz15 ls025" href="#" role="button" id="actsure-check" onclick="actsurecheck()">確定結帳</a>
+                    <div id="actformsubmit" class="btn btn-warning fz15 ls025" onclick="actsurecheck()">確定結帳</div>
+                    <a href="#" role="button" id="actsure-check" style="display:none">確定結帳</a>
                 </div>
             </div>
         </div>
-
-
-        @*<h3 class="mt5 mb2 fz2">注意事項</h3>
-            <div class="row p-3 rounded mb-5 shadow-sm fz125 lh25" style="border:#F8B73B 2px solid; background-color: #ffffff; display: flex; justify-content: space-around;">
-                <ul>
-                    <li class="mb-2 ml3">
-                        重要提示:若您是以信用卡付款，
-                    </li>
-
-                </ul>
-            </div>*@
     </div>
+
 </div>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if (Cookies.get("carItem") != undefined) {
+            let items = Cookies.get("carItem");
+            items = items.split(",");
+            for (let id of items) {
+                $.ajax({
+                    url: "/Activity/ordershoppingcart",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
+                        var aaa = $("#ordershoppingcart").html();
+                        $("#ordershoppingcart").html(aaa + data);
+                        var a = 0;
+                        $(".allprice").each(function () {
+                            console.log($(this).text());
+                            a += parseInt($(this).text());
+                        })
+                        $("#pricetotal").html(a);
+                    },
+                })
+            }
+        }
+    });
+    $("#actsure-check").click(function () {
+        if (Cookies.get("carItem") != undefined) {
+            let items = Cookies.get("carItem");
+            items = items.split(",");
+            for (let id of items) {
+                $.ajax({
+                    url: "/Activity/shoppingcartendpay",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
+                        Cookies.remove('carItem');
+                    },
+                })
+            }
+        }
+    });
 
-<div class="container-fluid">
-</div>
-
-
+</script>
 

@@ -1,583 +1,741 @@
 ﻿@model IEnumerable<LLWP_Core.Models.TActivitydata>
 @{
     ViewData["Title"] = "榕沛社區 - 活動總覽";
+    Layout = "~/Views/Shared/_Layout_activity.cshtml";
 }
-
-<div class="bar-block">
-    <div class="container">
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
-           onclick="openClass(event, 'class1')">舉辦中</a>
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動</a>
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class4')">我的購物車</a>
-        <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class5')">活動申請</a>
+<div class="ml3">
+    <div class="bar-block">
+        <div class="container">
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
+               onclick="openClass(event, 'class1')">舉辦中</a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動<span id="cardtotal7" style="margin-left:2%;"></span></a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class4')">我的購物車<span id="selectshopping" style="margin-left:2%;">()</span></a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class5')">活動申請</a>
+        </div>
     </div>
-</div>
+    <div class="test">
+        <div class="now">
+            <!-- 現在活動   -->
+            <div id="class1" class="container-fluid  class">
+                <div class="actselect2">
+                    <div class="actselecttitle2">類別</div>
+                    <ul class="actselectul2">
+                        <li>
+                            <a href="javascript:void(0)" class="bar-item2 actselectbtn2 tablink2 testbtn2 mt5"
+                               onclick="openClass2(event, 'class11')">
+                                總覽<span id="cardtotal1" style="float: right;"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
+                               onclick="openClass2(event, 'class6')">文藝<span id="cardtotal2" style="float: right;"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
+                               onclick="openClass2(event, 'class7')">運動<span id="cardtotal3" style="float: right;"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
+                               onclick="openClass2(event, 'class8')">音樂<span id="cardtotal4" style="float: right;"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mt5"
+                               onclick="openClass2(event, 'class9')">寵物<span id="cardtotal5" style="float: right;"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mt5"
+                               onclick="openClass2(event, 'class10')">節慶<span id="cardtotal6" style="float: right;"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" style="display:none" class="actselectbtn2 tablink2 mt5 searchbtnin"
+                               onclick="openClass2(event, 'class12')">搜尋</span></a>
+                        </li>
+                    </ul>
+                </div>
+                @*搜尋活動*@
 
-@*活動詳細*@
-<button class="btn btn-danger" onclick="shine()" id="shine" style="position:fixed;z-index:1; right:0;top:20%;display:none;width:45px">活動視窗</button>
-<div id="activityinside">
-</div>
-<div class="test">
-    <div class="now">
-        <!-- 現在活動   -->
-        <div id="class1" class="container-fluid  class">
-            <div class="actselect2">
-                <a href="javascript:void(0)" class="bar-item2 actselectbtn2 tablink2 testbtn2" onclick="openClass2(event, 'class11')"></a>
-                @using (Html.BeginForm())
-                {
-                    <div class="">
-                        <form action="#" name="form2" id="form2" method="get" enctype="multipart/form-data">
-                            <input type="text" hint="關鍵字" name="txtkeyword" value="" size="7" class="fz125" />
-                            <input type="submit" value="搜尋" class="" />
-                        </form>
+                <div class="mb1" style="width:630px; background-color:aliceblue;vertical-align:middle;margin-left:200px">
+                    <span class="fz125 ml3">關鍵字: </span>@Html.TextBox("txtkeyword", null, new { size = "5" })
+                    <span class="fz125 ml3">收費: </span><input id="txtpricemin" type="text" hint="價位min" name="txtpricemin" size="2" class="fz1" />
+                    <span class="fz125">~ </span><input id="txtpricemax" type="text" hint="價位max" name="txtpricemax" size="2" class="fz1" />
+                    <label for="txtmember" class="fz125 ml3" style="margin-right:1%">未額滿</label><input id="txtmember" type="checkbox" name="txtmember" style='width:27px;height:28px;vertical-align:middle;'>
+                    <button id="btnSearch" class="btn btn-info btn-sm ml3">搜尋</button>
+                </div>
+
+                @*活動詳細*@
+                <button class="btn btn-danger fz125" onclick="shine()" id="shine" style="position:fixed;z-index:1; right:0;top:20%;display:none;width:45px">活動視窗</button>
+                <div id="activityinside">
+                </div>
+                @*搜尋結果*@
+                <div id="class12" class="container-fluid  custom-container-width class2">
+                    <div class="fz15" id="searchmany">搜尋結果</div>
+                    <div class="ulflow" style="display: flex;">
+
+                        <div class="card-group row no-gutters w-100" id="searchend">
+                        </div>
                     </div>
-                }
-                <div class="actselecttitle2">類別</div>
-                <ul class="actselectul2">
-                    <li>
-                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2  mh11"
-                           onclick="openClass2(event, 'class6')">文藝<span style="float: right;">8</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mh11"
-                           onclick="openClass2(event, 'class7')">運動<span style="float: right;">8</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mh11"
-                           onclick="openClass2(event, 'class8')">音樂<span style="float: right;">8</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mh11"
-                           onclick="openClass2(event, 'class9')">寵物<span style="float: right;">4</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mh11"
-                           onclick="openClass2(event, 'class10')">節慶<span style="float: right;">8</span></a>
-                    </li>
-                </ul>
-            </div>
-            @*搜尋活動*@
-            <div id="class11" class="container-fluid  custom-container-width class2">
-                <div class="ulflow" style="display: flex;">
-                    <div class="card-group row no-gutters w-100">
-                        @foreach (var item in Model)
-                        {
-                            if (item.FActivityCheck.Equals("是"))
+                </div>
+                @*全部活動*@
+                <div id="class11" class="container-fluid  custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row no-gutters w-100">
+                            @foreach (var item in Model)
                             {
-                                <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                    <div class="card cardstyle mb10">
-                                        <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                            <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                            <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                            <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
-                                            <div>
-                                                $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                            </div>
-                                            <div id="Activity_test">
-                                                <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
+                                if (item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal1" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <input type="hidden" id="@item.FActivityId" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                }
+                                else { continue; }
                             }
-                            else { continue; }
-                        }
-
+                        </div>
+                    </div>
+                </div>
+                <!-- 現在活動文藝   -->
+                <div id="class6" class="container-fluid  custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row no-gutters w-100">
+                            @foreach (var item in Model)
+                            {
+                                if (item.FActivityCode.Contains("A") && item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal2" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else { continue; }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- 現在活動運動   -->
+                <div id="class7" class="container-fluid custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row no-gutters w-100">
+                            @foreach (var item in Model)
+                            {
+                                if (item.FActivityCode.Contains("B") && item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal3" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else { continue; }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- 現在活動音樂   -->
+                <div id="class8" class="container-fluid custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row no-gutters w-100">
+                            @foreach (var item in Model)
+                            {
+                                if (item.FActivityCode.Contains("C") && item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal4" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else { continue; }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- 現在活動寵物   -->
+                <div id="class9" class="container-fluid custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row no-gutters w-100">
+                            @foreach (var item in Model)
+                            {
+                                if (item.FActivityCode.Contains("D") && item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal5" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else { continue; }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- 現在活動節慶   -->
+                <div id="class10" class="container-fluid custom-container-width class2">
+                    <div class="ulflow" style="display: flex;">
+                        <div class="card-group row justify-content-between no-gutters w-100">
+                            @foreach (var item in Model)
+                            {
+                                if (item.FActivityCode.Contains("E") && item.FActivityCheck.Equals("是"))
+                                {
+                                    <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal6" id="@item.FActivityId">
+                                        <div class="card cardstyle mb10">
+                                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                            <div class="card-body" style="margin-bottom:-15px">
+                                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> @Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> @Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</div>
+                                                <div class="fz125">
+                                                    $@Html.DisplayFor(modelItem => item.FActivityPrice)
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else { continue; }
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- 現在活動文藝   -->
-        <div id="class6" class="container-fluid  custom-container-width class2">
-            <div class="ulflow" style="display: flex;">
-                <div class="card-group row no-gutters">
-                    @foreach (var item in Model)
-                    {
-                        if (item.FActivityCode.Contains("A") && item.FActivityCheck.Equals("是"))
-                        {
-                            <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                <div class="card cardstyle mb10">
-                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                        <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivitypeopleLimit)</span>
-                                        <div>
-                                            $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                        </div>
-                                        <div id="Activity_test">
-                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                            <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else { continue; }
-                    }
-                </div>
-            </div>
-        </div>
-        <!-- 現在活動運動   -->
-        <div id="class7" class="container-fluid custom-container-width class2">
-            <div class="ulflow" style="display: flex;">
-                <div class="card-group row no-gutters">
-                    @foreach (var item in Model)
-                    {
-                        if (item.FActivityCode.Contains("B") && item.FActivityCheck.Equals("是"))
-                        {
-                            <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                <div class="card cardstyle mb10">
-                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                        <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</span>
-                                        <div>
-                                            $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                        </div>
-                                        <div id="Activity_test">
-                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                            <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else { continue; }
-                    }
-                </div>
-            </div>
-        </div>
-        <!-- 現在活動音樂   -->
-        <div id="class8" class="container-fluid custom-container-width class2">
-            <div class="ulflow" style="display: flex;">
-                <div class="card-group row no-gutters">
-                    @foreach (var item in Model)
-                    {
-                        if (item.FActivityCode.Contains("C") && item.FActivityCheck.Equals("是"))
-                        {
-                            <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                <div class="card cardstyle mb10">
-                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                        <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</span>
-                                        <div>
-                                            $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                        </div>
-                                        <div id="Activity_test">
-                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                            <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else { continue; }
-                    }
-                </div>
-            </div>
-        </div>
-        <!-- 現在活動寵物   -->
-        <div id="class9" class="container-fluid custom-container-width class2">
-            <div class="ulflow" style="display: flex;">
-                <div class="card-group row no-gutters">
-                    @foreach (var item in Model)
-                    {
-                        if (item.FActivityCode.Contains("D") && item.FActivityCheck.Equals("是"))
-                        {
-                            <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                <div class="card cardstyle mb10">
-                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                        <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</span>
-                                        <div>
-                                            $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                        </div>
-                                        <div id="Activity_test">
-                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                            <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else { continue; }
-                    }
-                </div>
-            </div>
-        </div>
-        <!-- 現在活動節慶   -->
-        <div id="class10" class="container-fluid custom-container-width class2">
-            <div class="ulflow" style="display: flex;">
-                <div class="card-group row justify-content-between no-gutters">
-                    @foreach (var item in Model)
-                    {
-                        if (item.FActivityCode.Contains("E") && item.FActivityCheck.Equals("是"))
-                        {
-                            <div class="col-xl-3 col-lg-6 col-sm-12" id="@item.FActivityId">
-                                <div class="card cardstyle mb10">
-                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                        <span>剩餘人次:@Html.DisplayFor(modelItem => item.FActivityJoinpeople)</span>
-                                        <div>
-                                            $@Html.DisplayFor(modelItem => item.FActivityPrice)
-                                        </div>
-                                        <div id="Activity_test">
-                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                            <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn()" id="@item.FActivityId">參加</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else { continue; }
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 申請中活動-->
-    <div id="class2" class="container-fluid custom-container-width class">
-        <div class="card-group row no-gutters">
-            @foreach (var item in Model)
-            {
-                if (item.FActivityCheck.Equals("否"))
-                {
-                    <div class="col-xl-3 col-lg-6 col-sm-12">
-                        <div class="card cardstyle">
-                            <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
-                                <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
-                                <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
-                                <span>申請進度</span>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:30%">
-                                        管委會
-                                    </div>
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:30%">
-                                        財委會
+            <!-- 申請中活動-->
+            <div id="class2" class="container-fluid custom-container-width class">
+                <div class="card-group row no-gutters w-100">
+                    @foreach (var item in Model)
+                    {
+                        if (item.FActivityCheck.Equals("否"))
+                        {
+                            <div class="col-xl-3 col-lg-6 col-sm-12 cardtotal7">
+                                <div class="card cardstyle">
+                                    <img class="card-img-top pic" src="@item.FActivityImages" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FActivityName)</h5>
+                                        <div class="date">@Html.DisplayFor(modelItem => item.FActivityTime)</div>
+                                        <span class="organizer">@Html.DisplayFor(modelItem => item.FActivityLocation)</span>
+                                        <span>申請進度</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                                管委會
+                                            </div>
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                                財委會
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                        }
+                        else
+                        { continue; }
+                    }
+                </div>
+            </div>
+
+            <!-- 我的活動 -->
+            <div id="class3" class="container-fluid custom-container-width class">
+                <div class="row no-gutters" style="border:#F8B73B 2px solid; background-color: #ffffff;">
+                    <div class="con col-lg-6">
+                        <div class="month">
+                            <p>2020 年 7 月</p>
+                            <div class="week-title">
+                                <div class="day-title">星期一</div>
+                                <div class="day-title">星期二</div>
+                                <div class="day-title">星期三</div>
+                                <div class="day-title">星期四</div>
+                                <div class="day-title">星期五</div>
+                                <div class="day-title">星期六</div>
+                                <div class="day-title">星期日</div>
+                            </div>
+                            <div class="week">
+                                <div class="day-none"></div>
+                                <div class="day-none"></div>
+                                <div class="day">01</div>
+                                <div class="day">02</div>
+                                <div class="day">03</div>
+                                <div class="day">04</div>
+                                <div class="day">05</div>
+                            </div>
+                            <div class="week">
+                                <div class="day">06</div>
+                                <div class="day">07</div>
+                                <div class="day">08</div>
+                                <div class="day">09</div>
+                                <div class="day">10</div>
+                                <div class="day">11</div>
+                                <div class="day">12</div>
+                            </div>
+                            <div class="week">
+                                <div class="day">13</div>
+                                <div class="day">14</div>
+                                <div class="day">15</div>
+                                <div class="day">16</div>
+                                <div class="day">17</div>
+                                <div class="day">18</div>
+                                <div class="day">19</div>
+                            </div>
+                            <div class="week">
+                                <div class="day">20</div>
+                                <div class="day">21</div>
+                                <div class="day">22</div>
+                                <div class="day">23</div>
+                                <div class="day">24</div>
+                                <div class="day">25</div>
+                                <div class="day">26</div>
+                            </div>
+                            <div class="week">
+                                <div class="day">27</div>
+                                <div class="day">28</div>
+                                <div class="day">29</div>
+                                <div class="day">30</div>
+                                <div class="day">31</div>
+                                <div class="day-none"></div>
+                                <div class="day-none"></div>
                             </div>
                         </div>
                     </div>
-                }
-                else
-                { continue; }
-            }
-        </div>
-    </div>
-
-    <!-- 我的活動 -->
-    <div id="class3" class="container-fluid custom-container-width class">
-        <div class="row no-gutters" style="border:#F8B73B 2px solid; background-color: #ffffff;">
-            <div class="con col-lg-6">
-                <div class="month">
-                    <p>2020 年 7 月</p>
-                    <div class="week-title">
-                        <div class="day-title">星期一</div>
-                        <div class="day-title">星期二</div>
-                        <div class="day-title">星期三</div>
-                        <div class="day-title">星期四</div>
-                        <div class="day-title">星期五</div>
-                        <div class="day-title">星期六</div>
-                        <div class="day-title">星期日</div>
-                    </div>
-                    <div class="week">
-                        <div class="day-none"></div>
-                        <div class="day-none"></div>
-                        <div class="day">01</div>
-                        <div class="day">02</div>
-                        <div class="day">03</div>
-                        <div class="day">04</div>
-                        <div class="day">05</div>
-                    </div>
-                    <div class="week">
-                        <div class="day">06</div>
-                        <div class="day">07</div>
-                        <div class="day">08</div>
-                        <div class="day">09</div>
-                        <div class="day">10</div>
-                        <div class="day">11</div>
-                        <div class="day">12</div>
-                    </div>
-                    <div class="week">
-                        <div class="day">13</div>
-                        <div class="day">14</div>
-                        <div class="day">15</div>
-                        <div class="day">16</div>
-                        <div class="day">17</div>
-                        <div class="day">18</div>
-                        <div class="day">19</div>
-                    </div>
-                    <div class="week">
-                        <div class="day">20</div>
-                        <div class="day">21</div>
-                        <div class="day">22</div>
-                        <div class="day">23</div>
-                        <div class="day">24</div>
-                        <div class="day">25</div>
-                        <div class="day">26</div>
-                    </div>
-                    <div class="week">
-                        <div class="day">27</div>
-                        <div class="day">28</div>
-                        <div class="day">29</div>
-                        <div class="day">30</div>
-                        <div class="day">31</div>
-                        <div class="day-none"></div>
-                        <div class="day-none"></div>
+                    <div class="col-lg-5" style="margin-left:45px">
+                        <table class="table table-striped " style="margin-top:12%">
+                            <thead class="thead-info">
+                                <tr class="table-warning">
+                                    <th scope="col">代號</th>
+                                    <th scope="col">活動</th>
+                                    <th scope="col">時間</th>
+                                    <th scope="col">地點</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <th scope="row">A001</th>
+                                    <td>草頭娃娃製作</td>
+                                    <td>2020/07/1</td>
+                                    <td>活動中心小教室</td>
+                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">A002</th>
+                                    <td>戶外寫生</td>
+                                    <td>2020/7/8</td>
+                                    <td>大草皮</td>
+                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">C002</th>
+                                    <td>古典音樂鑑賞</td>
+                                    <td>2020/7/22</td>
+                                    <td>活動中心音樂室</td>
+                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5" style="margin-left:45px">
-                <table class="table table-striped " style="margin-top:12%">
-                    <thead class="thead-info">
-                        <tr class="table-warning">
-                            <th scope="col">代號</th>
-                            <th scope="col">活動</th>
-                            <th scope="col">時間</th>
-                            <th scope="col">地點</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="">
-                            <th scope="row">A001</th>
-                            <td>草頭娃娃製作</td>
-                            <td>2020/07/1</td>
-                            <td>活動中心小教室</td>
-                            <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">A002</th>
-                            <td>戶外寫生</td>
-                            <td>2020/7/8</td>
-                            <td>大草皮</td>
-                            <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">C002</th>
-                            <td>古典音樂鑑賞</td>
-                            <td>2020/7/22</td>
-                            <td>活動中心音樂室</td>
-                            <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                        </tr>
-                    </tbody>
+        </div>
+
+        <!-- 我的購物車 -->
+        <div id="class4" class="container class" style="display: block;">
+            <div class="shoppingcart" style="display: block;">
+                <table class="shoppingcart-table" id="shoppingcartadd">
+                    <tr class="shoppingcart-tr" style="text-align: center;height:80px;">
+                        <th>活動名稱</th>
+                        <th>開始日期</th>
+                        <th>活動價格</th>
+                        <th></th>
+                    </tr>
+
                 </table>
+                <table class="shoppingcart-table" style="margin-top:-20px;margin-bottom:100px">
+                    <tr class="">
+                        <td colspan="4" style="text-align:center;height:100px">
+                            @*<button class="btn btn-danger fz15">清空</button>*@
+                            <a href="/Activity/actshoppingcart">
+                                <button class="btn btn-warning fz15"> 結帳</button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- 活動申請 -->
+        <div id="class5" class="class container">
+            <div class="formclub mt5">
+                <form action="#" name="form1" id="form1" method="post" enctype="multipart/form-data" class="mt2 mb10 mr5">
+                    <fieldset>
+                        <div class="st1">
+                            <label class="t1" for="formtext1">主辦姓名:</label>
+                            <input type="text" id="formtext1" name="name" value="" size="22" onblur="checknamevalue(1)">
+                            <span id="checkvalue1" style="color:#888888">請輸入中文兩字以上</span>
+                            <div></div>
+                        </div>
+                        <div class="st1">
+                            <label class="t1" for="formtext2">活動名稱:</label>
+                            <input type="text" id="formtext2" name="FActivityName" value="" size="22" onblur="checknamevalue(2)">
+                            <span id="checkvalue2" style="color:#888888">請輸入中文十字以內</span>
+                        </div>
+                        <div class="st1">
+                            <label for="formtext3" class="t1">活動場所:</label>
+                            <input type="text" id="formtext3" name="FActivityLocation" size="22" onblur="checknamevalue(3)">
+                            <span id="checkvalue3" style="color:#888888">請輸入中文十字以內</span>
+                        </div>
+                        <div class="st1">
+                            <label for="formtext4" class="t1">人數限制:</label>
+                            <input type="text" id="formtext4" name="FActivitypeopleLimit" size="22" onblur="checkpwdvalue(4)">
+                            <span id="checkvalue4" style="color:#888888">請輸入數字</span>
+                        </div>
+                        <div class="st1">
+                            <label for="FActivityTime" class="t1">活動日期:</label>
+                            <input type="date" id="FActivityTime" name="FActivityTime" size="30">
+                        </div>
+                        <div class="st1">
+                            <label for="formtext5" class="t1">活動收費:</label>
+                            <input type="text" id="formtext5" name="FActivityPrice" size="22" onblur="checkpwdvalue(5)">
+                            <span id="checkvalue5" style="color:#888888">請輸入數字</span>
+                        </div>
+                        <div class="st1">
+
+                            <label for="actpic" class="t1">活動圖片:</label>
+                            <input type="file" name="actpic" id="actpic" accept="image/jpg">
+                        </div>
+                        <div class="notice">
+                            <h2>申請須知</h2>
+                            <ul>
+                                <li>需要兩位保證人</li>
+                                <li>請附上活動企劃書</li>
+                                <li>申請結果將以電子郵件告知</li>
+                            </ul>
+                        </div>
+                        <div class="sub">
+                            <div id="actformsubmit" class="btn btn-warning activity_Index_bt fz15 mr5">送出</div>
+                            <input type="reset" value="清除" class="btn btn-danger activity_Index_bt fz15 ml5">
+                            <input style="display:none" type="submit" id="actlogin" value="送出" class="btn btn-warning activity_Index_bt fz15 ml5">
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
-</div>
 
-<!-- 我的購物車 -->
-<div id="class4" class="container class" style="display: block;">
-    <div class="shoppingcart" style="display: block;">
-        <table class="shoppingcart-table" id="shoppingcartadd">
-            <tr class="shoppingcart-tr" style="text-align: center;height:80px;">
-                <th>活動名稱</th>
-                <th>開始日期</th>
-                <th>活動價格</th>
-                <th></th>
-            </tr>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
 
-        </table>
-        <table class="shoppingcart-table" style="margin-top:-20px;margin-bottom:100px">
-            <tr class="">
-                <td colspan="4" style="text-align:center;height:100px">
-                    <button class="btn btn-danger fz15">清空</button>
-                    <a href="/Activity/actshoppingcart">
-                        <button class="btn btn-warning fz15" onclick="Checkout()"> 結帳</button>
-                    </a>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-
-</div>
-
-
-<!-- 活動申請 -->
-<div id="class5" class="class container">
-    <div class="formclub mt5">
-        <form action="#" name="form1" id="form1" method="post" enctype="multipart/form-data" class="mt2 mb10">
-            <fieldset>
-                <div class="st1">
-                    <label class="t1" for="username">主辦姓名:</label>
-                    <input type="text" id="username" name="fActivityName" value="" size="30">
-                </div>
-                <div class="st1">
-                    <label class="t1" for="actname">活動名稱:</label>
-                    <input type="text" id="actname" name="actname" value="" size="30">
-                </div>
-                <div class="st1">
-                    <label for="fActivityLocation" class="t1">活動場所:</label>
-                    <input type="text" id="fActivityLocation" name="fActivityLocation" size="30">
-                </div>
-                <div class="st1">
-                    <label for="fActivitypeopleLimit" class="t1">人數限制:</label>
-                    <input type="text" name="fActivitypeopleLimit" id="fActivitypeopleLimit" size="30" min="">
-                </div>
-                <div class="st1">
-                    <label for="fActivityTime" class="t1">活動日期:</label>
-                    <input type="date" name="fActivityTime" id="fActivityTime" size="30" min="">
-                </div>
-                <div class="st1">
-                    <label for="fActivityPrice" class="t1">活動收費:</label>
-                    <input type="text" name="fActivityPrice" id="fActivityPrice" size="30" min="">
-                </div>
-                <div class="st1">
-
-                    <label for="actpic" class="t1">活動圖片:</label>
-                    <input type="file" name="actpic" id="actpic" accept="image/jpg">
-                </div>
-                <div class="notice">
-                    <h2>申請須知</h2>
-                    <ul>
-                        <li>需要兩位保證人</li>
-                        <li>請附上活動企劃書</li>
-                        <li>申請結果將以電子郵件告知</li>
-                    </ul>
-                </div>
-
-                <div class="sub">
-                    <div class="btn btn-warning activity_Index_bt fz15 mr5" onclick="formActivity()">送出</div>
-                    <input type="reset" value="清除" class="btn btn-danger activity_Index_bt fz15 ml5">
-                    <input style="display:none" type="submit" id="actlogin" value="送出" class="btn btn-warning activity_Index_bt fz15 ml5">
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
-<script>
-
-
-    //結帳
-    //function Checkout() {
-    //    var a = int[];
-
-    //    $(".selectshopping").each(function () {
-    //        a.push($(this).attr('id'));
-    //    });
-    //    return a;
-    //    $.ajax({
-    //        url: "/Activity/actaddcart",
-    //        type: 'GET',
-    //        data: { "id": a },
-    //        success: function (data) {
-    //            $("#addactcart").html(data);
-    //        },
-    //    })
-
-    //}
-
-    //活動詳細
-    function actinside() {
-        $("#Activity_test > .open").click(function () {
-            var id = $(this).attr("id");          // equals：this.id
+        //Ajax 活動搜尋
+        var btnSearch = $("#btnSearch");
+        btnSearch.click(function () {
+            var txtkeyword = $("#txtkeyword").val();
+            var txtpricemin = $("#txtpricemin").val();
+            var txtpricemax = $("#txtpricemax").val();
+            var txtmember = $("#txtmember").prop("checked");
+            var searchend = $("#searchend");
+            searchend.html("");
             $.ajax({
-                url: "/Activity/actinside",
-                type: 'GET',
-                data: { "id": id },
-                success: function (data) {
+                type: "post",
+                url: "/Activity/search?txtkeyword=" + txtkeyword + "&txtpricemin=" + txtpricemin + "&txtpricemax=" + txtpricemax + "&txtmember=" + txtmember,
+                contentType: "html",
+                success: function (result) {
+                    if (result.length == 0 || result == "") {
+                        let i = 1;
+                    }
+                    else {
+                        $.each(result, function (index, value) {
+                            if (value)
+                                var data =
+                                    `<div class="col-xl-3 col-lg-6 col-sm-12 cardtotal8" id="${value.FActivityId}">
+                                            <div class="card cardstyle mb10">
+                                                <img class="card-img-top pic" src="${value.FActivityImages}" alt="Card image cap">
+                                                <div class="card-body" style="margin-bottom:-15px">
+                                                    <h5 class="card-title">${value.FActivityName}</h5>
+                                                        <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> ${value.FActivityTime}</div>
+                                                        <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> ${value.FActivityLocation}</span>
+                                                        <span><i class="fas fa-users fz125 mr3"></i> 限制人次:${value.FActivitypeopleLimit}</span>
+                                                        <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:${value.FActivityJoinpeople}</div>
+                                                        <div class="fz125">
+                                                            $${value.FActivityPrice}
+                                                        </div>
+                                                        <div id="Activity_test" class="mt2">
+                                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="${value.FActivityId}" id="${value.FActivityId}">詳情</button>
+                                                            <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(${value.FActivityId})" id="${value.FActivityId}">參加</button>
+                                                        </div></div></div>`;
+                            searchend.append(data);
+                        });
+                        var cardtotal8 = $(".cardtotal8").length;
+                        $("#searchmany").html("搜尋結果共" + cardtotal8 + "筆:");
+                        shoppingcartbtn();
+                        actinside();
+                        var mybtn = document.getElementsByClassName("searchbtnin")[0];
+                        console.log(mybtn);
+                        mybtn.click();
+                        if (Cookies.get("carItem") != undefined) {
+                            let items = Cookies.get("carItem");
+                            items = items.split(",");
+                            for (let id of items) {
+                                $('button#' + id + '.actadd').attr('disabled', 'disabled');
+                                $('button#' + id + '.actadd').html("已加入");
+                                $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
+                            }
+                        };
 
-                    $("#activityinside").html(data);
-                },
-            });
+                    }
+                }
+            })
+        })
+        //申請活動表單空格返回
+        $("#actformsubmit").click(function () {
+            if ($("#formtext1").val() == "") {
+                alert("你尚未填寫主辦姓名");
+                eval("document.form1['name'].focus()");
+            } else if ($("#formtext2").val() == "") {
+                alert("你尚未填寫活動名稱");
+                eval("document.form1['FActivityName'].focus()");
+            } else if ($("#formtext3").val() == "") {
+                alert("你尚未填寫活動場所");
+                eval("document.form1['FActivityLocation'].focus()");
+            } else if ($("#formtext4").val() == "") {
+                alert("你尚未填寫人數限制");
+                eval("document.form1['FActivitypeopleLimit'].focus()");
+            } else if ($("#formtext5").val() == "") {
+                alert("你尚未填寫活動收費");
+                eval("document.form1['FActivityPrice'].focus()");
+            } else {
+                formActivity();
+            }
+        })
+        //活動申請表單 按enter submit取消
+        $('input').keypress(function (e) {
+            if (e.which === 13) {
+                $('form#login').submit();
+                return false;
+            }
         });
-    }
-    actinside();
-    function actbtn() {
-        $("#shine").css('right', 500);
-        $("#shine").css('display', 'inline-block');
-    }
-    function exit() {
+        //活動分類總數
+        var cardtotal1 = $(".cardtotal1").length;
+        $("#cardtotal1").html("(" + cardtotal1 + ")");
+        var cardtotal2 = $(".cardtotal2").length;
+        $("#cardtotal2").html("(" + cardtotal2 + ")");
+        var cardtotal3 = $(".cardtotal3").length;
+        $("#cardtotal3").html("(" + cardtotal3 + ")");
+        var cardtotal4 = $(".cardtotal4").length;
+        $("#cardtotal4").html("(" + cardtotal4 + ")");
+        var cardtotal5 = $(".cardtotal5").length;
+        $("#cardtotal5").html("(" + cardtotal5 + ")");
+        var cardtotal6 = $(".cardtotal6").length;
+        $("#cardtotal6").html("(" + cardtotal6 + ")");
+        var cardtotal7 = $(".cardtotal7").length;
+        $("#cardtotal7").html("(" + cardtotal7 + ")");
+        var cardtotal8 = $(".cardtotal8").length;
+        $("#cardtotal8").html("(" + cardtotal7 + ")");
 
-        $("#main").removeClass("show");
-        $("#main").addClass("none");
-    }
-    function shine() {
-        var classname = document.getElementsByClassName("show").length;
+        //活動詳細
+        function actinside() {
+            $("#Activity_test > .open").click(function () {
+                var id = $(this).attr("id");          // equals：this.id
+                $.ajax({
+                    url: "/Activity/actinside",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
 
-        if (classname == 0) {
-            $("#main").removeClass("none");
-            $("#main").addClass("show");
-            $("#shine").css('right', 500);
+                        $("#activityinside").html(data);
+                    },
+                });
+            });
         }
-        else {
-
+        actinside();
+        function actbtn() {
+            $("#shine").css('right', 500);
+            $("#shine").css('display', 'inline-block');
+            $("#shine").html("點擊縮小>");
+            $("#shine").removeClass("btn-danger");
+            $("#shine").addClass("btn-info");
+        }
+        //活動詳細關閉
+        function exit() {
             $("#main").removeClass("show");
             $("#main").addClass("none");
-            $("#shine").css('right', 0);
         }
-
-    }
-    //購物車
-    function shoppingcartbtn() {
-        $("#Activity_test > .actadd").click(function () {
-            var id = $(this).attr("id");
-            var aaa = $("#shoppingcartadd").html();
+        //活動詳細顯示
+        function shine() {
+            var classname = document.getElementsByClassName("show").length;
+            if (classname == 0) {
+                $("#main").removeClass("none");
+                $("#main").addClass("show");
+                $("#shine").css('right', 500);
+                $("#shine").removeClass("btn-danger");
+                $("#shine").addClass("btn-info");
+                $("#shine").html("點擊縮小>");
+            }
+            else {
+                $("#main").removeClass("show");
+                $("#main").addClass("none");
+                $("#shine").css('right', 0);
+                $("#shine").removeClass("btn-info");
+                $("#shine").addClass("btn-danger");
+                $("#shine").html("點擊放大<");
+            }
+        }
+        //購物車取消按鈕
+        function delbtn(id) {
+            $('button#' + id + '.delbtn').closest('tbody').remove();
+            $('button#' + id + '.actadd').attr('disabled', false);
+            $('button#' + id + '.actadd').html("參加");
+            $('button#' + id + '.actadd').css('background-color', '#ffc107');
+            currentItem = Cookies.get("carItem").replace(id + ",", "");
+            Cookies.set("carItem", currentItem);
             $.ajax({
-                url: "/Activity/actaddshoppingcart",
-                type: 'GET',
-                data: { "id": id },
-                success: function (data) {
-                    $("#shoppingcartadd").html(aaa + data);
+                success: function () {
+                    var selectshopping = $(".selectshopping").length;
+                    $("#selectshopping").html("(" + selectshopping + ")");
                 },
             })
-        })
 
-    };
-    shoppingcartbtn();
-    function delbtn(id) {//購物車取消
-        $('button#' + id + '.delbtn').closest('tbody').remove();
+        }
+        //參加按鈕
+        function addbtn(id) {
+            $('button#' + id + '.actadd').attr('disabled', 'disabled');
+            $('button#' + id + '.actadd').html("已加入");
+            $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
+            //cookie加入
+            var expireDate = new Date();
+            expireDate.setTime(expireDate.getTime() + (10 * 60 * 1000));
+            if (Cookies.get("carItem") == undefined) {
+                //若目前沒有 carItem 這個 key 的 Cookie ，直接新增一個，並只對購物車頁面設定 Cookie
 
-        $('button#' + id + '.actadd').attr('disabled', false);
-        $('button#' + id + '.actadd').html("參加");
-        $('button#' + id + '.actadd').css('background-color', '#ffc107');
-    }
-
-    //參加按鈕
-    $("#Activity_test > .actadd").click(function () {
-        $(this).attr('disabled', 'disabled');
-        $(this).html("已加入");
-        $(this).css('background-color', '#E0E0E0');
-    });
-    function shoppingcartbtn() {
-        $("#Activity_test > .actadd").click(function () {
-            var id = $(this).attr("id");
-            var aaa = $("#shoppingcartadd").html();
-            $.ajax({
-                url: "/Activity/actaddshoppingcart",
-                type: 'GET',
-                data: { "id": id },
-                success: function (data) {
-                    $("#shoppingcartadd").html(aaa + data);
-                },
+                Cookies.set("carItem", id + ",", { expires: expireDate })
+            }
+            else {
+                //有的話就用逗號將品項做分隔再加入至 carItem 中
+                currentItem = Cookies.get("carItem");
+                currentItem = currentItem + id + ",";
+                Cookies.set("carItem", currentItem, { expires: expireDate });
+            }
+        };
+        //活動cookie重新整理
+        $(document).ready(function () {
+            if (Cookies.get("carItem") != undefined) {
+                let items = Cookies.get("carItem");
+                items = items.split(",");
+                for (let id of items) {
+                    $('button#' + id + '.actadd').attr('disabled', 'disabled');
+                    $('button#' + id + '.actadd').html("已加入");
+                    $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
+                    $.ajax({
+                        url: "/Activity/actaddshoppingcart",
+                        type: 'GET',
+                        data: { "id": id },
+                        success: function (data) {
+                            var aaa = $("#shoppingcartadd").html();
+                            $("#shoppingcartadd").html(aaa + data);
+                            var selectshopping = $(".selectshopping").length;
+                            $("#selectshopping").html("(" + selectshopping + ")");
+                        },
+                    })
+                }
+            }
+        });
+        //購物車
+        function shoppingcartbtn() {
+            $("#Activity_test > .actadd").click(function () {
+                var id = $(this).attr("id");
+                var aaa = $("#shoppingcartadd").html();
+                $.ajax({
+                    url: "/Activity/actaddshoppingcart",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
+                        $("#shoppingcartadd").html(aaa + data);
+                        var selectshopping = $(".selectshopping").length;
+                        $("#selectshopping").html("(" + selectshopping + ")");
+                    },
+                })
             })
-        })
+        };
+        shoppingcartbtn();
 
-    };
-</script>
+    </script>
 

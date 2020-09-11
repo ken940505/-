@@ -136,48 +136,48 @@ namespace LLWP_Core.Controllers
 
             var petdbData = _db.TMempetdata.FirstOrDefault(o => o.FPeMemNumber == memberNumber);
 
-            var memberData = new TMemberdata
-            {
-                FMeId = memberdbdata.FMeId,
-                FMeNumber = memberdbdata.FMeNumber,
-                FMeGender = memberdbdata.FMeGender,
-                FMeName = memberdbdata.FMeName,
-                FMeBirth = memberdbdata.FMeBirth,
-                FMeMail = memberdbdata.FMeMail,
-                FMePass = memberdbdata.FMePass,
-                FMePhone = memberdbdata.FMePhone,
-                FMeAge = memberdbdata.FMeAge,
-                FMePersonId = memberdbdata.FMePersonId,
-                FMePhoto = memberdbdata.FMePhoto,
-                FMeEmerName = memberdbdata.FMeEmerName,
-                FMeEmerPhone = memberdbdata.FMeEmerPhone
-            };
+            //var memberData = new TMemberdata
+            //{
+            //    FMeId = memberdbdata.FMeId,
+            //    FMeNumber = memberdbdata.FMeNumber,
+            //    FMeGender = memberdbdata.FMeGender,
+            //    FMeName = memberdbdata.FMeName,
+            //    FMeBirth = memberdbdata.FMeBirth,
+            //    FMeMail = memberdbdata.FMeMail,
+            //    FMePass = memberdbdata.FMePass,
+            //    FMePhone = memberdbdata.FMePhone,
+            //    FMeAge = memberdbdata.FMeAge,
+            //    FMePersonId = memberdbdata.FMePersonId,
+            //    FMePhoto = memberdbdata.FMePhoto,
+            //    FMeEmerName = memberdbdata.FMeEmerName,
+            //    FMeEmerPhone = memberdbdata.FMeEmerPhone
+            //};
 
             if (petdbData != null)
             {
-                var petData = new TMempetdata
-                {
-                    FPeMemNumber = petdbData.FPeMemNumber,
-                    FPeVarity = petdbData.FPeVarity,
-                    FPeAge = petdbData.FPeAge,
-                    FPeWeight = petdbData.FPeWeight,
-                    FPeBirth = petdbData.FPeBirth,
-                    FPeSex = petdbData.FPeSex,
-                    FPeVac = petdbData.FPeVac,
-                    FPeFix = petdbData.FPeFix,
-                    FPePhoto = petdbData.FPePhoto
-                };
+                //var petData = new TMempetdata
+                //{
+                //    FPeMemNumber = petdbData.FPeMemNumber,
+                //    FPeVarity = petdbData.FPeVarity,
+                //    FPeAge = petdbData.FPeAge,
+                //    FPeWeight = petdbData.FPeWeight,
+                //    FPeBirth = petdbData.FPeBirth,
+                //    FPeSex = petdbData.FPeSex,
+                //    FPeVac = petdbData.FPeVac,
+                //    FPeFix = petdbData.FPeFix,
+                //    FPePhoto = petdbData.FPePhoto
+                //};
 
                 p = new ViewModelMP
                 {
-                    merberData = memberData,
-                    petData = petData,
+                    merberData = memberdbdata,
+                    petData = petdbData
                 };
             }
             else
             {
                 var TMempetdataidEqualZero = new TMempetdata { FPeId = 0 };
-                p = new ViewModelMP { merberData = memberData, petData = TMempetdataidEqualZero };
+                p = new ViewModelMP { merberData = memberdbdata, petData = TMempetdataidEqualZero };
             }
 
 

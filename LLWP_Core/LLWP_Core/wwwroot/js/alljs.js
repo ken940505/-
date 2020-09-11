@@ -325,42 +325,6 @@ $(document).ready(function () {
     });
 });
 
-function openClass(evt, className) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("class");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].classList.remove("actselectbtncolor");
-    }
-    document.getElementById(className).style.display = "block";
-    evt.currentTarget.classList.add("actselectbtncolor");
-
-}
-var mybtn = document.getElementsByClassName("testbtn")[0];
-//mybtn.click();
-
-
-function openClass2(evt, className) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("class2");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink2");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].classList.remove("actselectbtncolor2");
-    }
-    document.getElementById(className).style.display = "block";
-    evt.currentTarget.classList.add("actselectbtncolor2");
-
-}
-var mybtn2 = document.getElementsByClassName("testbtn2")[0];
-//mybtn2.click();
-
-
 $(function () {
     var date_now = new Date();
     var year = date_now.getFullYear();
@@ -404,38 +368,6 @@ function addActivity() {
 $("button.placeorderforstripe").click(function () {
     $(".stripe-button-el").click();
 });
-
-function formActivity() {
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success ml5',
-            cancelButton: 'btn btn-danger mr5'
-        },
-        buttonsStyling: false
-    })
-
-    swalWithBootstrapButtons.fire({
-        title: '是否送出活動表單',
-        text: "請依照規定填寫,不符規定直接退件!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '確定送出!',
-        cancelButtonText: '取消!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.value) {
-            swalWithBootstrapButtons.fire({
-                title: '已送出表單',
-                text: "約審核7天,請在申請中活動查看進度",
-                icon: 'success',
-                reverseButtons: true,
-                confirmButtonText: '回到活動首頁'
-            }).then((result) => {
-                $("#actlogin").click();
-            });
-        }
-    });
-}
 
 $("#resetCode").click(function () {
 
@@ -547,3 +479,109 @@ $("#BookingNextStage1").click(function () {
 //        }
 //    })  
 //})
+
+function actsurecheck() {
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            cancelButton: 'btn btn-danger mr5',
+            confirmButton: 'btn btn-success ml5'
+        },
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: '確定是否購買',
+        text: "購買後恕不得取消退款!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: '取消!',
+        confirmButtonText: '確定購買!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            swalWithBootstrapButtons.fire({
+                title: '已購買',
+                text: "在我的活動查看已購買活動",
+                icon: 'success',
+                reverseButtons: true,
+                confirmButtonText: '回到活動首頁'
+            }).then((result) => {
+                $("#actsure-check").click();
+                setTimeout(function () { window.location.href = "/Activity/Index" }, 5000);
+            });
+        }
+    });
+}
+
+
+function formActivity() {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            cancelButton: 'btn btn-danger mr5',
+            confirmButton: 'btn btn-success ml5'
+        },
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+        title: '是否送出活動表單',
+        text: "請依照規定填寫,不符規定直接退件!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: '取消!',
+        confirmButtonText: '確定送出!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            swalWithBootstrapButtons.fire({
+                title: '已送出表單',
+                text: "約審核7天,請在申請中活動查看進度",
+                icon: 'success',
+                reverseButtons: true,
+                confirmButtonText: '回到活動首頁'
+            }).then((result) => {
+                $("#actlogin").click();
+            });
+        }
+    });
+
+}
+//申請活動表單篩選
+function checknamevalue(id) {
+    var namevalue = document.getElementById("formtext" + id).value;
+    var checkvalue = document.getElementById("checkvalue" + id);
+    var reg = /^[\u4E00-\u9FA5]+$/;
+    console.log(namevalue);
+    if (namevalue === "") {
+        checkvalue.innerHTML = "請輸入中文";
+        checkvalue.style.color = "#888888";
+    }
+    else if (namevalue !== "" && namevalue.length >= 2 && reg.test(namevalue)) {
+
+
+        checkvalue.innerHTML = "格式正確";
+        checkvalue.style.color = "green";
+    }
+    else {
+
+        checkvalue.innerHTML = "格式不符合:請輸入中文";
+        checkvalue.style.color = "red";
+    }
+}
+function checkpwdvalue(id) {
+    var pwdvalue = document.getElementById("formtext" + id).value;
+    var checkpwdvalue = document.getElementById("checkvalue" + id);
+    var reg = /\d/;
+    if (pwdvalue === "") {
+        checkpwdvalue.innerHTML = "請輸入數字";
+        checkpwdvalue.style.color = "#888888";
+    }
+    else if (pwdvalue !== "" && reg.test(pwdvalue)) {
+        checkpwdvalue.innerHTML = "格式正確";
+        checkpwdvalue.style.color = "green";
+    }
+    else {
+        checkpwdvalue.innerHTML = "格式不符合:請輸入數字";
+        checkpwdvalue.style.color = "red";
+    }
+}
