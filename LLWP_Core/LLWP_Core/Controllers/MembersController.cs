@@ -34,11 +34,20 @@ namespace LLWP_Core.Controllers
 
             var memberNumber = memberDate.FMeNumber;
 
-            ViewModelMP MPVM = new ViewModelMP();
-
             var petData = _db.TMempetdata.FirstOrDefault(p => p.FPeMemNumber == memberDate.FMeNumber);
+            if (petData == null)
+                petData = new TMempetdata();
 
-            MPVM = new ViewModelMP { merberData = memberDate, petData = petData };
+            var tOrtable = _db.TOrTable.FirstOrDefault(o => o.FOrGuestOneId == memberDate.FMeId);
+            if (tOrtable == null)
+                tOrtable = new TOrTable();
+
+            var memHealthdata = _db.TMemHealthdata.FirstOrDefault(h => h.FHeMemNumber == memberDate.FMeNumber);
+            if (memHealthdata == null)
+                memHealthdata = new TMemHealthdata();
+
+            ViewModelMP MPVM = new ViewModelMP();
+            MPVM = new ViewModelMP { merberData = memberDate, petData = petData, orTable = tOrtable, memHealthdata = memHealthdata };
 
             return View(MPVM);
         }

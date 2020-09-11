@@ -1,10 +1,9 @@
 ﻿@model LLWP_Core.ViewModels.ViewModelMP
 
 @{
-    /**/
-
     ViewData["Title"] = "RegisteredLongTime";
     Layout = "~/Views/Shared/_Layout_Member.cshtml";
+    
 }
 
 
@@ -44,7 +43,6 @@
                             @Html.ValidationMessageFor(model => model.merberData.FMeName, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <hr>
                     <div class="form-group d-flex w-100">
                         <div class="labelSet w-25">
@@ -300,8 +298,13 @@
                 </div>
             }
         </div>
-        <div class="mt10 jcc" style="width:100%; display:flex;">
-            <input type="submit" value="完成" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+        <div class="d-flex justify-content-between">
+            <div class="mt10 jcc" style="width:100%; display:flex;">
+                <input type="submit" value="完成" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+            </div>
+            <div class="mt10 jcc" style="width:100%; display:flex;">
+                <input type="button" onclick="javascript:window.history.go(-1);" value="回到上一頁" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+            </div>
         </div>
     </div>
 
