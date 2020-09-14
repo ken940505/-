@@ -1,51 +1,50 @@
-﻿@model IEnumerable<LLWP_Core.Models.TActivitydata>
+﻿@model LLWP_Core.ViewModels.ActivityVM
 @{
     ViewData["Title"] = "榕沛社區 - 活動總覽";
     Layout = "~/Views/Shared/_Layout_activity.cshtml";
 }
-<div class="ml3">
-    <div class="bar-block">
-        <div class="container">
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn"
+<div class="">
+    <div class="bar-block row justify-content-center">
+        <div class="row justify-content-center">
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn m-2"
                onclick="openClass(event, 'class1')">舉辦中</a>
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class2')">申請中活動<span id="cardtotal7" style="margin-left:2%;"></span></a>
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class3')">我的活動</a>
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class4')">我的購物車<span id="selectshopping" style="margin-left:2%;">()</span></a>
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink" onclick="openClass(event, 'class5')">活動申請</a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class2')">申請中活動<span id="cardtotal7" style="margin-left:2%;"></span></a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class3')">我的活動</a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class4')">我的購物車<span id="selectshopping" style="margin-left:2%;">()</span></a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class5')">活動申請</a>
         </div>
     </div>
-    <div class="test">
+    <div class="">
         <div class="now">
             <!-- 現在活動   -->
             <div id="class1" class="container-fluid  class">
-                <div class="actselect2">
+                <div class="actselect2" style="margin-top:60px">
                     <div class="actselecttitle2">類別</div>
                     <ul class="actselectul2">
                         <li>
-                            <a href="javascript:void(0)" class="bar-item2 actselectbtn2 tablink2 testbtn2 mt5"
-                               onclick="openClass2(event, 'class11')">
-                                總覽<span id="cardtotal1" style="float: right;"></span>
+                            <a href="javascript:void(0)" class="bar-item2 actselectbtn2 tablink2 testbtn2" style="" onclick="openClass2(event, 'class11')">
+                                總覽<span id="cardtotal1" style="float: right; padding-right:20px;"></span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
-                               onclick="openClass2(event, 'class6')">文藝<span id="cardtotal2" style="float: right;"></span></a>
+                               onclick="openClass2(event, 'class6')">文藝<span id="cardtotal2" style="float: right; padding-right:20px;"></span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
-                               onclick="openClass2(event, 'class7')">運動<span id="cardtotal3" style="float: right;"></span></a>
+                               onclick="openClass2(event, 'class7')">運動<span id="cardtotal3" style="float: right; padding-right:20px;"></span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class=" bar-item2 actselectbtn2 tablink2 mt5"
-                               onclick="openClass2(event, 'class8')">音樂<span id="cardtotal4" style="float: right;"></span></a>
+                               onclick="openClass2(event, 'class8')">音樂<span id="cardtotal4" style="float: right; padding-right:20px;"></span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mt5"
-                               onclick="openClass2(event, 'class9')">寵物<span id="cardtotal5" style="float: right;"></span></a>
+                               onclick="openClass2(event, 'class9')">寵物<span id="cardtotal5" style="float: right; padding-right:20px;"></span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class=" actselectbtn2 tablink2 mt5"
-                               onclick="openClass2(event, 'class10')">節慶<span id="cardtotal6" style="float: right;"></span></a>
+                               onclick="openClass2(event, 'class10')">節慶<span id="cardtotal6" style="float: right; padding-right:20px;"></span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" style="display:none" class="actselectbtn2 tablink2 mt5 searchbtnin"
@@ -55,12 +54,12 @@
                 </div>
                 @*搜尋活動*@
 
-                <div class="mb1" style="width:630px; background-color:aliceblue;vertical-align:middle;margin-left:200px">
-                    <span class="fz125 ml3">關鍵字: </span>@Html.TextBox("txtkeyword", null, new { size = "5" })
-                    <span class="fz125 ml3">收費: </span><input id="txtpricemin" type="text" hint="價位min" name="txtpricemin" size="2" class="fz1" />
+                <div class="mb-4" style="background-color:#F5F1ED; vertical-align:middle;">
+                    <span class="fz125">關鍵字: </span>@Html.TextBox("txtkeyword", null, new { size = "5" })
+                    <span class="fz125 ml-3">收費: </span><input id="txtpricemin" type="text" hint="價位min" name="txtpricemin" size="2" class="fz1" />
                     <span class="fz125">~ </span><input id="txtpricemax" type="text" hint="價位max" name="txtpricemax" size="2" class="fz1" />
-                    <label for="txtmember" class="fz125 ml3" style="margin-right:1%">未額滿</label><input id="txtmember" type="checkbox" name="txtmember" style='width:27px;height:28px;vertical-align:middle;'>
-                    <button id="btnSearch" class="btn btn-info btn-sm ml3">搜尋</button>
+                    <label for="txtmember" class="fz125 ml-3" style="margin-right:1%">未額滿</label><input id="txtmember" type="checkbox" name="txtmember" style='width:23px;height:23px;vertical-align:middle; margin-bottom:5px;margin-left:-5px'>
+                    <button id="btnSearch" class="btn btn-info btn mb-2 ml-3">搜尋</button>
                 </div>
 
                 @*活動詳細*@
@@ -79,8 +78,8 @@
                 @*全部活動*@
                 <div id="class11" class="container-fluid  custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCheck.Equals("是"))
                                 {
@@ -113,8 +112,8 @@
                 <!-- 現在活動文藝   -->
                 <div id="class6" class="container-fluid  custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCode.Contains("A") && item.FActivityCheck.Equals("是"))
                                 {
@@ -146,8 +145,8 @@
                 <!-- 現在活動運動   -->
                 <div id="class7" class="container-fluid custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCode.Contains("B") && item.FActivityCheck.Equals("是"))
                                 {
@@ -179,8 +178,8 @@
                 <!-- 現在活動音樂   -->
                 <div id="class8" class="container-fluid custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCode.Contains("C") && item.FActivityCheck.Equals("是"))
                                 {
@@ -212,8 +211,8 @@
                 <!-- 現在活動寵物   -->
                 <div id="class9" class="container-fluid custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCode.Contains("D") && item.FActivityCheck.Equals("是"))
                                 {
@@ -245,8 +244,8 @@
                 <!-- 現在活動節慶   -->
                 <div id="class10" class="container-fluid custom-container-width class2">
                     <div class="ulflow" style="display: flex;">
-                        <div class="card-group row justify-content-between no-gutters w-100">
-                            @foreach (var item in Model)
+                        <div class="card-group row justify-content-between no-gutters w-100" style="margin-left:-4px; padding-right:70px">
+                            @foreach (var item in Model.tActivitydata)
                             {
                                 if (item.FActivityCode.Contains("E") && item.FActivityCheck.Equals("是"))
                                 {
@@ -278,9 +277,9 @@
             </div>
 
             <!-- 申請中活動-->
-            <div id="class2" class="container-fluid custom-container-width class">
-                <div class="card-group row no-gutters w-100">
-                    @foreach (var item in Model)
+            <div id="class2" class="container-fluid custom-container-width class" style="padding-left:120px; margin-top:80px">
+                <div class="card-group row no-gutters w-100 ml-5">
+                    @foreach (var item in Model.tActivitydata)
                     {
                         if (item.FActivityCheck.Equals("否"))
                         {
@@ -313,204 +312,242 @@
             </div>
 
             <!-- 我的活動 -->
-            <div id="class3" class="container-fluid custom-container-width class">
-                <div class="row no-gutters" style="border:#F8B73B 2px solid; background-color: #ffffff;">
-                    <div class="con col-lg-6">
-                        <div class="month">
-                            <p>2020 年 7 月</p>
-                            <div class="week-title">
-                                <div class="day-title">星期一</div>
-                                <div class="day-title">星期二</div>
-                                <div class="day-title">星期三</div>
-                                <div class="day-title">星期四</div>
-                                <div class="day-title">星期五</div>
-                                <div class="day-title">星期六</div>
-                                <div class="day-title">星期日</div>
-                            </div>
-                            <div class="week">
-                                <div class="day-none"></div>
-                                <div class="day-none"></div>
-                                <div class="day">01</div>
-                                <div class="day">02</div>
-                                <div class="day">03</div>
-                                <div class="day">04</div>
-                                <div class="day">05</div>
-                            </div>
-                            <div class="week">
-                                <div class="day">06</div>
-                                <div class="day">07</div>
-                                <div class="day">08</div>
-                                <div class="day">09</div>
-                                <div class="day">10</div>
-                                <div class="day">11</div>
-                                <div class="day">12</div>
-                            </div>
-                            <div class="week">
-                                <div class="day">13</div>
-                                <div class="day">14</div>
-                                <div class="day">15</div>
-                                <div class="day">16</div>
-                                <div class="day">17</div>
-                                <div class="day">18</div>
-                                <div class="day">19</div>
-                            </div>
-                            <div class="week">
-                                <div class="day">20</div>
-                                <div class="day">21</div>
-                                <div class="day">22</div>
-                                <div class="day">23</div>
-                                <div class="day">24</div>
-                                <div class="day">25</div>
-                                <div class="day">26</div>
-                            </div>
-                            <div class="week">
-                                <div class="day">27</div>
-                                <div class="day">28</div>
-                                <div class="day">29</div>
-                                <div class="day">30</div>
-                                <div class="day">31</div>
-                                <div class="day-none"></div>
-                                <div class="day-none"></div>
+            <div class="d-flex justify-content-center w-100">
+                <div id="class3" class="custom-container-width class">
+                    <div class="row no-gutters rounded pr-5 pl-5 pt-5" style="border:#F8B73B 2px solid; background-color: #ffffff;">
+                        <div class="con col-lg-6">
+                            <div class="month">
+                                <p>2020 年 7 月</p>
+                                <div class="week-title">
+                                    <div class="day-title">星期一</div>
+                                    <div class="day-title">星期二</div>
+                                    <div class="day-title">星期三</div>
+                                    <div class="day-title">星期四</div>
+                                    <div class="day-title">星期五</div>
+                                    <div class="day-title">星期六</div>
+                                    <div class="day-title">星期日</div>
+                                </div>
+                                <div class="week">
+                                    <div class="day-none"></div>
+                                    <div class="day-none"></div>
+                                    <div class="day">01</div>
+                                    <div class="day">02</div>
+                                    <div class="day">03</div>
+                                    <div class="day">04</div>
+                                    <div class="day">05</div>
+                                </div>
+                                <div class="week">
+                                    <div class="day">06</div>
+                                    <div class="day">07</div>
+                                    <div class="day">08</div>
+                                    <div class="day">09</div>
+                                    <div class="day">10</div>
+                                    <div class="day">11</div>
+                                    <div class="day">12</div>
+                                </div>
+                                <div class="week">
+                                    <div class="day">13</div>
+                                    <div class="day">14</div>
+                                    <div class="day">15</div>
+                                    <div class="day">16</div>
+                                    <div class="day">17</div>
+                                    <div class="day">18</div>
+                                    <div class="day">19</div>
+                                </div>
+                                <div class="week">
+                                    <div class="day">20</div>
+                                    <div class="day">21</div>
+                                    <div class="day">22</div>
+                                    <div class="day">23</div>
+                                    <div class="day">24</div>
+                                    <div class="day">25</div>
+                                    <div class="day">26</div>
+                                </div>
+                                <div class="week">
+                                    <div class="day">27</div>
+                                    <div class="day">28</div>
+                                    <div class="day">29</div>
+                                    <div class="day">30</div>
+                                    <div class="day">31</div>
+                                    <div class="day-none"></div>
+                                    <div class="day-none"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5" style="margin-left:45px">
-                        <table class="table table-striped " style="margin-top:12%">
-                            <thead class="thead-info">
-                                <tr class="table-warning">
-                                    <th scope="col">代號</th>
-                                    <th scope="col">活動</th>
-                                    <th scope="col">時間</th>
-                                    <th scope="col">地點</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="">
-                                    <th scope="row">A001</th>
-                                    <td>草頭娃娃製作</td>
-                                    <td>2020/07/1</td>
-                                    <td>活動中心小教室</td>
-                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">A002</th>
-                                    <td>戶外寫生</td>
-                                    <td>2020/7/8</td>
-                                    <td>大草皮</td>
-                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">C002</th>
-                                    <td>古典音樂鑑賞</td>
-                                    <td>2020/7/22</td>
-                                    <td>活動中心音樂室</td>
-                                    <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="col-lg-5" style="margin-left:45px">
+                            <table class="table table-striped " style="margin-top:12%">
+                                <thead class="thead-info">
+                                    <tr class="table-warning">
+                                        <th scope="col">代號</th>
+                                        <th scope="col">活動</th>
+                                        <th scope="col">時間</th>
+                                        <th scope="col">地點</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="">
+                                        <th scope="row">A001</th>
+                                        <td>草頭娃娃製作</td>
+                                        <td>2020/07/1</td>
+                                        <td>活動中心小教室</td>
+                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">A002</th>
+                                        <td>戶外寫生</td>
+                                        <td>2020/7/8</td>
+                                        <td>大草皮</td>
+                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">C002</th>
+                                        <td>古典音樂鑑賞</td>
+                                        <td>2020/7/22</td>
+                                        <td>活動中心音樂室</td>
+                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- 我的購物車 -->
-        <div id="class4" class="container class" style="display: block;">
-            <div class="shoppingcart" style="display: block;">
-                <table class="shoppingcart-table" id="shoppingcartadd">
-                    <tr class="shoppingcart-tr" style="text-align: center;height:80px;">
-                        <th>活動名稱</th>
-                        <th>開始日期</th>
-                        <th>活動價格</th>
-                        <th></th>
-                    </tr>
-
-                </table>
-                <table class="shoppingcart-table" style="margin-top:-20px;margin-bottom:100px">
-                    <tr class="">
-                        <td colspan="4" style="text-align:center;height:100px">
-                            @*<button class="btn btn-danger fz15">清空</button>*@
-                            <a href="/Activity/actshoppingcart">
-                                <button class="btn btn-warning fz15"> 結帳</button>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-
+        <div class="row justify-content-center mt-4">
+            <div id="class4" class="class" style="display: block;">
+                <div class="shoppingcart" style="display: block;">
+                    <table class="shoppingcart-table rounded" id="shoppingcartadd">
+                        <tr class="shoppingcart-tr" style="text-align: center;height:80px;">
+                            <th>活動名稱</th>
+                            <th>開始日期</th>
+                            <th>活動價格</th>
+                            <th></th>
+                        </tr>
+                    </table>
+                    <table class="shoppingcart-table" style="margin-top:-20px;margin-bottom:100px">
+                        <tr class="">
+                            <td colspan="4" style="text-align:center;height:100px">
+                                @*<button class="btn btn-danger fz15">清空</button>*@
+                                <a href="/Activity/actshoppingcart">
+                                    <button class="btn btn-warning fz15"> 結帳</button>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-
         </div>
 
 
         <!-- 活動申請 -->
-        <div id="class5" class="class container">
-            <div class="formclub mt5">
-                <form action="#" name="form1" id="form1" method="post" enctype="multipart/form-data" class="mt2 mb10 mr5">
-                    <fieldset>
-                        <div class="st1">
-                            <label class="t1" for="formtext1">主辦姓名:</label>
-                            <input type="text" id="formtext1" name="name" value="" size="22" onblur="checknamevalue(1)">
-                            <span id="checkvalue1" style="color:#888888">請輸入中文兩字以上</span>
-                            <div></div>
-                        </div>
-                        <div class="st1">
-                            <label class="t1" for="formtext2">活動名稱:</label>
-                            <input type="text" id="formtext2" name="FActivityName" value="" size="22" onblur="checknamevalue(2)">
-                            <span id="checkvalue2" style="color:#888888">請輸入中文十字以內</span>
-                        </div>
-                        <div class="st1">
-                            <label for="formtext3" class="t1">活動場所:</label>
-                            <input type="text" id="formtext3" name="FActivityLocation" size="22" onblur="checknamevalue(3)">
-                            <span id="checkvalue3" style="color:#888888">請輸入中文十字以內</span>
-                        </div>
-                        <div class="st1">
-                            <label for="formtext4" class="t1">人數限制:</label>
-                            <input type="text" id="formtext4" name="FActivitypeopleLimit" size="22" onblur="checkpwdvalue(4)">
-                            <span id="checkvalue4" style="color:#888888">請輸入數字</span>
-                        </div>
-                        <div class="st1">
-                            <label for="FActivityTime" class="t1">活動日期:</label>
-                            <input type="date" id="FActivityTime" name="FActivityTime" size="30">
-                        </div>
-                        <div class="st1">
-                            <label for="formtext5" class="t1">活動收費:</label>
-                            <input type="text" id="formtext5" name="FActivityPrice" size="22" onblur="checkpwdvalue(5)">
-                            <span id="checkvalue5" style="color:#888888">請輸入數字</span>
-                        </div>
-                        <div class="st1">
+        <div class="w-100 d-flex justify-content-center" style="margin-top:25px">
+            <div id="class5" class="class">
+                <div class="formclub rounded">
+                    <form action="#" name="form1" id="form1" method="post" enctype="multipart/form-data" class="mt2 mb10">
+                        <fieldset>
+                            <div class="st1">
+                                <label class="t1" for="formtext1">主辦姓名:</label>
+                                <input type="text" id="formtext1" name="name" value="" size="22" onblur="checknamevalue(1)">
+                                <span id="checkvalue1" style="color:#888888">請輸入中文兩字以上</span>
+                                <div></div>
+                            </div>
+                            <div class="st1">
+                                <label class="t1" for="formtext2">活動名稱:</label>
+                                <input type="text" id="formtext2" name="FActivityName" value="" size="22" onblur="checknamevalue(2)">
+                                <span id="checkvalue2" style="color:#888888">請輸入中文十字以內</span>
+                            </div>
+                            <div class="st1">
+                                <label for="formtext3" class="t1">活動場所:</label>
+                                <input type="text" id="formtext3" name="FActivityLocation" size="22" onblur="checknamevalue(3)">
+                                <span id="checkvalue3" style="color:#888888">請輸入中文十字以內</span>
+                            </div>
+                            <div class="st1">
+                                <label for="formtext4" class="t1">人數限制:</label>
+                                <input type="text" id="formtext4" name="FActivitypeopleLimit" size="22" onblur="checkpwdvalue(4)">
+                                <span id="checkvalue4" style="color:#888888">請輸入數字</span>
+                            </div>
+                            <div class="st1">
+                                <label for="FActivityTime" class="t1">活動日期:</label>
+                                <input type="date" id="FActivityTime" name="FActivityTime" size="30">
+                            </div>
+                            <div class="st1">
+                                <label for="formtext5" class="t1">活動收費:</label>
+                                <input type="text" id="formtext5" name="FActivityPrice" size="22" onblur="checkpwdvalue(5)">
+                                <span id="checkvalue5" style="color:#888888">請輸入數字</span>
+                            </div>
+                            <div class="st1">
 
-                            <label for="actpic" class="t1">活動圖片:</label>
-                            <input type="file" name="actpic" id="actpic" accept="image/jpg">
-                        </div>
-                        <div class="notice">
-                            <h2>申請須知</h2>
-                            <ul>
-                                <li>需要兩位保證人</li>
-                                <li>請附上活動企劃書</li>
-                                <li>申請結果將以電子郵件告知</li>
-                            </ul>
-                        </div>
-                        <div class="sub">
-                            <div id="actformsubmit" class="btn btn-warning activity_Index_bt fz15 mr5">送出</div>
-                            <input type="reset" value="清除" class="btn btn-danger activity_Index_bt fz15 ml5">
-                            <input style="display:none" type="submit" id="actlogin" value="送出" class="btn btn-warning activity_Index_bt fz15 ml5">
-                        </div>
-                    </fieldset>
-                </form>
+                                <label for="actpic" class="t1">活動圖片:</label>
+                                <input type="file" name="actpic" id="actpic" accept="image/jpg">
+                            </div>
+                            <div class="notice">
+                                <h2>申請須知</h2>
+                                <ul>
+                                    <li>需要兩位保證人</li>
+                                    <li>請附上活動企劃書</li>
+                                    <li>申請結果將以電子郵件告知</li>
+                                </ul>
+                            </div>
+                            <div class="sub">
+                                <div id="actformsubmit" class="btn btn-warning activity_Index_bt fz15 mr5">送出</div>
+                                <input type="reset" value="清除" class="btn btn-danger activity_Index_bt fz15 ml5">
+                                <input style="display:none" type="submit" id="actlogin" value="送出" class="btn btn-warning activity_Index_bt fz15 ml5">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.js'></script>
+
     <script>
+        //行事曆
+        var arr = [];
+        $(".myactadd").each(function () {
+            var name = $(this).attr("id");
+            var actname = $("td#" + name + ".myactname").text();
+            var acttime = $("td#" + name + ".myacttime").text().substring(0, 10).split("/");
+            var actlocation = $("td#" + name + ".myactlocation").text();
+            var actsec = $("td#" + name + ".myacttime").text().substring(10);
+            arr.push({ title: actname + actsec, start: acttime[0] + "-" + acttime[1] + "-" + acttime[2] });
+        })
+        $('#calendar').fullCalendar(
+            {
+                eventColor: '#FFFF77',
+                buttonText: {
+                    today: '今天',
+                    month: '月',
+                    agendaWeek: '周',
+                    agendaDay: '日',
+                    listMonth: '日程',
+                },
+                monthNames: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                monthNamesShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                dayNames: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                eventRender: function (event, element) {
+                    element.html(event.title);
+                },
+            })
+        $("#calendar").fullCalendar('addEventSource', arr);
 
         //Ajax 活動搜尋
         var btnSearch = $("#btnSearch");
         btnSearch.click(function () {
             var txtkeyword = $("#txtkeyword").val();
+            console.log(txtkeyword)
             var txtpricemin = $("#txtpricemin").val();
+            console.log(txtpricemin)
             var txtpricemax = $("#txtpricemax").val();
+            console.log(txtpricemax)
             var txtmember = $("#txtmember").prop("checked");
             var searchend = $("#searchend");
             searchend.html("");
@@ -521,42 +558,48 @@
                 success: function (result) {
                     if (result.length == 0 || result == "") {
                         let i = 1;
+                        $("#searchmany").html("查無結果!");
                     }
                     else {
                         $.each(result, function (index, value) {
+                            console.log(value);
                             if (value)
                                 var data =
-                                    `<div class="col-xl-3 col-lg-6 col-sm-12 cardtotal8" id="${value.FActivityId}">
-                                            <div class="card cardstyle mb10">
-                                                <img class="card-img-top pic" src="${value.FActivityImages}" alt="Card image cap">
-                                                <div class="card-body" style="margin-bottom:-15px">
-                                                    <h5 class="card-title">${value.FActivityName}</h5>
-                                                        <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> ${value.FActivityTime}</div>
-                                                        <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> ${value.FActivityLocation}</span>
-                                                        <span><i class="fas fa-users fz125 mr3"></i> 限制人次:${value.FActivitypeopleLimit}</span>
-                                                        <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:${value.FActivityJoinpeople}</div>
-                                                        <div class="fz125">
-                                                            $${value.FActivityPrice}
-                                                        </div>
-                                                        <div id="Activity_test" class="mt2">
-                                                            <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="${value.FActivityId}" id="${value.FActivityId}">詳情</button>
-                                                            <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(${value.FActivityId})" id="${value.FActivityId}">參加</button>
-                                                        </div></div></div>`;
+                                    `<div class="col-xl-3 col-lg-6 col-sm-12 cardtotal8" id="${value.fActivityId}">
+                                    <div class="card cardstyle mb10">
+                                        <img class="card-img-top pic" src="${value.fActivityImages}" alt="Card image cap">
+                                        <div class="card-body" style="margin-bottom:-15px">
+                                            <h5 class="card-title">${value.fActivityName}</h5>
+                                                <div class="date"><i class="fas fa-calendar-alt fz15" style="margin-right:4%;margin-left:0.5%"></i> ${value.fActivityTime}</div>
+                                                <span class="organizer"><i class="fas fa-map-marker-alt fz15 mr5" style="margin-left:0.8%"></i> ${value.fActivityLocation}</span>
+                                                <span><i class="fas fa-users fz125 mr3"></i> 限制人次:${value.fActivitypeopleLimit}</span>
+                                                <div><i class="fas fa-user-check fz125 mr3"></i> 已報名人次:${value.fActivityJoinpeople}</div>
+                                                <div class="fz125">
+                                                    $${value.fActivityPrice}
+                                                </div>
+                                                <div id="Activity_test" class="mt2">
+                                                    <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="${value.fActivityId}" id="${value.fActivityId}">詳情</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(${value.fActivityId})" id="${value.fActivityId}">加入購物車</button>
+                                                </div></div></div>`;
                             searchend.append(data);
                         });
                         var cardtotal8 = $(".cardtotal8").length;
                         $("#searchmany").html("搜尋結果共" + cardtotal8 + "筆:");
-                        shoppingcartbtn();
+                        $(".myactadd").each(function () {
+                            var a = $(this).attr("id");
+                            $('button#' + a + '.actadd').attr('disabled', 'disabled');
+                            $('button#' + a + '.actadd').html("已報名");
+                            $('button#' + a + '.actadd').css('background-color', '#EEFFBB');
+                        });
                         actinside();
                         var mybtn = document.getElementsByClassName("searchbtnin")[0];
-                        console.log(mybtn);
                         mybtn.click();
                         if (Cookies.get("carItem") != undefined) {
                             let items = Cookies.get("carItem");
                             items = items.split(",");
                             for (let id of items) {
                                 $('button#' + id + '.actadd').attr('disabled', 'disabled');
-                                $('button#' + id + '.actadd').html("已加入");
+                                $('button#' + id + '.actadd').html("已加入購物車");
                                 $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
                             }
                         };
@@ -572,16 +615,16 @@
                 eval("document.form1['name'].focus()");
             } else if ($("#formtext2").val() == "") {
                 alert("你尚未填寫活動名稱");
-                eval("document.form1['FActivityName'].focus()");
+                eval("document.form1['fActivityName'].focus()");
             } else if ($("#formtext3").val() == "") {
                 alert("你尚未填寫活動場所");
-                eval("document.form1['FActivityLocation'].focus()");
+                eval("document.form1['fActivityLocation'].focus()");
             } else if ($("#formtext4").val() == "") {
                 alert("你尚未填寫人數限制");
-                eval("document.form1['FActivitypeopleLimit'].focus()");
+                eval("document.form1['fActivitypeopleLimit'].focus()");
             } else if ($("#formtext5").val() == "") {
                 alert("你尚未填寫活動收費");
-                eval("document.form1['FActivityPrice'].focus()");
+                eval("document.form1['fActivityPrice'].focus()");
             } else {
                 formActivity();
             }
@@ -594,22 +637,11 @@
             }
         });
         //活動分類總數
-        var cardtotal1 = $(".cardtotal1").length;
-        $("#cardtotal1").html("(" + cardtotal1 + ")");
-        var cardtotal2 = $(".cardtotal2").length;
-        $("#cardtotal2").html("(" + cardtotal2 + ")");
-        var cardtotal3 = $(".cardtotal3").length;
-        $("#cardtotal3").html("(" + cardtotal3 + ")");
-        var cardtotal4 = $(".cardtotal4").length;
-        $("#cardtotal4").html("(" + cardtotal4 + ")");
-        var cardtotal5 = $(".cardtotal5").length;
-        $("#cardtotal5").html("(" + cardtotal5 + ")");
-        var cardtotal6 = $(".cardtotal6").length;
-        $("#cardtotal6").html("(" + cardtotal6 + ")");
-        var cardtotal7 = $(".cardtotal7").length;
-        $("#cardtotal7").html("(" + cardtotal7 + ")");
-        var cardtotal8 = $(".cardtotal8").length;
-        $("#cardtotal8").html("(" + cardtotal7 + ")");
+        for (i = 1; i < 10; i++) {
+            $("#cardtotal" + i).html("(" + $(".cardtotal" + i).length + ")");
+        }
+        //var cardtotal1 = $(".cardtotal1").length;
+        //$("#cardtotal1").html("(" + cardtotal1 + ")");
 
         //活動詳細
         function actinside() {
@@ -663,7 +695,7 @@
         function delbtn(id) {
             $('button#' + id + '.delbtn').closest('tbody').remove();
             $('button#' + id + '.actadd').attr('disabled', false);
-            $('button#' + id + '.actadd').html("參加");
+            $('button#' + id + '.actadd').html("加入購物車");
             $('button#' + id + '.actadd').css('background-color', '#ffc107');
             currentItem = Cookies.get("carItem").replace(id + ",", "");
             Cookies.set("carItem", currentItem);
@@ -673,12 +705,12 @@
                     $("#selectshopping").html("(" + selectshopping + ")");
                 },
             })
-
         }
+
         //參加按鈕
         function addbtn(id) {
             $('button#' + id + '.actadd').attr('disabled', 'disabled');
-            $('button#' + id + '.actadd').html("已加入");
+            $('button#' + id + '.actadd').html("已加入購物車");
             $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
             //cookie加入
             var expireDate = new Date();
@@ -686,23 +718,30 @@
             if (Cookies.get("carItem") == undefined) {
                 //若目前沒有 carItem 這個 key 的 Cookie ，直接新增一個，並只對購物車頁面設定 Cookie
 
-                Cookies.set("carItem", id + ",", { expires: expireDate })
+                Cookies.set("carItem", id , { expires: expireDate })
             }
             else {
                 //有的話就用逗號將品項做分隔再加入至 carItem 中
                 currentItem = Cookies.get("carItem");
-                currentItem = currentItem + id + ",";
+                currentItem = currentItem + ","+ id  ;
                 Cookies.set("carItem", currentItem, { expires: expireDate });
             }
         };
         //活動cookie重新整理
         $(document).ready(function () {
+            $(".myactadd").each(function () {//已報名活動
+                var a = $(this).attr("id");
+                $('button#' + a + '.actadd').attr('disabled', 'disabled');
+                $('button#' + a + '.actadd').html("已報名");
+                $('button#' + a + '.actadd').css('background-color', '#EEFFBB');
+            })
+
             if (Cookies.get("carItem") != undefined) {
                 let items = Cookies.get("carItem");
                 items = items.split(",");
                 for (let id of items) {
                     $('button#' + id + '.actadd').attr('disabled', 'disabled');
-                    $('button#' + id + '.actadd').html("已加入");
+                    $('button#' + id + '.actadd').html("已加入購物車");
                     $('button#' + id + '.actadd').css('background-color', '#E0E0E0');
                     $.ajax({
                         url: "/Activity/actaddshoppingcart",

@@ -22,36 +22,6 @@ namespace LLWP_Core.Controllers
             hostingEnvironment = environment;
         }
 
-        // GET: Members
-        public IActionResult MemberProfile()
-        {
-            HttpContext.Session.Remove(CDictionary.SK_Payment);
-
-            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
-                return RedirectToAction("Login");
-
-            var memberDate = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
-
-            var memberNumber = memberDate.FMeNumber;
-
-            var petData = _db.TMempetdata.FirstOrDefault(p => p.FPeMemNumber == memberDate.FMeNumber);
-            if (petData == null)
-                petData = new TMempetdata();
-
-            var tOrtable = _db.TOrTable.FirstOrDefault(o => o.FOrGuestOneId == memberDate.FMeId);
-            if (tOrtable == null)
-                tOrtable = new TOrTable();
-
-            var memHealthdata = _db.TMemHealthdata.FirstOrDefault(h => h.FHeMemNumber == memberDate.FMeNumber);
-            if (memHealthdata == null)
-                memHealthdata = new TMemHealthdata();
-
-            ViewModelMP MPVM = new ViewModelMP();
-            MPVM = new ViewModelMP { merberData = memberDate, petData = petData, orTable = tOrtable, memHealthdata = memHealthdata };
-
-            return View(MPVM);
-        }
-
         public IActionResult LogIn()
         {
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) != null)
@@ -87,7 +57,7 @@ namespace LLWP_Core.Controllers
 
             HttpContext.Session.SetObject(CDictionary.SK_LOGINED_CUSTOMER, cust);
             HttpContext.Session.SetObject(CDictionary.SK_CUSTOMERNAME, cust.FMeName);
-            return RedirectToAction("MemberProfile");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult LogOff()
@@ -102,6 +72,45 @@ namespace LLWP_Core.Controllers
             var code = SD.CodeCreate(4);
             HttpContext.Session.SetObject(CDictionary.SK_CODE, code);
             return code;
+        }
+
+        // GET: Members
+        public IActionResult MemberProfile()
+        {
+            HttpContext.Session.Remove(CDictionary.SK_Payment);
+
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("Login");
+
+            var memberDate = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
+
+            var memberNumber = memberDate.FMeNumber;
+
+            var petData = _db.TMempetdata.FirstOrDefault(p => p.FPeMemNumber == memberDate.FMeNumber);
+            if (petData == null)
+                petData = new TMempetdata();
+
+            var tOrtable = _db.TOrTable.FirstOrDefault(o => o.FOrGuestOneId == memberDate.FMeId);
+            if (tOrtable == null)
+                tOrtable = new TOrTable();
+
+            var memHealthdata = _db.TMemHealthdata.FirstOrDefault(h => h.FHeMemNumber == memberDate.FMeNumber);
+            if (memHealthdata == null)
+                memHealthdata = new TMemHealthdata();
+
+            var dateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            var memActivityJoin = _db.TMemActivity.Join(_db.TActivitydata, a => a.FAcId, d => d.FActivityId, (a, d) => 
+                                     new activityJoin { activityId = a.FAid, memberId = a.FAcMeId, date = d.FActivityTime, name = d.FActivityName, location = d.FActivityLocation, image = d.FActivityImages })
+                                     .Where(m=>m.memberId == memberDate.FMeId && (string.Compare(m.date, dateNow) >= 1))
+                                     .OrderBy(d=>d.date).ToList();
+            if (memActivityJoin == null)
+                memActivityJoin = memActivityJoin.Where(m => m.image == "0").ToList();
+
+
+            ViewModelMP MPVM = new ViewModelMP();
+            MPVM = new ViewModelMP { merberData = memberDate, petData = petData, orTable = tOrtable, memHealthdata = memHealthdata, activityJoin = memActivityJoin};
+
+            return View(MPVM);
         }
 
         public IActionResult RegisteredPet()

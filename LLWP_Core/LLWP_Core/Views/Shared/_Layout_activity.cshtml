@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin="" />
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" />
+    <link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.css' />
     <link rel="stylesheet" type="text/css" href="~/css/glider.css">
     <link rel="stylesheet" href="~/css/activity.css">
     <link rel="stylesheet" href="~/css/style.css">
@@ -89,48 +91,7 @@
 
     <div class="body-content">
         @RenderBody()
-
-        <div class="text-center">
-            <div class="bellset" data-toggle="modal" data-target="#modalEchoBot" onclick="addNotification()">
-                <div class="bell">
-                    <div class="bell-top"></div>
-                    <div class="bell-bot"></div>
-                    <div class="bell-notification"></div>
-                </div>
-                <div class="add-notification">
-                    <button type="button" class="btn btn-default">　呼 叫 小 榕　</button>
-                </div>
-            </div>
-        </div>
         <!--Modal: Name-->
-
-        <div class="modal fade" id="modalEchoBot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <!--Content-->
-                <div class="modal-content">
-                    <div class="modal-header justify-content-center mb-0 p-0 pt-3">
-                        <p>智慧客服</p>
-                    </div>
-                    <!--Body-->
-                    <div class="modal-body mb-0 p-0" style=" overflow: auto; height: 500px;">
-                        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half h-100">
-                            <div id="webchat" role="main"></div>
-                            @*<iframe
-                                src='https://webchat.botframework.com/embed/EchoBot20200815Test?s=PR139WlkAhQ.Toi2U8ZysOjcUpyyMSTcsgzae2zvbbReBvgCCFFplns'
-                                style='min-width: 400px; width: 100%; max-height: 500px;'></iframe>*@
-                        </div>
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-primary btn-rounded btn-md" data-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
-                </div>
-                <!--/.Content-->
-            </div>
-        </div>
 
         <footer class="page-footer font-medium danger-color">
             <div class="bgc4">
@@ -234,12 +195,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
             integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
             crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
-    <script type="text/javascript" src="/js/webchat.js"></script>
     <script type="text/javascript" src="/js/glider.min.js" charset="big5"></script>
     <script type="text/javascript" src="/js/alljs.js" charset="big5"></script>
     <script type="text/javascript" src="/js/activity.js"></script>

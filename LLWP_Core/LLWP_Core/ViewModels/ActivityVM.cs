@@ -9,6 +9,8 @@ namespace LLWP_Core.ViewModels
 {
     public class ActivityVM
     {
+        public List<TActivitydata> tActivitydata { get; set; }
+        public List<TActivityJoindata> tActivityJoindata { get; set; }
         public TActivitydata activitydata { get; set; }
         public IFormFile _actpic { get; set; }
         public IFormFile actpic { get => _actpic; set => _actpic = value; }

@@ -6,10 +6,10 @@
     string s2 = ViewBag.CODE.Substring(1, 1) + ".png";
     string s3 = ViewBag.CODE.Substring(2, 1) + ".png";
     string s4 = ViewBag.CODE.Substring(3, 1) + ".png";
+    var returnUrl = @Context.Request.Query["returnurl"];
 }
 
-@using (Html.BeginForm())
-{
+<form asp-action="Login" asp-route-returnurl="@returnUrl">
     <div class="backColor1">
         <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -122,6 +122,6 @@
 
         </div>
     </div>
-}
+</form>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
