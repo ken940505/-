@@ -100,8 +100,8 @@ namespace LLWP_Core.Controllers
 
             var dateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             var memActivityJoin = _db.TMemActivity.Join(_db.TActivitydata, a => a.FAcId, d => d.FActivityId, (a, d) => 
-                                     new activityJoin { activityId = a.FAid, memberId = a.FAcMeId, date = d.FActivityTime, name = d.FActivityName, location = d.FActivityLocation, image = d.FActivityImages })
-                                     .Where(m=>m.memberId == memberDate.FMeId && (string.Compare(m.date, dateNow) >= 1))
+                                      new activityJoin { activityId = a.FAid, memberId = a.FAcMeId, date = d.FActivityTime, name = d.FActivityName, location = d.FActivityLocation, image = d.FActivityImages })
+                                     .Where(m=>m.memberId == memberDate.FMeId && (string.Compare(m.date, dateNow) == 1))
                                      .OrderBy(d=>d.date).ToList();
             if (memActivityJoin == null)
                 memActivityJoin = memActivityJoin.Where(m => m.image == "0").ToList();

@@ -30,7 +30,7 @@ namespace LLWP_Core.Controllers
             ActivityVM activityVM = new ActivityVM()
             {
                 tActivitydata = _db.TActivitydata.ToList(),
-                tActivityJoindata = _db.TActivityJoindata.Where(m => m.FJoinAcPeopleid == 1).ToList()
+                tActivityJoindata = _db.TActivityJoindata.Where(m => m.FJoinAcPeopleid == 2).ToList()
             };
 
             return View(activityVM);
@@ -117,7 +117,7 @@ namespace LLWP_Core.Controllers
                 {
                     JoinAcid = ta.FActivityId,
                     JoinAcCode = ta.FActivityCode,
-                    FJoinAcPeopleid = 1
+                    FJoinAcPeopleid = 2
                 };
                 var memactivity = new TMemActivity
                 {
@@ -143,14 +143,14 @@ namespace LLWP_Core.Controllers
         {
             var ta = _db.TActivitydata.FirstOrDefault(m => m.FActivityId == id);
             string joinname = "";
-            foreach (var item in _db.TActivityJoindata)
-            {
-                if (item.JoinAcid == id)
-                {
-                    TMemberdata tm = _db.TMemberdata.FirstOrDefault(m => m.FMeId == item.FJoinAcPeopleid);
-                    joinname += tm.FMeName + "/";
-                }
-            }
+            //foreach (var item in _db.TActivityJoindata)
+            //{
+            //    if (item.JoinAcid == id)
+            //    {
+            //        //TMemberdata tm = _db.TMemberdata.FirstOrDefault(m => m.FMeId == item.FJoinAcPeopleid);
+            //        joinname += tm.FMeName + "/";
+            //    }
+            //}
             string mon = ta.FActivityTime.Substring(5, 2);
             string day = ta.FActivityTime.Substring(8, 2);
             string sec = ta.FActivityTime.Substring(10);
@@ -165,7 +165,7 @@ namespace LLWP_Core.Controllers
                 $"</div></div></div><div class='details'><div class='detailinside'><h4 id='test1'>詳情" +
                 $"<div class='fz125'>想為居家環境增添綠意嗎？這時不妨動手做出玩偶般的草頭寶寶，為植物妝點各種表情，更顯得生動活潑，還能依照心情更換打扮。照顧方式很簡單，只要每天給水就可以生存，草葉枯成黃色還能變化造型，是十分簡單的擺飾品。</div>" +
                 $"</h4></div></div><div class='Participants'>" +
-                $"<div class='Participantsinside'><h4 id='test2'>參加人員</h4>{joinname}</div></div></div></div></div>";
+                $"<div class='Participantsinside'><h4 id='test2'>參加人員</h4></div></div></div></div></div>";
             return aa;
         }
         //購物車加入項目

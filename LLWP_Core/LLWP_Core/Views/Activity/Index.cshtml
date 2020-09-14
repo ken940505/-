@@ -312,104 +312,42 @@
             </div>
 
             <!-- 我的活動 -->
-            <div class="d-flex justify-content-center w-100">
-                <div id="class3" class="custom-container-width class">
-                    <div class="row no-gutters rounded pr-5 pl-5 pt-5" style="border:#F8B73B 2px solid; background-color: #ffffff;">
-                        <div class="con col-lg-6">
-                            <div class="month">
-                                <p>2020 年 7 月</p>
-                                <div class="week-title">
-                                    <div class="day-title">星期一</div>
-                                    <div class="day-title">星期二</div>
-                                    <div class="day-title">星期三</div>
-                                    <div class="day-title">星期四</div>
-                                    <div class="day-title">星期五</div>
-                                    <div class="day-title">星期六</div>
-                                    <div class="day-title">星期日</div>
-                                </div>
-                                <div class="week">
-                                    <div class="day-none"></div>
-                                    <div class="day-none"></div>
-                                    <div class="day">01</div>
-                                    <div class="day">02</div>
-                                    <div class="day">03</div>
-                                    <div class="day">04</div>
-                                    <div class="day">05</div>
-                                </div>
-                                <div class="week">
-                                    <div class="day">06</div>
-                                    <div class="day">07</div>
-                                    <div class="day">08</div>
-                                    <div class="day">09</div>
-                                    <div class="day">10</div>
-                                    <div class="day">11</div>
-                                    <div class="day">12</div>
-                                </div>
-                                <div class="week">
-                                    <div class="day">13</div>
-                                    <div class="day">14</div>
-                                    <div class="day">15</div>
-                                    <div class="day">16</div>
-                                    <div class="day">17</div>
-                                    <div class="day">18</div>
-                                    <div class="day">19</div>
-                                </div>
-                                <div class="week">
-                                    <div class="day">20</div>
-                                    <div class="day">21</div>
-                                    <div class="day">22</div>
-                                    <div class="day">23</div>
-                                    <div class="day">24</div>
-                                    <div class="day">25</div>
-                                    <div class="day">26</div>
-                                </div>
-                                <div class="week">
-                                    <div class="day">27</div>
-                                    <div class="day">28</div>
-                                    <div class="day">29</div>
-                                    <div class="day">30</div>
-                                    <div class="day">31</div>
-                                    <div class="day-none"></div>
-                                    <div class="day-none"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5" style="margin-left:45px">
-                            <table class="table table-striped " style="margin-top:12%">
-                                <thead class="thead-info">
-                                    <tr class="table-warning">
-                                        <th scope="col">代號</th>
-                                        <th scope="col">活動</th>
-                                        <th scope="col">時間</th>
-                                        <th scope="col">地點</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="">
-                                        <th scope="row">A001</th>
-                                        <td>草頭娃娃製作</td>
-                                        <td>2020/07/1</td>
-                                        <td>活動中心小教室</td>
-                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">A002</th>
-                                        <td>戶外寫生</td>
-                                        <td>2020/7/8</td>
-                                        <td>大草皮</td>
-                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">C002</th>
-                                        <td>古典音樂鑑賞</td>
-                                        <td>2020/7/22</td>
-                                        <td>活動中心音樂室</td>
-                                        <td><button class="btn btn-warning activity_Index_btn">詳情</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <div id="class3" class="container-fluid custom-container-width class">
+                <div class="row no-gutters" style="border:#F8B73B 2px solid; background-color: #ffffff;height:580px">
+                    @*行事曆*@
+                    <div class="con col-lg-6" style="margin-left:2%;margin-top:1%">
+                        <div id="calendar"></div>
+                    </div>
+
+                    <div class="col-lg-5" style="margin-left:45px">
+                        <table class="table table-striped" style="margin-top:12%">
+                            <thead class="thead-info">
+                                <tr class="table-warning">
+                                    <th scope="col">代號</th>
+                                    <th scope="col">活動</th>
+                                    <th scope="col">時間</th>
+                                    <th scope="col">地點</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myactivity">
+                                @foreach (var item in Model.tActivityJoindata)
+                                {
+
+                                    List<LLWP_Core.Models.TActivitydata> item2 = Model.tActivitydata.Where(m => m.FActivityId == item.JoinAcid).ToList();
+
+                                    foreach (var item3 in item2)
+                                    {
+                                        <tr class="myactadd cardtotal9" id="@item3.FActivityId">
+                                            <th scope="row">@item3.FActivityCode</th>
+                                            <td class="myactname" id="@item3.FActivityId">@item3.FActivityName</td>
+                                            <td class="myacttime" id="@item3.FActivityId">@item3.FActivityTime</td>
+                                            <td class="myactlocation" id="@item3.FActivityId">@item3.FActivityLocation</td>
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -652,7 +590,6 @@
                     type: 'GET',
                     data: { "id": id },
                     success: function (data) {
-
                         $("#activityinside").html(data);
                     },
                 });

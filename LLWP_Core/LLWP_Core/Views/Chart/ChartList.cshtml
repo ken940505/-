@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewData["Title"] = "ChartList";
+    Layout = "~/Views/Shared/_Layout_Chart.cshtml";
+}
+
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList" style="color:#d35a5d">報表</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">報表</h2>
+        @*<div class="d-flex">
+                <div class="todayOrder" style="width:45%">今日訂單</div>
+                <div style="margin-bottom:200px">11</div>
+            </div>*@
+        <div class="d-flex">
+            <div id="pieChartContainer" style="width:45%">
+            </div>
+            <div id="lineChartContainer" style="margin-bottom:200px">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/chart/GetPieChartData", function (data) {
+
+            Highcharts.chart('pieChartContainer', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    width: 600,
+                    height:400
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: '2020年每月訂單數量比例'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                                fontSize: '14px'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: '月份',
+                    colorByPoint: true,
+                    data: [{
+                        name: '六月',
+                        y: data.month6
+                    }, {
+                        name: '七月',
+                        y: data.month7
+                    }, {
+                        name: '八月',
+                        y: data.month8
+                    }, {
+                        name: '九月',
+                        y: data.month9
+                    }]
+                }]
+            });
+        });
+        $.getJSON("/chart/GetLineChartData", function (data) {
+            var Months = []
+            var TotalMoney = []
+            for (var i = 0; i < data.length; i++) {
+                Months.push(data[i].fOrDateMonth);
+                TotalMoney.push(data[i].sumTotalPrice);
+                //console.log("data[i].fOrDateMonth: " + data[i].fOrDateMonth);
+                //console.log("data[i].sumTotalPrice: ") + data[i].sumTotalPrice;
+            }
+
+            Highcharts.chart("lineChartContainer", {
+                chart: {
+                    type: 'line',
+                    width: 600
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: "2020年每月訂單總金額統計"
+                },
+                subtitle: {
+                    text: "單位:新台幣"
+                },
+                xAxis: {
+                    categories: Months,
+                    labels: {
+                        style: {
+                            //color: 'red',
+                            fontSize: '14px'
+                        }
+                    }
+
+                },
+                yAxis: {
+                    title: {
+                        text: "訂單總金額",
+                        style: {
+                            fontSize: '18px'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            //color: 'red',
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                //處理數據上在折線圖顯示部分
+                //tooltip: {
+                //    //一次看多點數據
+                //    //shared: true,
+                //    //當滑鼠移動至月份區塊時 整塊區塊會產生底色
+                //    crosshairs: false,
+                //    useHTML: true,
+                //    borderRadius: 10,
+                //    borderWidth: 3,
+                //},
+                series: [{
+                    name: "月份",
+                    data: TotalMoney,
+                }]
+            });
+        });
+    });
+
+
+</script>
+
+

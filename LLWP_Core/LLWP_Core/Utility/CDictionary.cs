@@ -21,5 +21,7 @@ namespace LLWP_Core.Utility
         public static readonly string SK_CUSTOMERNAME = "SK_CUSTOMERNAME";
         public static readonly string SK_ADDINTOACTIVITYCART = "SK_ADDINTOACTIVITYCART";
         public static readonly string SK_ACTIVITYMONEY = "SK_ACTIVITYMONEY";
+        public static readonly string SK_TEMP = "SK_TEMP";
+        public static readonly string SK_COUNT = "SK_COUNT";
     }
 }

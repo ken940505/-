@@ -1,0 +1,258 @@
+﻿@model LLWP_Core.Models.cRoomOrderListViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout_RoomOrder.cshtml";
+}
+
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List" style="color:#d35a5d">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div>
+            <h2 class="list-title">試住訂單詳情</h2>
+        </div>
+
+        <div class="dl-horizontal" style="font-size:1.25rem">
+            <div class="d-flex">
+                <div style="width:30%">
+                    <div class="d-flex">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrNum)
+                        </div>
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrNum)
+                        </div>
+                    </div>
+                    <div class="d-flex my-1">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrDate)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrDate)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrCheckIn)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrCheckIn)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrCheckOut)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrCheckOut)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrday)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrday)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            房客一
+                            @Html.DisplayNameFor(model => model.tMemberdataOneContent.FMeNumber)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tMemberdataOneContent.FMeNumber)
+                            @Html.DisplayFor(model => model.tMemberdataOneContent.FMeName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            房客二
+                            @Html.DisplayNameFor(model => model.tMemberdataTwoContent.FMeNumber)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tMemberdataTwoContent.FMeNumber)
+                            @Html.DisplayFor(model => model.tMemberdataTwoContent.FMeName)
+                        </div>
+
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrPeople)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrPeople)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        @*<div class="detail-title">
+                                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrRoomId)
+                            </div>
+
+                            <div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrRoomId)
+                            </div>*@
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tRmTableContent.FRmNum)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tRmTableContent.FRmNum)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        @*<div class="detail-title">
+                                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrPetId)
+                            </div>
+
+                            <div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrPetId)
+                            </div>*@
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tMempetdataContent.FPeNumber)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tMempetdataContent.FPeNumber)
+                            @*@Html.DisplayFor(model => model.tMempetdataContent.FpetName)??*@
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrTryPet)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrTryPet)
+                        </div>
+
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrTryPetId)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrTryPetId)
+                            </div>*@
+                        @*<div class="detail-title">
+                                @Html.DisplayNameFor(model => model.tTryPetTableContent.FTryPetNum)
+                            </div>*@
+
+                        <div>
+                            @Html.DisplayFor(model => model.tTryPetTableContent.FTryPetNum)
+                            @Html.DisplayFor(model => model.tTryPetTableContent.FTryPetName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestOneActivityA)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestOneActivityA)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG1ActivitydataAContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG1ActivitydataAContent.FActivityName)
+                            @*@Html.DisplayFor(model => model.tG1ActivitydataAContent.FActivityTime)
+                                @Html.DisplayFor(model => model.tG1ActivitydataAContent.FActivityLocation)
+                                @Html.DisplayFor(model => model.tG1ActivitydataAContent.FActivityPrice)*@
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestOneActivityB)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestOneActivityB)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG1ActivitydataBContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG1ActivitydataBContent.FActivityName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestOneActivityC)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestOneActivityC)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG1ActivitydataCContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG1ActivitydataCContent.FActivityName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityA)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityA)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG2ActivitydataAContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG2ActivitydataAContent.FActivityName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityB)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityB)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG2ActivitydataBContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG2ActivitydataBContent.FActivityName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityC)
+                        </div>
+
+                        @*<div>
+                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrGuestTwoActivityC)
+                            </div>*@
+                        <div>
+                            @Html.DisplayFor(model => model.tG2ActivitydataCContent.FActivityCode)
+                            @Html.DisplayFor(model => model.tG2ActivitydataCContent.FActivityName)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrTotalPrice)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tOrTableOrderContent.FOrTotalPrice)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

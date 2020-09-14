@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace LLWP_Core.Utility
 {
@@ -99,6 +100,17 @@ namespace LLWP_Core.Utility
             client.Send(msg);
             client.Dispose();
             msg.Dispose();
+        }
+
+        public static MvcHtmlString Image(this HtmlHelper helper, string src, string width)
+        {
+            var builder = new TagBuilder("img");
+
+            builder.MergeAttribute("src", src);
+
+            builder.MergeAttribute("width", width);
+
+            return new MvcHtmlString(builder.ToString(TagRenderMode.SelfClosing));
         }
     }
 }

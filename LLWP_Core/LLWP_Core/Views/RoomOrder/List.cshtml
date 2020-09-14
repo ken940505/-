@@ -1,0 +1,148 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<LLWP_Core.Models.TOrTable>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout_RoomOrder.cshtml";
+}
+
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List" style="color:#d35a5d">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">試住訂單管理</h2>
+        <div style="margin-bottom:5px;padding-right:16px">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="row" style="padding-left:15px">
+                    <div style="width:30.5%">
+                        <div style="margin-bottom:10px">
+                            @Html.DropDownList("Search", new List<SelectListItem> {
+                                                     new SelectListItem { Value="OrNum",Text="訂單編號"},
+                                                     new SelectListItem { Value="OrGuestOneId",Text="房客一編號"}
+                                                     }, new { @id = "SearchBy", @style = "height:36px;width:112px", @class = "border-radius-4px" })
+                            @Html.TextBox("Search", null, new { @style = "width:336px,height:36px;margin-left:5px", @class = "search-textbox-size search-section border-radius-4px" })
+                        </div>
+                        <div>
+                            訂單日期：@Html.TextBox("txtFOrDate", null, new { type = "date", @id = "txtFOrDate", @style = "width:144px;height:36px;margin-left:5px", @class = "search-section border-radius-4px" })
+                            入住日期：@Html.TextBox("txtFOrCheckIn", null, new { type = "date", @id = "txtFOrCheckIn", @style = "width:144px;height:36px", @class = "search-section border-radius-4px" })
+                        </div>
+                    </div>
+                    <div style="">
+                        <div style="margin-bottom:10px">
+                            @Html.ActionLink("新增", "Create", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px;margin-right:5px" })
+                            @Html.ActionLink("匯出資料", "exportToExcel", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px" })
+                        </div>
+                        <div>
+                            <button id="SearchBtn" type="button" class="btn btn-outline-info btn-sm" style="line-height:27px;margin-right:5px">查詢</button>
+                            @Html.ActionLink("重新查詢", "List", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px" })
+                        </div>
+                    </div>
+                </div>
+            }
+            @Html.PagedListPager(Model, page => Url.Action("list", new { page }))
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    @*<th>
+                             @Html.DisplayNameFor(model => model.FOrId)
+                        </th>*@
+
+                    <th>
+                        <span id="FOrNumSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrNum)<span id="FOrNumSortArrow"><img id="FOrNumSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrDateSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrDate)<span id="FOrDateSortArrow"><img id="FOrDateSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrCheckInSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrCheckIn)<span id="FOrCheckInSortArrow"><img id="FOrCheckInSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrCheckOutSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrCheckOut)<span id="FOrCheckOutSortArrow"><img id="FOrCheckOutSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrdaySortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrday)<span id="FOrdaySortArrow"><img id="FOrdaySortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrGuestOneIdSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrGuestOneId)<span id="FOrGuestOneIdSortArrow"><img id="FOrGuestOneIdSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.FOrGuestTwoId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FOrPeople)
+                        </th>*@
+                    <th>
+                        <span id="FOrRoomIdSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrRoomId)<span id="FOrRoomIdSortArrow"><img id="FOrRoomIdSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th>
+                        <span id="FOrTotalPriceSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrTotalPrice)<span id="FOrTotalPriceSortArrow"><img id="FOrTotalPriceSortArrowOrginal" src="~/Content/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="DataSearching">
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.FOrId)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrNum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrCheckIn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrCheckOut)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrday)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrGuestOneId)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.FOrGuestTwoId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FOrPeople)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrRoomId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FOrTotalPrice)
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "Details", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-info fas fa-info-circle", @style = "" })
+                            @Html.ActionLink(" ", "Edit", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
+                            @Html.ActionLink(" ", "Delete", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="margin-bottom:80px">
+            <div>@Html.PagedListPager(Model, page => Url.Action("list", new { page }))</div>
+        </div>
+
+    </div>
+</div>
+
+
+
