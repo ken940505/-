@@ -1,5 +1,6 @@
-﻿@model IEnumerable<LLWP_Core.Models.TTryPetTable>
-@using LLWP_Core.Models;
+﻿@model IEnumerable<LLWP_Core.ViewModels.TTryPetTableVM>
+@using LLWP_Core.ViewModels;
+@using LLWP_Core.Utility;
 @{
     ViewData["Title"] = "試養計劃管理";
 }
@@ -45,34 +46,34 @@
         <table class="table table-hover" style="margin-bottom:100px; font-size:18px;">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetNum)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNum)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetName)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetVar)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVar)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetAge)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetAge)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetWei)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetWei)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetSex)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetSex)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetNature)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNature)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetVac)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVac)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetFix)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetFix)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FTryPetPhoto)
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetPhoto)
                 </th>
                 <th></th>
             </tr>
@@ -81,41 +82,41 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetNum, new { htmlAttributes = new { @class = "pet-td" } })
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetNum, new { htmlAttributes = new { @class = "pet-td" } })
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetName)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetVar)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetVar)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetAge)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetAge)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetWei)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetWei)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetSex)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetSex)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetNature)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetNature)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetVac)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetVac)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FTryPetFix)
+                        @Html.DisplayFor(modelItem => item.tryPetTable.FTryPetFix)
                     </td>
                     <td>
                         @*@Html.Image("../Content/tryPetPic/01.jpg", 100.ToString())*@
-                        @Html.Image(@getVirtualPath(item.FTryPetPhoto), 200.ToString())
+                        @*@SD.Image(@getVirtualPath(item.tryPetTable.FTryPetPhoto) , "200","200")*@
                     </td>
                     <td>
                         @*<td style="width:100px;line-height:0;vertical-align:middle">*@
-                        @Html.ActionLink(" ", "Edit", "tryPet", new { id = item.FTryPetId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
-                        @*@Html.ActionLink("詳情", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                        @Html.ActionLink(" ", "Delete", "tryPet", new { id = item.FTryPetId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
+                        @Html.ActionLink(" ", "Edit", "tryPet", new { id = item.tryPetTable.FTryPetId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
+                        @*@Html.ActionLink("詳情", "Details", new { /* id=item.tryPetTable.PrimaryKey */ }) |*@
+                        @Html.ActionLink(" ", "Delete", "tryPet", new { id = item.tryPetTable.FTryPetId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
                     </td>
                 </tr>
             }

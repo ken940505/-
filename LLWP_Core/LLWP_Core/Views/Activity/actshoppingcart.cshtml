@@ -21,94 +21,26 @@
                 </div>
             }
             <div>
-                <div class="mt5 mb-3 containerFont">
-                    <span>付款方式</span>
-                </div>
-                <div class="divMargin">
-                    <div class="bg-white rounded-lg shadow-sm p-5 row" style="display: block;">
-                        <!-- Credit card form tabs -->
-                        <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
-                            <li class="nav-item">
-                                <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill">
-                                    <i class="fa fa-credit-card"></i>
-                                    信用卡支付
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
-                                    <i class="fab fa-paypal"></i>
-                                    Paypal支付
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
-                                    <i class="fa fa-university"></i>
-                                    銀行匯款支付
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- End -->
-                        <!-- Credit card form content -->
-                        <div class="tab-content">
-                            <!-- credit card info-->
-                            <div id="nav-tab-card" class="tab-pane fade show active">
-                                <img src="/images/credit_Card.png" class="pb-3" width="200">
-                                <p>通過Stripe進行信用卡支付功能！</p>
-                                @{var stripetotalMoney = Convert.ToInt32(Context.Session.GetString("SK_ACTIVITYMONEY")) * 100 / 30; }
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                        data-key="@Stripe.Value.PublishableKey"
-                                        data-amount="0"
-                                        data-name="榕沛社區訂房功能"
-                                        data-label="Stripe 信用卡支付"
-                                        data-description="活動費用支付"
-                                        data-locale="auto"
-                                        data-allow-remember-me="false"
-                                        data-currency="USD"
-                                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
-                                </script>
-                                <script>
-                                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                                </script>
-                                <p>
-                                    <button type="button" class="placeorderforstripe btn btn-primary rounded-pill" id="stripe-button" name="stipeButton" value="stipeButton"><i class="fab fa-cc-stripe"></i> Stripe 信用卡支付</button>
-                                </p>
-                            </div>
-                            <!-- End -->
-                            <!-- Paypal info -->
-                            <div id="nav-tab-paypal" class="tab-pane fade">
-                                <p>Paypal is easiest way to pay online</p>
-                                <p>
-                                    <button type="submit" class="placeorder btn btn-primary rounded-pill" id="paypal-button" name="payPalButton" value="payPalButton"><i class="fab fa-paypal mr-1"></i> Log into my Paypal</button>
-                                </p>
-                            </div>
-                            <!-- End -->
-                            <!-- bank transfer info -->
-                            <div id="nav-tab-bank" class="tab-pane fade">
-                                <h6>Bank account details</h6>
-                                <dl>
-                                    <dt>Bank</dt>
-                                    <dd> THE WORLD BANK</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Account number</dt>
-                                    <dd>7775877975</dd>
-                                </dl>
-                                <dl>
-                                    <dt>IBAN</dt>
-                                    <dd>CZ7775877975656</dd>
-                                </dl>
-                                <p class="text-muted">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                            </div>
-                            <!-- End -->
-                        </div>
-                        <!-- End -->
-                    </div>
-                </div>
             </div>
         </div>
+        @{var stripetotalMoney = Convert.ToInt32(Context.Session.GetString("SK_ACTIVITYMONEY")) * 100 / 30; }
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="@Stripe.Value.PublishableKey"
+                data-amount="0"
+                data-name="榕沛社區訂房功能"
+                data-label="Stripe 信用卡支付"
+                data-description="活動費用支付"
+                data-locale="auto"
+                data-allow-remember-me="false"
+                data-currency="USD"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+        </script>
+        <script>
+            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+        <p>
+            <button type="button" style="display:none;" class="placeorderforstripe btn btn-primary rounded-pill" id="stripe-button" name="stipeButton" value="stipeButton"><i class="fab fa-cc-stripe"></i> Stripe 信用卡支付</button>
+        </p>
         <div class="container-fluid">
             <div class="container pb3">
                 <div class="row justify-content-between">
@@ -123,6 +55,8 @@
 <input type="hidden" id="paymentCheckedInput" value="@Context.Session.GetString("SK_Payment")" />
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
 <script>
     //已選活動添加
     $(document).ready(function () {

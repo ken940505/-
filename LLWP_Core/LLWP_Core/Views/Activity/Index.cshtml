@@ -452,7 +452,7 @@
         $(".myactadd").each(function () {
             var name = $(this).attr("id");
             var actname = $("td#" + name + ".myactname").text();
-            var acttime = $("td#" + name + ".myacttime").text().substring(0, 10).split("/");
+            var acttime = $("td#" + name + ".myacttime").text().substring(0, 10).split("-");
             var actlocation = $("td#" + name + ".myactlocation").text();
             var actsec = $("td#" + name + ".myacttime").text().substring(10);
             arr.push({ title: actname + actsec, start: acttime[0] + "-" + acttime[1] + "-" + acttime[2] });

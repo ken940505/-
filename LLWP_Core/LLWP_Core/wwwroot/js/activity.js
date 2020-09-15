@@ -32,3 +32,4 @@ function openClass2(evt, className) {
 }
 var mybtn2 = document.getElementsByClassName("testbtn2")[0];
 mybtn2.click();
+

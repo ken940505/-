@@ -480,40 +480,6 @@ $("#BookingNextStage1").click(function () {
 //    })  
 //})
 
-function actsurecheck() {
-
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            cancelButton: 'btn btn-danger mr5',
-            confirmButton: 'btn btn-success ml5'
-        },
-        buttonsStyling: false
-    });
-    swalWithBootstrapButtons.fire({
-        title: '確定是否購買',
-        text: "購買後恕不得取消退款!",
-        icon: 'warning',
-        showCancelButton: true,
-        cancelButtonText: '取消!',
-        confirmButtonText: '確定購買!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.value) {
-            swalWithBootstrapButtons.fire({
-                title: '已購買',
-                text: "在我的活動查看已購買活動",
-                icon: 'success',
-                reverseButtons: true,
-                confirmButtonText: '回到活動首頁'
-            }).then((result) => {
-                $("#actsure-check").click();
-                setTimeout(function () { window.location.href = "/Activity/Index" }, 5000);
-            });
-        }
-    });
-}
-
-
 function formActivity() {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

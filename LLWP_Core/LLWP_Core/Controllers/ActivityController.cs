@@ -24,6 +24,7 @@ namespace LLWP_Core.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.Remove(CDictionary.SK_Payment);
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
                 return RedirectToAction("LogIn", "Members");
 
@@ -108,8 +109,9 @@ namespace LLWP_Core.Controllers
         //結帳後存入資料庫
         public string shoppingcartendpay(int? id)
         {
-            HttpContext.Session.SetObject(CDictionary.SK_Payment, true);
+            HttpContext.Session.SetObject(CDictionary.SK_Payment, false);
             var memberDate = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
+
             if (id != null)
             {
                 var ta = _db.TActivitydata.FirstOrDefault(m => m.FActivityId == id);
