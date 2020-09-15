@@ -10,6 +10,7 @@ using OfficeOpenXml;
 using System.IO;
 using LLWP_Core.Utility;
 
+
 namespace LLWP_Core.Controllers
 {
     public class RoomOrderController : Controller
@@ -22,41 +23,73 @@ namespace LLWP_Core.Controllers
 
         int pageSize = 10;
         // GET: roomOrder
-        public ActionResult List(int page = 1)
+        public ActionResult List()
         {
+            //dbLLWPEntities1 db = new dbLLWPEntities1();
+            ////pagedList分頁套件
+            //int currentPage = page < 1 ? 1 : page;
+            //var roomOrders = db.tOrTable.OrderBy(m => m.fOrNum).ToList();
+            //var result = roomOrders.ToPagedList(currentPage, pageSize);
+            //return View(result);
+            return View();
+        }
+
+        public ActionResult ListPagedPartial(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn, int page = 1)
+        {
+            var roomOrders = new List<TOrTable>();
             //pagedList分頁套件
             int currentPage = page < 1 ? 1 : page;
-            var roomOrders = _db.TOrTable.OrderBy(m => m.FOrNum).ToList();
+
+            if (SearchBy == null && SearchValue == null && txtfOrdate == null && txtfOrCheckIn == null)
+                roomOrders = _db.TOrTable.OrderBy(m => m.FOrNum).ToList();
+            else
+            {
+                var searchModel = new BookingOrderSearchModel();
+                var business = new BookingOrderSearchLogic(_db);
+                //if (SearchValue == null)
+                //    return Json(orderList, JsonRequestBehavior.AllowGet);
+
+                searchModel.droplist = SearchBy;
+                searchModel.droplistInputValue = SearchValue;
+
+                //txtfOrdate = txtfOrdate.Replace("/", "-");
+                searchModel.txtfOrdateValue = txtfOrdate;
+                searchModel.txtfOrdateValueInputValue = txtfOrdate;
+
+                //txtfOrCheckIn = txtfOrCheckIn.Replace("/", "-");
+                searchModel.txtfOrCheckInValue = txtfOrCheckIn;
+                searchModel.txtfOrCheckInValueInputValue = txtfOrCheckIn;
+
+                roomOrders = business.GetSearchBookOrders(searchModel);
+            }
             var result = roomOrders.ToPagedList(currentPage, pageSize);
-            return View(result);
-            //應用roomOrderListViewModel
-
-
+            ViewData.Model = result;
+            return PartialView("List_pagedAjax");
         }
         //把商業邏輯拆開、查詢條件弄成model的複雜寫法
-        public JsonResult GetBookingOrderSearchingData(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn)
-        {
-            var searchModel = new BookingOrderSearchModel();
-            var business = new BookingOrderSearchLogic(_db);
-            List<TOrTable> orderList = new List<TOrTable>();
-            //if (SearchValue == null)
-            //    return Json(orderList, JsonRequestBehavior.AllowGet);
+        //public ActionResult GetBookingOrderSearchingData(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn)
+        //{
+        //    var searchModel = new BookingOrderSearchModel();
+        //    var business = new BookingOrderSearchLogic();
+        //    //if (SearchValue == null)
+        //    //    return Json(orderList, JsonRequestBehavior.AllowGet);
 
-            searchModel.droplist = SearchBy;
-            searchModel.droplistInputValue = SearchValue;
+        //    searchModel.droplist = SearchBy;
+        //    searchModel.droplistInputValue = SearchValue;
 
-            //txtfOrdate = txtfOrdate.Replace("/", "-");
-            searchModel.txtfOrdateValue = txtfOrdate;
-            searchModel.txtfOrdateValueInputValue = txtfOrdate;
+        //    //txtfOrdate = txtfOrdate.Replace("/", "-");
+        //    searchModel.txtfOrdateValue = txtfOrdate;
+        //    searchModel.txtfOrdateValueInputValue = txtfOrdate;
 
-            //txtfOrCheckIn = txtfOrCheckIn.Replace("/", "-");
-            searchModel.txtfOrCheckInValue = txtfOrCheckIn;
-            searchModel.txtfOrCheckInValueInputValue = txtfOrCheckIn;
+        //    //txtfOrCheckIn = txtfOrCheckIn.Replace("/", "-");
+        //    searchModel.txtfOrCheckInValue = txtfOrCheckIn;
+        //    searchModel.txtfOrCheckInValueInputValue = txtfOrCheckIn;
 
-            var model = business.GetSearchBookOrders(searchModel);
+        //    var model = business.GetSearchBookOrders(searchModel);
 
-            return Json(model);
-        }
+        //    return Json(model, JsonRequestBehavior.AllowGet);
+        //}
+
 
         public JsonResult GetAutoCompleteSearchData(string searchValue, string SearchBy)
         {

@@ -37,10 +37,10 @@ namespace LLWP_Core.Controllers
         }
 
         [HttpPost]
-        public IActionResult LogIn(Clogin p)
+        public IActionResult LogIn(Clogin p, string company)
         {
             var code = HttpContext.Session.GetObject<string>(CDictionary.SK_CODE);
-            if (!code.Equals(p.txtCord))
+            if (!code.Equals(p.txtCord) && company == null)
             {
                 HttpContext.Session.SetObject("SK_AUTHERROR", "驗證碼錯誤，登入失敗");
                 return RedirectToAction("Login");
@@ -49,7 +49,7 @@ namespace LLWP_Core.Controllers
             string fEmail = (p.txtAccount);
             TMemberdata cust = _db.TMemberdata.FirstOrDefault(t => t.FMeMail == fEmail && t.FMePass.Equals(p.txtPassword));
 
-            if (cust == null)
+            if (cust == null || p.txtAccount != cust.FMeMail || p.txtPassword != cust.FMePass)
             {
                 HttpContext.Session.SetObject("SK_AUTHERROR", "帳密錯誤，登入失敗");
                 return RedirectToAction("Login");
@@ -57,7 +57,11 @@ namespace LLWP_Core.Controllers
 
             HttpContext.Session.SetObject(CDictionary.SK_LOGINED_CUSTOMER, cust);
             HttpContext.Session.SetObject(CDictionary.SK_CUSTOMERNAME, cust.FMeName);
-            return RedirectToAction("Index", "Home");
+
+            if (company != null)
+                return RedirectToAction("ChartList", "Chart");
+            else 
+                return RedirectToAction("Index", "Home");
         }
 
         public ActionResult LogOff()

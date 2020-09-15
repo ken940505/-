@@ -10,7 +10,7 @@ namespace LLWP_Core.ViewModels
     public class TTryPetTableVM
     {
         public TTryPetTable tryPetTable { get; set; }
-
+        public IEnumerable<TTryPetTable> tryPetTableList { get; set; }
         public IFormFile fImage { get; set; }
     }
 }

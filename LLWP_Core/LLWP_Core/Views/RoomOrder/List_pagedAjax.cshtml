@@ -1,0 +1,153 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<LLWP_Core.Models.TOrTable>
+@Html.PagedListPager(Model, page => Url.Action("", new { page }))
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                     @Html.DisplayNameFor(model => model.fOrId)
+                </th>*@
+
+            <th>
+                <span id="fOrNumSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrNum)<span id="fOrNumSortArrow"><img id="fOrNumSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrDateSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrDate)<span id="fOrDateSortArrow"><img id="fOrDateSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrCheckInSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrCheckIn)<span id="fOrCheckInSortArrow"><img id="fOrCheckInSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrCheckOutSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrCheckOut)<span id="fOrCheckOutSortArrow"><img id="fOrCheckOutSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrdaySortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrday)<span id="fOrdaySortArrow"><img id="fOrdaySortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrGuestOneIdSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrGuestOneId)<span id="fOrGuestOneIdSortArrow"><img id="fOrGuestOneIdSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.fOrGuestTwoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fOrPeople)
+                </th>*@
+            <th>
+                <span id="fOrRoomIdSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrRoomId)<span id="fOrRoomIdSortArrow"><img id="fOrRoomIdSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th>
+                <span id="fOrTotalPriceSortParm" class="orderTableHeaderTitles">@Html.DisplayNameFor(model => model.FirstOrDefault().FOrTotalPrice)<span id="fOrTotalPriceSortArrow"><img id="fOrTotalPriceSortArrowOrginal" src="/images/icon_up-down.png" style="height:1.125rem" /></span></span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="DataSearching">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fOrId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrCheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrCheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrGuestOneId)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fOrGuestTwoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fOrPeople)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrRoomId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FOrTotalPrice)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Details", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-info fas fa-info-circle", @style = "" })
+                    @Html.ActionLink(" ", "Edit", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
+                    @Html.ActionLink(" ", "Delete", "roomOrder", new { id = item.FOrId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<div style="margin-bottom:80px">
+        <div>@Html.PagedListPager(Model, page => Url.Action("list", new { page }))</div>
+    </div>*@
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var titles = document.querySelectorAll(".orderTableHeaderTitles");
+    console.log(titles)
+    //console.log("id" + e.target.attr("id"));
+    //var a = titles[0].attr("id");
+    //console.log("titles" + a );
+    for (i = 0; i < titles.length; i++) {
+        titles[i].addEventListener("click", function (event) {
+            var SetData = $("#DataSearching");
+            SetData.html("");
+            //console.log("id: " + event.target.id);
+            //var OrNumpara = attr(this.id)
+            //console.log("id2: " + $(this).attr("id"));
+            $.ajax({
+                url: "/roomOrder/ColumnSort",
+                data: { sortOrder: $(this).attr("id") },
+                success: function (result) {
+                    $.each(result, function (index, value) {
+                        var Data = `<tr>
+                                                    <td>
+                                                        ${value.fOrNum}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrDate}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrCheckIn}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrCheckOut}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrday}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrGuestOneId}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrRoomId}
+                                                    </td>
+                                                    <td>
+                                                        ${value.fOrTotalPrice}
+                                                     </td>
+                                                     <td>
+                                                        <a href="/roomOrder/Details" id= "${value.fOrId}" class="btn btn-info fas fa-info-circle"> </a>
+                                                        <a href="/roomOrder/Edit" id= "${value.fOrId}" class="btn btn-success fas fa-edit"> </a>
+                                                        <a href="/roomOrder/Delete" id= "${value.fOrId}" class="btn btn-danger fas fa-trash" onclick = "return confirm('確定要刪除嗎？')"> </a>
+                                                    </td>
+                                                 </tr>`;
+                        SetData.append(Data);
+                    })
+                }
+            });
+        })
+    }
+</script>

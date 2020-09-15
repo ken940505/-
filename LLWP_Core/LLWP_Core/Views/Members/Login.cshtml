@@ -6,10 +6,9 @@
     string s2 = ViewBag.CODE.Substring(1, 1) + ".png";
     string s3 = ViewBag.CODE.Substring(2, 1) + ".png";
     string s4 = ViewBag.CODE.Substring(3, 1) + ".png";
-    var returnUrl = @Context.Request.Query["returnurl"];
 }
 
-<form asp-action="Login" asp-route-returnurl="@returnUrl">
+<form asp-action="Login">
     <div class="backColor1">
         <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -72,7 +71,7 @@
                         </div>
                         <div class="mt3 d-flex justify-content-between">
                             <div>
-                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" name="member"/>
                             </div>
                             <div>
                                 <a href="~/Members/RegisteredLongTime" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true">註冊</a>
@@ -113,7 +112,7 @@
                         </div>
                         <div class="mt3" style="display:flex; justify-content:space-around;">
                             <div>
-                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" name="company"/>
                             </div>
                         </div>
                     </div>

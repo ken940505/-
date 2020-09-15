@@ -10,7 +10,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        訂房後台管理系統
+        榕沛社區後台管理系統
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
@@ -24,7 +24,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="/css/PagedList.css" rel="stylesheet" />
     <!-- CSS Files -->
     <style>
         body {
@@ -261,9 +261,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <a class="navbar-brand-step3" href="#"><img src="~/Content/images/logo.png" class="logoSize-step3" alt=""></a>
+                <a class="navbar-brand-step3" href="#"><img src="/images/logo.png" class="logoSize-step3" alt=""></a>
                 <li class="nav-item">
-                    <a class="nav-link fz15 ls025 nav-reser">榕沛社區訂房管理系統</a>
+                    <a class="nav-link fz15 ls025 nav-reser">榕沛社區後台管理系統</a>
                 </li>
             </ul>
         </div>
@@ -292,10 +292,43 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    @*<script src="../assets/js/core/jquery.min.js"></script>*@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-    <script src="~/Scripts/bookingToasrtScript.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>
+        $(function () {
+        var page = window.location.hash
+                ? window.location.hash.slice(1)
+                : 1;
+        fetchPage(page);
+    });
+
+     var fetchPage = function(page) {
+         var pagedPartialUrl = '@Url.Action("ListPagedPartial", "roomOrder")';
+         console.log("page: " + page);
+        $.get(pagedPartialUrl, { page: page }, function(data) {
+
+            window.location.hash = page;
+            console.log("page: "+ page);
+
+            $('#OrderData').html(data);
+
+            $('#OrderData .pagination li a').each(function (i, item) {
+                var hyperLinkUrl = $(item).attr('href');
+                if (typeof hyperLinkUrl !== 'undefined' && hyperLinkUrl !== false) {
+                    var pageNumber = $(item).attr('href').replace('/roomOrder?page=', '');
+                    $(item).attr('href', '#').click(function(event) {
+                        event.preventDefault();
+                        $(event.target).attr('href');
+                        fetchPage(pageNumber);
+                        console.log("pageNumber: "+pageNumber);
+                    });
+                }
+            });
+        });
+    };
+
+
+
         //<button onclick="toastr['success']('成功啦！', '成功');">成功</button><br>
         //<button onclick="toastr['info']('資訊來囉！', '資訊');">資訊</button><br>
         //<button onclick="toastr['warning']('被警告了！', '警告');">警告</button><br>
@@ -334,7 +367,8 @@
             SetData.html("");
             $.ajax({
                 type: "post",
-                url: "/roomOrder/GetBookingOrderSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue + "&txtfOrdate=" + txtfOrdate + "&txtfOrCheckIn=" + txtfOrCheckIn,
+                //url: "/roomOrder/GetBookingOrderSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue + "&txtfOrdate=" + txtfOrdate + "&txtfOrCheckIn=" + txtfOrCheckIn,
+                url: "/roomOrder/ListPagedPartial?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue + "&txtfOrdate=" + txtfOrdate + "&txtfOrCheckIn=" + txtfOrCheckIn,
                 //url:"小老鼠Url.Action("GetSearchingData","Home")",//需搭配data用querying string 否則會抓不到資料
                 //url: '/Home/GetBookingOrderSearchingData',
                 //data: JSON.stringify(dataWithToken),
@@ -348,48 +382,50 @@
                     else {
                         toastr.options.positionClass = 'toast-top-center';
                         toastr['success']('查詢成功');
-                        $.each(result, function (index, value) {
-                            var Data = `<tr>
-                                                <td>
-                                                    ${value.fOrNum}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrDate}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrCheckIn}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrCheckOut}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrday}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrGuestOneId}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrRoomId}
-                                                </td>
-                                                <td>
-                                                    ${value.fOrTotalPrice}
-                                                 </td>
-                                                 <td>
-                                                    <a href="/roomOrder/Details" id= "${value.fOrId}" class="btn btn-info fas fa-info-circle"> </a>
-                                                    <a href="/roomOrder/Edit" id= "${value.fOrId}" class="btn btn-success fas fa-edit"> </a>
-                                                    <a href="/roomOrder/Delete" id= "${value.fOrId}" class="btn btn-danger fas fa-trash" onclick = "return confirm('確定要刪除嗎？')"> </a>
-                                                    </td>
-                                                  </tr>`;
-                            SetData.append(Data);
-                        });
+                        $('#OrderData').html(result);
+
+                        //$.each(result, function (index, value) {
+                        //    var Data = `<tr>
+                        //                        <td>
+                        //                            ${value.fOrNum}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrDate}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrCheckIn}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrCheckOut}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrday}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrGuestOneId}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrRoomId}
+                        //                        </td>
+                        //                        <td>
+                        //                            ${value.fOrTotalPrice}
+                        //                         </td>
+                        //                         <td>
+                        //                            <a href="/roomOrder/Details" id= "${value.fOrId}" class="btn btn-info fas fa-info-circle"> </a>
+                        //                            <a href="/roomOrder/Edit" id= "${value.fOrId}" class="btn btn-success fas fa-edit"> </a>
+                        //                            <a href="/roomOrder/Delete" id= "${value.fOrId}" class="btn btn-danger fas fa-trash" onclick = "return confirm('確定要刪除嗎？')"> </a>
+                        //                            </td>
+                        //                          </tr>`;
+                        //    SetData.append(Data);
+                        }/*)*/;
                     }
-                }
+                //}
             })
         })
 
         //用迴圈綁每個標題列的click事件
         var titles = document.querySelectorAll(".orderTableHeaderTitles");
-        //console.log(titles)
+        console.log(titles)
         //console.log("id" + e.target.attr("id"));
         //var a = titles[0].attr("id");
         //console.log("titles" + a );

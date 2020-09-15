@@ -20,21 +20,32 @@ namespace LLWP_Core.Controllers
             _db = db;
             hostingEnvironment = environment;
         }
-        public ActionResult List()
+        public IActionResult List(string txtKeyword)
         {
-            IQueryable<TTryPetTable> tryPets = null;
-            string keyword = Request.Form["txtKeyword"];
-            if (string.IsNullOrEmpty(keyword))
+            var tryPets = new TTryPetTableVM
             {
-                tryPets = from p in _db.TTryPetTable
-                          select p;
-            }
-            else
+                tryPetTableList = _db.TTryPetTable.OrderBy(o=>o.FTryPetId).ToList()
+            };
+
+            if (!string.IsNullOrEmpty(txtKeyword))
             {
-                tryPets = from p in _db.TTryPetTable
-                          where p.FTryPetName.Contains(keyword) || p.FTryPetNum.Equals(keyword)
-                          select p;
+                tryPets = new TTryPetTableVM
+                {
+                    tryPetTableList = _db.TTryPetTable.Where(o=>o.FTryPetName.Contains(txtKeyword) || o.FTryPetNum.Equals(txtKeyword)).ToList()
+                };
             }
+            //string keyword = Request.Form["txtKeyword"];
+            //if (string.IsNullOrEmpty(keyword))
+            //{
+            //tryPets = from p in _db.TTryPetTable
+            //          select p;
+            //}
+            //else
+            //{
+            //    tryPets = from p in _db.TTryPetTable
+            //              where p.FTryPetName.Contains(keyword) || p.FTryPetNum.Equals(keyword)
+            //              select p;
+            //}
             return View(tryPets);
 
             //var tryPets = from p in (new dbLLWPEntities1()).tTryPetTable
