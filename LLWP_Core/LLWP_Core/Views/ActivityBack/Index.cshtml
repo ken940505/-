@@ -1,0 +1,168 @@
+﻿@model LLWP_Core.ViewModels.ActivityVM
+@using LLWP_Core.Models;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Chart.cshtml";
+}
+
+@functions{
+    public string getVirtualPath(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+            return "";
+        string[] items = path.Split("\\".ToCharArray());
+        if (items.Length > 1)
+            return "../Content/" + items[items.Length - 1];
+        return path;
+    }
+}
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/activityBack/index" style="color:#d35a5d">活動管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">活動管理</h2>
+
+        @*<div class="mb1" style="width:630px;vertical-align:middle;margin-left:20px">
+                <span class="fz125 ml3">關鍵字: </span>@Html.TextBox("txtkeyword", null, new { size = "5" })
+                <label for="txtcheck" class="fz125 ml3" style="margin-right:1%">未審核</label><input id="txtmember" type="checkbox" name="txtmember" style='width:27px;height:28px;vertical-align:middle;'>
+                <button id="btnSearch" class="btn btn-info btn-sm ml3">搜尋</button>
+            </div>*@
+
+        @*搜尋活動*@
+        @using (Html.BeginForm())
+        {
+            <div class="mb1" style="width:560px;vertical-align:middle;margin-left:30px">
+                <form action="#" name="form2" id="form2" method="get" enctype="multipart/form-data">
+                    <span class="fz125">關鍵字： </span><input type="text" hint="關鍵字" name="txtkeyword" value="" size="5" class="fz1 mr-3" />
+                    <label for="txtmember" class="fz125 mr-2">未審核</label><input type="checkbox" name="txtmember" value="未審核" id="txtmember" class="mb-1" style='width:27px;height:28px;vertical-align:middle;'>
+                    <input type="submit" value="搜尋" class="btn btn-info btn-sm " style="margin-bottom:2px;margin-left:20px" />
+                </form>
+            </div>
+        }
+        <table class="table table-hover" style="margin-bottom:100px; font-size:18px;">
+            <tr>
+
+                <th style="text-align:center;">
+                    代號
+                </th>
+                <th style="text-align:center;">
+                    名稱
+                </th>
+                <th style="text-align:center;">
+                    時間
+                </th>
+                <th style="text-align:center;">
+                    地點
+                </th>
+                <th style="text-align:center;">
+                    限制人次
+                </th>
+                <th style="text-align:center;">
+                    已報名人次
+                </th>
+                <th style="text-align:center;">
+                    價格
+                </th>
+                <th style="text-align:center;">
+                    審核
+                </th>
+                <th style="text-align:center;">
+                    圖片
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.tActivitydata)
+            {
+                <tr id="searchend">
+
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityCode)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityName)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityTime)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityLocation)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivitypeopleLimit)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityJoinpeople)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityPrice)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FActivityCheck)
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center w-100">
+                            <img src="@item.FActivityImages" class="rounded" style="width:200px" />
+                        </div>
+                    </td>
+                    <td class=" d-flex justify-content-between">
+                        @*<td style="width:100px;line-height:0;vertical-align:middle">*@
+                        @Html.ActionLink(" ", "Edit", "activityBack", new { id = item.FActivityId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
+                        @*@Html.ActionLink("詳情", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                        @Html.ActionLink(" ", "Delete", "activityBack", new { id = item.FActivityId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    //var btnSearch = $("#btnSearch");
+    //btnSearch.click(function () {
+    //    var txtkeyword = $("#txtkeyword").val();
+    //    var txtcheck = $("#txtcheck").prop("checked");
+    //    var searchend = $("#searchend");
+    //    searchend.html("");
+    //    $.ajax({
+    //        type: "post",
+    //        url: "/activity/search?txtkeyword=" + txtkeyword + "&txtcheck=" + txtcheck,
+    //        contentType: "html",
+    //        success: function (result) {
+    //            if (result.length == 0 || result == "") {
+    //                let i = 1;
+    //                $("#searchmany").html("查無結果!");
+    //            }
+    //            else {
+    //                $.each(result, function (index, value) {
+    //                    var img = value.fActivityImages;
+    //                    if (value)
+    //                        var data =
+    //                            `<td>${value.fActivityCode}</td>
+    //            <td>${value.fActivityName}</td>
+    //            <td>${value.fActivityTime}</td>
+    //            <td>${value.fActivityLocation}</td>
+    //            <td>${value.fActivitypeopleLimit}</td>
+    //            <td>${value.fActivityJoinpeople}</td>
+    //            <td>${value.fActivityPrice}</td>
+    //            <td>${value.fActivityCheck}</td>
+    //            <img class="" src="${value.fActivityImages}" alt="Card image cap">`;
+    //                    searchend.append(data);
+    //                });
+    //            }
+    //        }
+    //    })
+    })
+</script>
+

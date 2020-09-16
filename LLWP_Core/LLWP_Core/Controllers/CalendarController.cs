@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LLWP_Core.Models;
+using LLWP_Core.Utility;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LLWP_Core.Controllers
@@ -31,6 +32,8 @@ namespace LLWP_Core.Controllers
 
         public IActionResult CalendarList()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             return View();
         }
 

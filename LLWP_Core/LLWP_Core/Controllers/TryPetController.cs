@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using LLWP_Core.Models;
+using LLWP_Core.Utility;
 using LLWP_Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
@@ -22,36 +23,14 @@ namespace LLWP_Core.Controllers
         }
         public IActionResult List(string txtKeyword)
         {
-            var tryPets = new TTryPetTableVM
-            {
-                tryPetTableList = _db.TTryPetTable.OrderBy(o=>o.FTryPetId).ToList()
-            };
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
+            var tryPets = _db.TTryPetTable.OrderBy(o => o.FTryPetId).ToList();
 
             if (!string.IsNullOrEmpty(txtKeyword))
-            {
-                tryPets = new TTryPetTableVM
-                {
-                    tryPetTableList = _db.TTryPetTable.Where(o=>o.FTryPetName.Contains(txtKeyword) || o.FTryPetNum.Equals(txtKeyword)).ToList()
-                };
-            }
-            //string keyword = Request.Form["txtKeyword"];
-            //if (string.IsNullOrEmpty(keyword))
-            //{
-            //tryPets = from p in _db.TTryPetTable
-            //          select p;
-            //}
-            //else
-            //{
-            //    tryPets = from p in _db.TTryPetTable
-            //              where p.FTryPetName.Contains(keyword) || p.FTryPetNum.Equals(keyword)
-            //              select p;
-            //}
-            return View(tryPets);
+                tryPets = _db.TTryPetTable.Where(o => o.FTryPetName.Contains(txtKeyword) || o.FTryPetNum.Equals(txtKeyword)).ToList();
 
-            //var tryPets = from p in (new dbLLWPEntities1()).tTryPetTable
-            //              orderby p.fTryPetNum ascending
-            //            select p;
-            //return View(tryPets);
+            return View(tryPets);
         }
 
         public ActionResult Show()
@@ -66,20 +45,11 @@ namespace LLWP_Core.Controllers
 
         public ActionResult Create()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             return View();
         }
-        public ActionResult Order()
-        {
-            return View();
-        }
-        public ActionResult Room()
-        {
-            return View();
-        }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         [HttpPost]
         public ActionResult Create(TTryPetTableVM p)
         {
@@ -87,10 +57,10 @@ namespace LLWP_Core.Controllers
             if (p.fImage != null)//若有要上傳的檔案(此處不能用p.fTryPetPhoto，因為創新的前本來就是null)
             {
                 string photName = Guid.NewGuid().ToString() + Path.GetExtension(p.fImage.FileName);
-                var uploads = Path.Combine(hostingEnvironment.ContentRootPath, "wwwroot/upImage");
+                var uploads = Path.Combine(hostingEnvironment.ContentRootPath, "wwwroot/tryPetPic");
                 var path = Path.Combine(uploads, photName);
                 p.fImage.CopyTo(new FileStream(path, FileMode.Create));
-                p.tryPetTable.FTryPetPhoto = "/" + photName;
+                p.tryPetTable.FTryPetPhoto = "/tryPetPic/" + photName;
             }
             if (p.tryPetTable.FTryPetPhoto != null)
             {
@@ -100,13 +70,15 @@ namespace LLWP_Core.Controllers
             return RedirectToAction("List");
         }
 
-        //GET:data
         public ActionResult Edit(int? id)
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             if (id == null)
                 return RedirectToAction("List");
             TTryPetTable p = _db.TTryPetTable.FirstOrDefault(m => m.FTryPetId == id);
-            return View(p);
+            var pVM = new TTryPetTableVM { tryPetTable = p };
+            return View(pVM);
         }
 
         [HttpPost]
@@ -143,6 +115,22 @@ namespace LLWP_Core.Controllers
                 _db.SaveChanges();
             }
             return RedirectToAction("List");
+        }
+
+        public ActionResult Order()
+        {
+            return View();
+        }
+        public ActionResult Room()
+        {
+            return View();
+        }
+        public ActionResult Index()
+        {
+            HttpContext.Session.Remove(CDictionary.SK_LOGINED_CUSTOMER);
+            HttpContext.Session.Remove(CDictionary.SK_CUSTOMERNAME);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Delete(int? id)

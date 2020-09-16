@@ -23,8 +23,10 @@ namespace LLWP_Core.Controllers
 
         int pageSize = 10;
         // GET: roomOrder
-        public ActionResult List()
+        public IActionResult List()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             //dbLLWPEntities1 db = new dbLLWPEntities1();
             ////pagedList分頁套件
             //int currentPage = page < 1 ? 1 : page;
@@ -34,7 +36,7 @@ namespace LLWP_Core.Controllers
             return View();
         }
 
-        public ActionResult ListPagedPartial(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn, int page = 1)
+        public IActionResult ListPagedPartial(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn, int page = 1)
         {
             var roomOrders = new List<TOrTable>();
             //pagedList分頁套件
@@ -134,8 +136,10 @@ namespace LLWP_Core.Controllers
         }
 
 
-        public ActionResult Details(int? id)
+        public IActionResult Details(int? id)
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             if (id == null)
                 return RedirectToAction("List");
 
@@ -243,8 +247,10 @@ namespace LLWP_Core.Controllers
 
         }
 
-        public ActionResult Edit(int? id)
+        public IActionResult Edit(int? id)
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             if (id == null)
                 return RedirectToAction("List");
 
@@ -253,7 +259,7 @@ namespace LLWP_Core.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(TOrTable order)
+        public IActionResult Edit(TOrTable order)
         {
             if (string.IsNullOrEmpty(order.FOrNum))
                 return RedirectToAction("List");
@@ -285,12 +291,14 @@ namespace LLWP_Core.Controllers
         }
 
 
-        public ActionResult Create()
+        public IActionResult Create()
         {
+            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+                return RedirectToAction("LogIn", "Members");
             return View();
         }
         [HttpPost]
-        public ActionResult Create(TOrTable p)
+        public IActionResult Create(TOrTable p)
         {
             if (ModelState.IsValid)
             {
@@ -306,7 +314,7 @@ namespace LLWP_Core.Controllers
             }
             return RedirectToAction("List");
         }
-        public ActionResult Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
                 return RedirectToAction("List");
@@ -408,7 +416,7 @@ namespace LLWP_Core.Controllers
 
 
         //}
-        public ActionResult exportToExcel()
+        public IActionResult exportToExcel()
         {
             List<TOrTable> rangerList = _db.TOrTable.ToList();
 
@@ -478,7 +486,7 @@ namespace LLWP_Core.Controllers
             return File(fileStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "試住訂單資料表.xlsx");
         }
 
-        public ActionResult ColumnSort(string sortOrder)
+        public IActionResult ColumnSort(string sortOrder)
         {
             //return View + viewbag:頁面會刷新
             //ViewBag.fOrNumSortParm = String.IsNullOrEmpty(sortOrder) ? "fOrNum_desc" : "";

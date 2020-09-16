@@ -1,0 +1,119 @@
+﻿@model LLWP_Core.ViewModels.ActivityVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout_tryPet.cshtml";
+}
+
+<div class="d-flex" style="margin-top:50px">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/activity/index" style="color:#d35a5d">活動管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+
+        <div class="d-flex">
+            <h2 class="edit-title">編輯活動資料</h2>
+        </div>
+
+
+        @using (Html.BeginForm("Edit", "activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal create-form" style="font-size:1.25rem;width:500px">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div>@Html.HiddenFor(model => model.activitydata.FActivityId)</div>
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">代號</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.activitydata.FActivityCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">名稱</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.activitydata.FActivityName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">時間</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.activitydata.FActivityTime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">地點</label>
+                    <div class="col-md-10 create-radio">
+                        @Html.EditorFor(model => model.activitydata.FActivityLocation, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityLocation, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">限制人次</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.activitydata.FActivitypeopleLimit, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivitypeopleLimit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">已報名人次</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.activitydata.FActivityJoinpeople, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityJoinpeople, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">價格</label>
+                    <div class="col-md-10 create-radio">
+                        @Html.EditorFor(model => model.activitydata.FActivityPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.activitydata.FActivityPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">審核</label>
+                    <div class="col-md-10 create-radio">
+                        @Html.RadioButtonFor(model => model.activitydata.FActivityCheck, "是")
+                        是
+                        @Html.RadioButtonFor(model => model.activitydata.FActivityCheck, "否")
+                        否
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <label style="width:80px">圖片</label>
+                    <div class="col-md-10 file-fImage">
+                        @Html.EditorFor(model => model.activitydata.FActivityImages, new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="file" name="fImage" />
+                    </div>
+                </div>
+
+                <div class="form-group d-flex my-4">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="儲存" class="btn btn-warning save-btn" style="" />
+                        <a href="/activityBack/index">
+                            <button class="btn btn-danger" style="margin-left:10%">取消</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+

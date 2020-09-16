@@ -9,7 +9,7 @@
             <a href="javascript:void(0)" class="bar-item actselectbtn tablink testbtn m-2"
                onclick="openClass(event, 'class1')">舉辦中</a>
             <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class2')">申請中活動<span id="cardtotal7" style="margin-left:2%;"></span></a>
-            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class3')">我的活動</a>
+            <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class3')">我的活動<span id="cardtotal9" style="margin-left:2%;"></a>
             <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class4')">我的購物車<span id="selectshopping" style="margin-left:2%;">()</span></a>
             <a href="javascript:void(0)" class="bar-item actselectbtn tablink m-2" onclick="openClass(event, 'class5')">活動申請</a>
         </div>
@@ -97,7 +97,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd cartaddin" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                     <input type="hidden" id="@item.FActivityId" />
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +164,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,7 +197,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -263,7 +263,7 @@
                                                 </div>
                                                 <div id="Activity_test" class="mt2">
                                                     <button class="btn btn-warning activity_Index_btn open" onclick="actinside(),actbtn()" value="@item.FActivityId" id="@item.FActivityId">詳情</button>
-                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">參加</button>
+                                                    <button class="btn btn-warning activity_Index_btn actadd" onclick="addActivity(),shoppingcartbtn(),addbtn(@item.FActivityId)" id="@item.FActivityId">加入購物車</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -393,26 +393,26 @@
                             </div>
                             <div class="st1">
                                 <label class="t1" for="formtext2">活動名稱:</label>
-                                <input type="text" id="formtext2" name="FActivityName" value="" size="22" onblur="checknamevalue(2)">
+                                <input type="text" id="formtext2" name="activitydata.FActivityName" value="" size="22" onblur="checknamevalue(2)">
                                 <span id="checkvalue2" style="color:#888888">請輸入中文十字以內</span>
                             </div>
                             <div class="st1">
                                 <label for="formtext3" class="t1">活動場所:</label>
-                                <input type="text" id="formtext3" name="FActivityLocation" size="22" onblur="checknamevalue(3)">
+                                <input type="text" id="formtext3" name="activitydata.FActivityLocation" size="22" onblur="checknamevalue(3)">
                                 <span id="checkvalue3" style="color:#888888">請輸入中文十字以內</span>
                             </div>
                             <div class="st1">
                                 <label for="formtext4" class="t1">人數限制:</label>
-                                <input type="text" id="formtext4" name="FActivitypeopleLimit" size="22" onblur="checkpwdvalue(4)">
+                                <input type="text" id="formtext4" name="activitydata.FActivitypeopleLimit" size="22" onblur="checkpwdvalue(4)">
                                 <span id="checkvalue4" style="color:#888888">請輸入數字</span>
                             </div>
                             <div class="st1">
                                 <label for="FActivityTime" class="t1">活動日期:</label>
-                                <input type="date" id="FActivityTime" name="FActivityTime" size="30">
+                                <input type="date" id="FActivityTime" name="activitydata.FActivityTime" size="30">
                             </div>
                             <div class="st1">
                                 <label for="formtext5" class="t1">活動收費:</label>
-                                <input type="text" id="formtext5" name="FActivityPrice" size="22" onblur="checkpwdvalue(5)">
+                                <input type="text" id="formtext5" name="activitydata.FActivityPrice" size="22" onblur="checkpwdvalue(5)">
                                 <span id="checkvalue5" style="color:#888888">請輸入數字</span>
                             </div>
                             <div class="st1">
@@ -655,12 +655,12 @@
             if (Cookies.get("carItem") == undefined) {
                 //若目前沒有 carItem 這個 key 的 Cookie ，直接新增一個，並只對購物車頁面設定 Cookie
 
-                Cookies.set("carItem", id , { expires: expireDate })
+                Cookies.set("carItem", id + ",", { expires: expireDate })
             }
             else {
                 //有的話就用逗號將品項做分隔再加入至 carItem 中
                 currentItem = Cookies.get("carItem");
-                currentItem = currentItem + ","+ id  ;
+                currentItem = currentItem + id + "," ;
                 Cookies.set("carItem", currentItem, { expires: expireDate });
             }
         };
@@ -670,7 +670,8 @@
                 var a = $(this).attr("id");
                 $('button#' + a + '.actadd').attr('disabled', 'disabled');
                 $('button#' + a + '.actadd').html("已報名");
-                $('button#' + a + '.actadd').css('background-color', '#EEFFBB');
+                $('button#' + a + '.actadd').css('background-color', 'darkgray');
+                $('button#' + a + '.actadd').css('border-color', 'transparent');
             })
 
             if (Cookies.get("carItem") != undefined) {

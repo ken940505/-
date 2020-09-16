@@ -1,4 +1,4 @@
-﻿@model LLWP_Core.ViewModels.TTryPetTableVM
+﻿@model IEnumerable<LLWP_Core.Models.TTryPetTable>
 @using LLWP_Core.ViewModels;
 @using LLWP_Core.Utility;
 @{
@@ -25,6 +25,7 @@
             <a class="nav-link book-nav-link" href="/calendar/CalendarList">訂房狀態月曆</a>
             <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
             <a class="nav-link book-nav-link" href="/tryPet/List" style="color:#d35a5d">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/activityBack/index">活動管理</a>
             <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
         </nav>
     </div>
@@ -48,39 +49,39 @@
         <table class="table table-hover" style="margin-bottom:100px; font-size:18px;">
             <tr>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNum)
+                    @Html.DisplayNameFor(model => model.FTryPetNum)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetName)
+                    @Html.DisplayNameFor(model => model.FTryPetName)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVar)
+                    @Html.DisplayNameFor(model => model.FTryPetVar)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetAge)
+                    @Html.DisplayNameFor(model => model.FTryPetAge)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetWei)
+                    @Html.DisplayNameFor(model => model.FTryPetWei)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetSex)
+                    @Html.DisplayNameFor(model => model.FTryPetSex)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNature)
+                    @Html.DisplayNameFor(model => model.FTryPetNature)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVac)
+                    @Html.DisplayNameFor(model => model.FTryPetVac)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetFix)
+                    @Html.DisplayNameFor(model => model.FTryPetFix)
                 </th>
                 <th style="text-align:center;">
-                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetPhoto)
+                    @Html.DisplayNameFor(model => model.FTryPetPhoto)
                 </th>
                 <th></th>
             </tr>
 
-            @foreach (var item in Model.tryPetTableList)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td style="text-align:center;">

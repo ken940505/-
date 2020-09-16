@@ -1,15 +1,17 @@
 ﻿@model LLWP_Core.ViewModels.TTryPetTableVM
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout_tryPet.cshtml";
 }
 
 <div class="d-flex" style="margin-top:50px">
     <div>
         <nav class="nav flex-column booking-nav" style="width:170px">
             <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
-            <a class="nav-link book-nav-link" href="/calendar/CalendarList" style="color:#d35a5d">訂房狀態月曆</a>
+            <a class="nav-link book-nav-link" href="/calendar/CalendarList">訂房狀態月曆</a>
             <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
             <a class="nav-link book-nav-link" href="/tryPet/List" style="color:#d35a5d">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/activityBack/index">活動管理</a>
             <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
         </nav>
     </div>
@@ -125,5 +127,3 @@
         }
     </div>
 </div>
-
-

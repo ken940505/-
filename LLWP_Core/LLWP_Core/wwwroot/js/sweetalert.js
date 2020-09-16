@@ -44,7 +44,7 @@ function actsurecheck() {
     });
     swalWithBootstrapButtons.fire({
         title: '確定是否購買',
-        text: "購買後恕不得取消退款!",
+        text: "確定後跳到信用卡支付畫面",
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: '取消!',
@@ -66,13 +66,13 @@ function paid() {
         buttonsStyling: false
     });
     swalWithBootstrapButtons.fire({
-        title: '已購買，請進行信用卡付款',
-        text: "信用卡付款後在我的活動查看已購買活動",
+        title: '已購買',
+        text: "在我的活動查看已購買活動",
         icon: 'success',
         reverseButtons: true,
         confirmButtonText: '回到活動首頁'
     }).then((result) => {
         $("#actsure-check").click();
-        setTimeout(function () { window.location.href = "/Activity/Index" }, 5000);
+        setTimeout(function () { window.location.href = "/Activity/Index" }, 1000);
     });
 }
