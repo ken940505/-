@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    var cust = Context.Session.GetString("SK_CUSTOMERNAME");
+    ViewData["Title"] = "Home";
+}
+
+<h1>Home</h1>
+歡迎 @cust 進入系統
+

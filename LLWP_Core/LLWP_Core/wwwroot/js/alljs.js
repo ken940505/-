@@ -325,42 +325,6 @@ $(document).ready(function () {
     });
 });
 
-function openClass(evt, className) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("class");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].classList.remove("actselectbtncolor");
-    }
-    document.getElementById(className).style.display = "block";
-    evt.currentTarget.classList.add("actselectbtncolor");
-
-}
-var mybtn = document.getElementsByClassName("testbtn")[0];
-//mybtn.click();
-
-
-function openClass2(evt, className) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("class2");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink2");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].classList.remove("actselectbtncolor2");
-    }
-    document.getElementById(className).style.display = "block";
-    evt.currentTarget.classList.add("actselectbtncolor2");
-
-}
-var mybtn2 = document.getElementsByClassName("testbtn2")[0];
-//mybtn2.click();
-
-
 $(function () {
     var date_now = new Date();
     var year = date_now.getFullYear();
@@ -381,57 +345,29 @@ function addActivity() {
     });
 }
 
-$("button.placeorder").click(function (e) {
-    e.preventDefault();
+//$("button.placeorder").click(function (e) {
+//    e.preventDefault();
 
-    var $this = $(this);
+//    var $this = $(this);
 
-    //var url = "/cart/PlaceOrder";
-    var url = "/Booking/BookingPayment";
+//    //var url = "/cart/PlaceOrder";
+//    var url = "/Booking/BookingPayment";
 
-    $.post(url);
+//    $.post(url);
 
-    $(".ajaxbg").show();
+//    $(".ajaxbg").show();
 
-    $.post(url, {}, function (data) {
-        $(".ajaxbg span").text("Thank you. You will now be redirected to paypal.");
-        setTimeout(function () {
-            $('form input[name="submit"]').click();
-        }, 2000);
-    });
+//    $.post(url, {}, function (data) {
+//        $(".ajaxbg span").text("Thank you. You will now be redirected to paypal.");
+//        setTimeout(function () {
+//            $('form input[name="submit"]').click();
+//        }, 2000);
+//    });
+//});
+
+$("button.placeorderforstripe").click(function () {
+    $(".stripe-button-el").click();
 });
-
-function formActivity() {
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success ml5',
-            cancelButton: 'btn btn-danger mr5'
-        },
-        buttonsStyling: false
-    })
-
-    swalWithBootstrapButtons.fire({
-        title: '是否送出活動表單',
-        text: "請依照規定填寫,不符規定直接退件!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '確定送出!',
-        cancelButtonText: '取消!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.value) {
-            swalWithBootstrapButtons.fire({
-                title: '已送出表單',
-                text: "約審核7天,請在申請中活動查看進度",
-                icon: 'success',
-                reverseButtons: true,
-                confirmButtonText: '回到活動首頁'
-            }).then((result) => {
-                $("#actlogin").click();
-            });
-        }
-    });
-}
 
 $("#resetCode").click(function () {
 
@@ -484,7 +420,7 @@ $("#calendarButton").click(function () {
         type: "Post",
         data: { "InYear": InYear, "InMonth": InMonth, "InDate": InDate, "OutYear": OutYear, "OutMonth": OutMonth, "OutDate": OutDate },
         success: function (data) {
-            $("#NextDtageToBookingRoomSelect").click();
+            window.location.href = data;
         }
     });
 
@@ -512,7 +448,7 @@ $("#refreshPet").click(function () {
                             </p>
                             <div class="form-ac-check br25 ac-check" style="margin-top:-15px;margin-bottom:-15px">
                                 <label class="form-check-label ac-lab mr3 mt2">
-                                    <input type="radio" name="petradio" class="form-check-input-act ac-input" value="pet-${data.fTryPetId}" id="pet-${data.fTryPetId}">
+                                    <input type="radio" name="petradio" class="form-check-input-act ac-input" value="${data.fTryPetId}" id="pet-${data.fTryPetId}">
                                 </label>
                                 <label class="fz125" for="pet-${data.fTryPetId}">
                                     試養 ${data.fTryPetName}
@@ -525,5 +461,93 @@ $("#refreshPet").click(function () {
             })
         }
     })
-
 })
+
+$("#BookingNextStage1").click(function () {
+    $("#BookingNextStage2").click();
+})
+
+
+//$("#paypal-button").click(function () {
+//    $.ajax({
+//        url: "/Booking/PayPalPayment",
+//        type: "Get",
+//        success: function (data) {
+//            console.log(data);
+//            document.location.href = data;
+
+//        }
+//    })  
+//})
+
+function formActivity() {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            cancelButton: 'btn btn-danger mr5',
+            confirmButton: 'btn btn-success ml5'
+        },
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+        title: '是否送出活動表單',
+        text: "請依照規定填寫,不符規定直接退件!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: '取消!',
+        confirmButtonText: '確定送出!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            swalWithBootstrapButtons.fire({
+                title: '已送出表單',
+                text: "約審核7天,請在申請中活動查看進度",
+                icon: 'success',
+                reverseButtons: true,
+                confirmButtonText: '回到活動首頁'
+            }).then((result) => {
+                $("#actlogin").click();
+            });
+        }
+    });
+
+}
+//申請活動表單篩選
+function checknamevalue(id) {
+    var namevalue = document.getElementById("formtext" + id).value;
+    var checkvalue = document.getElementById("checkvalue" + id);
+    var reg = /^[\u4E00-\u9FA5]+$/;
+    console.log(namevalue);
+    if (namevalue === "") {
+        checkvalue.innerHTML = "請輸入中文";
+        checkvalue.style.color = "#888888";
+    }
+    else if (namevalue !== "" && namevalue.length >= 2 && reg.test(namevalue)) {
+
+
+        checkvalue.innerHTML = "格式正確";
+        checkvalue.style.color = "green";
+    }
+    else {
+
+        checkvalue.innerHTML = "格式不符合:請輸入中文";
+        checkvalue.style.color = "red";
+    }
+}
+function checkpwdvalue(id) {
+    var pwdvalue = document.getElementById("formtext" + id).value;
+    var checkpwdvalue = document.getElementById("checkvalue" + id);
+    var reg = /\d/;
+    if (pwdvalue === "") {
+        checkpwdvalue.innerHTML = "請輸入數字";
+        checkpwdvalue.style.color = "#888888";
+    }
+    else if (pwdvalue !== "" && reg.test(pwdvalue)) {
+        checkpwdvalue.innerHTML = "格式正確";
+        checkpwdvalue.style.color = "green";
+    }
+    else {
+        checkpwdvalue.innerHTML = "格式不符合:請輸入數字";
+        checkpwdvalue.style.color = "red";
+    }
+}

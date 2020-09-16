@@ -8,8 +8,7 @@
     string s4 = ViewBag.CODE.Substring(3, 1) + ".png";
 }
 
-@using (Html.BeginForm())
-{
+<form asp-action="Login">
     <div class="backColor1">
         <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -24,13 +23,13 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="mb5" style="margin-top:20px">
                         <div class="mb-5">
-                            <div class="row mb-2 db100">
-                                <div class="jcc ml10">
-                                    <h3 class="tac mb10">會員登入</h3>
+                            <div class="row mb-2 db100 pl-3">
+                                <div class="jcc">
+                                    <h3 class="tac mb-4">會員登入</h3>
                                 </div>
                                 <div class="form-group w-100 d-flex">
-                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
-                                        <div class="labelSet-login w-30">
+                                    <div class="d-flex align-items-top formDivSet">
+                                        <div class="labelSet-login">
                                             <label for="inputmail" class="fz125" style="line-height:40px">會員信箱</label>
                                         </div>
                                     </div>
@@ -38,7 +37,7 @@
                                 </div>
                                 <hr>
                                 <div class="form-group d-flex w-100">
-                                    <div class="d-flex align-items-top formDivSet" style="justify-content: flex-end;">
+                                    <div class="d-flex align-items-top formDivSet">
                                         <div class="labelSet-login">
                                             <label for="inputpassword" class="fz125" style="line-height:40px">會員密碼</label>
                                         </div>
@@ -46,34 +45,33 @@
                                     <input type="password" class="form-control ml3" name="txtPassword" id="inputID">
                                 </div>
                                 <hr>
-                                <div class="form-group d-flex" style="justify-content:center">
-                                    <div class="w-25" style="margin-right:15px">
-                                        <input type="text" class="form-control ml3" name="txtCord" id="">
-                                    </div>
+                                <div class="form-group d-flex pt-2" style="margin-bottom:-10px">
                                     <div class="form-group  d-flex" style="margin-right:15px">
                                         <div id="codeIn" class="d-flex" style="border:solid 1px black">
-                                            <img src="/images/@s1" width="30px" height="38px" />
-                                            <img src="/images/@s2" width="30px" height="38px" />
-                                            <img src="/images/@s3" width="30px" height="38px" />
-                                            <img src="/images/@s4" width="30px" height="38px" />
+                                            <img src="/images/@s1" width="30" height="38" />
+                                            <img src="/images/@s2" width="30" height="38" />
+                                            <img src="/images/@s3" width="30" height="38" />
+                                            <img src="/images/@s4" width="30" height="38" />
                                         </div>
                                     </div>
-                                    <div class="w-25" style="color:blue">
+                                    <div style="margin-right:15px; width:150px">
+                                        <input type="text" class="form-control" name="txtCord">
+                                    </div>
+                                    <div class="w-25" style="color:blue;">
                                         <a id="resetCode" style="cursor:pointer; line-height:40px">重新產生</a>
                                     </div>
                                 </div>
-
                                 <hr>
                                 <div class="form-group form-check d-flex justify-content-between w-100">
-                                    <input type="checkbox" class="form-check-input ml3 form-check-input-act input-act" id="exampleCheck1">
-                                    <label class="form-check-label ml10 fz1" for="exampleCheck1" style="margin-top:.1rem">記住我</label>
-                                    <a class="Help" href="">需要協助?</a>
+                                    <input type="checkbox" class="form-check-input form-check-input-act input-act" id="exampleCheck1">
+                                    <label class="form-check-label fz1 ml-1" for="exampleCheck1" style="margin-top:.1rem">記住我</label>
+                                    <a class="Help" asp-action="ForgetPassword" asp-controller="Members">忘記密碼?</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt3" style="display:flex; justify-content:space-around;">
+                        <div class="mt3 d-flex justify-content-between">
                             <div>
-                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" name="member"/>
                             </div>
                             <div>
                                 <a href="~/Members/RegisteredLongTime" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true">註冊</a>
@@ -114,7 +112,7 @@
                         </div>
                         <div class="mt3" style="display:flex; justify-content:space-around;">
                             <div>
-                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+                                <input type="submit" value="登入" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" name="company"/>
                             </div>
                         </div>
                     </div>
@@ -123,4 +121,6 @@
 
         </div>
     </div>
-}
+</form>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

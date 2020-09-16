@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LLWP_Core.Models
 {
@@ -10,6 +11,8 @@ namespace LLWP_Core.Models
         public string FActivityName { get; set; }
         public string FActivityTime { get; set; }
         public int? FActivitypeopleLimit { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:F0}")]
         public decimal FActivityPrice { get; set; }
         public string FActivityLocation { get; set; }
         public string FActivityCheck { get; set; }

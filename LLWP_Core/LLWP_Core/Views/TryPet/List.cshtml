@@ -1,0 +1,134 @@
+﻿@model LLWP_Core.ViewModels.TTryPetTableVM
+@using LLWP_Core.ViewModels;
+@using LLWP_Core.Utility;
+@{
+    ViewData["Title"] = "試養計劃管理";
+    Layout = "~/Views/Shared/_Layout_Chart.cshtml";
+}
+
+@functions{
+    public string getVirtualPath(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+            return "";
+        string[] items = path.Split("\\".ToCharArray());
+        if (items.Length > 1)
+            return "/" + items[items.Length - 1];
+        return path;
+    }
+}
+
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/calendar/CalendarList">訂房狀態月曆</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List" style="color:#d35a5d">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">寵物試養計畫</h2>
+        <p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-inline">
+                    <div>
+                        <input type="text" hint="關鍵字" class="form-control" name="txtKeyword" />
+                        @*@Html.TextBox("txtKeyword", null, new { Class = "form-control" })*@
+                        <input type="submit" value="搜尋" class="btn btn-outline-info" />
+                        @Html.ActionLink("顯示全部", "ShowList", "tryPet", null, new { Class = "btn btn-outline-info" })
+                        @Html.ActionLink("新增資料", "Create", "tryPet", new { Class = "btn btn-outline-info" })
+                    </div>
+                </div>
+            }
+        </p>
+        <table class="table table-hover" style="margin-bottom:100px; font-size:18px;">
+            <tr>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNum)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetName)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVar)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetAge)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetWei)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetSex)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetNature)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetVac)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetFix)
+                </th>
+                <th style="text-align:center;">
+                    @Html.DisplayNameFor(model => model.tryPetTable.FTryPetPhoto)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.tryPetTableList)
+            {
+                <tr>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetNum, new { htmlAttributes = new { @class = "pet-td" } })
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetName)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetVar)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetAge)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetWei)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetSex)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetNature)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetVac)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.FTryPetFix)
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center w-100">
+                            <img src="@item.FTryPetPhoto" class="rounded" style="width:200px" />
+                        </div>
+                    </td>
+                    <td class=" d-flex justify-content-between">
+                        @*<td style="width:100px;line-height:0;vertical-align:middle">*@
+                        @Html.ActionLink(" ", "Edit", "tryPet", new { id = item.FTryPetId }, new { Class = "btn btn-success fas fa-edit", @style = "" })
+                        @*@Html.ActionLink("詳情", "Details", new { /* id=item.tryPetTable.PrimaryKey */ }) |*@
+                        @Html.ActionLink(" ", "Delete", "tryPet", new { id = item.FTryPetId }, new { Class = "btn btn-danger fas fa-trash", Onclick = "return confirm('確定要刪除嗎？')" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+
+
+

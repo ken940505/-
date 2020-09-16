@@ -1,10 +1,9 @@
 ﻿@model LLWP_Core.ViewModels.ViewModelMP
 
 @{
-    /**/
-
     ViewData["Title"] = "RegisteredLongTime";
     Layout = "~/Views/Shared/_Layout_Member.cshtml";
+    
 }
 
 
@@ -34,10 +33,8 @@
                     @Html.EditorFor(model => model.petData.FPeNumber, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
                     @Html.EditorFor(model => model.petData.FPePhoto, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
                     <div class="form-group w-100 d-flex">
-                        <div class="d-flex align-items-top formDivSet  w-25">
-                            <div class="labelSet">
-                                <label for="">姓名</label>
-                            </div>
+                        <div class="labelSet w-25">
+                            <label for="">姓名</label>
                         </div>
                         <div class="w-50">
                             @Html.EditorFor(model => model.merberData.FMeName, new { htmlAttributes = new { @class = "form-control", type = "text" } })
@@ -46,13 +43,10 @@
                             @Html.ValidationMessageFor(model => model.merberData.FMeName, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <hr>
                     <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="">身分證/居留證</label>
-                            </div>
+                        <div class="labelSet w-25">
+                            <label for="">身分證/居留證</label>
                         </div>
                         <div class="w-50">
                             @Html.EditorFor(model => model.merberData.FMePersonId, new { htmlAttributes = new { @class = "form-control", type = "text" } })
@@ -68,7 +62,7 @@
                                 <label for="gender"></label>性別
                             </div>
                         </div>
-                        <div class=" d-flex">
+                        <div class=" d-flex align-items-center">
                             @Html.RadioButtonFor(model => model.merberData.FMeGender, "男")
                             先生
                             @Html.RadioButtonFor(model => model.merberData.FMeGender, "女")
@@ -80,36 +74,29 @@
                     </div>
                     <hr>
                     <div class="form-group w-100 d-flex">
-                        <div class="d-flex align-items-top lavelDivSet w-25">
-                            <div class="labelSet">
-                                <label for="inputEmail">電子信箱</label>
-                            </div>
+                        <div class="labelSet w-25">
+                            <label for="inputEmail">電子信箱</label>
                         </div>
                         <div class="w-50"> @Html.EditorFor(model => model.merberData.FMeMail, new { htmlAttributes = new { @class = "form-control" } })</div>
                         <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMeMail, "", new { @class = "text-danger" })</div>
                     </div>
                     <hr>
                     <div class="form-group w-100 d-flex">
-                        <div class="d-flex align-items-top lavelDivSet w-25">
-                            <div class="labelSet">
-                                <label for="">密碼</label>
-                            </div>
+                        <div class="labelSet w-25">
+                            <label for="">密碼</label>
                         </div>
                         <div class="w-50"> @Html.EditorFor(model => model.merberData.FMePass, new { htmlAttributes = new { @class = "form-control" } })</div>
                         <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.merberData.FMePass, "", new { @class = "text-danger" })</div>
                     </div>
                     <hr>
                     <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="inputPhone">手機</label>
-                            </div>
+                        <div class="labelSet w-25">
+                            <label for="inputPhone">手機</label>
                         </div>
                         <div class="w-50">@Html.EditorFor(model => model.merberData.FMePhone, new { htmlAttributes = new { @class = "form-control" } })</div>
                         <div class="w-25" style="margin-left:15px">  @Html.ValidationMessageFor(model => model.merberData.FMePhone, "", new { @class = "text-danger" })</div>
                     </div>
                     <hr>
-                    <hr class="mb-5">
                     <div class="form-group w-100 d-flex">
                         <div class="labelSet w-25">
                             <label for="inputBirthday">出生日期</label>
@@ -161,15 +148,26 @@
                                 <label>攜帶寵物</label>
                             </div>
                         </div>
-                        <div class="w-75 d-flex ">
-                            <select class="col-sm-4 trypet">
-                                <option value="1">是</option>
-                                <option selected value="2">否</option>
-                            </select>
-                        </div>
+                        @if (Model.petData.FPeMemNumber == null)
+                        {
+                            <div class="w-75 d-flex ">
+                                <select class="col-sm-4 trypet" name="selectPet">
+                                    <option value="1">是</option>
+                                    <option selected value="2">否</option>
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="w-75 d-flex ">
+                                <select class="col-sm-4 trypet" name="selectPet">
+                                    <option selected value="1">是</option>
+                                    <option value="2">否</option>
+                                </select>
+                            </div>
+                        }
                     </div>
                     <hr>
-                    <!-- Modal -->
                 </div>
             </div>
         </div>
@@ -185,102 +183,98 @@
                                 <label for="inpetName">品種</label>
                             </div>
                         </div>
-                        @Html.EditorFor(model => model.petData.FPeVarity, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.petData.FPeVarity, "", new { @class = "text-danger" })
-                    </div>
-                    <hr>
-                    <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="gender"></label>性別
-                            </div>
+                        <div class="w-50"> @Html.EditorFor(model => model.petData.FPeVarity, new { htmlAttributes = new { @class = "form-control" } })</div>
+                        <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.petData.FPeVarity, "", new { @class = "text-danger" })</div>                            
                         </div>
-                        <div class=" d-flex ">
-                            @Html.RadioButtonFor(model => model.petData.FPeSex, "公")
-                            公
-                            @Html.RadioButtonFor(model => model.petData.FPeSex, "母")
-                            母
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="inputID">體重</label>
-                            </div>
-                        </div>
-                        @Html.EditorFor(model => model.petData.FPeWeight, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.petData.FPeWeight, "", new { @class = "text-danger" })
                         <hr>
-                        <hr class="mb-5">
-                    </div>
-                    <div class="form-group w-100 d-flex">
-                        <div class="labelSet w-25">
-                            <label for="">出生日期</label>
-                        </div>
-                        <div class="w-75 d-flex " style="justify-content: space-between;">
-                            @Html.EditorFor(model => model.petData.FPeBirth, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.petData.FPeBirth, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="">年齡</label>
+                        <div class="form-group d-flex w-100">
+                            <div class="formDivSet w-25">
+                                <div class="labelSet">
+                                    <label for="gender"></label>性別
+                                </div>
+                            </div>
+                            <div class=" d-flex align-items-center">
+                                @Html.RadioButtonFor(model => model.petData.FPeSex, "公")
+                                公
+                                @Html.RadioButtonFor(model => model.petData.FPeSex, "母")
+                                母
                             </div>
                         </div>
-                        @Html.EditorFor(model => model.petData.FPeAge, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.petData.FPeAge, "", new { @class = "text-danger" })
-                    </div>
-                    <hr>
-                    <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label for="">晶片號碼</label>
+                        <hr>
+                        <div class="form-group d-flex w-100">
+                            <div class="formDivSet w-25">
+                                <div class="labelSet">
+                                    <label for="inputID">體重</label>
+                                </div>
                             </div>
-                        </div>
-                        @Html.EditorFor(model => model.petData.FPeNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.petData.FPeNumber, "", new { @class = "text-danger" })
-                    </div>
-                    <hr>
-                    <div class="form-group w-100 d-flex style=" height:38px"">
-                        <div class="labelSet w-25">
-                            <label for="inputFix">絕育</label>
-                        </div>
-                        <div class=" w-75 d-flex ">
-                            @Html.RadioButtonFor(model => model.petData.FPeFix, "是")
-                            是
-                            @Html.RadioButtonFor(model => model.petData.FPeFix, "否")
-                            否
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group w-100 d-flex">
+                            <div class="w-50">@Html.EditorFor(model => model.petData.FPeWeight, new { htmlAttributes = new { @class = "form-control" } })</div>
+                            <div class="w-25" style="margin-left:15px"> @Html.ValidationMessageFor(model => model.petData.FPeWeight, "", new { @class = "text-danger" })</div>                                 
+                            </div>
+                            <hr>
+                            <div class="form-group w-100 d-flex">
+                                <div class="labelSet w-25">
+                                    <label for="">出生日期</label>
+                                </div>
+                                <div class="w-50">@Html.EditorFor(model => model.petData.FPeBirth, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.petData.FPeBirth, "", new { @class = "text-danger" })</div>
+                            </div>
+                            <hr>
+                            <div class="form-group d-flex w-100">
+                                <div class="formDivSet w-25">
+                                    <div class="labelSet">
+                                        <label for="">年齡</label>
+                                    </div>
+                                </div>
+                                <div class="w-50">@Html.EditorFor(model => model.petData.FPeAge, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.petData.FPeAge, "", new { @class = "text-danger" })</div>                               
+                            </div>
+                            <hr>
+                            <div class="form-group d-flex w-100">
+                                <div class="formDivSet w-25">
+                                    <div class="labelSet">
+                                        <label for="">晶片號碼</label>
+                                    </div>
+                                </div>
+                                <div class="w-50"> @Html.EditorFor(model => model.petData.FPeNumber, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                <div class="w-25" style="margin-left:15px">@Html.ValidationMessageFor(model => model.petData.FPeNumber, "", new { @class = "text-danger" })</div>
+                            </div>
+                            <hr>
+                            <div class="form-group w-100 d-flex style=" height:38px"">
+                                <div class="labelSet w-25">
+                                    <label for="inputFix">絕育</label>
+                                </div>
+                                <div class=" w-75 d-flex align-items-center">
+                                    @Html.RadioButtonFor(model => model.petData.FPeFix, "是")
+                                    是
+                                    @Html.RadioButtonFor(model => model.petData.FPeFix, "否")
+                                    否
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group w-100 d-flex">
 
-                        <div class="labelSet w-25">
-                            <label for="inputvaccine">施打疫苗</label>
-                        </div>
-                        <div class=" w-75 d-flex ">
-                            @Html.RadioButtonFor(model => model.petData.FPeVac, "是")
-                            已施打
-                            @Html.RadioButtonFor(model => model.petData.FPeVac, "否")
-                            未施打
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group d-flex w-100">
-                        <div class="formDivSet w-25">
-                            <div class="labelSet">
-                                <label class="" for="">寵物照片</label>
+                                <div class="labelSet w-25">
+                                    <label for="inputvaccine">施打疫苗</label>
+                                </div>
+                                <div class=" w-75 d-flex align-items-center">
+                                    @Html.RadioButtonFor(model => model.petData.FPeVac, "是")
+                                    已施打
+                                    @Html.RadioButtonFor(model => model.petData.FPeVac, "否")
+                                    未施打
+                                </div>
                             </div>
+                            <hr>
+                            <div class="form-group d-flex w-100">
+                                <div class="formDivSet w-25">
+                                    <div class="labelSet">
+                                        <label class="" for="">寵物照片</label>
+                                    </div>
+                                </div>
+                                <input type="file" class=" w-75" name="FPePhotodata">
+                            </div>
+                            <hr>
                         </div>
-                        <input type="file" class=" w-75" name="FPePhotodata">
-                    </div>
-                    <hr>
-                </div>
             </div>
-            <!-- Modal -->
         </div>
         <div class="row">
             @if (@Model.merberData.FMePhoto != null)
@@ -302,8 +296,13 @@
                 </div>
             }
         </div>
-        <div class="mt10 jcc" style="width:100%; display:flex;">
-            <input type="submit" value="完成" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+        <div class="d-flex justify-content-between">
+            <div class="mt10 jcc" style="width:100%; display:flex;">
+                <input type="submit" value="完成" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+            </div>
+            <div class="mt10 jcc" style="width:100%; display:flex;">
+                <input type="button" onclick="javascript:window.history.go(-1);" value="回到上一頁" style="display:block; width:250px;" class="btn btn-warning btn-lg w150" role="button" aria-pressed="true" />
+            </div>
         </div>
     </div>
 

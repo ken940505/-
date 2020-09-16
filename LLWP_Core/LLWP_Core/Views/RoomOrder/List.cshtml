@@ -1,0 +1,57 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<LLWP_Core.Models.TOrTable>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout_RoomOrder.cshtml";
+}
+
+<link href="/css/PagedList.css" rel="stylesheet" />
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList">報表</a>
+            <a class="nav-link book-nav-link" href="/calendar/CalendarList">訂房狀態月曆</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List" style="color:#d35a5d">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">試住訂單管理</h2>
+        <div style="margin-bottom:5px;padding-right:16px">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="row" style="padding-left:15px">
+                    <div style="width:30.5%">
+                        <div class="d-flex pr-3" style="margin-bottom:10px">
+                            @Html.DropDownList("Search", new List<SelectListItem> {
+                                                     new SelectListItem { Value="OrNum",Text="訂單編號"},
+                                                     new SelectListItem { Value="OrGuestOneId",Text="房客一編號"}
+                                                     }, new { @id = "SearchBy", @style = "height:36px;width:112px", @class = "border-radius-4px" })
+                            @Html.TextBox("Search", null, new { @style = "width:336px,height:36px;margin-left:5px", @class = "search-textbox-size search-section border-radius-4px" })
+                        </div>
+                        <div>
+                            訂單日期：@Html.TextBox("txtfOrDate", null, new { type = "date", @id = "txtfOrDate", @style = "width:144px;height:36px;margin-left:30px", @class = "search-section border-radius-4px mb-2" })
+                        </div>
+                        <div>
+                            入住日期：@Html.TextBox("txtfOrCheckIn", null, new { type = "date", @id = "txtfOrCheckIn", @style = "width:144px;height:36px;margin-left:30px", @class = "search-section border-radius-4px" })
+                        </div>
+                    </div>
+                    <div style="">
+                        <div style="margin-bottom:10px">
+                            @Html.ActionLink("新增", "Create", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px;margin-right:5px" })
+                            @Html.ActionLink("匯出資料", "exportToExcel", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px" })
+                        </div>
+                        <div>
+                            <button id="SearchBtn" type="button" class="btn btn-outline-info btn-sm" style="line-height:27px;margin-right:5px">查詢</button>
+                            @Html.ActionLink("重新查詢", "List", "roomOrder", null, new { Class = "btn btn-outline-info btn-sm", @style = "line-height:27px" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="OrderData"></div>
+    </div>
+</div>
