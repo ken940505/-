@@ -47,9 +47,10 @@ namespace LLWP_Core.Controllers
             }
 
             string fEmail = (p.txtAccount);
-            TMemberdata cust = _db.TMemberdata.FirstOrDefault(t => t.FMeMail == fEmail && t.FMePass.Equals(p.txtPassword));
+            string fEmail1 = (p.txtAccount1);
+            TMemberdata cust = _db.TMemberdata.FirstOrDefault(t => (t.FMeMail == fEmail && t.FMePass.Equals(p.txtPassword)) || (t.FMeMail == fEmail1 && t.FMePass.Equals(p.txtPassword1)));
 
-            if (cust == null || p.txtAccount != cust.FMeMail || p.txtPassword != cust.FMePass)
+            if (cust == null)
             {
                 HttpContext.Session.SetObject("SK_AUTHERROR", "帳密錯誤，登入失敗");
                 return RedirectToAction("Login");

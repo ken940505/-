@@ -10,6 +10,8 @@ namespace LLWP_Core.ViewModels
     {
         public string txtAccount { get; set; }
         public string txtPassword { get; set; }
+        public string txtAccount1 { get; set; }
+        public string txtPassword1 { get; set; }
         public string txtCord { get; set; }
         public string MailCord { get; set; }
 
