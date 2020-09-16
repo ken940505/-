@@ -21,7 +21,7 @@
         </div>
 
 
-        @using (Html.BeginForm("Edit", "activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "ActivityBack", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -105,9 +105,7 @@
                 <div class="form-group d-flex my-4">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="儲存" class="btn btn-warning save-btn" style="" />
-                        <a href="/activityBack/index">
-                            <button class="btn btn-danger" style="margin-left:10%">取消</button>
-                        </a>
+                        <a href="/activityBack/index" class="btn btn-danger" style="margin-left:10%">取消 </a>                     
                     </div>
                 </div>
             </div>
