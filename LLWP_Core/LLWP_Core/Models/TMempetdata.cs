@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace LLWP_Core.Models
 {
@@ -15,6 +16,8 @@ namespace LLWP_Core.Models
         public string FPeSex { get; set; }
         public string FPeVac { get; set; }
         public string FPeFix { get; set; }
+
+        [DisplayName("會員寵物編號")]
         public string FPeNumber { get; set; }
         public string FPePhoto { get; set; }
     }

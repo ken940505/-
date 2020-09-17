@@ -38,7 +38,7 @@ for (var i = 0; i < colla2items.length; i++) {
 $(function () {
     //關於顯示月曆組數、按鈕功能的變數們
     let setCount = 1; //顯示月曆組數，預設為顯示第一組
-    let lastSetCount = 3; //月曆組數有多少組，目前有3組，lastSetCount為最後的setCount
+    let lastSetCount = 2; //月曆組數有多少組，目前有2組，lastSetCount為最後的setCount
 
     //關於抓取入住/退房日期的變數們
     let dateClickCount = 0; //紀錄點擊日期的次數(目前設定2次為一個週期)
@@ -51,7 +51,7 @@ $(function () {
     var isClick = false;
 
     //初始化預設9-12月隱藏
-    $("#iset2m9,#iset2m10,#iset3m11,#iset3m12").hide();
+    $("#iset3m11,#iset3m12").hide();
 
     //按日曆格子，2次為一個週期，第3次要回到第1次的功能
     $(".day").on({
@@ -132,22 +132,16 @@ $(function () {
         setCount++;
         switch (setCount) {
             case 2:
-                //當setCount=2，切換至第2組月曆(9、10月)
-                //console.log("setCount: " + setCount);
-                $("#iset1m7,#iset1m8").hide();
-                $("#iset2m9,#iset2m10").show();
-                $("#iprevious").css("cursor", "pointer");
-                break;
-            case 3:
-                //當setCount=3，切換至第3組月曆(11、12月)
+                //當setCount=2，切換至第2組月曆(11、12月)
                 //console.log("setCount: " + setCount);
                 $("#iset2m9,#iset2m10").hide();
                 $("#iset3m11,#iset3m12").show();
+                $("#iprevious").css("cursor", "pointer");
                 $("#inext").css("cursor", "not-allowed");
                 break;
-            case 4:
-                //當setCount=4，讓setCount變回3，控制setCount不大於3
-                setCount = 3;
+            case 3:
+                //當setCount=3，讓setCount變回2，控制setCount不大於2
+                setCount = 2;
                 //console.log("setCount: " + setCount);
                 break;
         }
@@ -162,18 +156,20 @@ $(function () {
                 //console.log("setCount: " + setCount);
                 break;
             case 1:
-                //當setCount=1，切換至第1組月曆(7、8月)
+                //當setCount=1，切換至第1組月曆(9、10月)
                 //console.log("setCount: " + setCount);
-                $("#iset2m9,#iset2m10").hide();
-                $("#iset1m7,#iset1m8").show();
+                $("#iset3m11,#iset3m12").hide();
+                $("#iset2m9,#iset2m10").show();              
                 $("#iprevious").css("cursor", "not-allowed");
                 $("#inext").css("cursor", "pointer");
                 break;
             case 2:
-                //當setCount=2，切換至第2組月曆(9、10月)
-                //console.log("setCount: " + setCount);
-                $("#iset3m11,#iset3m12").hide();
-                $("#iset2m9,#iset2m10").show();
+                //當setCount=2，切換至第2組月曆(11、12月)
+                console.log("setCount: " + setCount);
+                $("#iset3m9,#iset3m10").hide();
+                $("#iset2m11,#iset2m12").show();
+                $("#iprevious").css("cursor", "pointer");
+                $("#inext").css("cursor", "not-allowed");
                 break;
         }
     })

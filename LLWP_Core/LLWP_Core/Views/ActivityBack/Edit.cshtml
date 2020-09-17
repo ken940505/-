@@ -21,7 +21,7 @@
         </div>
 
 
-        @using (Html.BeginForm("Edit", "activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "ActivityBack", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -54,7 +54,7 @@
 
                 <div class="form-group d-flex my-4">
                     <label style="width:80px">地點</label>
-                    <div class="col-md-10 create-radio">
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.activitydata.FActivityLocation, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.activitydata.FActivityLocation, "", new { @class = "text-danger" })
                     </div>
@@ -78,7 +78,7 @@
 
                 <div class="form-group d-flex my-4">
                     <label style="width:80px">價格</label>
-                    <div class="col-md-10 create-radio">
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.activitydata.FActivityPrice, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.activitydata.FActivityPrice, "", new { @class = "text-danger" })
                     </div>
@@ -86,7 +86,7 @@
 
                 <div class="form-group d-flex my-4">
                     <label style="width:80px">審核</label>
-                    <div class="col-md-10 create-radio">
+                    <div class="col-md-10">
                         @Html.RadioButtonFor(model => model.activitydata.FActivityCheck, "是")
                         是
                         @Html.RadioButtonFor(model => model.activitydata.FActivityCheck, "否")
@@ -96,7 +96,7 @@
 
                 <div class="form-group d-flex my-4">
                     <label style="width:80px">圖片</label>
-                    <div class="col-md-10 file-fImage">
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.activitydata.FActivityImages, new { htmlAttributes = new { @class = "form-control" } })
                         <input type="file" name="fImage" />
                     </div>
@@ -105,9 +105,7 @@
                 <div class="form-group d-flex my-4">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="儲存" class="btn btn-warning save-btn" style="" />
-                        <a href="/activityBack/index">
-                            <button class="btn btn-danger" style="margin-left:10%">取消</button>
-                        </a>
+                        <a href="/activityBack/index" class="btn btn-danger" style="margin-left:10%">取消 </a>                     
                     </div>
                 </div>
             </div>

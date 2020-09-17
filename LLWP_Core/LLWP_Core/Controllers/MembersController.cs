@@ -133,9 +133,6 @@ namespace LLWP_Core.Controllers
 
         public IActionResult RegisteredLongTime(int? id)
         {
-            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) != null)
-                return RedirectToAction("BookingCalendar","Booking");
-
             var p = new ViewModelMP();
             if (id == null)
             {

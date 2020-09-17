@@ -497,6 +497,8 @@
                     if (result.length == 0 || result == "") {
                         let i = 1;
                         $("#searchmany").html("查無結果!");
+                        var mybtn = document.getElementsByClassName("searchbtnin")[0];
+                        mybtn.click();
                     }
                     else {
                         $.each(result, function (index, value) {

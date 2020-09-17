@@ -120,14 +120,28 @@
                                 </div>
                             </div>
                             <div class="detailDivSet">
-                                <div class="d-flex detailContainerDivSet">
-                                    <div class="">
+                                @if (Model.merberData.FMePhoto == null)
+                                {
+                                    <div class="d-flex detailContainerDivSet">
+                                        <div class="">
 
+                                        </div>
+                                        <div class="w-100">
+                                            <img src="/images/nonePic.png" width="225" height="225">
+                                        </div>
                                     </div>
-                                    <div class="w-100">
-                                        <img src="/upImage/@Html.DisplayFor(model => model.merberData.FMePhoto)" width="300" height="225">
+                                }
+                                else
+                                {
+                                    <div class="d-flex detailContainerDivSet">
+                                        <div class="">
+
+                                        </div>
+                                        <div class="w-100">
+                                            <img src="/upImage/@Html.DisplayFor(model => model.merberData.FMePhoto)" width="300" height="225">
+                                        </div>
                                     </div>
-                                </div>
+                                }
                                 <div class="d-flex detailContainerDivSet mt3">
                                     <div class="width210">
                                         會員編號：
@@ -173,7 +187,7 @@
                                         密碼：
                                     </div>
                                     <div class="">
-                                       @Html.Raw("\u2022\u2022\u2022\u2022\u2022\u2022\u2022")
+                                        @Html.Raw("\u2022\u2022\u2022\u2022\u2022\u2022\u2022")
                                     </div>
                                 </div>
                                 <div class="d-flex detailContainerDivSet">
