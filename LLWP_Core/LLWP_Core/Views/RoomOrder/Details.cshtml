@@ -23,7 +23,7 @@
         <div class="dl-horizontal" style="font-size:1.25rem">
             <div class="d-flex">
                 <div style="width:30%">
-                    <div class="d-flex">
+                    <div class="d-flex my-2">
                         <div class="detail-title-new">
                             @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrNum)
                         </div>
@@ -31,7 +31,7 @@
                             @Html.DisplayFor(model => model.tOrTableOrderContent.FOrNum)
                         </div>
                     </div>
-                    <div class="d-flex my-1">
+                    <div class="d-flex my-2">
                         <div class="detail-title-new">
                             @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrDate)
                         </div>
@@ -70,23 +70,38 @@
                     <div class="d-flex my-2">
                         <div class="detail-title-new">
                             房客一
-                            @Html.DisplayNameFor(model => model.tMemberdataOneContent.FMeNumber)
                         </div>
 
                         <div>
-                            @Html.DisplayFor(model => model.tMemberdataOneContent.FMeNumber)
                             @Html.DisplayFor(model => model.tMemberdataOneContent.FMeName)
                         </div>
                     </div>
                     <div class="d-flex my-2">
                         <div class="detail-title-new">
+                            房客一 @Html.DisplayNameFor(model => model.tMemberdataOneContent.FMeNumber)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tMemberdataOneContent.FMeNumber)
+                        </div>
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
                             房客二
-                            @Html.DisplayNameFor(model => model.tMemberdataTwoContent.FMeNumber)
+                        </div>
+
+                        <div>
+                            @Html.DisplayFor(model => model.tMemberdataTwoContent.FMeName)
+                        </div>
+
+                    </div>
+                    <div class="d-flex my-2">
+                        <div class="detail-title-new">
+                            房客二 @Html.DisplayNameFor(model => model.tMemberdataTwoContent.FMeNumber)
                         </div>
 
                         <div>
                             @Html.DisplayFor(model => model.tMemberdataTwoContent.FMeNumber)
-                            @Html.DisplayFor(model => model.tMemberdataTwoContent.FMeName)
                         </div>
 
                     </div>
@@ -101,12 +116,12 @@
                     </div>
                     <div class="d-flex my-2">
                         @*<div class="detail-title">
-                                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrRoomId)
-                            </div>
+                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrRoomId)
+            </div>
 
-                            <div>
-                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrRoomId)
-                            </div>*@
+            <div>
+                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrRoomId)
+            </div>*@
                         <div class="detail-title-new">
                             @Html.DisplayNameFor(model => model.tRmTableContent.FRmNum)
                         </div>
@@ -117,12 +132,12 @@
                     </div>
                     <div class="d-flex my-2">
                         @*<div class="detail-title">
-                                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrPetId)
-                            </div>
+                @Html.DisplayNameFor(model => model.tOrTableOrderContent.FOrPetId)
+            </div>
 
-                            <div>
-                                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrPetId)
-                            </div>*@
+            <div>
+                @Html.DisplayFor(model => model.tOrTableOrderContent.FOrPetId)
+            </div>*@
                         <div class="detail-title-new">
                             @Html.DisplayNameFor(model => model.tMempetdataContent.FPeNumber)
                         </div>
