@@ -87,6 +87,9 @@ namespace LLWP_Core.Controllers
         // GET: Members
         public IActionResult MemberProfile()
         {
+            HttpContext.Session.Remove(CDictionary.SK_PASS);
+            HttpContext.Session.Remove(CDictionary.SK_ERROR);
+            HttpContext.Session.Remove(CDictionary.SK_AUTHERROR);
             HttpContext.Session.Remove(CDictionary.SK_Payment);
 
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
