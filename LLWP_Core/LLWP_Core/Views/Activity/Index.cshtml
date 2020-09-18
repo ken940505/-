@@ -384,6 +384,7 @@
             <div id="class5" class="class">
                 <div class="formclub rounded">
                     <form action="#" name="form1" id="form1" method="post" enctype="multipart/form-data" class="mt2 mb10">
+                        <span id="testactfrom" class="btn btn-danger">範例</span>
                         <fieldset>
                             <div class="st1">
                                 <label class="t1" for="formtext1">主辦姓名:</label>
@@ -447,6 +448,15 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.js'></script>
 
     <script>
+        $("#testactfrom").click(function () {
+            $("#formtext1").val("胡宜真");
+            $("#formtext2").val("毛小孩專業照護講座");
+            $("#formtext3").val("活動中心大講堂");
+            $("#formtext4").val(200);
+            $("#formtext5").val(0);
+            $("#FActivityTime").val("2020-10-05");
+            
+        })
         //行事曆
         var arr = [];
         $(".myactadd").each(function () {
