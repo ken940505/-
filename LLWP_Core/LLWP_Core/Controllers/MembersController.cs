@@ -23,7 +23,8 @@ namespace LLWP_Core.Controllers
         }
 
         public IActionResult LogIn()
-        {
+        {            
+
             if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) != null)
                 return RedirectToAction(nameof(MemberProfile));
 
@@ -58,6 +59,7 @@ namespace LLWP_Core.Controllers
 
             HttpContext.Session.SetObject(CDictionary.SK_LOGINED_CUSTOMER, cust);
             HttpContext.Session.SetObject(CDictionary.SK_CUSTOMERNAME, cust.FMeName);
+            
 
             if (company != null)
                 return RedirectToAction("ChartList", "Chart");
@@ -69,6 +71,9 @@ namespace LLWP_Core.Controllers
         {
             HttpContext.Session.Remove(CDictionary.SK_LOGINED_CUSTOMER);
             HttpContext.Session.Remove(CDictionary.SK_CUSTOMERNAME);
+            HttpContext.Session.Remove(CDictionary.SK_PASS);
+            HttpContext.Session.Remove(CDictionary.SK_ERROR);
+            HttpContext.Session.Remove(CDictionary.SK_AUTHERROR);
             return RedirectToAction("Index", "Home");
         }
 
@@ -224,7 +229,7 @@ namespace LLWP_Core.Controllers
                 p.petData.FPeMemNumber = code;
                 p.petData.FPeMem = code;
                 p.petData.FPeNumber = code;
-
+                
                 _db.TMemberdata.Add(p.merberData);
 
                 if (selectPet == "1")
@@ -246,6 +251,7 @@ namespace LLWP_Core.Controllers
             }
             else
             {
+                HttpContext.Session.SetObject(CDictionary.SK_CUSTOMERNAME, p.merberData.FMeName);
                 if (p.fPhotodata != null)
                 {
                     string photName = Guid.NewGuid().ToString() + Path.GetExtension(p.fPhotodata.FileName);
@@ -293,6 +299,8 @@ namespace LLWP_Core.Controllers
         [HttpPost]
         public IActionResult ForgetPassword(Clogin Mail)
         {
+            HttpContext.Session.Remove(CDictionary.SK_ERROR);
+
             HttpContext.Session.SetObject(CDictionary.SK_MAILCODE, SD.CodeCreate(6));
 
             string fEmail = (Mail.txtMail);//抓取mail用戶           
@@ -310,8 +318,9 @@ namespace LLWP_Core.Controllers
                 SD.SendEmail(fEmail, HttpContext.Session.GetObject<string>(CDictionary.SK_MAILCODE));
                 return RedirectToAction("ComfirmPass");
             }
+            else
+                HttpContext.Session.SetObject(CDictionary.SK_ERROR, "無此帳號");
 
-            HttpContext.Session.SetObject(CDictionary.SK_ERROR, "無此帳號");
             return View();
         }
 
@@ -323,6 +332,8 @@ namespace LLWP_Core.Controllers
         [HttpPost]
         public IActionResult ComfirmPass(Clogin Password)
         {
+            
+
             if (!HttpContext.Session.GetObject<string>(CDictionary.SK_MAILCODE).Equals(Password.MailCord))
             {
                 HttpContext.Session.SetObject(CDictionary.SK_PASS, "驗證碼錯誤");

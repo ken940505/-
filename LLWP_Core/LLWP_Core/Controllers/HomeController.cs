@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using LLWP_Core.Models;
+using LLWP_Core.Utility;
 
 namespace LLWP_Core.Controllers
 {
@@ -21,6 +22,10 @@ namespace LLWP_Core.Controllers
         public IActionResult Index()
         {
             
+            HttpContext.Session.Remove(CDictionary.SK_PASS);
+            HttpContext.Session.Remove(CDictionary.SK_ERROR);
+            HttpContext.Session.Remove(CDictionary.SK_AUTHERROR);
+
             return View();
         }
 
