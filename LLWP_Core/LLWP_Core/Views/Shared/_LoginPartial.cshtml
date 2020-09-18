@@ -18,9 +18,46 @@
                 @Html.ActionLink(replacecust + "您好!!", "MemberProfile", "Members", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:black; line-height:35px", @class = "mr-3" })
             </li>
             <li class="white-text" style="color:white;">
-                <a class="btn" style="color:white; background-color:#CD853F;" href="javascript:document.getElementById('logoutForm').submit()">登出</a>
+                <span class="btn" style="color:white; background-color:#CD853F;" onclick="Log()" >登出</span>
+                <button type="submit" id="logg" class="btn" style="color:white; background-color:#CD853F; visibility:hidden;">登出</button>
             </li>
         </ul>
     }
 }
 
+<script>
+
+    function Log() {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                cancelButton: 'btn btn-danger mr5',
+                confirmButton: 'btn btn-success ml5'
+            },
+            buttonsStyling: false
+        });
+
+        swalWithBootstrapButtons.fire({
+            title: '確定要登出?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: '取消!',
+            confirmButtonText: '確定送出!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire({
+                    title: '已經成功登出',
+                    text: "",
+                    icon: 'success',
+                    reverseButtons: true,
+                    confirmButtonText: '回到首頁'
+                }).then((result) => {
+                    $("#logg").click();
+                });
+            }
+        });
+
+    }  
+
+</script>
