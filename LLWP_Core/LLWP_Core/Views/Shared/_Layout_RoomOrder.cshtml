@@ -7,7 +7,8 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">*@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link rel="stylesheet" href=" https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         榕沛社區後台管理系統
@@ -315,7 +316,7 @@
             $('#OrderData .pagination li a').each(function (i, item) {
                 var hyperLinkUrl = $(item).attr('href');
                 if (typeof hyperLinkUrl !== 'undefined' && hyperLinkUrl !== false) {
-                    var pageNumber = $(item).attr('href').replace('/roomOrder?page=', '');
+                    var pageNumber = $(item).attr('href').replace('/RoomOrder?page=', '');
                     $(item).attr('href', '#').click(function(event) {
                         event.preventDefault();
                         $(event.target).attr('href');
@@ -375,50 +376,14 @@
                 //dataType: "json",
                 contentType: "html",//傳送資料到伺服器的格式
                 success: function (result) {
-                    if (result.lengh == 0 || result == '') {
-                        toastr.options.positionClass = 'toast-top-center';
-                        toastr['error']('查無資料');
-                    }
-                    else {
-                        toastr.options.positionClass = 'toast-top-center';
-                        toastr['success']('查詢成功');
-                        $('#OrderData').html(result);
-
-                        //$.each(result, function (index, value) {
-                        //    var Data = `<tr>
-                        //                        <td>
-                        //                            ${value.fOrNum}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrDate}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrCheckIn}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrCheckOut}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrday}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrGuestOneId}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrRoomId}
-                        //                        </td>
-                        //                        <td>
-                        //                            ${value.fOrTotalPrice}
-                        //                         </td>
-                        //                         <td>
-                        //                            <a href="/roomOrder/Details" id= "${value.fOrId}" class="btn btn-info fas fa-info-circle"> </a>
-                        //                            <a href="/roomOrder/Edit" id= "${value.fOrId}" class="btn btn-success fas fa-edit"> </a>
-                        //                            <a href="/roomOrder/Delete" id= "${value.fOrId}" class="btn btn-danger fas fa-trash" onclick = "return confirm('確定要刪除嗎？')"> </a>
-                        //                            </td>
-                        //                          </tr>`;
-                        //    SetData.append(Data);
-                        }/*)*/;
-                    }
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr['success']('查詢成功');
+                    $('#OrderData').html(result);
+                },
+                error: function (result) {
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr['error']('查無資料');
+                }
                 //}
             })
         })
