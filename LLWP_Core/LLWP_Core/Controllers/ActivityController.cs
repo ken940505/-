@@ -24,14 +24,15 @@ namespace LLWP_Core.Controllers
 
         public IActionResult Index()
         {
+            var memberdata = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
             HttpContext.Session.Remove(CDictionary.SK_Payment);
-            if (HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER) == null)
+            if (memberdata == null)
                 return RedirectToAction("LogIn", "Members");
 
             ActivityVM activityVM = new ActivityVM()
             {
                 tActivitydata = _db.TActivitydata.ToList(),
-                tActivityJoindata = _db.TActivityJoindata.Where(m => m.FJoinAcPeopleid == 2).ToList()
+                tActivityJoindata = _db.TActivityJoindata.Where(m => m.FJoinAcPeopleid == memberdata.FMeId).ToList()
             };
 
             return View(activityVM);
@@ -112,6 +113,7 @@ namespace LLWP_Core.Controllers
         //結帳後存入資料庫
         public string shoppingcartendpay(int? id)
         {
+
             HttpContext.Session.SetObject(CDictionary.SK_Payment, false);
             var memberDate = HttpContext.Session.GetObject<TMemberdata>(CDictionary.SK_LOGINED_CUSTOMER);
 
@@ -122,7 +124,7 @@ namespace LLWP_Core.Controllers
                 {
                     JoinAcid = ta.FActivityId,
                     JoinAcCode = ta.FActivityCode,
-                    FJoinAcPeopleid = 2
+                    FJoinAcPeopleid = memberDate.FMeId
                 };
                 var memactivity = new TMemActivity
                 {

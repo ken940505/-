@@ -7,13 +7,13 @@
 <style>
     .fc-day-number {
         float: right;
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #4F4F4F;
     }
 
     .fc-title {
         color: #FAFAFA;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .fc-event-container:hover {
@@ -134,7 +134,7 @@
                             $description.append($('<p/>').html(`<h5>第${index + 1}筆：</h5><p/>入住日：${element.inRoom}<br/></p><p>退房日：${element.outRoom}<br/></p><p>房號：${element.roomNum}<p/>`));
 
                         });
-                        $('#eventTitle').text("訂房資料");
+                        $('#eventTitle').text("訂房資訊");
                         //console.log("calEvent.description: " + calEvent.description)
                         //console.log("calEvent.description[i]: " + calEvent.description);
                         $('#myModal #pDetails').empty().html($description);

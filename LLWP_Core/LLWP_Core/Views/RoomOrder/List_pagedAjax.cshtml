@@ -97,7 +97,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     var titles = document.querySelectorAll(".orderTableHeaderTitles");
-    console.log(titles)
     //console.log("id" + e.target.attr("id"));
     //var a = titles[0].attr("id");
     //console.log("titles" + a );
@@ -150,4 +149,28 @@
             });
         })
     }
+        function resetTableHeaderImgOriginal() {
+            $('#fOrNumSortArrow').removeClass("fas fa-caret-up");
+        $('# fOrDateSortArrow').removeClass("fas fa-caret-up");
+
+
+        $('#fOrNumSortArrowOrginal').show();
+        $('#fOrDateSortArrowOrginal').show();
+    }
+    $("#fOrNumSortParm").click(function () {
+            $('#fOrNumSortArrowOrginal').hide();
+        if ($('#fOrNumSortArrow').hasClass("fas fa-caret-down"))
+            $('#fOrNumSortArrow').removeClass("fas fa-caret-down").addClass("fas fa-caret-up");
+        else
+            $('#fOrNumSortArrow').removeClass("fas fa-caret-up").addClass("fas fa-caret-down");
+    })
+    $("#fOrDateSortParm").click(function () {
+            //resetTableHeaderImgOriginal();
+            $('#fOrDateSortArrowOrginal').hide();
+
+        if ($('#fOrDateSortArrow').hasClass("fas fa-caret-down"))
+            $('#fOrDateSortArrow').removeClass("fas fa-caret-down").addClass("fas fa-caret-up");
+        else
+            $('#fOrDateSortArrow').removeClass("fas fa-caret-up").addClass("fas fa-caret-down");
+    })
 </script>

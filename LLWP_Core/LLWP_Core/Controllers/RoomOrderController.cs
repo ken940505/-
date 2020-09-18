@@ -39,6 +39,8 @@ namespace LLWP_Core.Controllers
         public IActionResult ListPagedPartial(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn, int page = 1)
         {
             var roomOrders = new List<TOrTable>();
+
+            IPagedList<TOrTable> result = null;
             //pagedList分頁套件
             int currentPage = page < 1 ? 1 : page;
 
@@ -64,10 +66,18 @@ namespace LLWP_Core.Controllers
 
                 roomOrders = business.GetSearchBookOrders(searchModel);
             }
-            var result = roomOrders.ToPagedList(currentPage, pageSize);
+
+            if (roomOrders.Count() == 0)
+            {
+                return null;
+            }
+                
+            result = roomOrders.ToPagedList(currentPage, pageSize);
+
             ViewData.Model = result;
             return PartialView("List_pagedAjax");
         }
+
         //把商業邏輯拆開、查詢條件弄成model的複雜寫法
         //public ActionResult GetBookingOrderSearchingData(string SearchBy, string SearchValue, string txtfOrdate, string txtfOrCheckIn)
         //{
@@ -101,37 +111,8 @@ namespace LLWP_Core.Controllers
                 fOrId = x.FOrId,
                 fOrNum = x.FOrNum
             }).ToList();
-
-            //尚未成功
-            //List<cfOrNumSearch> fOrNumSearchValue = null;
-            //List<cfOrGuestOneIdSearch> fOrGuestOneIdSearchValue = null;
-            //Enumerable
-
-            //if (SearchBy == "OrNum")
-            //{
-            //    fOrNumSearchValue = db.tOrTable.Where(x => x.fOrNum.Contains(searchValue)).Select(x => new cfOrNumSearch
-            //    {
-            //        fOrId = x.fOrId,
-            //        fOrNum = x.fOrNum
-            //    }).ToList();
-            //    return new JsonResult { Data = fOrNumSearchValue, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            //}
-            //else
-            //{
-            //    //ERROR
-            //    //fOrGuestOneIdSearchValue = db.tOrTable.AsEnumerable().Where(x => (x.fOrGuestOneId).ToString().Contains(searchValue));
-            //    //fOrGuestOneIdSearchValue = db.tOrTable.AsEnumerable().Where(x => (x.fOrGuestOneId).ToString().Contains(searchValue)).ToList();
-
-            //    int i = Convert.ToInt32(searchValue);
-            //    fOrGuestOneIdSearchValue = db.tOrTable.Where(x => x.fOrGuestOneId == i).Select(x => new cfOrGuestOneIdSearch
-            //    {
-            //        fOrGuestOneId=x.fOrGuestOneId
-
-            //    }).ToList();
-            //    return new JsonResult { Data = fOrNumSearchValue, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            //}
-
-            return Json(new { Data = fOrNumSearchValue});
+       
+            return Json(fOrNumSearchValue);
 
         }
 
@@ -326,96 +307,7 @@ namespace LLWP_Core.Controllers
             }
             return RedirectToAction("List");
         }
-
-        //也是全寫死的做法，不知道如何更改檔名
-        //public void exportToExcel()
-        //{
-        //    var roomOrders = (new dbLLWPEntities1()).tOrTable.ToList();
-        //    ExcelPackage pck = new ExcelPackage();
-        //    //var roomOrderdata=roomOrders.
-        //    //加入工作表
-        //    ExcelWorksheet ws = pck.Workbook.Worksheets.Add("工作表");
-        //    //工作表名稱
-        //    ws.Name = "試住訂單表";
-        //    ws.Workbook.Properties.Title = "試住訂單表";
-
-        //    //var displaynames=db.tOrtable.XXXXX
-        //    //    for (var i = 0; i < roomOrders.Count; i++)
-        //    //    {
-        //    //        for (var j = 0; j < 20; j++)
-        //    //            ws.Cells[1, j].Value = roomOrders[i].[j].displayname
-        //    //        }
-
-        //    ws.Cells["A1"].Value = "訂單編號";
-        //    ws.Cells["B1"].Value = "訂單日期";
-        //    ws.Cells["C1"].Value = "入住日";
-        //    ws.Cells["D1"].Value = "退房日";
-        //    ws.Cells["E1"].Value = "天數";
-        //    ws.Cells["F1"].Value = "房客一";
-        //    ws.Cells["G1"].Value = "房客二";
-        //    ws.Cells["H1"].Value = "人數";
-        //    ws.Cells["I1"].Value = "房間序號";
-        //    ws.Cells["J1"].Value = "攜帶寵物";
-        //    ws.Cells["K1"].Value = "參加試養計畫";
-        //    ws.Cells["L1"].Value = "試養寵物序號";
-        //    ws.Cells["M1"].Value = "房客一活動A";
-        //    ws.Cells["N1"].Value = "房客一活動B";
-        //    ws.Cells["O1"].Value = "房客一活動C";
-        //    ws.Cells["P1"].Value = "房客二活動A";
-        //    ws.Cells["Q1"].Value = "房客二活動B";
-        //    ws.Cells["R1"].Value = "房客二活動C";
-        //    ws.Cells["S1"].Value = "訂單總金額";
-
-
-        //    //foreach (roomOrder in roomOrders)
-        //    //{
-        //    //    for (var i = 0; i < roomOrders.Count; i++)
-        //    //    {
-        //    //        for (var j = 0; j < 20; j++)
-        //    //            ws.Cells[1, j].Value = roomOrders[i].[j].displayname
-        //    //        }
-        //    //}
-        //    //第幾列開始放資料
-        //    int rowStart = 2;
-        //    foreach (var item in roomOrders)
-        //    {
-        //        ws.Cells[string.Format("A{0}", rowStart)].Value = item.fOrNum;
-        //        ws.Cells[string.Format("B{0}", rowStart)].Value = item.fOrDate;
-        //        ws.Cells[string.Format("C{0}", rowStart)].Value = item.fOrCheckIn;
-        //        ws.Cells[string.Format("D{0}", rowStart)].Value = item.fOrCheckOut;
-        //        ws.Cells[string.Format("E{0}", rowStart)].Value = item.fOrday;
-        //        ws.Cells[string.Format("F{0}", rowStart)].Value = item.fOrGuestOneId;
-        //        ws.Cells[string.Format("G{0}", rowStart)].Value = item.fOrGuestTwoId;
-        //        ws.Cells[string.Format("H{0}", rowStart)].Value = item.fOrPeople;
-        //        ws.Cells[string.Format("I{0}", rowStart)].Value = item.fOrRoomId;
-        //        ws.Cells[string.Format("J{0}", rowStart)].Value = item.fOrPetId;
-        //        ws.Cells[string.Format("K{0}", rowStart)].Value = item.fOrTryPet;
-        //        ws.Cells[string.Format("L{0}", rowStart)].Value = item.fOrTryPetId;
-        //        ws.Cells[string.Format("M{0}", rowStart)].Value = item.fOrGuestOneActivityA;
-        //        ws.Cells[string.Format("N{0}", rowStart)].Value = item.fOrGuestOneActivityB;
-        //        ws.Cells[string.Format("O{0}", rowStart)].Value = item.fOrGuestOneActivityC;
-        //        ws.Cells[string.Format("P{0}", rowStart)].Value = item.fOrGuestTwoActivityA;
-        //        ws.Cells[string.Format("Q{0}", rowStart)].Value = item.fOrGuestTwoActivityB;
-        //        ws.Cells[string.Format("R{0}", rowStart)].Value = item.fOrGuestTwoActivityC;
-        //        ws.Cells[string.Format("S{0}", rowStart)].Value = item.fOrTotalPrice;
-        //        rowStart++;
-        //    }
-
-        //    //依內容調整寬度
-        //    ws.Cells["A:AZ"].AutoFitColumns();
-
-        //    //先清除Response中雜七雜八資料
-        //    Response.Clear();
-        //    //設定MIME類型
-        //    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-        //    //設定預設檔名，Q:檔名改不了?
-        //    Response.AddHeader("content-disposition", "attachment: filename=" + "試住訂單表.xlsx");
-        //    //用 BinaryWrite 輸出byte[]檔案
-        //    Response.BinaryWrite(pck.GetAsByteArray());
-        //    Response.End();
-
-
-        //}
+      
         public IActionResult exportToExcel()
         {
             List<TOrTable> rangerList = _db.TOrTable.ToList();
@@ -570,50 +462,5 @@ namespace LLWP_Core.Controllers
             return Json(roomOrders);
         }
 
-        //成功的簡單寫法
-        //public JsonResult GetSearchingData(string SearchBy, string SearchValue)
-        //{
-        //    //1.接收View回傳的Searching Value
-        //    //2.Searching Value和資料庫比對
-        //    //3.return Searching Value
-        //    List<tOrTable> orderList = new List<tOrTable>();
-        //    if (SearchBy == "OrGuestOneId")
-        //    {
-        //        try
-        //        {
-        //            int orGuestOneId = Convert.ToInt32(SearchValue);
-        //            orderList = db.tOrTable.Where(x => x.fOrGuestOneId == orGuestOneId || SearchValue == null).ToList();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            int i = 1;
-        //            //MessageBox.Show("輸入錯誤，請重新輸入");
-        //        }
-        //        //catch(Exception e)
-        //        //{
-        //        //    Console.WriteLine("輸入錯誤，請重新輸入");
-        //        //}
-        //        return Json(orderList, JsonRequestBehavior.AllowGet);
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            //uint orderNumber = Convert.ToUInt32(SearchValue);//太大，無法丟到orderNumber，程式會跳掉
-        //            if (SearchValue == null)
-        //            {
-        //                return Json(orderList, JsonRequestBehavior.AllowGet);
-        //            }
-        //            string orderNumber = SearchValue.ToString();
-        //            //orderList = db.tOrTable.Where(x => x.fOrNum == orderNumber || SearchValue == null).ToList();
-        //            orderList = db.tOrTable.Where(x => x.fOrNum.Contains(orderNumber) || SearchValue == null).ToList();
-        //        }
-        //        catch
-        //        {
-        //            int i = 2;
-        //        }
-        //        return Json(orderList, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
     }
 }
