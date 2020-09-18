@@ -248,8 +248,6 @@
 <script>
     $(window).resize(function () {
         var wdth = $(window).width();
-        $("span").text(wdth);
-        console.log(wdth);
         if (wdth <= 1200)
             $("#modalEchoBotBell").css("visibility", "hidden")
         else
