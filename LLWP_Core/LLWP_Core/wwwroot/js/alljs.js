@@ -414,13 +414,15 @@ $("#calendarButton").click(function () {
     var OutYear = document.getElementById("i-OutDate-year").innerText;
     var OutMonth = document.getElementById("i-OutDate-month").innerText;
     var OutDate = document.getElementById("i-OutDate-day").innerText;
-
+    console.log("123");
     $.ajax({
         url: "/Booking/DateIntoSession",
         type: "Post",
         data: { "InYear": InYear, "InMonth": InMonth, "InDate": InDate, "OutYear": OutYear, "OutMonth": OutMonth, "OutDate": OutDate },
         success: function (data) {
+            console.log("123");
             window.location.href = data;
+           
         }
     });
 
