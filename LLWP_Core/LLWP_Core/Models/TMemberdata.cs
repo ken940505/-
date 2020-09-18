@@ -17,27 +17,27 @@ namespace LLWP_Core.Models
         public string FMeNumber { get; set; }
 
         [DisplayName("姓名")]
-        [Required]
+        [Required(ErrorMessage = "姓名不可空白")]
         public string FMeName { get; set; }
 
         [DisplayName("生日")]
-        [Required]
+        [Required(ErrorMessage = "生日不可空白")]
         public string FMeBirth { get; set; }
 
         [DisplayName("信箱")]
-        [Required]
+        [Required(ErrorMessage = "信箱不可空白")]
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "email格式錯誤")]
 
         public string FMeMail { get; set; }
 
         [DisplayName("密碼")]
-        [Required]
+        [Required(ErrorMessage = "密碼不可空白")]
         [StringLength(12, ErrorMessage = "密碼為6位", MinimumLength = 6)]
 
         public string FMePass { get; set; }
 
         [DisplayName("電話")]
-        [Required]
+        [Required(ErrorMessage = "電話不可空白")]
         [StringLength(10, ErrorMessage = "電話必須為10位", MinimumLength = 10)]
 
         public string FMePhone { get; set; }
