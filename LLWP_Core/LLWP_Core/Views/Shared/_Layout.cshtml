@@ -90,7 +90,7 @@
     <div class="body-content">
         @RenderBody()
 
-        <div class="text-center">
+        <div class="text-center" id="modalEchoBotBell">
             <div class="bellset" data-toggle="modal" data-target="#modalEchoBot" onclick="addNotification()">
                 <div class="bell">
                     <div class="bell-top"></div>
@@ -245,3 +245,14 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+<script>
+    $(window).resize(function () {
+        var wdth = $(window).width();
+        $("span").text(wdth);
+        console.log(wdth);
+        if (wdth <= 1200)
+            $("#modalEchoBotBell").css("visibility", "hidden")
+        else
+            $("#modalEchoBotBell").css("visibility", "visible")
+    });
+</script>
