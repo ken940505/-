@@ -17,10 +17,8 @@
     </div>
     <div class="container-fluid">
         <h2 class="list-title">報表</h2>
-        @*<div class="d-flex">
-                <div class="todayOrder" style="width:45%">今日訂單</div>
-                <div style="margin-bottom:200px">11</div>
-            </div>*@
+        <iframe width="1200" height="541" src="https://app.powerbi.com/reportEmbed?reportId=6fc7db0a-0ffa-428e-86b6-90038fc2cd2d&autoAuth=true&ctid=abb9c069-3786-4f39-b9a2-d59a7370b03f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWVhc3QtYXNpYS1iLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+
         <div class="d-flex">
             <div id="pieChartContainer" style="width:45%">
             </div>
@@ -32,6 +30,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
     $(document).ready(function () {
+        $(".carouselNavButton .glyphicon").hide();
         $.getJSON("/chart/GetPieChartData", function (data) {
 
             Highcharts.chart('pieChartContainer', {
