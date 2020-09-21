@@ -21,6 +21,8 @@ namespace LLWP_Core.Controllers
             public string inRoom { get; set; }
             public string outRoom { get; set; }
             public string roomNum { get; set; }
+            public string orderNum { get; set; }
+            public string orderCount { get; set; }
         }
 
         class days
@@ -91,9 +93,9 @@ namespace LLWP_Core.Controllers
             {
                 var allday = dateList[i];
                 var events = _db.TOrTable.Join(_db.TRmTable, o => o.FOrRoomId, r => r.FRmId, (o, r) =>
-                                new test { inRoom = o.FOrCheckIn, outRoom = o.FOrCheckOut, roomNum = r.FRmNum })
+                                new test { inRoom = o.FOrCheckIn, outRoom = o.FOrCheckOut, roomNum = r.FRmNum,orderNum=o.FOrNum})
                                .Where(t => string.Compare(allday, t.inRoom) >= 0 && string.Compare(allday, t.outRoom) <= 0 && (t.roomNum.StartsWith("A2") || t.roomNum.StartsWith("B2")));
-
+               //events.Count()
                 var roomNum = events.OrderBy(o => o.roomNum).ToList();
 
                 //空房暴力算法:count= 24 - events.Count()

@@ -131,7 +131,7 @@
                         $.each(calEvent.description, function (index, element) {
                             //console.log("element: " + element);
                             //$description.append($('<p/>').html(`<p/>入住日:${element.inRoom}<br/></p><p>退房日:${element.outRoom}<br/></p><p>房號:${element.roomNum}<p/>`));
-                            $description.append($('<p/>').html(`<h5>第${index + 1}筆：</h5><p/>入住日：${element.inRoom}<br/></p><p>退房日：${element.outRoom}<br/></p><p>房號：${element.roomNum}<p/>`));
+                            $description.append($('<p/>').html(`<h5>第${index + 1}筆：</h5><p>訂單編號：${element.orderNum}</p><p>入住日：${element.inRoom}<br/></p><p>退房日：${element.outRoom}<br/></p><p>房號：${element.roomNum}<p/>`));
 
                         });
                         $('#eventTitle').text("訂房資訊");
